@@ -28,3 +28,6 @@ pnpm-debug.log*
 
 # generated at build time from og-source.svg
 public/og.png
+
+# generated at build time from scripts/assets/glm-logo.b64
+src/assets/brands/glm.png

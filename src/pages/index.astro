@@ -1,6 +1,7 @@
 ---
 import {
   ArrowRight,
+  EyeOff,
   Globe2,
   KeyRound,
   Layers,
@@ -9,17 +10,15 @@ import {
   ShieldCheck,
   Sparkles,
   Wallet,
-  Zap,
 } from '@lucide/astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BrushStroke from '../components/BrushStroke.astro';
 import CodeTabs from '../components/CodeTabs.astro';
 import FAQ from '../components/FAQ.astro';
-import NewsList from '../components/NewsList.astro';
 import ProviderLogo from '../components/ProviderLogo.astro';
 import { LINKS } from '../config';
 import { models } from '../data/models';
-import { providers } from '../data/providers';
+import { visibleProviders } from '../data/providers';
 
 const codeTabs = [
   {
@@ -110,8 +109,8 @@ const features = [
   },
   {
     icon: Layers,
-    title: 'Ten labs, one key',
-    description: `DeepSeek, Qwen, GLM, Kimi, Doubao, MiniMax, ERNIE, Hunyuan, Spark and StepFun — ${models.length} models behind a single API key.`,
+    title: 'Six labs, one key',
+    description: `DeepSeek, Qwen, GLM, Kimi, Doubao and MiniMax — ${models.length} models behind a single API key.`,
   },
   {
     icon: Globe2,
@@ -123,7 +122,7 @@ const features = [
     icon: Wallet,
     title: 'Pay-as-you-go pricing',
     description:
-      'Per-token billing with no subscriptions and no minimums. Several models — including GLM-4.5 Flash and Spark Lite — are free.',
+      'Per-token billing with no subscriptions and no minimums. Several models — including GLM-4.5 Flash and Doubao Seed 1.6 Flash — are free.',
   },
   {
     icon: ShieldCheck,
@@ -132,10 +131,10 @@ const features = [
       'Create multiple API keys, set spend quotas per key, and monitor usage from the console — safe to hand keys to agents and teammates.',
   },
   {
-    icon: Zap,
-    title: 'Monitored upstreams',
+    icon: EyeOff,
+    title: 'Your privacy, protected',
     description:
-      'Upstream labs are health-checked around the clock, with automatic failover so a single provider outage never takes your app down.',
+      'No trackers, no analytics, no ads. Your prompts are proxied straight to the model and never stored, sold, or used to profile you.',
   },
 ];
 
@@ -173,6 +172,11 @@ const faqs = [
       'Strictly pay-as-you-go per token, in USD. There are no subscriptions or minimums, and several models have free tiers. Top up and track spend from the console.',
   },
   {
+    question: 'How do you protect my privacy?',
+    answer:
+      'We collect only what an account needs to function. No trackers, no analytics, no ads — your prompts are proxied straight to the upstream model and never stored, sold, or used to profile you.',
+  },
+  {
     question: 'Do I need a mainland China account or VPN?',
     answer:
       'No. BrushLLM is built for developers everywhere: you sign up with an email, pay in USD, and reach every model through our endpoint — no local accounts or special network setup required.',
@@ -204,17 +208,17 @@ const faqs = [
     <div class="mx-auto max-w-6xl px-4 pb-20 pt-20 text-center sm:px-6 sm:pt-28">
       <p class="reveal mx-auto inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white px-4 py-1.5 text-xs font-semibold text-brush-violet shadow-sm">
         <span class="h-2 w-2 rounded-full bg-brush-fuchsia"></span>
-        {models.length} models · {providers.length} Chinese labs · one endpoint
+        {models.length} models · {visibleProviders.length} Chinese labs · one endpoint
       </p>
 
       <h1 class="reveal mx-auto mt-7 max-w-4xl text-5xl font-bold tracking-tight text-balance sm:text-6xl lg:text-7xl">
         China’s AI,
-        <span class="relative inline-block px-1">
+        <span class="relative inline-block px-0.5">
           <BrushStroke shape="highlight" color="violet" class="absolute inset-x-0 top-1/2 h-[0.78em] -translate-y-[42%] -rotate-1 opacity-25" />
           <span class="relative whitespace-nowrap text-ink">straight from</span>
         </span>
         {' '}
-        <span class="relative inline-block px-1">
+        <span class="relative inline-block px-0.5">
           <BrushStroke shape="highlight" color="orange" class="absolute inset-x-0 top-1/2 h-[0.78em] -translate-y-[42%] rotate-1 opacity-25" />
           <span class="relative whitespace-nowrap text-ink">the source</span>
         </span>
@@ -249,12 +253,12 @@ const faqs = [
   <!-- ═══ Provider marquee ═══ -->
   <section class="border-y border-stone-100 py-10">
     <h2 class="text-center text-xs font-semibold uppercase tracking-[0.2em] text-stone-400">
-      {providers.length} leading Chinese AI labs, one gateway
+      {visibleProviders.length} leading Chinese AI labs, one gateway
     </h2>
     <div class="marquee relative mt-7 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_24%,black_76%,transparent)]">
       <div class="marquee-track flex gap-3 pr-3">
         {
-          [...providers, ...providers].map((provider, i) => (
+          [...visibleProviders, ...visibleProviders].map((provider) => (
             <div class="flex shrink-0 items-center gap-3 rounded-2xl border border-stone-200 bg-white px-5 py-4 shadow-sm transition hover:-translate-y-0.5 hover:border-violet-300">
               <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-stone-50">
                 <ProviderLogo provider={provider.id} class="h-6 w-6" />
@@ -349,7 +353,7 @@ const faqs = [
   <section class="border-y border-stone-100">
     <div class="mx-auto grid max-w-6xl grid-cols-2 divide-stone-100 px-4 py-14 text-center sm:grid-cols-4 sm:divide-x sm:px-6">
       <div class="reveal p-4">
-        <p class="text-4xl font-bold text-brush-violet sm:text-5xl" data-count-to={providers.length} data-suffix="+">{providers.length}+</p>
+        <p class="text-4xl font-bold text-brush-violet sm:text-5xl" data-count-to={visibleProviders.length} data-suffix="+">{visibleProviders.length}+</p>
         <p class="mt-1.5 text-sm text-muted">Chinese AI labs</p>
       </div>
       <div class="reveal p-4">
@@ -364,30 +368,6 @@ const faqs = [
         <p class="text-4xl font-bold text-brush-fuchsia sm:text-5xl" data-count-to="195">195</p>
         <p class="mt-1.5 text-sm text-muted">Countries served</p>
       </div>
-    </div>
-  </section>
-
-  <!-- ═══ AI News ═══ -->
-  <section class="relative mx-auto max-w-6xl px-4 py-24 sm:px-6">
-    <BrushStroke shape="sweep" color="rose" class="absolute top-8 left-0 hidden w-80 -rotate-2 opacity-10 lg:block" />
-    <div class="reveal flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-      <div>
-        <p class="text-sm font-semibold uppercase tracking-widest text-brush-rose">AI News</p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-          Fresh from the labs
-          <BrushStroke shape="underline" color="rose" class="mt-2 h-2.5 w-44" />
-        </h2>
-        <p class="mt-3 max-w-xl text-muted">
-          New releases, catalog updates and platform news — refreshed daily. Click any story for details.
-        </p>
-      </div>
-      <a href="/news" class="group inline-flex shrink-0 items-center gap-1.5 font-semibold text-brush-violet hover:text-brush-fuchsia">
-        View all updates
-        <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-      </a>
-    </div>
-    <div class="reveal mt-10">
-      <NewsList limit={6} />
     </div>
   </section>
 
@@ -416,7 +396,7 @@ const faqs = [
         Paint with China’s best models
       </h2>
       <p class="relative mx-auto mt-4 max-w-xl text-muted">
-        One key, {models.length} models, {providers.length} labs — from the source to your code,
+        One key, {models.length} models, {visibleProviders.length} labs — from the source to your code,
         anywhere in the world.
       </p>
       <a

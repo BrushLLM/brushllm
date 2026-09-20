@@ -7,8 +7,9 @@ import { formatContext, formatPrice, models } from '../data/models';
 import { providers } from '../data/providers';
 
 const providerName = (id: string) => providers.find((p) => p.id === id)?.name ?? id;
-const chatModels = models.filter((m) => !m.capabilities.includes('embeddings'));
+const chatModels = models.filter((m) => !m.capabilities.includes('embeddings') && !m.capabilities.includes('image'));
 const embeddingModels = models.filter((m) => m.capabilities.includes('embeddings'));
+const imageModels = models.filter((m) => m.capabilities.includes('image'));
 const freeModels = models.filter((m) => m.price.input === 0 && m.price.output === 0);
 
 const highlights = [
@@ -21,7 +22,7 @@ const highlights = [
   {
     icon: Gift,
     title: `${freeModels.length} free models`,
-    description: 'GLM-4.5 Flash, Doubao Seed 1.6 Flash and Spark Lite cost nothing — perfect for prototypes and hobby apps.',
+    description: 'GLM-4.5 Flash and Doubao Seed 1.6 Flash cost nothing — perfect for prototypes and hobby apps.',
     tile: 'bg-brush-orange shadow-orange-500/25',
   },
   {
@@ -132,9 +133,43 @@ const highlights = [
       )
     }
 
+    {
+      imageModels.length > 0 && (
+        <>
+          <h2 class="reveal mt-12 text-2xl font-bold tracking-tight">Image models</h2>
+          <div class="reveal mt-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm">
+            <table class="w-full text-left text-sm">
+              <thead class="border-b border-stone-100 bg-stone-50 text-xs uppercase tracking-wide text-stone-500">
+                <tr>
+                  <th class="px-4 py-3 font-medium">Model</th>
+                  <th class="px-4 py-3 font-medium">Provider</th>
+                  <th class="px-4 py-3 font-medium">Resolution</th>
+                  <th class="px-4 py-3 text-right font-medium">Price / image</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-100">
+                {imageModels.map((model) => (
+                  <tr class="transition hover:bg-stone-50">
+                    <td class="px-4 py-3">
+                      <p class="font-medium">{model.name}</p>
+                      <code class="mt-0.5 font-mono text-xs text-stone-500">{model.id}</code>
+                    </td>
+                    <td class="px-4 py-3 text-stone-700">{providerName(model.provider)}</td>
+                    <td class="px-4 py-3 text-stone-500">{model.resolution ?? '—'}</td>
+                    <td class="px-4 py-3 text-right font-semibold">{formatPrice(model.imagePrice)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )
+    }
+
     <p class="mt-8 text-xs leading-relaxed text-stone-400">
-      Prices are indicative list prices in USD per 1M tokens. Actual billing happens in your
-      console, where you can also track spend per API key.
+      Prices are indicative list prices in USD — per 1M tokens for text models, per generated
+      image for image models. Actual billing happens in your console, where you can also track
+      spend per API key.
     </p>
 
     <div class="reveal relative mt-12 overflow-hidden rounded-[2rem] border border-stone-200 bg-white px-6 py-14 text-center shadow-xl shadow-stone-200/60 sm:px-16">

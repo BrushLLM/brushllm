@@ -10,7 +10,7 @@ export const SITE = {
   url: 'https://brushllm.com',
   title: 'BrushLLM — One API for China’s best LLMs',
   description:
-    'Access DeepSeek, Qwen, GLM, Kimi, Doubao, MiniMax and more frontier models from China’s leading AI labs through a single OpenAI-compatible endpoint.',
+    'Access DeepSeek, Qwen, GLM, Kimi, Doubao, MiniMax and more frontier models from China’s leading AI labs — plus text-to-image — through a single OpenAI-compatible endpoint.',
   contactEmail: 'hello@brushllm.com',
 } as const;
 
@@ -34,6 +34,5 @@ export const NAV = [
   { label: 'Models', href: '/models' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'Docs', href: '/docs' },
-  { label: 'News', href: '/news' },
   { label: 'About', href: '/about' },
 ] as const;

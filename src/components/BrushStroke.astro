@@ -1,8 +1,9 @@
 ---
 /**
  * A wide, flat brush swipe painted in one vivid color — the site's signature mark.
- * Filled band with irregular edges + lighter/darker bristle streaks clipped
- * inside, so it reads as one pass of a flat paint brush, not a flat rectangle.
+ * The band has near-parallel straight edges (one pass of a flat wall brush, not
+ * a calligraphy stroke), and the texture inside is long, straight, parallel
+ * bristle tracks running the full length of the swipe, with a dry-brush tail.
  *
  * shape: 'highlight' (band behind headline text — render at low opacity
  *         with ink text on top), 'underline' (short swipe under a word),
@@ -29,28 +30,28 @@ const fill = colors[color]!;
 const shapes: Record<string, { viewBox: string; d: string; streaks: { d: string; stroke: string; opacity: number; width: number }[] }> = {
   highlight: {
     viewBox: '0 0 400 100',
-    d: 'M8 55 C 90 24, 280 22, 392 38 L 390 82 C 280 66, 92 72, 10 96 Z',
+    d: 'M12 42 L 388 40 L 386 80 L 14 84 Z',
     streaks: [
-      { d: 'M24 52 C 110 34, 270 32, 380 44', stroke: '#ffffff', opacity: 0.5, width: 8 },
-      { d: 'M20 68 C 120 52, 280 50, 384 60', stroke: '#ffffff', opacity: 0.3, width: 4.5 },
-      { d: 'M40 60 C 140 44, 300 42, 372 52', stroke: '#000000', opacity: 0.12, width: 6 },
+      { d: 'M28 52 L 372 51', stroke: '#ffffff', opacity: 0.7, width: 6 },
+      { d: 'M24 66 L 376 64', stroke: '#ffffff', opacity: 0.45, width: 3.5 },
+      { d: 'M50 59 L 350 57', stroke: '#000000', opacity: 0.12, width: 4 },
     ],
   },
   underline: {
     viewBox: '0 0 320 26',
-    d: 'M6 12 C 90 2, 220 20, 314 8 L 313 18 C 220 28, 90 12, 7 22 Z',
+    d: 'M8 9 L 312 7 L 311 18 L 9 20 Z',
     streaks: [
-      { d: 'M16 12 C 100 6, 210 16, 306 11', stroke: '#ffffff', opacity: 0.3, width: 3 },
-      { d: 'M14 18 C 100 12, 210 22, 300 16', stroke: '#000000', opacity: 0.06, width: 2.5 },
+      { d: 'M18 12 L 302 11', stroke: '#ffffff', opacity: 0.55, width: 2.4 },
+      { d: 'M16 16 L 300 15', stroke: '#000000', opacity: 0.1, width: 1.8 },
     ],
   },
   sweep: {
     viewBox: '0 0 600 130',
-    d: 'M12 72 C 130 18, 300 26, 420 44 C 500 56, 560 40, 590 50 L 586 84 C 540 72, 480 90, 380 76 C 260 60, 120 82, 16 108 Z',
+    d: 'M16 66 L 470 48 C 520 44, 560 44, 586 50 L 582 82 C 556 76, 516 78, 466 74 L 20 92 Z',
     streaks: [
-      { d: 'M40 66 C 170 34, 330 38, 470 54 C 530 60, 570 52, 586 58', stroke: '#ffffff', opacity: 0.25, width: 9 },
-      { d: 'M30 88 C 160 62, 340 62, 470 74 C 520 79, 552 76, 578 76', stroke: '#ffffff', opacity: 0.14, width: 5 },
-      { d: 'M60 78 C 200 50, 380 52, 500 66', stroke: '#000000', opacity: 0.06, width: 7 },
+      { d: 'M44 58 L 560 58', stroke: '#ffffff', opacity: 0.5, width: 7 },
+      { d: 'M34 78 L 552 74', stroke: '#ffffff', opacity: 0.3, width: 4 },
+      { d: 'M74 68 L 508 66', stroke: '#000000', opacity: 0.1, width: 5 },
     ],
   },
 };

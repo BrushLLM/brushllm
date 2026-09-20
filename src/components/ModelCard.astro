@@ -10,6 +10,7 @@ interface Props {
 
 const { model } = Astro.props;
 const provider = providers.find((p) => p.id === model.provider)!;
+const isImage = model.capabilities.includes('image');
 const searchText = `${model.name} ${model.id} ${provider.name} ${model.description}`.toLowerCase();
 ---
 
@@ -42,20 +43,39 @@ const searchText = `${model.name} ${model.id} ${provider.name} ${model.descripti
     }
   </div>
 
-  <dl class="mt-4 grid grid-cols-3 gap-2 border-t border-stone-100 pt-3 text-center">
-    <div>
-      <dt class="text-[11px] font-medium uppercase tracking-wide text-stone-400">Context</dt>
-      <dd class="mt-0.5 text-sm font-semibold">{formatContext(model.context)}</dd>
-    </div>
-    <div>
-      <dt class="text-[11px] font-medium uppercase tracking-wide text-stone-400">Input / 1M</dt>
-      <dd class="mt-0.5 text-sm font-semibold">{formatPrice(model.price.input)}</dd>
-    </div>
-    <div>
-      <dt class="text-[11px] font-medium uppercase tracking-wide text-stone-400">Output / 1M</dt>
-      <dd class="mt-0.5 text-sm font-semibold">{formatPrice(model.price.output)}</dd>
-    </div>
-  </dl>
+  {
+    isImage ? (
+      <dl class="mt-4 grid grid-cols-3 gap-2 border-t border-stone-100 pt-3 text-center">
+        <div>
+          <dt class="text-[11px] font-medium uppercase tracking-wide text-stone-400">Type</dt>
+          <dd class="mt-0.5 text-sm font-semibold">Text-to-Image</dd>
+        </div>
+        <div>
+          <dt class="text-[11px] font-medium uppercase tracking-wide text-stone-400">Per image</dt>
+          <dd class="mt-0.5 text-sm font-semibold">{formatPrice(model.imagePrice)}</dd>
+        </div>
+        <div>
+          <dt class="text-[11px] font-medium uppercase tracking-wide text-stone-400">Output</dt>
+          <dd class="mt-0.5 text-sm font-semibold">{model.resolution ?? '—'}</dd>
+        </div>
+      </dl>
+    ) : (
+      <dl class="mt-4 grid grid-cols-3 gap-2 border-t border-stone-100 pt-3 text-center">
+        <div>
+          <dt class="text-[11px] font-medium uppercase tracking-wide text-stone-400">Context</dt>
+          <dd class="mt-0.5 text-sm font-semibold">{formatContext(model.context)}</dd>
+        </div>
+        <div>
+          <dt class="text-[11px] font-medium uppercase tracking-wide text-stone-400">Input / 1M</dt>
+          <dd class="mt-0.5 text-sm font-semibold">{formatPrice(model.price.input)}</dd>
+        </div>
+        <div>
+          <dt class="text-[11px] font-medium uppercase tracking-wide text-stone-400">Output / 1M</dt>
+          <dd class="mt-0.5 text-sm font-semibold">{formatPrice(model.price.output)}</dd>
+        </div>
+      </dl>
+    )
+  }
 
   <div class="mt-4 flex items-center justify-between gap-2 border-t border-stone-100 pt-4">
     <code class="truncate rounded-lg bg-stone-100 px-2 py-1 font-mono text-xs text-stone-700" title={model.id}>

@@ -1,6 +1,13 @@
 import type { Provider } from './providers';
 
-export type Capability = 'chat' | 'reasoning' | 'tools' | 'vision' | 'long-context' | 'embeddings';
+export type Capability =
+  | 'chat'
+  | 'reasoning'
+  | 'tools'
+  | 'vision'
+  | 'long-context'
+  | 'embeddings'
+  | 'image';
 
 export const capabilityLabels: Record<Capability, string> = {
   chat: 'Chat',
@@ -9,6 +16,7 @@ export const capabilityLabels: Record<Capability, string> = {
   vision: 'Vision',
   'long-context': 'Long Context',
   embeddings: 'Embeddings',
+  image: 'Text-to-Image',
 };
 
 export interface Model {
@@ -19,8 +27,8 @@ export interface Model {
   /** provider slug, see providers.ts */
   provider: Provider['id'];
   description: string;
-  /** context window in tokens */
-  context: number;
+  /** context window in tokens; null for image models */
+  context: number | null;
   capabilities: Capability[];
   /**
    * Indicative price in USD per 1M tokens (input / output).
@@ -28,6 +36,10 @@ export interface Model {
    * sub2api console. `null` = not applicable (e.g. embeddings have no output price).
    */
   price: { input: number | null; output: number | null };
+  /** for image models: indicative price in USD per generated image */
+  imagePrice?: number;
+  /** for image models: max output resolution, e.g. "Up to 4K" */
+  resolution?: string;
   /** featured models get a badge on cards */
   featured?: boolean;
 }
@@ -197,82 +209,52 @@ export const models: Model[] = [
     capabilities: ['chat', 'tools', 'long-context'],
     price: { input: 0.3, output: 1.2 },
   },
-  // ── Baidu ERNIE ─────────────────────────────────────────────
+  // ── Image generation ────────────────────────────────────────
+  // ids and prices are placeholders — align them with your sub2api catalog.
   {
-    id: 'ernie-4.5-turbo',
-    name: 'ERNIE 4.5 Turbo',
-    provider: 'ernie',
-    description: 'Hybrid-thinking multimodal model at aggressive prices.',
-    context: 131072,
-    capabilities: ['chat', 'tools'],
-    price: { input: 0.11, output: 0.44 },
+    id: 'gpt-image-2',
+    name: 'GPT-Image-2',
+    provider: 'openai',
+    description: 'OpenAI’s image generation model — prompt-to-image with strong instruction following.',
+    context: null,
+    capabilities: ['image'],
+    price: { input: null, output: null },
+    imagePrice: 0.11,
+    resolution: 'Up to 2K',
+    featured: true,
   },
   {
-    id: 'ernie-4.5-x1',
-    name: 'ERNIE 4.5 X1',
-    provider: 'ernie',
-    description: 'Baidu’s reasoning flagship for planning and tool orchestration.',
-    context: 131072,
-    capabilities: ['reasoning', 'tools'],
-    price: { input: 0.28, output: 1.1 },
-  },
-  // ── Tencent Hunyuan ─────────────────────────────────────────
-  {
-    id: 'hunyuan-turbos',
-    name: 'Hunyuan TurboS',
-    provider: 'hunyuan',
-    description: 'Tencent’s hybrid fast model — switches thinking on only when needed.',
-    context: 262144,
-    capabilities: ['chat', 'tools', 'long-context'],
-    price: { input: 0.11, output: 0.28 },
+    id: 'jimeng-2.1',
+    name: 'Jimeng 2.1',
+    provider: 'doubao',
+    description: 'ByteDance’s Jimeng text-to-image engine, tuned for posters and design assets.',
+    context: null,
+    capabilities: ['image'],
+    price: { input: null, output: null },
+    imagePrice: 0.04,
+    resolution: 'Up to 2K',
   },
   {
-    id: 'hunyuan-t1',
-    name: 'Hunyuan T1',
-    provider: 'hunyuan',
-    description: 'Deep-thinking model with long chain-of-thought for hard reasoning.',
-    context: 32768,
-    capabilities: ['reasoning'],
-    price: { input: 0.28, output: 1.1 },
-  },
-  // ── iFlytek Spark ───────────────────────────────────────────
-  {
-    id: 'spark-x1',
-    name: 'Spark X1',
-    provider: 'spark',
-    description: 'iFlytek’s reasoning model with strong Chinese-language understanding.',
-    context: 32768,
-    capabilities: ['reasoning'],
-    price: { input: 0.1, output: 0.4 },
-  },
-  {
-    id: 'spark-lite',
-    name: 'Spark Lite',
-    provider: 'spark',
-    description: 'Free lightweight tier for chat and simple tools.',
-    context: 32768,
-    capabilities: ['chat', 'tools'],
-    price: { input: 0, output: 0 },
-  },
-  // ── StepFun ─────────────────────────────────────────────────
-  {
-    id: 'step-3',
-    name: 'Step-3',
-    provider: 'stepfun',
-    description: 'Multimodal flagship from StepFun with interleaved thinking.',
-    context: 65536,
-    capabilities: ['chat', 'reasoning', 'vision'],
-    price: { input: 0.3, output: 0.9 },
+    id: 'doubao-seedream-4.0',
+    name: 'Doubao Seedream 4.0',
+    provider: 'doubao',
+    description: 'Seedream image generation with bilingual text rendering and photoreal output.',
+    context: null,
+    capabilities: ['image'],
+    price: { input: null, output: null },
+    imagePrice: 0.05,
+    resolution: 'Up to 4K',
   },
 ];
 
-export function formatContext(tokens: number): string {
+export function formatContext(tokens: number | null): string {
+  if (tokens === null) return '—';
   if (tokens >= 1_000_000) return `${(tokens / 1_000_000).toFixed(tokens % 1_000_000 === 0 ? 0 : 1)}M`;
   return `${Math.round(tokens / 1024)}K`;
 }
 
-export function formatPrice(value: number | null): string {
-  if (value === null) return '—';
+export function formatPrice(value: number | null | undefined): string {
+  if (value === null || value === undefined) return '—';
   if (value === 0) return 'Free';
   return `$${value % 1 === 0 ? value.toFixed(0) : value.toFixed(2)}`;
 }

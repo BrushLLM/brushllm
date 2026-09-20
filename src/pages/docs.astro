@@ -108,7 +108,7 @@ const errors = [
   {
     code: '5xx',
     meaning: 'Upstream provider error',
-    fix: 'Retry after a few seconds; if it persists, check the News page for incidents.',
+    fix: 'Retry after a few seconds; if it persists, switch to another model id or contact support.',
   },
 ];
 ---
@@ -181,6 +181,8 @@ const errors = [
     <p class="reveal mt-3 text-muted">
       Use these exact ids (case-sensitive). See the
       <a href="/models" class="font-semibold text-brush-violet hover:text-violet-700">models page</a> for descriptions and capabilities.
+      Image models are called via <code class="rounded bg-stone-100 px-1.5 py-0.5 font-mono text-xs">POST /v1/images/generations</code>
+      with the same API key.
     </p>
     <div class="reveal mt-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm">
       <table class="w-full text-left text-sm">

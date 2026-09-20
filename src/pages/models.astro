@@ -4,26 +4,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import BrushStroke from '../components/BrushStroke.astro';
 import ModelCard from '../components/ModelCard.astro';
 import { models } from '../data/models';
-import { providers } from '../data/providers';
+import { visibleProviders } from '../data/providers';
 
 const freeCount = models.filter((m) => m.price.input === 0 && m.price.output === 0).length;
 ---
 
 <BaseLayout
   title="Models"
-  description={`Browse ${models.length} models from ${providers.length} Chinese AI labs — DeepSeek, Qwen, GLM, Kimi, Doubao, MiniMax and more — with context windows, capabilities and indicative per-token pricing.`}
+  description={`Browse ${models.length} models from ${visibleProviders.length} Chinese AI labs — DeepSeek, Qwen, GLM, Kimi, Doubao, MiniMax and more — with context windows, capabilities and indicative per-token pricing.`}
 >
   <section class="relative overflow-hidden">
 <BrushStroke shape="sweep" color="cyan" class="pointer-events-none absolute -top-10 -right-44 w-[640px] rotate-2 opacity-15" />
     <div class="mx-auto max-w-6xl px-4 pt-16 pb-8 sm:px-6">
       <p class="text-sm font-semibold uppercase tracking-widest text-brush-fuchsia">Model catalog</p>
       <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
-        {models.length} models. {providers.length} labs.
+        {models.length} models. {visibleProviders.length} labs.
         <span class="relative inline-block">One endpoint.<BrushStroke shape="underline" color="amber" class="absolute -bottom-2 left-0 h-2.5 w-full" /></span>
       </h1>
       <p class="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
         Every model below is callable through the same OpenAI-compatible API and the same key. Prices
-        are indicative, in USD per 1M tokens{freeCount > 0 && ` — ${freeCount} models are free`}.
+        are indicative — USD per 1M tokens for text models, USD per image for image models{freeCount > 0 && ` — ${freeCount} models are free`}.
       </p>
     </div>
   </section>
@@ -53,7 +53,7 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
           All
         </button>
         {
-          providers.map((provider) => (
+          visibleProviders.map((provider) => (
             <button
               type="button"
               class="chip rounded-full border border-stone-300 bg-white px-3.5 py-1.5 text-sm font-medium text-muted transition hover:border-violet-400 hover:text-brush-violet"
@@ -81,8 +81,9 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
     </p>
 
     <p class="mt-8 text-xs leading-relaxed text-stone-400">
-      Prices are indicative list prices in USD per 1M tokens and may differ from the rates configured
-      in your console. Context windows are the maximum supported by each upstream model.
+      Prices are indicative list prices in USD — per 1M tokens for text models, per generated
+      image for image models — and may differ from the rates configured in your console. Context
+      windows are the maximum supported by each upstream model.
     </p>
   </section>
 

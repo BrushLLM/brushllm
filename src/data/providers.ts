@@ -1,16 +1,20 @@
 /**
  * Chinese AI labs available through BrushLLM.
  * Edit this list to match the providers your sub2api deployment actually serves.
+ * `hidden` providers never show in the marquee / filter chips (OpenAI is carried
+ * only for GPT-Image and appears on its model cards alone).
  */
 export interface Provider {
   /** slug used in models.ts and as data-provider filter key */
   id: string;
   /** English name */
   name: string;
-  /** Chinese name, shown alongside for authenticity */
+  /** Chinese name, kept for reference (never rendered on the site) */
   nameZh: string;
   /** one-line blurb */
   blurb: string;
+  /** hidden providers are excluded from the marquee and filter chips */
+  hidden?: boolean;
 }
 
 export const providers: Provider[] = [
@@ -51,27 +55,13 @@ export const providers: Provider[] = [
     blurb: 'Efficient agentic models like MiniMax-M2.',
   },
   {
-    id: 'ernie',
-    name: 'Baidu ERNIE',
-    nameZh: '百度文心',
-    blurb: 'Baidu’s ERNIE 4.5 series with hybrid reasoning.',
-  },
-  {
-    id: 'hunyuan',
-    name: 'Tencent Hunyuan',
-    nameZh: '腾讯混元',
-    blurb: 'Tencent’s Hunyuan TurboS and T1 reasoning models.',
-  },
-  {
-    id: 'spark',
-    name: 'iFlytek Spark',
-    nameZh: '讯飞星火',
-    blurb: 'iFlytek’s Spark models with a free tier.',
-  },
-  {
-    id: 'stepfun',
-    name: 'StepFun',
-    nameZh: '阶跃星辰',
-    blurb: 'Multimodal Step series from Shanghai.',
+    id: 'openai',
+    name: 'OpenAI',
+    nameZh: 'OpenAI',
+    blurb: 'Carried only for GPT-Image text-to-image generation.',
+    hidden: true,
   },
 ];
+
+/** providers shown in the marquee and as filter chips */
+export const visibleProviders = providers.filter((p) => !p.hidden);

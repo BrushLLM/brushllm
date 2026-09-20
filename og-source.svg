@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#FBFAF7" />
+  <circle cx="1050" cy="80" r="220" fill="#F9E9E5" />
+  <circle cx="110" cy="580" r="160" fill="#F9E9E5" />
+  <g transform="translate(96 150)">
+    <rect width="96" height="96" rx="24" fill="#BE3A2B" />
+    <circle cx="48" cy="48" r="24" fill="none" stroke="#FBFAF7" stroke-width="9.6" stroke-linecap="round" stroke-dasharray="114 37" transform="rotate(45 48 48)" />
+  </g>
+  <text x="96" y="360" font-family="Inter, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="88" font-weight="700" fill="#221C15">One API for</text>
+  <text x="96" y="470" font-family="Inter, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="88" font-weight="700" fill="#BE3A2B">China's best LLMs</text>
+  <text x="96" y="540" font-family="Inter, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="30" fill="#57534E">DeepSeek · Qwen · GLM · Kimi · Doubao · MiniMax — brushllm.com</text>
+</svg>

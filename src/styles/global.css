@@ -1,0 +1,27 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+
+@theme {
+  /* BrushLLM light palette: paper white, ink black, cinnabar accent */
+  --color-paper: #fbfaf7;
+  --color-ink: #221c15;
+  --color-accent: #be3a2b;
+  --color-accent-strong: #9f2f21;
+  --color-accent-soft: #f9e9e5;
+  --font-sans:
+    'Inter Variable', ui-sans-serif, system-ui, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-paper font-sans text-ink antialiased;
+}
+
+::selection {
+  background: #f2c7bd;
+}

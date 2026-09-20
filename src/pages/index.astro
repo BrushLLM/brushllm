@@ -1,0 +1,365 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CodeTabs from '../components/CodeTabs.astro';
+import FAQ from '../components/FAQ.astro';
+import NewsList from '../components/NewsList.astro';
+import { LINKS } from '../config';
+import { models } from '../data/models';
+import { providers } from '../data/providers';
+
+const codeTabs = [
+  {
+    label: 'cURL',
+    code: `curl ${LINKS.apiBase}/chat/completions \\
+  -H "Authorization: Bearer $BRUSH_LLM_API_KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "model": "deepseek-chat",
+    "messages": [
+      {"role": "user", "content": "Hello, BrushLLM!"}
+    ]
+  }'`,
+  },
+  {
+    label: 'Python',
+    code: `from openai import OpenAI
+
+client = OpenAI(
+    api_key="brsh-...",
+    base_url="${LINKS.apiBase}",
+)
+
+response = client.chat.completions.create(
+    model="glm-4.6",
+    messages=[{"role": "user", "content": "Hello, BrushLLM!"}],
+)
+print(response.choices[0].message.content)`,
+  },
+  {
+    label: 'Node.js',
+    code: `import OpenAI from "openai";
+
+const client = new OpenAI({
+  apiKey: process.env.BRUSH_LLM_API_KEY,
+  baseURL: "${LINKS.apiBase}",
+});
+
+const response = await client.chat.completions.create({
+  model: "kimi-k2-0905",
+  messages: [{ role: "user", content: "Hello, BrushLLM!" }],
+});
+console.log(response.choices[0].message.content);`,
+  },
+  {
+    label: 'Go',
+    code: `package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+
+	openai "github.com/sashabaranov/go-openai"
+)
+
+func main() {
+	cfg := openai.DefaultConfig(os.Getenv("BRUSH_LLM_API_KEY"))
+	cfg.BaseURL = "${LINKS.apiBase}"
+	client := openai.NewClientWithConfig(cfg)
+
+	resp, _ := client.CreateChatCompletion(context.Background(),
+		openai.ChatCompletionRequest{
+			Model:    "qwen3-max",
+			Messages: []openai.ChatCompletionMessage{{Role: "user", Content: "Hello, BrushLLM!"}},
+		})
+	fmt.Println(resp.Choices[0].Message.Content)
+}`,
+  },
+];
+
+const features = [
+  {
+    title: 'OpenAI-compatible API',
+    description:
+      'Keep your existing SDK and code. Change one base URL and every request just works — chat, tools, and streaming.',
+    icon: 'M8 9l3 3-3 3m5 0h3M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z',
+  },
+  {
+    title: 'Ten labs, one key',
+    description: `DeepSeek, Qwen, GLM, Kimi, Doubao, MiniMax, ERNIE, Hunyuan, Spark and StepFun — ${models.length} models behind a single API key.`,
+    icon: 'M19 11l-8-8-8.6 8.6a2 2 0 000 2.8l5.2 5.2a2 2 0 002.8 0L19 11zM5 2l1 1M16 14a3 3 0 100 6 3 3 0 000-6z',
+  },
+  {
+    title: 'Built for global developers',
+    description:
+      'No mainland-China accounts, local phone numbers, or separate billing per lab. Sign up from anywhere and start calling in under a minute.',
+    icon: 'M3.05 11a9 9 0 1012.06-8.3M12 2v6h6',
+  },
+  {
+    title: 'Pay-as-you-go pricing',
+    description:
+      'Per-token billing with no subscriptions and no minimums. Several models — including GLM-4.5 Flash and Spark Lite — are free.',
+    icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V6m0 12v-2m9-4a9 9 0 11-18 0 9 9 0 0118 0z',
+  },
+  {
+    title: 'Keys with guardrails',
+    description:
+      'Create multiple API keys, set spend quotas per key, and monitor usage from the console — safe to hand keys to agents and teammates.',
+    icon: 'M15 7a2 2 0 012 2m4-2a8.966 8.966 0 01-4.29 7.62c-.61.36-1.29.57-1.99.57a4 4 0 00-4 4v1h-1a2 2 0 01-2-2v-4.28a1 1 0 00-.68-.95A6.5 6.5 0 019 6.5V5a2 2 0 012-2h1a2 2 0 012 2v1.5c0 1.33.87 2.45 2.07 2.87A2 2 0 0117 12.28',
+  },
+  {
+    title: 'Monitored upstreams',
+    description:
+      'Upstream labs are health-checked around the clock, with automatic failover so a single provider outage never takes your app down.',
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+  },
+];
+
+const faqs = [
+  {
+    question: 'What is BrushLLM?',
+    answer:
+      'BrushLLM is a gateway to frontier models from China’s leading AI labs. Instead of signing up with each lab separately, you create one BrushLLM account and call every model through a single OpenAI-compatible endpoint.',
+  },
+  {
+    question: 'Is it really drop-in compatible with the OpenAI SDK?',
+    answer: `Yes. Point your SDK’s base URL at ${LINKS.apiBase} and use your BrushLLM key. Chat completions, tool calling, and streaming work the way you expect — only the model ids change.`,
+  },
+  {
+    question: 'How does billing work?',
+    answer:
+      'Strictly pay-as-you-go per token, in USD. There are no subscriptions or minimums, and several models have free tiers. Top up and track spend from the console.',
+  },
+  {
+    question: 'Do I need a mainland China account or VPN?',
+    answer:
+      'No. BrushLLM is designed for developers outside mainland China: you sign up with an email, pay in USD, and reach every model through our endpoint — no local accounts or special network setup required.',
+  },
+  {
+    question: 'Which model should I start with?',
+    answer:
+      'DeepSeek-V3.2 is a great default for chat and tools, GLM-4.6 and Qwen3-Max excel at coding and agentic workflows, and DeepSeek-R1 or Kimi K2 Thinking for hard reasoning. Browse the full catalog with live prices on the Models page.',
+  },
+  {
+    question: 'Can I use my key in coding agents and CLIs?',
+    answer:
+      'Yes — anything that speaks the OpenAI API works. Set the base URL and API key in your tool’s config (Cursor, Cline, aider, OpenCode, and similar) and pick any model id from the catalog.',
+  },
+];
+---
+
+<BaseLayout>
+  <!-- ═══ Hero ═══ -->
+  <section class="relative overflow-hidden">
+    <div class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[480px] bg-gradient-to-b from-accent-soft/60 via-paper to-paper" aria-hidden="true"></div>
+    <div class="mx-auto max-w-6xl px-4 pb-16 pt-20 text-center sm:px-6 sm:pt-28">
+      <p class="mx-auto inline-flex items-center gap-2 rounded-full border border-accent/20 bg-white px-3.5 py-1.5 text-xs font-medium text-accent shadow-sm">
+        <span class="relative flex h-2 w-2">
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60"></span>
+          <span class="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
+        </span>
+        {models.length} models · {providers.length} Chinese labs · one endpoint
+      </p>
+
+      <h1 class="mx-auto mt-6 max-w-3xl text-4xl font-bold tracking-tight text-balance sm:text-6xl">
+        One API for
+        <span class="relative inline-block text-accent">
+          China’s best
+          <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M3 9c40-6 120-7 194-3" stroke="currentColor" stroke-width="4" stroke-linecap="round" class="text-accent/30"></path>
+          </svg>
+        </span>
+        LLMs
+      </h1>
+
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-stone-600">
+        DeepSeek, Qwen, GLM, Kimi, Doubao and more — through a single OpenAI-compatible endpoint.
+        No mainland accounts, no per-lab billing, no fuss.
+      </p>
+
+      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a
+          href={LINKS.signUp}
+          class="w-full rounded-xl bg-accent px-7 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-accent-strong sm:w-auto"
+        >
+          Get my API key
+        </a>
+        <a
+          href="/models"
+          class="w-full rounded-xl border border-stone-300 bg-white px-7 py-3.5 text-base font-semibold text-stone-700 transition hover:border-accent/50 hover:text-accent sm:w-auto"
+        >
+          Browse models
+        </a>
+      </div>
+      <p class="mt-4 text-sm text-stone-500">Free to start · Pay-as-you-go · Set up in 30 seconds</p>
+    </div>
+  </section>
+
+  <!-- ═══ Providers ═══ -->
+  <section class="border-y border-stone-200 bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <h2 class="text-center text-sm font-semibold uppercase tracking-widest text-stone-400">
+        {providers.length} leading Chinese AI labs, one gateway
+      </h2>
+      <ul class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+        {
+          providers.map((provider) => (
+            <li class="group rounded-xl border border-stone-200 bg-paper px-4 py-5 text-center transition hover:border-accent/40">
+              <p class="font-semibold">{provider.name}</p>
+              <p class="mt-0.5 font-sans text-sm text-stone-500">{provider.nameZh}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ Features ═══ -->
+  <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="text-sm font-semibold uppercase tracking-widest text-accent">Why BrushLLM</p>
+      <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Everything you need, nothing you don’t</h2>
+      <p class="mt-4 text-stone-600">
+        A straight path from “somewhere outside China” to “calling DeepSeek in production”.
+      </p>
+    </div>
+    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        features.map((feature) => (
+          <div class="rounded-2xl border border-stone-200 bg-white p-6 transition hover:border-accent/40 hover:shadow-sm">
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-accent-soft text-accent">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d={feature.icon} />
+              </svg>
+            </div>
+            <h3 class="mt-4 font-semibold">{feature.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-stone-600">{feature.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ═══ How it works ═══ -->
+  <section class="border-y border-stone-200 bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-accent">How it works</p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Three steps to your first token</h2>
+      </div>
+      <ol class="mt-12 grid gap-8 md:grid-cols-3">
+        <li class="relative">
+          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-accent font-bold text-white">1</div>
+          <h3 class="mt-4 font-semibold">Create an account</h3>
+          <p class="mt-2 text-sm leading-relaxed text-stone-600">
+            Sign up with email and grab an API key from the
+            <a href={LINKS.console} class="font-medium text-accent hover:underline">console</a>. No credit card to start.
+          </p>
+        </li>
+        <li class="relative">
+          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-accent font-bold text-white">2</div>
+          <h3 class="mt-4 font-semibold">Point your SDK at BrushLLM</h3>
+          <p class="mt-2 text-sm leading-relaxed text-stone-600">
+            Set <code class="rounded bg-stone-100 px-1.5 py-0.5 font-mono text-xs">base_url</code> to
+            <code class="rounded bg-stone-100 px-1.5 py-0.5 font-mono text-xs">{LINKS.apiBase}</code> and keep the OpenAI SDK you already use.
+          </p>
+        </li>
+        <li class="relative">
+          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-accent font-bold text-white">3</div>
+          <h3 class="mt-4 font-semibold">Call any model by id</h3>
+          <p class="mt-2 text-sm leading-relaxed text-stone-600">
+            Swap
+            <code class="rounded bg-stone-100 px-1.5 py-0.5 font-mono text-xs">gpt-4o</code> for
+            <code class="rounded bg-stone-100 px-1.5 py-0.5 font-mono text-xs">deepseek-chat</code>,
+            <code class="rounded bg-stone-100 px-1.5 py-0.5 font-mono text-xs">glm-4.6</code> or any id on the
+            <a href="/models" class="font-medium text-accent hover:underline">models page</a>.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ═══ Code examples ═══ -->
+  <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="text-sm font-semibold uppercase tracking-widest text-accent">Drop-in compatible</p>
+      <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Keep your code. Change one line.</h2>
+      <p class="mt-4 text-stone-600">
+        If it works with the OpenAI API, it works with BrushLLM. Here’s the same request in four languages.
+      </p>
+    </div>
+    <div class="mx-auto mt-10 max-w-3xl">
+      <CodeTabs tabs={codeTabs} />
+    </div>
+  </section>
+
+  <!-- ═══ Stats band ═══ -->
+  <section class="border-y border-stone-200 bg-white">
+    <div class="mx-auto grid max-w-6xl grid-cols-2 divide-stone-200 px-4 py-12 text-center sm:grid-cols-4 sm:divide-x sm:px-6">
+      <div class="p-4">
+        <p class="text-3xl font-bold text-accent sm:text-4xl">{providers.length}+</p>
+        <p class="mt-1 text-sm text-stone-500">Chinese AI labs</p>
+      </div>
+      <div class="p-4">
+        <p class="text-3xl font-bold text-accent sm:text-4xl">{models.length}+</p>
+        <p class="mt-1 text-sm text-stone-500">Models, one catalog</p>
+      </div>
+      <div class="p-4">
+        <p class="text-3xl font-bold text-accent sm:text-4xl">1</p>
+        <p class="mt-1 text-sm text-stone-500">API key</p>
+      </div>
+      <div class="p-4">
+        <p class="text-3xl font-bold text-accent sm:text-4xl">0</p>
+        <p class="mt-1 text-sm text-stone-500">Mainland accounts needed</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ AI News ═══ -->
+  <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+    <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-widest text-accent">AI News</p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Fresh from the labs</h2>
+        <p class="mt-3 max-w-xl text-stone-600">
+          New releases, catalog updates and platform news — refreshed daily.
+        </p>
+      </div>
+      <a href="/news" class="shrink-0 font-medium text-accent hover:text-accent-strong">
+        View all updates →
+      </a>
+    </div>
+    <div class="mt-10">
+      <NewsList limit={6} />
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section class="border-t border-stone-200 bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-accent">FAQ</p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Questions, answered</h2>
+      </div>
+      <div class="mt-10">
+        <FAQ faqs={faqs} />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Final CTA ═══ -->
+  <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+    <div class="rounded-3xl border border-accent/20 bg-gradient-to-b from-accent-soft/70 to-white px-6 py-16 text-center sm:px-16">
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Start building with China’s best models</h2>
+      <p class="mx-auto mt-4 max-w-xl text-stone-600">
+        One key, {models.length} models, {providers.length} labs. Your first request is thirty seconds away.
+      </p>
+      <a
+        href={LINKS.signUp}
+        class="mt-8 inline-block rounded-xl bg-accent px-8 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-accent-strong"
+      >
+        Get my API key
+      </a>
+    </div>
+  </section>
+</BaseLayout>

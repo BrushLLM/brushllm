@@ -1,0 +1,114 @@
+---
+import { LINKS, NAV } from '../config';
+import Logo from './Logo.astro';
+
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path === href || path.startsWith(`${href}/`);
+---
+
+<!-- announcement bar -->
+<div class="bg-accent px-4 py-2 text-center text-sm text-white">
+  <p>
+    New — Kimi K2 Thinking &amp; Qwen3-Max are live.
+    {' '}<a href="/models" class="font-semibold underline underline-offset-2">Browse models →</a>
+  </p>
+</div>
+
+<header class="sticky top-0 z-40 border-b border-stone-200/80 bg-paper/85 backdrop-blur">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+    <a href="/" class="flex shrink-0 items-center" aria-label="BrushLLM home">
+      <Logo />
+    </a>
+
+    <nav class="hidden items-center gap-1 md:flex" aria-label="Main">
+      {
+        NAV.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              'rounded-md px-3 py-2 text-sm font-medium transition-colors',
+              isActive(item.href)
+                ? 'bg-accent-soft text-accent'
+                : 'text-stone-600 hover:bg-stone-100 hover:text-ink',
+            ]}
+            aria-current={isActive(item.href) ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="hidden items-center gap-2 md:flex">
+      <a
+        href={LINKS.signIn}
+        class="rounded-md px-3 py-2 text-sm font-medium text-stone-700 transition-colors hover:text-ink"
+      >
+        Sign in
+      </a>
+      <a
+        href={LINKS.signUp}
+        class="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-strong"
+      >
+        Get API Key
+      </a>
+    </div>
+
+    <button
+      id="menu-btn"
+      class="inline-flex h-10 w-10 items-center justify-center rounded-md text-stone-600 hover:bg-stone-100 md:hidden"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- mobile menu -->
+  <div id="mobile-menu" class="hidden border-t border-stone-200 bg-paper px-4 pb-4 pt-2 md:hidden">
+    <nav class="flex flex-col gap-1" aria-label="Mobile">
+      {
+        NAV.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              'rounded-md px-3 py-2 text-sm font-medium',
+              isActive(item.href)
+                ? 'bg-accent-soft text-accent'
+                : 'text-stone-600 hover:bg-stone-100 hover:text-ink',
+            ]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+    <div class="mt-3 flex flex-col gap-2">
+      <a
+        href={LINKS.signUp}
+        class="rounded-lg bg-accent px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-accent-strong"
+      >
+        Get API Key
+      </a>
+      <a
+        href={LINKS.signIn}
+        class="rounded-lg border border-stone-300 px-4 py-2.5 text-center text-sm font-medium text-stone-700 hover:bg-stone-50"
+      >
+        Sign in
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('hidden') === false;
+    btn.setAttribute('aria-expanded', String(open));
+  });
+</script>

@@ -1,0 +1,278 @@
+import type { Provider } from './providers';
+
+export type Capability = 'chat' | 'reasoning' | 'tools' | 'vision' | 'long-context' | 'embeddings';
+
+export const capabilityLabels: Record<Capability, string> = {
+  chat: 'Chat',
+  reasoning: 'Reasoning',
+  tools: 'Tool Calling',
+  vision: 'Vision',
+  'long-context': 'Long Context',
+  embeddings: 'Embeddings',
+};
+
+export interface Model {
+  /** the exact string you pass as `model` in API requests */
+  id: string;
+  /** display name */
+  name: string;
+  /** provider slug, see providers.ts */
+  provider: Provider['id'];
+  description: string;
+  /** context window in tokens */
+  context: number;
+  capabilities: Capability[];
+  /**
+   * Indicative price in USD per 1M tokens (input / output).
+   * Placeholder values — align them with the rates configured in your
+   * sub2api console. `null` = not applicable (e.g. embeddings have no output price).
+   */
+  price: { input: number | null; output: number | null };
+  /** featured models get a badge on cards */
+  featured?: boolean;
+}
+
+export const models: Model[] = [
+  // ── DeepSeek ────────────────────────────────────────────────
+  {
+    id: 'deepseek-chat',
+    name: 'DeepSeek-V3.2',
+    provider: 'deepseek',
+    description: 'Flagship non-thinking model. Fast, cheap, and excellent at general chat and tool use.',
+    context: 131072,
+    capabilities: ['chat', 'tools', 'long-context'],
+    price: { input: 0.28, output: 0.42 },
+    featured: true,
+  },
+  {
+    id: 'deepseek-reasoner',
+    name: 'DeepSeek-R1',
+    provider: 'deepseek',
+    description: 'Reasoning model with visible chain-of-thought for math, code, and hard problems.',
+    context: 131072,
+    capabilities: ['reasoning', 'tools', 'long-context'],
+    price: { input: 0.55, output: 2.19 },
+    featured: true,
+  },
+  // ── Qwen ────────────────────────────────────────────────────
+  {
+    id: 'qwen3-max',
+    name: 'Qwen3-Max',
+    provider: 'qwen',
+    description: 'Alibaba’s largest flagship. Top-tier quality for demanding agentic and chat workloads.',
+    context: 262144,
+    capabilities: ['chat', 'tools', 'long-context'],
+    price: { input: 1.2, output: 6.0 },
+    featured: true,
+  },
+  {
+    id: 'qwen3-235b-a22b',
+    name: 'Qwen3 235B A22B',
+    provider: 'qwen',
+    description: 'Open-weights MoE flagship with hybrid thinking mode.',
+    context: 262144,
+    capabilities: ['chat', 'reasoning', 'tools', 'long-context'],
+    price: { input: 0.2, output: 0.8 },
+  },
+  {
+    id: 'qwen3-32b',
+    name: 'Qwen3 32B',
+    provider: 'qwen',
+    description: 'Dense open-weights all-rounder with thinking and non-thinking modes.',
+    context: 131072,
+    capabilities: ['chat', 'reasoning', 'tools'],
+    price: { input: 0.06, output: 0.24 },
+  },
+  {
+    id: 'qwen3-coder-plus',
+    name: 'Qwen3 Coder Plus',
+    provider: 'qwen',
+    description: 'Code-specialized model built for agentic coding tools and repository-scale edits.',
+    context: 262144,
+    capabilities: ['chat', 'tools', 'long-context'],
+    price: { input: 0.35, output: 1.4 },
+  },
+  {
+    id: 'qwen-vl-max',
+    name: 'Qwen VL Max',
+    provider: 'qwen',
+    description: 'Vision-language model for image understanding, OCR, and chart reasoning.',
+    context: 131072,
+    capabilities: ['chat', 'vision'],
+    price: { input: 0.28, output: 0.83 },
+  },
+  {
+    id: 'text-embedding-v4',
+    name: 'Text Embedding v4',
+    provider: 'qwen',
+    description: 'Multilingual embedding model for search and RAG pipelines.',
+    context: 8192,
+    capabilities: ['embeddings'],
+    price: { input: 0.05, output: null },
+  },
+  // ── Zhipu GLM ───────────────────────────────────────────────
+  {
+    id: 'glm-4.6',
+    name: 'GLM-4.6',
+    provider: 'glm',
+    description: 'Z.ai flagship. Strong coding, writing, and agentic planning; 200K context.',
+    context: 204800,
+    capabilities: ['chat', 'reasoning', 'tools', 'long-context'],
+    price: { input: 0.6, output: 2.2 },
+    featured: true,
+  },
+  {
+    id: 'glm-4.5-air',
+    name: 'GLM-4.5 Air',
+    provider: 'glm',
+    description: 'Lighter GLM tuned for cost-sensitive production traffic.',
+    context: 131072,
+    capabilities: ['chat', 'tools'],
+    price: { input: 0.2, output: 1.1 },
+  },
+  {
+    id: 'glm-4.5-flash',
+    name: 'GLM-4.5 Flash',
+    provider: 'glm',
+    description: 'Free tier of the GLM family — great for prototypes and hobby projects.',
+    context: 131072,
+    capabilities: ['chat', 'tools'],
+    price: { input: 0, output: 0 },
+  },
+  // ── Moonshot Kimi ───────────────────────────────────────────
+  {
+    id: 'kimi-k2-0905',
+    name: 'Kimi K2 (0905)',
+    provider: 'kimi',
+    description: 'Trillion-parameter MoE tuned for agentic tool use and long documents.',
+    context: 262144,
+    capabilities: ['chat', 'tools', 'long-context'],
+    price: { input: 0.6, output: 2.5 },
+    featured: true,
+  },
+  {
+    id: 'kimi-k2-thinking',
+    name: 'Kimi K2 Thinking',
+    provider: 'kimi',
+    description: 'Reasoning variant of K2 with interleaved thinking for multi-step tasks.',
+    context: 262144,
+    capabilities: ['reasoning', 'tools', 'long-context'],
+    price: { input: 0.6, output: 2.5 },
+  },
+  // ── ByteDance Doubao ────────────────────────────────────────
+  {
+    id: 'doubao-seed-1-6',
+    name: 'Doubao Seed 1.6',
+    provider: 'doubao',
+    description: 'Volcano Engine’s value flagship with controllable thinking depth.',
+    context: 262144,
+    capabilities: ['chat', 'reasoning', 'tools', 'long-context'],
+    price: { input: 0.04, output: 0.16 },
+  },
+  {
+    id: 'doubao-seed-1-6-flash',
+    name: 'Doubao Seed 1.6 Flash',
+    provider: 'doubao',
+    description: 'Ultra-cheap fast tier — near-free for high-volume workloads.',
+    context: 262144,
+    capabilities: ['chat', 'tools'],
+    price: { input: 0, output: 0 },
+  },
+  {
+    id: 'doubao-seed-1-6-vision',
+    name: 'Doubao Seed 1.6 Vision',
+    provider: 'doubao',
+    description: 'Multimodal Seed model for image understanding at Flash prices.',
+    context: 131072,
+    capabilities: ['chat', 'vision'],
+    price: { input: 0.05, output: 0.15 },
+  },
+  // ── MiniMax ─────────────────────────────────────────────────
+  {
+    id: 'MiniMax-M2',
+    name: 'MiniMax-M2',
+    provider: 'minimax',
+    description: 'Efficient agentic MoE — a favorite for coding agents on a budget.',
+    context: 204800,
+    capabilities: ['chat', 'tools', 'long-context'],
+    price: { input: 0.3, output: 1.2 },
+  },
+  // ── Baidu ERNIE ─────────────────────────────────────────────
+  {
+    id: 'ernie-4.5-turbo',
+    name: 'ERNIE 4.5 Turbo',
+    provider: 'ernie',
+    description: 'Hybrid-thinking multimodal model at aggressive prices.',
+    context: 131072,
+    capabilities: ['chat', 'tools'],
+    price: { input: 0.11, output: 0.44 },
+  },
+  {
+    id: 'ernie-4.5-x1',
+    name: 'ERNIE 4.5 X1',
+    provider: 'ernie',
+    description: 'Baidu’s reasoning flagship for planning and tool orchestration.',
+    context: 131072,
+    capabilities: ['reasoning', 'tools'],
+    price: { input: 0.28, output: 1.1 },
+  },
+  // ── Tencent Hunyuan ─────────────────────────────────────────
+  {
+    id: 'hunyuan-turbos',
+    name: 'Hunyuan TurboS',
+    provider: 'hunyuan',
+    description: 'Tencent’s hybrid fast model — switches thinking on only when needed.',
+    context: 262144,
+    capabilities: ['chat', 'tools', 'long-context'],
+    price: { input: 0.11, output: 0.28 },
+  },
+  {
+    id: 'hunyuan-t1',
+    name: 'Hunyuan T1',
+    provider: 'hunyuan',
+    description: 'Deep-thinking model with long chain-of-thought for hard reasoning.',
+    context: 32768,
+    capabilities: ['reasoning'],
+    price: { input: 0.28, output: 1.1 },
+  },
+  // ── iFlytek Spark ───────────────────────────────────────────
+  {
+    id: 'spark-x1',
+    name: 'Spark X1',
+    provider: 'spark',
+    description: 'iFlytek’s reasoning model with strong Chinese-language understanding.',
+    context: 32768,
+    capabilities: ['reasoning'],
+    price: { input: 0.1, output: 0.4 },
+  },
+  {
+    id: 'spark-lite',
+    name: 'Spark Lite',
+    provider: 'spark',
+    description: 'Free lightweight tier for chat and simple tools.',
+    context: 32768,
+    capabilities: ['chat', 'tools'],
+    price: { input: 0, output: 0 },
+  },
+  // ── StepFun ─────────────────────────────────────────────────
+  {
+    id: 'step-3',
+    name: 'Step-3',
+    provider: 'stepfun',
+    description: 'Multimodal flagship from StepFun with interleaved thinking.',
+    context: 65536,
+    capabilities: ['chat', 'reasoning', 'vision'],
+    price: { input: 0.3, output: 0.9 },
+  },
+];
+
+export function formatContext(tokens: number): string {
+  if (tokens >= 1_000_000) return `${(tokens / 1_000_000).toFixed(tokens % 1_000_000 === 0 ? 0 : 1)}M`;
+  return `${Math.round(tokens / 1024)}K`;
+}
+
+export function formatPrice(value: number | null): string {
+  if (value === null) return '—';
+  if (value === 0) return 'Free';
+  return `$${value % 1 === 0 ? value.toFixed(0) : value.toFixed(2)}`;
+}

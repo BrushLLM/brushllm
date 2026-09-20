@@ -1,0 +1,88 @@
+---
+export interface Tab {
+  label: string;
+  code: string;
+}
+
+interface Props {
+  tabs: Tab[];
+  class?: string;
+}
+
+const { tabs, class: className = '' } = Astro.props;
+---
+
+<div class:list={['overflow-hidden rounded-xl border border-stone-200 bg-white', className]} data-codetabs>
+  <div class="flex items-center justify-between gap-2 border-b border-stone-200 bg-stone-50 pl-2 pr-2 sm:pr-3">
+    <div class="flex flex-wrap gap-1" role="tablist">
+      {
+        tabs.map((tab, i) => (
+          <button type="button" class="tab-btn px-3 py-2.5 text-sm font-medium" data-tab={i} role="tab" aria-selected={i === 0 ? 'true' : 'false'}>
+            {tab.label}
+          </button>
+        ))
+      }
+    </div>
+    <button
+      type="button"
+      class="shrink-0 rounded-md border border-stone-200 bg-white px-2.5 py-1.5 text-xs font-medium text-stone-600 transition-colors hover:border-accent/50 hover:text-accent"
+      data-copy
+    >
+      Copy
+    </button>
+  </div>
+  {
+    tabs.map((tab, i) => (
+      <pre
+        class:list={['overflow-x-auto p-4 font-mono text-[13px] leading-relaxed text-stone-800', i !== 0 && 'hidden']}
+        data-panel={i}
+      >
+        <code>{tab.code}</code>
+      </pre>
+    ))
+  }
+</div>
+
+<style>
+  .tab-btn {
+    color: var(--color-stone-500);
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s;
+  }
+  .tab-btn:hover {
+    color: var(--color-ink);
+  }
+  .tab-btn[aria-selected='true'] {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLDivElement>('[data-codetabs]').forEach((root) => {
+    const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-tab]'));
+    const panels = Array.from(root.querySelectorAll<HTMLElement>('[data-panel]'));
+    const copyBtn = root.querySelector<HTMLButtonElement>('[data-copy]');
+
+    const activate = (index: number) => {
+      buttons.forEach((btn, i) => btn.setAttribute('aria-selected', String(i === index)));
+      panels.forEach((panel, i) => panel.classList.toggle('hidden', i !== index));
+    };
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => activate(Number(btn.dataset.tab)));
+    });
+
+    copyBtn?.addEventListener('click', async () => {
+      const active = panels.findIndex((panel) => !panel.classList.contains('hidden'));
+      const text = panels[active]?.textContent?.trim() ?? '';
+      try {
+        await navigator.clipboard.writeText(text);
+        copyBtn.textContent = 'Copied!';
+      } catch {
+        copyBtn.textContent = 'Press ⌘C';
+      }
+      setTimeout(() => (copyBtn.textContent = 'Copy'), 1500);
+    });
+  });
+</script>

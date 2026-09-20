@@ -1,10 +1,11 @@
 # BrushLLM — brushllm.com
 
-Marketing & showcase site for **BrushLLM**, an API gateway to frontier models
-from China's leading AI labs, plus text-to-image. Built with
-[Astro](https://astro.build) (static output, light theme only). The login
-screen, console, and the API itself are served by a separate sub2api
-deployment at `api.brushllm.com` — this site only links to it.
+Marketing & showcase site for **BrushLLM** — an AI model gateway (China's
+leading labs, plus ChatGPT and text-to-image) **and** a browser-based AI image
+editor, Image Studio (coming soon). Built with [Astro](https://astro.build)
+(static output, light theme only). The login screen, console, and the API
+itself are served by a separate sub2api deployment at `api.brushllm.com` —
+this site only links to it.
 
 ## Develop
 

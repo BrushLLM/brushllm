@@ -209,6 +209,27 @@ export const models: Model[] = [
     capabilities: ['chat', 'tools', 'long-context'],
     price: { input: 0.3, output: 1.2 },
   },
+  // ── OpenAI (ChatGPT) ────────────────────────────────
+  // ids and prices are placeholders — align them with your sub2api catalog.
+  {
+    id: 'gpt-5.2',
+    name: 'GPT-5.2',
+    provider: 'openai',
+    description: 'ChatGPT’s flagship — strong general reasoning, vision and tool use, alongside the Chinese labs.',
+    context: 400000,
+    capabilities: ['chat', 'reasoning', 'tools', 'vision'],
+    price: { input: 1.25, output: 10.0 },
+    featured: true,
+  },
+  {
+    id: 'gpt-5.2-mini',
+    name: 'GPT-5.2 mini',
+    provider: 'openai',
+    description: 'Fast, cheap ChatGPT tier for high-volume chat, classification and extraction.',
+    context: 400000,
+    capabilities: ['chat', 'tools'],
+    price: { input: 0.25, output: 2.0 },
+  },
   // ── Image generation ────────────────────────────────────────
   // ids and prices are placeholders — align them with your sub2api catalog.
   {

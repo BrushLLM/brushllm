@@ -8,9 +8,9 @@
 export const SITE = {
   name: 'BrushLLM',
   url: 'https://brushllm.com',
-  title: 'BrushLLM — One API for China’s best LLMs',
+  title: 'BrushLLM — Chinese AI, ChatGPT & image models, one API',
   description:
-    'Access DeepSeek, Qwen, GLM, Kimi, Doubao, MiniMax and more frontier models from China’s leading AI labs — plus text-to-image — through a single OpenAI-compatible endpoint.',
+    'China’s frontier models — DeepSeek, Qwen, GLM, Kimi — plus ChatGPT and text-to-image, through one OpenAI-compatible endpoint. A browser-based AI image editor is on the way.',
   contactEmail: 'hello@brushllm.com',
 } as const;
 

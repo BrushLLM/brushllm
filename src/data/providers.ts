@@ -1,8 +1,6 @@
 /**
- * Chinese AI labs available through BrushLLM.
- * Edit this list to match the providers your sub2api deployment actually serves.
- * `hidden` providers never show in the marquee / filter chips (OpenAI is carried
- * only for GPT-Image and appears on its model cards alone).
+ * AI providers available through BrushLLM — China's leading labs plus OpenAI
+ * (ChatGPT / GPT-Image). Edit this list to match what your sub2api actually serves.
  */
 export interface Provider {
   /** slug used in models.ts and as data-provider filter key */
@@ -58,8 +56,7 @@ export const providers: Provider[] = [
     id: 'openai',
     name: 'OpenAI',
     nameZh: 'OpenAI',
-    blurb: 'Carried only for GPT-Image text-to-image generation.',
-    hidden: true,
+    blurb: 'ChatGPT and GPT-Image models, carried alongside the Chinese labs.',
   },
 ];
 

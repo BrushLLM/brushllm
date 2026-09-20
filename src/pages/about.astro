@@ -4,7 +4,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import BrushStroke from '../components/BrushStroke.astro';
 import { LINKS, SITE } from '../config';
 import { models } from '../data/models';
-import { visibleProviders } from '../data/providers';
 
 const values = [
   {
@@ -63,15 +62,16 @@ const values = [
         stack doesn’t speak.
       </p>
       <p>
-        BrushLLM exists to close that gap. We aggregate {models.length} models from
-        {visibleProviders.length} leading Chinese AI labs behind a single OpenAI-compatible endpoint,
-        billed in USD, documented in English, and reachable from anywhere. Your code stays the same
-        — only the base URL changes.
+        BrushLLM exists to close that gap — and to go one step further. We aggregate
+        {models.length} models from China’s leading labs, plus ChatGPT and text-to-image, behind a
+        single OpenAI-compatible endpoint billed in USD, documented in English, and reachable from
+        anywhere. Your code stays the same — only the base URL changes.
       </p>
       <p>
-        Our mission is simple: make the source of Chinese AI affordable and effortless for the
-        world — every country, every region, every developer with an idea worth building —
-        and protect your privacy at every hop along the way.
+        Our mission is simple: make frontier AI affordable and effortless for the world — every
+        country, every region, every developer with an idea worth building — and protect your
+        privacy at every hop. Beyond the gateway, Image Studio wraps the same models in a
+        browser-based AI photo editor, coming soon.
       </p>
     </div>
 

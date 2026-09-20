@@ -1,0 +1,70 @@
+---
+/**
+ * Decorative hand-painted brush stroke with a vivid gradient.
+ * Paints itself in via the .stroke-draw CSS animation.
+ *
+ * variant: 'brush' (violet→fuchsia→orange) | 'cool' (cyan→blue→violet) | 'warm' (amber→rose→fuchsia)
+ * shape:   'sweep' (wide 600×120) | 'underline' (320×44)
+ */
+interface Props {
+  variant?: 'brush' | 'cool' | 'warm';
+  shape?: 'sweep' | 'underline';
+  class?: string;
+}
+
+const { variant = 'brush', shape = 'sweep', class: className = '' } = Astro.props;
+
+const gradients: Record<string, { from: string; mid: string; to: string }> = {
+  brush: { from: '#7c3aed', mid: '#d946ef', to: '#f97316' },
+  cool: { from: '#06b6d4', mid: '#2563eb', to: '#7c3aed' },
+  warm: { from: '#f59e0b', mid: '#f43f5e', to: '#d946ef' },
+};
+const g = gradients[variant]!;
+const id = `stroke-${variant}-${Math.random().toString(36).slice(2, 8)}`;
+
+const paths = {
+  sweep: {
+    viewBox: '0 0 600 120',
+    d: 'M14 86 C 130 18, 300 112, 448 62 S 566 30, 590 40',
+    dots: [
+      { cx: 552, cy: 62, r: 7 },
+      { cx: 578, cy: 74, r: 4 },
+      { cx: 534, cy: 44, r: 3 },
+    ],
+  },
+  underline: {
+    viewBox: '0 0 320 24',
+    d: 'M8 14 C 90 4, 210 20, 312 10',
+    dots: [
+      { cx: 300, cy: 12, r: 5 },
+      { cx: 314, cy: 15, r: 3 },
+    ],
+  },
+};
+const p = paths[shape];
+---
+
+<svg
+  class:list={['pointer-events-none select-none', className]}
+  viewBox={p.viewBox}
+  fill="none"
+  aria-hidden="true"
+  preserveAspectRatio="none"
+>
+  <defs>
+    <linearGradient id={id} x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color={g.from}></stop>
+      <stop offset="50%" stop-color={g.mid}></stop>
+      <stop offset="100%" stop-color={g.to}></stop>
+    </linearGradient>
+  </defs>
+  <path
+    class="stroke-draw"
+    d={p.d}
+    stroke={`url(#${id})`}
+    stroke-width={shape === 'sweep' ? 22 : 12}
+    stroke-linecap="round"
+    style={`--dash: ${shape === 'sweep' ? 700 : 360}`}
+  ></path>
+  {p.dots.map((dot) => <circle cx={dot.cx} cy={dot.cy} r={dot.r} fill={g.to} opacity="0.85"></circle>)}
+</svg>

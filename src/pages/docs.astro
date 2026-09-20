@@ -1,4 +1,5 @@
 ---
+import { ArrowRight, LifeBuoy } from 'lucide-astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CodeTabs from '../components/CodeTabs.astro';
 import { LINKS, SITE } from '../config';
@@ -116,32 +117,34 @@ const errors = [
   description={`Quickstart guide for the BrushLLM API — authentication, an OpenAI-compatible base URL, SDK examples in four languages, and the full list of model ids.`}
 >
   <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-    <p class="text-sm font-semibold uppercase tracking-widest text-accent">Documentation</p>
-    <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">Quickstart</h1>
-    <p class="mt-4 max-w-2xl text-lg leading-relaxed text-stone-600">
+    <p class="text-sm font-semibold uppercase tracking-widest text-brush-cyan">Documentation</p>
+    <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
+      Quickstart, <span class="text-brush">brushstroke quick</span>
+    </h1>
+    <p class="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
       BrushLLM is an OpenAI-compatible gateway. If you’ve ever called the OpenAI API, you already
       know how to call BrushLLM — here’s the thirty-second version.
     </p>
 
     <!-- Steps -->
-    <ol class="mt-12 space-y-6">
-      <li class="flex gap-4 rounded-2xl border border-stone-200 bg-white p-6">
-        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent font-bold text-white">1</span>
+    <ol class="mt-12 space-y-5">
+      <li class="reveal flex gap-5 rounded-2xl border border-violet-100 bg-white p-6 shadow-sm transition hover:border-fuchsia-200">
+        <span class="bg-brush flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-bold text-white shadow-lg shadow-fuchsia-500/25">1</span>
         <div>
           <h2 class="font-semibold">Get an API key</h2>
-          <p class="mt-1.5 text-sm leading-relaxed text-stone-600">
-            <a href={LINKS.signUp} class="font-medium text-accent hover:underline">Create an account</a>
-            or <a href={LINKS.signIn} class="font-medium text-accent hover:underline">sign in</a> to the console, then create a
+          <p class="mt-1.5 text-sm leading-relaxed text-muted">
+            <a href={LINKS.signUp} class="font-semibold text-brush-violet hover:text-brush-fuchsia">Create an account</a>
+            or <a href={LINKS.signIn} class="font-semibold text-brush-violet hover:text-brush-fuchsia">sign in</a> to the console, then create a
             key. Keys look like <code class="rounded bg-stone-100 px-1.5 py-0.5 font-mono text-xs">brsh-…</code> — treat them
             like passwords and set a spend quota if you hand them to tools.
           </p>
         </div>
       </li>
-      <li class="flex gap-4 rounded-2xl border border-stone-200 bg-white p-6">
-        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent font-bold text-white">2</span>
+      <li class="reveal flex gap-5 rounded-2xl border border-violet-100 bg-white p-6 shadow-sm transition hover:border-fuchsia-200">
+        <span class="bg-brush flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-bold text-white shadow-lg shadow-fuchsia-500/25">2</span>
         <div>
           <h2 class="font-semibold">Set the base URL and key</h2>
-          <p class="mt-1.5 text-sm leading-relaxed text-stone-600">
+          <p class="mt-1.5 text-sm leading-relaxed text-muted">
             Point any OpenAI SDK at our endpoint:
           </p>
           <div class="mt-3 space-y-1.5">
@@ -150,11 +153,11 @@ const errors = [
           </div>
         </div>
       </li>
-      <li class="flex gap-4 rounded-2xl border border-stone-200 bg-white p-6">
-        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent font-bold text-white">3</span>
+      <li class="reveal flex gap-5 rounded-2xl border border-violet-100 bg-white p-6 shadow-sm transition hover:border-fuchsia-200">
+        <span class="bg-brush flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-bold text-white shadow-lg shadow-fuchsia-500/25">3</span>
         <div>
           <h2 class="font-semibold">Call any model by id</h2>
-          <p class="mt-1.5 text-sm leading-relaxed text-stone-600">
+          <p class="mt-1.5 text-sm leading-relaxed text-muted">
             Pass one of the ids from the table below as
             <code class="rounded bg-stone-100 px-1.5 py-0.5 font-mono text-xs">model</code>. That’s it — you’re calling
             models from China’s top labs.
@@ -164,30 +167,30 @@ const errors = [
     </ol>
 
     <!-- Code -->
-    <h2 class="mt-16 text-2xl font-bold tracking-tight" id="examples">Your first request</h2>
-    <p class="mt-3 text-stone-600">
+    <h2 class="reveal mt-16 text-2xl font-bold tracking-tight" id="examples">Your first request</h2>
+    <p class="reveal mt-3 text-muted">
       The same request in four languages — including streaming. Copy, paste, run.
     </p>
-    <div class="mt-6">
+    <div class="reveal mt-6">
       <CodeTabs tabs={codeTabs} />
     </div>
 
     <!-- Model ids -->
-    <h2 class="mt-16 text-2xl font-bold tracking-tight" id="model-ids">Model ids</h2>
-    <p class="mt-3 text-stone-600">
+    <h2 class="reveal mt-16 text-2xl font-bold tracking-tight" id="model-ids">Model ids</h2>
+    <p class="reveal mt-3 text-muted">
       Use these exact ids (case-sensitive). See the
-      <a href="/models" class="font-medium text-accent hover:underline">models page</a> for descriptions and capabilities.
+      <a href="/models" class="font-semibold text-brush-violet hover:text-brush-fuchsia">models page</a> for descriptions and capabilities.
     </p>
-    <div class="mt-6 overflow-x-auto rounded-xl border border-stone-200 bg-white">
+    <div class="reveal mt-6 overflow-x-auto rounded-2xl border border-violet-100 bg-white shadow-sm">
       <table class="w-full text-left text-sm">
-        <thead class="border-b border-stone-200 bg-stone-50 text-xs uppercase tracking-wide text-stone-500">
+        <thead class="border-b border-violet-100 bg-gradient-to-r from-violet-50 via-fuchsia-50 to-orange-50 text-xs uppercase tracking-wide text-stone-500">
           <tr>
             <th class="px-4 py-3 font-medium">Model id</th>
             <th class="px-4 py-3 font-medium">Display name</th>
             <th class="px-4 py-3 font-medium">Context</th>
           </tr>
         </thead>
-        <tbody class="divide-y divide-stone-100">
+        <tbody class="divide-y divide-violet-100/60">
           {
             models.map((model) => (
               <tr>
@@ -204,21 +207,21 @@ const errors = [
     </div>
 
     <!-- Errors -->
-    <h2 class="mt-16 text-2xl font-bold tracking-tight" id="errors">Errors</h2>
-    <div class="mt-6 overflow-x-auto rounded-xl border border-stone-200 bg-white">
+    <h2 class="reveal mt-16 text-2xl font-bold tracking-tight" id="errors">Errors</h2>
+    <div class="reveal mt-6 overflow-x-auto rounded-2xl border border-violet-100 bg-white shadow-sm">
       <table class="w-full text-left text-sm">
-        <thead class="border-b border-stone-200 bg-stone-50 text-xs uppercase tracking-wide text-stone-500">
+        <thead class="border-b border-violet-100 bg-gradient-to-r from-violet-50 via-fuchsia-50 to-orange-50 text-xs uppercase tracking-wide text-stone-500">
           <tr>
             <th class="px-4 py-3 font-medium">Status</th>
             <th class="px-4 py-3 font-medium">Meaning</th>
             <th class="px-4 py-3 font-medium">What to do</th>
           </tr>
         </thead>
-        <tbody class="divide-y divide-stone-100">
+        <tbody class="divide-y divide-violet-100/60">
           {
             errors.map((error) => (
               <tr>
-                <td class="px-4 py-2.5 font-mono font-semibold text-accent">{error.code}</td>
+                <td class="px-4 py-2.5 font-mono font-semibold text-brush-violet">{error.code}</td>
                 <td class="px-4 py-2.5 text-stone-700">{error.meaning}</td>
                 <td class="px-4 py-2.5 text-stone-500">{error.fix}</td>
               </tr>
@@ -229,14 +232,20 @@ const errors = [
     </div>
 
     <!-- Help -->
-    <div class="mt-16 rounded-2xl border border-accent/20 bg-accent-soft/50 p-8 text-center">
-      <h2 class="text-xl font-bold tracking-tight">Stuck on something?</h2>
-      <p class="mx-auto mt-2 max-w-md text-sm leading-relaxed text-stone-600">
+    <div class="reveal relative mt-16 overflow-hidden rounded-3xl bg-brush p-10 text-center text-white shadow-2xl shadow-fuchsia-500/25">
+      <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div class="absolute -top-12 -right-12 h-40 w-40 rounded-full border-[16px] border-white/15"></div>
+        <div class="absolute -bottom-14 -left-10 h-44 w-44 rounded-full border-[18px] border-white/10"></div>
+      </div>
+      <LifeBuoy class="relative mx-auto h-10 w-10 text-white/90" aria-hidden="true" />
+      <h2 class="relative mt-4 text-xl font-bold tracking-tight">Stuck on something?</h2>
+      <p class="relative mx-auto mt-2 max-w-md text-sm leading-relaxed text-white/85">
         Check the console for keys, quotas and billing, or email us at
-        <a href={`mailto:${SITE.contactEmail}`} class="font-medium text-accent hover:underline">{SITE.contactEmail}</a>.
+        <a href={`mailto:${SITE.contactEmail}`} class="font-semibold text-white underline underline-offset-2">{SITE.contactEmail}</a>.
       </p>
-      <a href={LINKS.console} class="mt-5 inline-block rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-white transition hover:bg-accent-strong">
+      <a href={LINKS.console} class="group relative mt-6 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-brush-violet shadow-lg transition hover:scale-[1.02]">
         Open the console
+        <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
       </a>
     </div>
   </div>

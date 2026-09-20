@@ -1,17 +1,46 @@
 @import 'tailwindcss';
 @import '@fontsource-variable/inter';
+@import '@fontsource-variable/space-grotesk';
 
 @theme {
-  /* BrushLLM light palette: paper white, ink black, cinnabar accent */
-  --color-paper: #fbfaf7;
-  --color-ink: #221c15;
-  --color-accent: #be3a2b;
-  --color-accent-strong: #9f2f21;
-  --color-accent-soft: #f9e9e5;
+  /* BrushLLM: white canvas + vivid painted gradients */
+  --color-canvas: #fdfcfa;
+  --color-ink: #1a1b25;
+  --color-muted: #565870;
+
+  --color-brush-violet: #7c3aed;
+  --color-brush-fuchsia: #d946ef;
+  --color-brush-orange: #f97316;
+  --color-brush-cyan: #06b6d4;
+  --color-brush-blue: #2563eb;
+  --color-brush-amber: #f59e0b;
+  --color-brush-rose: #f43f5e;
+
   --font-sans:
     'Inter Variable', ui-sans-serif, system-ui, 'PingFang SC', 'Hiragino Sans GB',
     'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
+  --font-display:
+    'Space Grotesk Variable', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+}
+
+/* ── signature gradient utilities ─────────────────────────── */
+@utility bg-brush {
+  background-image: linear-gradient(135deg, #7c3aed 0%, #d946ef 48%, #f97316 100%);
+}
+@utility bg-brush-soft {
+  background-image: linear-gradient(
+    135deg,
+    rgb(124 58 237 / 0.08) 0%,
+    rgb(217 70 239 / 0.08) 48%,
+    rgb(249 115 22 / 0.08) 100%
+  );
+}
+@utility text-brush {
+  background-image: linear-gradient(90deg, #7c3aed 0%, #d946ef 48%, #f97316 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 html {
@@ -19,9 +48,89 @@ html {
 }
 
 body {
-  @apply bg-paper font-sans text-ink antialiased;
+  @apply bg-canvas font-sans text-ink antialiased;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
 }
 
 ::selection {
-  background: #f2c7bd;
+  background: #e9d5ff;
+  color: #2e1065;
+}
+
+/* ── marquee ──────────────────────────────────────────────── */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ── scroll reveal ────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ── brush stroke draw-in ─────────────────────────────────── */
+@keyframes stroke-draw {
+  from {
+    stroke-dashoffset: var(--dash, 600);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.stroke-draw {
+  stroke-dasharray: var(--dash, 600);
+  animation: stroke-draw 1.4s cubic-bezier(0.65, 0, 0.35, 1) 0.3s both;
+}
+
+/* ── slow floating blobs ──────────────────────────────────── */
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(2.5rem, -1.75rem, 0) scale(1.08);
+  }
+}
+.blob {
+  animation: drift 14s ease-in-out infinite;
+}
+.blob-slow {
+  animation-duration: 20s;
+  animation-delay: -7s;
 }

@@ -1,5 +1,18 @@
 ---
+import {
+  ArrowRight,
+  Globe2,
+  KeyRound,
+  Layers,
+  Link2,
+  PlugZap,
+  ShieldCheck,
+  Sparkles,
+  Wallet,
+  Zap,
+} from 'lucide-astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BrushStroke from '../components/BrushStroke.astro';
 import CodeTabs from '../components/CodeTabs.astro';
 import FAQ from '../components/FAQ.astro';
 import NewsList from '../components/NewsList.astro';
@@ -77,41 +90,69 @@ func main() {
   },
 ];
 
+/* feature cards: per-card gradient accent */
+const featureStyles = [
+  'from-violet-500 to-fuchsia-500 shadow-fuchsia-500/25',
+  'from-cyan-400 to-blue-600 shadow-blue-500/25',
+  'from-orange-400 to-rose-500 shadow-rose-500/25',
+  'from-amber-400 to-orange-500 shadow-orange-500/25',
+  'from-fuchsia-500 to-purple-600 shadow-purple-500/25',
+  'from-blue-500 to-cyan-400 shadow-cyan-500/25',
+] as const;
+
 const features = [
   {
+    icon: PlugZap,
     title: 'OpenAI-compatible API',
     description:
       'Keep your existing SDK and code. Change one base URL and every request just works — chat, tools, and streaming.',
-    icon: 'M8 9l3 3-3 3m5 0h3M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z',
   },
   {
+    icon: Layers,
     title: 'Ten labs, one key',
     description: `DeepSeek, Qwen, GLM, Kimi, Doubao, MiniMax, ERNIE, Hunyuan, Spark and StepFun — ${models.length} models behind a single API key.`,
-    icon: 'M19 11l-8-8-8.6 8.6a2 2 0 000 2.8l5.2 5.2a2 2 0 002.8 0L19 11zM5 2l1 1M16 14a3 3 0 100 6 3 3 0 000-6z',
   },
   {
-    title: 'Built for global developers',
+    icon: Globe2,
+    title: 'Built for every country',
     description:
-      'No mainland-China accounts, local phone numbers, or separate billing per lab. Sign up from anywhere and start calling in under a minute.',
-    icon: 'M3.05 11a9 9 0 1012.06-8.3M12 2v6h6',
+      'No mainland-China accounts, local phone numbers, or separate billing per lab. Sign up from anywhere on earth and start calling in under a minute.',
   },
   {
+    icon: Wallet,
     title: 'Pay-as-you-go pricing',
     description:
       'Per-token billing with no subscriptions and no minimums. Several models — including GLM-4.5 Flash and Spark Lite — are free.',
-    icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V6m0 12v-2m9-4a9 9 0 11-18 0 9 9 0 0118 0z',
   },
   {
+    icon: ShieldCheck,
     title: 'Keys with guardrails',
     description:
       'Create multiple API keys, set spend quotas per key, and monitor usage from the console — safe to hand keys to agents and teammates.',
-    icon: 'M15 7a2 2 0 012 2m4-2a8.966 8.966 0 01-4.29 7.62c-.61.36-1.29.57-1.99.57a4 4 0 00-4 4v1h-1a2 2 0 01-2-2v-4.28a1 1 0 00-.68-.95A6.5 6.5 0 019 6.5V5a2 2 0 012-2h1a2 2 0 012 2v1.5c0 1.33.87 2.45 2.07 2.87A2 2 0 0117 12.28',
   },
   {
+    icon: Zap,
     title: 'Monitored upstreams',
     description:
       'Upstream labs are health-checked around the clock, with automatic failover so a single provider outage never takes your app down.',
-    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+  },
+];
+
+const steps = [
+  {
+    icon: KeyRound,
+    title: 'Create an account',
+    description: 'Sign up with email and grab an API key from the console. No credit card to start.',
+  },
+  {
+    icon: Link2,
+    title: 'Point your SDK at BrushLLM',
+    description: 'Set the base URL and keep the OpenAI SDK you already use.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Call any model by id',
+    description: 'Swap model ids freely — the whole catalog is one key away.',
   },
 ];
 
@@ -119,7 +160,7 @@ const faqs = [
   {
     question: 'What is BrushLLM?',
     answer:
-      'BrushLLM is a gateway to frontier models from China’s leading AI labs. Instead of signing up with each lab separately, you create one BrushLLM account and call every model through a single OpenAI-compatible endpoint.',
+      'BrushLLM is the source of China’s frontier AI for the world: a gateway that connects developers in every country directly to the leading Chinese labs — DeepSeek, Qwen, GLM, Kimi and more — through one OpenAI-compatible endpoint.',
   },
   {
     question: 'Is it really drop-in compatible with the OpenAI SDK?',
@@ -133,7 +174,7 @@ const faqs = [
   {
     question: 'Do I need a mainland China account or VPN?',
     answer:
-      'No. BrushLLM is designed for developers outside mainland China: you sign up with an email, pay in USD, and reach every model through our endpoint — no local accounts or special network setup required.',
+      'No. BrushLLM is built for developers everywhere: you sign up with an email, pay in USD, and reach every model through our endpoint — no local accounts or special network setup required.',
   },
   {
     question: 'Which model should I start with?',
@@ -143,97 +184,119 @@ const faqs = [
   {
     question: 'Can I use my key in coding agents and CLIs?',
     answer:
-      'Yes — anything that speaks the OpenAI API works. Set the base URL and API key in your tool’s config (Cursor, Cline, aider, OpenCode, and similar) and pick any model id from the catalog.',
+      'Yes — anything that speaks the OpenAI API works. Set the base URL and API key in your tool’s config (Cursor, Cline, OpenCode, aider and similar) and pick any model id from the catalog.',
   },
 ];
+
+/* rotating accent colors for provider marquee tiles */
+const tileColors = [
+  'text-violet-600 bg-violet-50',
+  'text-fuchsia-600 bg-fuchsia-50',
+  'text-orange-600 bg-orange-50',
+  'text-cyan-600 bg-cyan-50',
+  'text-blue-600 bg-blue-50',
+  'text-rose-600 bg-rose-50',
+  'text-amber-600 bg-amber-50',
+  'text-purple-600 bg-purple-50',
+  'text-teal-600 bg-teal-50',
+  'text-indigo-600 bg-indigo-50',
+] as const;
 ---
 
 <BaseLayout>
   <!-- ═══ Hero ═══ -->
   <section class="relative overflow-hidden">
-    <div class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[480px] bg-gradient-to-b from-accent-soft/60 via-paper to-paper" aria-hidden="true"></div>
-    <div class="mx-auto max-w-6xl px-4 pb-16 pt-20 text-center sm:px-6 sm:pt-28">
-      <p class="mx-auto inline-flex items-center gap-2 rounded-full border border-accent/20 bg-white px-3.5 py-1.5 text-xs font-medium text-accent shadow-sm">
-        <span class="relative flex h-2 w-2">
-          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60"></span>
-          <span class="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
-        </span>
+    <!-- painted backdrop: soft gradient blobs + big faint sweep -->
+    <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+      <div class="blob absolute -top-24 -left-24 h-96 w-96 rounded-full bg-violet-200/50 blur-3xl"></div>
+      <div class="blob blob-slow absolute -top-10 right-[-6rem] h-80 w-80 rounded-full bg-orange-200/50 blur-3xl"></div>
+      <div class="blob absolute top-64 left-1/3 h-72 w-72 rounded-full bg-fuchsia-200/40 blur-3xl"></div>
+      <BrushStroke variant="brush" shape="sweep" class="absolute top-24 left-1/2 w-[820px] -translate-x-1/2 opacity-[0.07]" />
+    </div>
+
+    <div class="mx-auto max-w-6xl px-4 pb-20 pt-20 text-center sm:px-6 sm:pt-28">
+      <p class="reveal mx-auto inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white px-4 py-1.5 text-xs font-semibold text-brush-violet shadow-sm">
+        <span class="bg-brush h-2 w-2 rounded-full"></span>
         {models.length} models · {providers.length} Chinese labs · one endpoint
       </p>
 
-      <h1 class="mx-auto mt-6 max-w-3xl text-4xl font-bold tracking-tight text-balance sm:text-6xl">
-        One API for
-        <span class="relative inline-block text-accent">
-          China’s best
-          <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M3 9c40-6 120-7 194-3" stroke="currentColor" stroke-width="4" stroke-linecap="round" class="text-accent/30"></path>
-          </svg>
+      <h1 class="reveal mx-auto mt-7 max-w-4xl text-5xl font-bold tracking-tight text-balance sm:text-6xl lg:text-7xl">
+        China’s AI,
+        <span class="relative inline-block">
+          <span class="text-brush">straight from the source</span>
+          <BrushStroke variant="brush" shape="underline" class="absolute -bottom-2 left-0 h-5 w-full" />
         </span>
-        LLMs
       </h1>
 
-      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-stone-600">
-        DeepSeek, Qwen, GLM, Kimi, Doubao and more — through a single OpenAI-compatible endpoint.
-        No mainland accounts, no per-lab billing, no fuss.
+      <p class="reveal mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted">
+        BrushLLM paints China’s frontier models — DeepSeek, Qwen, GLM, Kimi, Doubao and more —
+        onto a single OpenAI-compatible endpoint, so developers in every country can build with
+        them in minutes.
       </p>
 
-      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <div class="reveal mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <a
           href={LINKS.signUp}
-          class="w-full rounded-xl bg-accent px-7 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-accent-strong sm:w-auto"
+          class="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-brush px-8 py-4 text-base font-semibold text-white shadow-xl shadow-fuchsia-500/30 transition hover:scale-[1.02] hover:brightness-110 sm:w-auto"
         >
           Get my API key
+          <ArrowRight class="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
         </a>
         <a
           href="/models"
-          class="w-full rounded-xl border border-stone-300 bg-white px-7 py-3.5 text-base font-semibold text-stone-700 transition hover:border-accent/50 hover:text-accent sm:w-auto"
+          class="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-violet-200 bg-white px-8 py-4 text-base font-semibold text-ink shadow-sm transition hover:border-fuchsia-300 hover:text-brush-violet sm:w-auto"
         >
           Browse models
+          <ArrowRight class="h-4.5 w-4.5" aria-hidden="true" />
         </a>
       </div>
-      <p class="mt-4 text-sm text-stone-500">Free to start · Pay-as-you-go · Set up in 30 seconds</p>
+      <p class="reveal mt-5 text-sm text-stone-500">Free to start · Pay-as-you-go · Set up in 30 seconds</p>
     </div>
   </section>
 
-  <!-- ═══ Providers ═══ -->
-  <section class="border-y border-stone-200 bg-white">
-    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <h2 class="text-center text-sm font-semibold uppercase tracking-widest text-stone-400">
-        {providers.length} leading Chinese AI labs, one gateway
-      </h2>
-      <ul class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+  <!-- ═══ Provider marquee ═══ -->
+  <section class="border-y border-violet-100 bg-white/70 py-10">
+    <h2 class="text-center text-xs font-semibold uppercase tracking-[0.2em] text-stone-400">
+      {providers.length} leading Chinese AI labs, one gateway
+    </h2>
+    <div class="marquee relative mt-7 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_24%,black_76%,transparent)]">
+      <div class="marquee-track flex gap-3 pr-3">
         {
-          providers.map((provider) => (
-            <li class="group rounded-xl border border-stone-200 bg-paper px-4 py-5 text-center transition hover:border-accent/40">
-              <p class="font-semibold">{provider.name}</p>
-              <p class="mt-0.5 font-sans text-sm text-stone-500">{provider.nameZh}</p>
-            </li>
+          [...providers, ...providers].map((provider, i) => (
+            <div class="flex shrink-0 items-center gap-3 rounded-2xl border border-violet-100 bg-white px-5 py-4 shadow-sm transition hover:-translate-y-0.5 hover:border-fuchsia-200">
+              <span class={`flex h-9 w-9 items-center justify-center rounded-xl text-sm font-bold ${tileColors[i % tileColors.length]}`}>
+                {provider.name.charAt(0)}
+              </span>
+              <span>
+                <span class="block text-sm font-semibold">{provider.name}</span>
+                <span class="block font-sans text-xs text-stone-400">{provider.nameZh}</span>
+              </span>
+            </div>
           ))
         }
-      </ul>
+      </div>
     </div>
   </section>
 
   <!-- ═══ Features ═══ -->
-  <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-    <div class="mx-auto max-w-2xl text-center">
-      <p class="text-sm font-semibold uppercase tracking-widest text-accent">Why BrushLLM</p>
+  <section class="relative mx-auto max-w-6xl px-4 py-24 sm:px-6">
+    <BrushStroke variant="cool" shape="sweep" class="absolute -top-4 right-0 hidden w-96 rotate-3 opacity-10 lg:block" />
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <p class="text-sm font-semibold uppercase tracking-widest text-brush-fuchsia">Why BrushLLM</p>
       <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Everything you need, nothing you don’t</h2>
-      <p class="mt-4 text-stone-600">
+      <p class="mt-4 text-muted">
         A straight path from “somewhere outside China” to “calling DeepSeek in production”.
       </p>
     </div>
-    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {
-        features.map((feature) => (
-          <div class="rounded-2xl border border-stone-200 bg-white p-6 transition hover:border-accent/40 hover:shadow-sm">
-            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-accent-soft text-accent">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d={feature.icon} />
-              </svg>
+        features.map((feature, i) => (
+          <div class="reveal group rounded-3xl border border-violet-100 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1.5 hover:border-fuchsia-200 hover:shadow-xl hover:shadow-fuchsia-100">
+            <div class={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-lg ${featureStyles[i % featureStyles.length]}`}>
+              <feature.icon class="h-5.5 w-5.5" stroke-width={2} aria-hidden="true" />
             </div>
-            <h3 class="mt-4 font-semibold">{feature.title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-stone-600">{feature.description}</p>
+            <h3 class="mt-5 text-lg font-semibold">{feature.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted">{feature.description}</p>
           </div>
         ))
       }
@@ -241,125 +304,156 @@ const faqs = [
   </section>
 
   <!-- ═══ How it works ═══ -->
-  <section class="border-y border-stone-200 bg-white">
-    <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-      <div class="mx-auto max-w-2xl text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-accent">How it works</p>
+  <section class="relative border-y border-violet-100 bg-white/70">
+    <div class="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-brush-cyan">How it works</p>
         <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Three steps to your first token</h2>
       </div>
-      <ol class="mt-12 grid gap-8 md:grid-cols-3">
-        <li class="relative">
-          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-accent font-bold text-white">1</div>
-          <h3 class="mt-4 font-semibold">Create an account</h3>
-          <p class="mt-2 text-sm leading-relaxed text-stone-600">
-            Sign up with email and grab an API key from the
-            <a href={LINKS.console} class="font-medium text-accent hover:underline">console</a>. No credit card to start.
-          </p>
-        </li>
-        <li class="relative">
-          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-accent font-bold text-white">2</div>
-          <h3 class="mt-4 font-semibold">Point your SDK at BrushLLM</h3>
-          <p class="mt-2 text-sm leading-relaxed text-stone-600">
-            Set <code class="rounded bg-stone-100 px-1.5 py-0.5 font-mono text-xs">base_url</code> to
-            <code class="rounded bg-stone-100 px-1.5 py-0.5 font-mono text-xs">{LINKS.apiBase}</code> and keep the OpenAI SDK you already use.
-          </p>
-        </li>
-        <li class="relative">
-          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-accent font-bold text-white">3</div>
-          <h3 class="mt-4 font-semibold">Call any model by id</h3>
-          <p class="mt-2 text-sm leading-relaxed text-stone-600">
-            Swap
-            <code class="rounded bg-stone-100 px-1.5 py-0.5 font-mono text-xs">gpt-4o</code> for
-            <code class="rounded bg-stone-100 px-1.5 py-0.5 font-mono text-xs">deepseek-chat</code>,
-            <code class="rounded bg-stone-100 px-1.5 py-0.5 font-mono text-xs">glm-4.6</code> or any id on the
-            <a href="/models" class="font-medium text-accent hover:underline">models page</a>.
-          </p>
-        </li>
-      </ol>
+      <div class="relative mt-16 grid gap-10 md:grid-cols-3">
+        <!-- dashed connector -->
+        <div class="absolute top-6 right-[16%] left-[16%] hidden border-t-2 border-dashed border-fuchsia-200 md:block" aria-hidden="true"></div>
+        {
+          steps.map((step, i) => (
+            <div class="reveal relative text-center">
+              <div class="relative mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-brush text-white shadow-lg shadow-fuchsia-500/30">
+                <step.icon class="h-5.5 w-5.5" aria-hidden="true" />
+                <span class="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-ink text-[11px] font-bold text-white">
+                  {i + 1}
+                </span>
+              </div>
+              <h3 class="mt-5 text-lg font-semibold">{step.title}</h3>
+              <p class="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-muted">{step.description}</p>
+            </div>
+          ))
+        }
+      </div>
+      <div class="reveal mt-12 rounded-2xl border border-violet-100 bg-white p-5 text-center shadow-sm">
+        <p class="font-mono text-sm text-stone-600">
+          base_url = <span class="font-semibold text-brush-violet">{LINKS.apiBase}</span>
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- ═══ Code examples ═══ -->
-  <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-    <div class="mx-auto max-w-2xl text-center">
-      <p class="text-sm font-semibold uppercase tracking-widest text-accent">Drop-in compatible</p>
+  <section class="relative mx-auto max-w-6xl px-4 py-24 sm:px-6">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <p class="text-sm font-semibold uppercase tracking-widest text-brush-orange">Drop-in compatible</p>
       <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Keep your code. Change one line.</h2>
-      <p class="mt-4 text-stone-600">
+      <p class="mt-4 text-muted">
         If it works with the OpenAI API, it works with BrushLLM. Here’s the same request in four languages.
       </p>
     </div>
-    <div class="mx-auto mt-10 max-w-3xl">
+    <div class="reveal mx-auto mt-10 max-w-3xl">
       <CodeTabs tabs={codeTabs} />
     </div>
   </section>
 
   <!-- ═══ Stats band ═══ -->
-  <section class="border-y border-stone-200 bg-white">
-    <div class="mx-auto grid max-w-6xl grid-cols-2 divide-stone-200 px-4 py-12 text-center sm:grid-cols-4 sm:divide-x sm:px-6">
-      <div class="p-4">
-        <p class="text-3xl font-bold text-accent sm:text-4xl">{providers.length}+</p>
-        <p class="mt-1 text-sm text-stone-500">Chinese AI labs</p>
+  <section class="border-y border-violet-100 bg-white/70">
+    <div class="mx-auto grid max-w-6xl grid-cols-2 divide-violet-100 px-4 py-14 text-center sm:grid-cols-4 sm:divide-x sm:px-6">
+      <div class="reveal p-4">
+        <p class="bg-gradient-to-br from-violet-500 via-fuchsia-500 to-orange-500 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl" data-count-to={providers.length} data-suffix="+">{providers.length}+</p>
+        <p class="mt-1.5 text-sm text-muted">Chinese AI labs</p>
       </div>
-      <div class="p-4">
-        <p class="text-3xl font-bold text-accent sm:text-4xl">{models.length}+</p>
-        <p class="mt-1 text-sm text-stone-500">Models, one catalog</p>
+      <div class="reveal p-4">
+        <p class="bg-gradient-to-br from-cyan-400 via-blue-500 to-violet-500 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl" data-count-to={models.length} data-suffix="+">{models.length}+</p>
+        <p class="mt-1.5 text-sm text-muted">Models, one catalog</p>
       </div>
-      <div class="p-4">
-        <p class="text-3xl font-bold text-accent sm:text-4xl">1</p>
-        <p class="mt-1 text-sm text-stone-500">API key</p>
+      <div class="reveal p-4">
+        <p class="bg-gradient-to-br from-amber-400 via-rose-500 to-fuchsia-500 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">1</p>
+        <p class="mt-1.5 text-sm text-muted">API key</p>
       </div>
-      <div class="p-4">
-        <p class="text-3xl font-bold text-accent sm:text-4xl">0</p>
-        <p class="mt-1 text-sm text-stone-500">Mainland accounts needed</p>
+      <div class="reveal p-4">
+        <p class="bg-gradient-to-br from-blue-500 via-violet-500 to-fuchsia-500 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl" data-count-to="195">195</p>
+        <p class="mt-1.5 text-sm text-muted">Countries served</p>
       </div>
     </div>
   </section>
 
   <!-- ═══ AI News ═══ -->
-  <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-    <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+  <section class="relative mx-auto max-w-6xl px-4 py-24 sm:px-6">
+    <BrushStroke variant="warm" shape="sweep" class="absolute top-8 left-0 hidden w-80 -rotate-2 opacity-10 lg:block" />
+    <div class="reveal flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
       <div>
-        <p class="text-sm font-semibold uppercase tracking-widest text-accent">AI News</p>
+        <p class="text-sm font-semibold uppercase tracking-widest text-brush-rose">AI News</p>
         <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Fresh from the labs</h2>
-        <p class="mt-3 max-w-xl text-stone-600">
+        <p class="mt-3 max-w-xl text-muted">
           New releases, catalog updates and platform news — refreshed daily.
         </p>
       </div>
-      <a href="/news" class="shrink-0 font-medium text-accent hover:text-accent-strong">
-        View all updates →
+      <a href="/news" class="group inline-flex shrink-0 items-center gap-1.5 font-semibold text-brush-violet hover:text-brush-fuchsia">
+        View all updates
+        <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
       </a>
     </div>
-    <div class="mt-10">
+    <div class="reveal mt-10">
       <NewsList limit={6} />
     </div>
   </section>
 
   <!-- ═══ FAQ ═══ -->
-  <section class="border-t border-stone-200 bg-white">
-    <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-      <div class="mx-auto max-w-2xl text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-accent">FAQ</p>
+  <section class="border-t border-violet-100 bg-white/70">
+    <div class="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">FAQ</p>
         <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Questions, answered</h2>
       </div>
-      <div class="mt-10">
+      <div class="reveal mt-10">
         <FAQ faqs={faqs} />
       </div>
     </div>
   </section>
 
   <!-- ═══ Final CTA ═══ -->
-  <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-    <div class="rounded-3xl border border-accent/20 bg-gradient-to-b from-accent-soft/70 to-white px-6 py-16 text-center sm:px-16">
-      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Start building with China’s best models</h2>
-      <p class="mx-auto mt-4 max-w-xl text-stone-600">
-        One key, {models.length} models, {providers.length} labs. Your first request is thirty seconds away.
+  <section class="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+    <div class="reveal relative overflow-hidden rounded-[2rem] bg-brush px-6 py-20 text-center text-white shadow-2xl shadow-fuchsia-500/30 sm:px-16">
+      <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div class="absolute -top-16 -left-16 h-64 w-64 rounded-full border-[22px] border-white/15"></div>
+        <div class="absolute -right-20 -bottom-24 h-80 w-80 rounded-full border-[28px] border-white/10"></div>
+        <div class="absolute top-10 right-1/4 h-3 w-3 rounded-full bg-white/40"></div>
+        <div class="absolute bottom-12 left-1/4 h-2 w-2 rounded-full bg-white/50"></div>
+      </div>
+      <h2 class="relative text-3xl font-bold tracking-tight sm:text-4xl">Paint with China’s best models</h2>
+      <p class="relative mx-auto mt-4 max-w-xl text-white/85">
+        One key, {models.length} models, {providers.length} labs — from the source to your code,
+        anywhere in the world.
       </p>
       <a
         href={LINKS.signUp}
-        class="mt-8 inline-block rounded-xl bg-accent px-8 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-accent-strong"
+        class="group relative mt-9 inline-flex items-center gap-2 rounded-2xl bg-white px-8 py-4 text-base font-semibold text-brush-violet shadow-xl transition hover:scale-[1.02]"
       >
         Get my API key
+        <ArrowRight class="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
       </a>
     </div>
   </section>
+
+  <script>
+    // stat count-up when scrolled into view
+    const counters = document.querySelectorAll<HTMLElement>('[data-count-to]');
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          counterObserver.unobserve(entry.target);
+          const el = entry.target as HTMLElement;
+          const target = Number(el.dataset.countTo ?? '0');
+          const suffix = el.dataset.suffix ?? '';
+          const duration = 900;
+          const start = performance.now();
+          const tick = (now: number) => {
+            const p = Math.min(1, (now - start) / duration);
+            const eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = `${Math.round(target * eased)}${suffix}`;
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }
+      },
+      { threshold: 0.5 },
+    );
+    counters.forEach((el) => counterObserver.observe(el));
+  </script>
 </BaseLayout>

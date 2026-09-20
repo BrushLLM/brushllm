@@ -1,39 +1,57 @@
 ---
+import { ArrowRight, Globe2, Paintbrush, Tag } from 'lucide-astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BrushStroke from '../components/BrushStroke.astro';
 import { LINKS, SITE } from '../config';
 import { models } from '../data/models';
 import { providers } from '../data/providers';
 
 const values = [
   {
-    title: 'Open access',
+    icon: Globe2,
+    title: 'Source for the world',
     description:
-      'The best models in the world aren’t all built in one country. We make China’s frontier LLMs as easy to call as any API from the US.',
+      'China’s frontier models shouldn’t need a local ID, a local card, or a VPN to reach. We deliver them, at the source, to developers in every country and region.',
+    tile: 'from-violet-500 to-fuchsia-500',
   },
   {
+    icon: Paintbrush,
     title: 'Radical simplicity',
     description:
       'One key, one endpoint, one bill. If integrating us takes longer than a coffee break, that’s our bug, not your problem.',
+    tile: 'from-orange-400 to-rose-500',
   },
   {
+    icon: Tag,
     title: 'Honest pricing',
     description:
       'Published per-token rates, no subscription traps, and free tiers that stay free. You should always know what a request costs.',
+    tile: 'from-cyan-400 to-blue-600',
   },
 ];
 ---
 
 <BaseLayout
   title="About"
-  description="BrushLLM exists to make China’s frontier LLMs effortlessly reachable for developers everywhere — one OpenAI-compatible endpoint, one key, one bill."
+  description="BrushLLM delivers the source of China’s frontier AI to developers in every country — one OpenAI-compatible endpoint, one key, one bill."
 >
-  <section class="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-    <p class="text-sm font-semibold uppercase tracking-widest text-accent">About</p>
-    <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
-      China’s models deserve a global front door
+  <section class="relative mx-auto max-w-4xl px-4 py-16 sm:px-6">
+    <div class="pointer-events-none absolute inset-x-0 top-0 -z-10" aria-hidden="true">
+      <div class="blob absolute -top-10 right-0 h-64 w-64 rounded-full bg-fuchsia-200/40 blur-3xl"></div>
+      <div class="blob blob-slow absolute top-24 -left-16 h-64 w-64 rounded-full bg-violet-200/40 blur-3xl"></div>
+    </div>
+
+    <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">About</p>
+    <h1 class="mt-3 text-4xl font-bold tracking-tight text-balance sm:text-5xl">
+      China’s AI, served at the
+      <span class="relative inline-block">
+        <span class="text-brush">source</span>
+        <BrushStroke variant="brush" shape="underline" class="absolute -bottom-2 left-0 h-5 w-full" />
+      </span>
+      — for everyone
     </h1>
 
-    <div class="mt-8 space-y-5 text-lg leading-relaxed text-stone-600">
+    <div class="mt-8 space-y-5 text-lg leading-relaxed text-muted">
       <p>
         DeepSeek, Qwen, GLM, Kimi — the labs behind these models are pushing the frontier of coding,
         reasoning and agentic AI. But if you’re a developer outside mainland China, actually
@@ -41,45 +59,49 @@ const values = [
         stack doesn’t speak.
       </p>
       <p>
-        BrushLLM removes that friction. We aggregate {models.length} models from
+        BrushLLM exists to close that gap. We aggregate {models.length} models from
         {providers.length} leading Chinese AI labs behind a single OpenAI-compatible endpoint,
         billed in USD, documented in English, and reachable from anywhere. Your code stays the same
         — only the base URL changes.
       </p>
       <p>
-        The name is our mission: a brush (笔) writes with ink; BrushLLM writes with China’s best
-        models.
+        Our mission is simple: be the source of Chinese AI for the world — every country, every
+        region, every developer with an idea worth building.
       </p>
     </div>
 
-    <div class="mt-12 grid gap-4 sm:grid-cols-3">
+    <div class="mt-12 grid gap-5 sm:grid-cols-3">
       {
         values.map((value) => (
-          <div class="rounded-2xl border border-stone-200 bg-white p-6">
-            <h2 class="font-semibold">{value.title}</h2>
-            <p class="mt-2 text-sm leading-relaxed text-stone-600">{value.description}</p>
+          <div class="reveal rounded-2xl border border-violet-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-fuchsia-200 hover:shadow-lg">
+            <div class={`flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br text-white shadow-lg ${value.tile}`}>
+              <value.icon class="h-5 w-5" aria-hidden="true" />
+            </div>
+            <h2 class="mt-4 font-semibold">{value.title}</h2>
+            <p class="mt-2 text-sm leading-relaxed text-muted">{value.description}</p>
           </div>
         ))
       }
     </div>
 
-    <div class="mt-12 rounded-2xl border border-stone-200 bg-white p-8">
+    <div class="reveal mt-12 rounded-2xl border border-violet-100 bg-white p-8 shadow-sm">
       <h2 class="text-xl font-bold tracking-tight">Talk to us</h2>
-      <p class="mt-2 text-sm leading-relaxed text-stone-600">
+      <p class="mt-2 text-sm leading-relaxed text-muted">
         Questions, volume pricing, or a model you’d like us to add — we read everything.
       </p>
       <div class="mt-4 flex flex-wrap gap-3">
         <a
           href={`mailto:${SITE.contactEmail}`}
-          class="rounded-xl border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-stone-700 transition hover:border-accent/50 hover:text-accent"
+          class="inline-flex items-center gap-2 rounded-xl border border-violet-200 bg-white px-5 py-2.5 text-sm font-semibold text-ink shadow-sm transition hover:border-fuchsia-300 hover:text-brush-violet"
         >
           {SITE.contactEmail}
         </a>
         <a
           href={LINKS.signUp}
-          class="rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-accent-strong"
+          class="group inline-flex items-center gap-2 rounded-xl bg-brush px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-fuchsia-500/25 transition hover:brightness-110"
         >
           Get started
+          <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
         </a>
       </div>
     </div>

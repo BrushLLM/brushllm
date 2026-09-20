@@ -1,11 +1,11 @@
 # BrushLLM — brushllm.com
 
-Marketing & showcase site for **BrushLLM** — an AI model gateway (China's
-leading labs, plus ChatGPT and text-to-image) **and** a browser-based AI image
-editor, Image Studio (coming soon). Built with [Astro](https://astro.build)
-(static output, light theme only). The login screen, console, and the API
-itself are served by a separate sub2api deployment at `api.brushllm.com` —
-this site only links to it.
+Marketing & showcase site for **BrushLLM** — an AI platform with two core
+products: **AI Model Services** (one API for the world's leading models) and
+**Image Studio**, a browser-based AI image editor (coming soon). Built with
+[Astro](https://astro.build) (static output, light theme only). The login
+screen, console, and the API itself are served by a separate sub2api
+deployment at `api.brushllm.com` — this site only links to it.
 
 ## Develop
 
@@ -22,7 +22,7 @@ npm run preview   # serve the built site locally
 | --- | --- |
 | `src/config.ts` | **Single source of truth for all external links** — sub2api console URL, login/register paths, and the `https://api.brushllm.com/v1` base URL shown in docs & code samples. Change your sub2api address here only. |
 | `src/data/models.ts` | The model catalog (id, provider, context, capabilities, indicative prices; `imagePrice`/`resolution` for text-to-image models). Edit to match what your sub2api actually serves — counts on the homepage update automatically. |
-| `src/data/providers.ts` | The six Chinese AI labs shown on the homepage and used as filter chips on `/models`. Providers with `hidden: true` (e.g. OpenAI, carried only for GPT-Image) never appear in the marquee/chips, only on model cards. |
+| `src/data/providers.ts` | The providers shown on the homepage marquee and used as filter chips on `/models` — the world's leading labs plus OpenAI. |
 | `src/pages/` | `/`, `/models`, `/docs`, `/pricing`, `/about`, `404`. |
 | `og-source.svg` | Source for the social sharing card. `public/og.png` is **generated from it at build time** (`prebuild` → `scripts/gen-og.mjs`) and is not committed. |
 | `scripts/gen-og.mjs` | Renders og-source.svg → public/og.png with sharp. |

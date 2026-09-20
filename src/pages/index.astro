@@ -1,14 +1,19 @@
 ---
 import {
   ArrowRight,
+  Eraser,
   EyeOff,
   Globe2,
+  ImagePlus,
   KeyRound,
   Layers,
   Link2,
+  Maximize2,
+  Palette,
   PlugZap,
   ShieldCheck,
   Sparkles,
+  Wand2,
   Wallet,
 } from '@lucide/astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -109,20 +114,20 @@ const features = [
   },
   {
     icon: Layers,
-    title: 'Chinese labs + ChatGPT',
-    description: `DeepSeek, Qwen, GLM, Kimi, Doubao, MiniMax and ChatGPT — ${models.length} models behind a single API key.`,
+    title: 'Every frontier lab, one key',
+    description: `DeepSeek, Qwen, GLM, Kimi, Doubao, MiniMax and GPT — ${models.length} models behind a single API key.`,
   },
   {
     icon: Globe2,
-    title: 'Built for every country',
+    title: 'Open to every country',
     description:
-      'No mainland-China accounts, local phone numbers, or separate billing per lab. Sign up from anywhere on earth and start calling in under a minute.',
+      'No separate accounts, local payment hoops, or region locks per provider. Sign up from anywhere and start in under a minute.',
   },
   {
     icon: Wallet,
     title: 'Pay-as-you-go pricing',
     description:
-      'Per-token billing with no subscriptions and no minimums. Several models — including GLM-4.5 Flash and Doubao Seed 1.6 Flash — are free.',
+      'Per-token and per-image billing with no subscriptions and no minimums. Several models — including GLM-4.5 Flash and Doubao Seed 1.6 Flash — are free.',
   },
   {
     icon: ShieldCheck,
@@ -156,11 +161,22 @@ const steps = [
   },
 ];
 
+const studioCapabilities = [
+  'Generate',
+  'Edit',
+  'Remove',
+  'Replace',
+  'Expand',
+  'Upscale',
+  'Restyle',
+  'Transform',
+];
+
 const faqs = [
   {
     question: 'What is BrushLLM?',
     answer:
-      'BrushLLM is a gateway and an app: it carries China’s leading labs — DeepSeek, Qwen, GLM, Kimi and more — alongside ChatGPT and text-to-image through one OpenAI-compatible endpoint, and Image Studio, our browser-based AI photo editor, is coming soon.',
+      'BrushLLM is an AI platform with two core products. AI Model Services gives developers one API for the world’s leading models — from DeepSeek, Qwen, and GLM to GPT and text-to-image. Image Studio is a browser-based AI image editor for everyone. One account covers both.',
   },
   {
     question: 'Is it really drop-in compatible with the OpenAI SDK?',
@@ -169,17 +185,17 @@ const faqs = [
   {
     question: 'How does billing work?',
     answer:
-      'Strictly pay-as-you-go per token, in USD. There are no subscriptions or minimums, and several models have free tiers. Top up and track spend from the console.',
+      'Strictly pay-as-you-go in USD — per token for text models, per image for image models. There are no subscriptions or minimums, and several models have free tiers. Top up and track spend from the console.',
+  },
+  {
+    question: 'Who is BrushLLM for?',
+    answer:
+      'Developers and teams building products on AI models, and creators who want a full AI image workspace. The API and Image Studio share one account and one balance.',
   },
   {
     question: 'How do you protect my privacy?',
     answer:
       'We collect only what an account needs to function. No trackers, no analytics, no ads — your prompts are proxied straight to the upstream model and never stored, sold, or used to profile you.',
-  },
-  {
-    question: 'Do I need a mainland China account or VPN?',
-    answer:
-      'No. BrushLLM is built for developers everywhere: you sign up with an email, pay in USD, and reach every model through our endpoint — no local accounts or special network setup required.',
   },
   {
     question: 'Which model should I start with?',
@@ -192,69 +208,94 @@ const faqs = [
       'Yes — anything that speaks the OpenAI API works. Set the base URL and API key in your tool’s config (Cursor, Cline, OpenCode, aider and similar) and pick any model id from the catalog.',
   },
 ];
-
-
 ---
 
 <BaseLayout>
-  <!-- ═══ Hero: white canvas, color in the swipes ═══ -->
+  <!-- ═══ Hero: two products, one platform ═══ -->
   <section class="relative overflow-hidden">
-    <!-- decorative long swipes crossing the corners -->
     <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
       <BrushStroke shape="sweep" color="cyan" class="absolute -top-8 -left-40 w-[720px] -rotate-6 opacity-20" />
       <BrushStroke shape="sweep" color="orange" class="absolute top-40 -right-52 w-[680px] rotate-3 opacity-15" />
     </div>
 
-    <div class="mx-auto max-w-6xl px-4 pb-20 pt-20 text-center sm:px-6 sm:pt-28">
+    <div class="mx-auto max-w-6xl px-4 pb-16 pt-20 text-center sm:px-6 sm:pt-28">
       <p class="reveal mx-auto inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white px-4 py-1.5 text-xs font-semibold text-brush-violet shadow-sm">
         <span class="h-2 w-2 rounded-full bg-brush-fuchsia"></span>
-        {models.length} models · 6 Chinese labs + ChatGPT · one endpoint
+        AI Models · AI Images · One Platform
       </p>
 
       <h1 class="reveal mx-auto mt-7 max-w-4xl text-5xl font-bold tracking-tight text-balance sm:text-6xl lg:text-7xl">
-        China’s
         <span class="relative inline-block px-0.5">
           <BrushStroke shape="highlight" color="violet" class="absolute inset-x-0 top-1/2 h-[0.78em] -translate-y-[42%] -rotate-1 opacity-25" />
-          <span class="relative whitespace-nowrap text-ink">frontier AI</span>
+          <span class="relative whitespace-nowrap text-ink">AI Models.</span>
         </span>
-        , plus
+        {' '}
         <span class="relative inline-block px-0.5">
           <BrushStroke shape="highlight" color="orange" class="absolute inset-x-0 top-1/2 h-[0.78em] -translate-y-[42%] rotate-1 opacity-25" />
-          <span class="relative whitespace-nowrap text-ink">ChatGPT</span>
+          <span class="relative whitespace-nowrap text-ink">AI Images.</span>
         </span>
-        — one source.
+        One Platform.
       </h1>
 
       <p class="reveal mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted">
-        BrushLLM brings developers everywhere China’s best models — DeepSeek, Qwen, GLM, Kimi —
-        together with ChatGPT and text-to-image, behind one OpenAI-compatible endpoint at honest
-        pay-as-you-go prices.
+        Access the world’s leading AI models through one API — and create, edit, and transform
+        images with AI in Image Studio. One account for developers and creators.
       </p>
 
-      <div class="reveal mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <a
-          href={LINKS.signUp}
-          class="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-brush-violet px-8 py-4 text-base font-semibold text-white shadow-xl shadow-violet-500/25 transition hover:scale-[1.02] hover:bg-violet-700 sm:w-auto"
-        >
-          Get my API key
-          <ArrowRight class="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-        </a>
-        <a
-          href="/models"
-          class="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-stone-300 bg-white px-8 py-4 text-base font-semibold text-ink shadow-sm transition hover:border-violet-400 hover:text-brush-violet sm:w-auto"
-        >
-          Browse models
-          <ArrowRight class="h-4.5 w-4.5" aria-hidden="true" />
-        </a>
+      <!-- two product entries, visually equal -->
+      <div class="reveal mx-auto mt-10 grid max-w-4xl gap-5 text-left sm:grid-cols-2">
+        <div class="group rounded-3xl border border-stone-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg">
+          <div class="flex items-center justify-between">
+            <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brush-violet text-white shadow-lg shadow-violet-500/25">
+              <Layers class="h-5 w-5" aria-hidden="true" />
+            </div>
+            <span class="text-[11px] font-semibold uppercase tracking-widest text-brush-violet">For developers</span>
+          </div>
+          <h2 class="mt-4 text-xl font-bold tracking-tight">AI Model Services</h2>
+          <p class="mt-2 text-sm leading-relaxed text-muted">One API. Many models. The world’s leading labs behind a single endpoint.</p>
+          <div class="mt-5 flex flex-wrap gap-2.5">
+            <a href="/models" class="inline-flex items-center gap-1.5 rounded-xl bg-brush-violet px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-violet-500/25 transition hover:bg-violet-700">
+              Explore AI Models
+              <ArrowRight class="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
+            <a href={LINKS.signUp} class="inline-flex items-center rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-sm font-semibold text-ink shadow-sm transition hover:border-violet-400 hover:text-brush-violet">
+              Start Building
+            </a>
+          </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-3xl border border-stone-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-fuchsia-300 hover:shadow-lg">
+          <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+            <BrushStroke shape="sweep" color="fuchsia" class="absolute -top-12 -right-20 w-[360px] rotate-3 opacity-70" />
+          </div>
+          <div class="relative flex items-center justify-between">
+            <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brush-fuchsia text-white shadow-lg shadow-fuchsia-500/25">
+              <ImagePlus class="h-5 w-5" aria-hidden="true" />
+            </div>
+            <span class="rounded-full bg-brush-fuchsia px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-widest text-white shadow-sm shadow-fuchsia-500/25">Soon</span>
+          </div>
+          <h2 class="relative mt-4 text-xl font-bold tracking-tight">Image Studio</h2>
+          <p class="relative mt-2 text-sm leading-relaxed text-muted">Create, edit, and transform images with AI — right in your browser.</p>
+          <div class="relative mt-5 flex flex-wrap gap-2.5">
+            <a href="/studio" class="inline-flex items-center gap-1.5 rounded-xl bg-brush-fuchsia px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-fuchsia-500/25 transition hover:bg-fuchsia-600">
+              Try Image Studio
+              <ArrowRight class="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
+            <a href={`mailto:${SITE.contactEmail}?subject=Image%20Studio%20early%20access`} class="inline-flex items-center rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-sm font-semibold text-ink shadow-sm transition hover:border-fuchsia-400 hover:text-brush-fuchsia">
+              Early access
+            </a>
+          </div>
+        </div>
       </div>
-      <p class="reveal mt-5 text-sm text-stone-500">Free to start · Pay-as-you-go · Set up in 30 seconds</p>
+
+      <p class="reveal mt-6 text-sm text-stone-500">For developers · For creators · One account</p>
     </div>
   </section>
 
   <!-- ═══ Provider marquee ═══ -->
   <section class="border-y border-stone-100 py-10">
     <h2 class="text-center text-xs font-semibold uppercase tracking-[0.2em] text-stone-400">
-      6 leading Chinese AI labs + ChatGPT, one gateway
+      The world’s leading AI labs, one gateway
     </h2>
     <div class="marquee relative mt-7 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_24%,black_76%,transparent)]">
       <div class="marquee-track flex gap-3 pr-3">
@@ -272,6 +313,169 @@ const faqs = [
     </div>
   </section>
 
+  <!-- ═══ One platform, two ways to build ═══ -->
+  <section class="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">Two products</p>
+      <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">One platform. Two ways to build with AI.</h2>
+    </div>
+
+    <div class="mt-12 grid gap-6 lg:grid-cols-2">
+      <!-- for developers -->
+      <div class="reveal group rounded-[2rem] border border-stone-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg">
+        <span class="inline-flex items-center gap-2 rounded-full bg-brush-violet px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white shadow-md shadow-violet-500/25">
+          For developers
+        </span>
+        <h3 class="mt-4 text-2xl font-bold tracking-tight">AI Model Services</h3>
+        <p class="mt-1 font-display text-sm font-semibold text-brush-violet">One API. Many models.</p>
+        <p class="mt-3 text-sm leading-relaxed text-muted">
+          Access a growing collection of the world’s most powerful AI models through a single
+          OpenAI-compatible API — {models.length} models, {visibleProviders.length} providers,
+          honest per-use pricing.
+        </p>
+        <ul class="mt-5 space-y-2 text-sm text-muted">
+          <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-violet"></span>Drop-in with any OpenAI SDK</li>
+          <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-cyan"></span>Chat, reasoning, embeddings & image models</li>
+          <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-orange"></span>Published prices, pay-as-you-go, free tiers</li>
+        </ul>
+        <p class="mt-5 text-xs font-medium uppercase tracking-wide text-stone-400">Developers · Startups · Businesses</p>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <a href="/models" class="group/dev inline-flex items-center gap-1.5 rounded-xl bg-brush-violet px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:bg-violet-700">
+            Explore Models
+            <ArrowRight class="h-4 w-4 transition-transform group-hover/dev:translate-x-0.5" aria-hidden="true" />
+          </a>
+          <a href="/docs" class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-ink shadow-sm transition hover:border-violet-400 hover:text-brush-violet">
+            Read the docs
+          </a>
+        </div>
+      </div>
+
+      <!-- for creators -->
+      <div class="reveal relative overflow-hidden rounded-[2rem] border border-stone-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:border-fuchsia-300 hover:shadow-lg">
+        <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+          <BrushStroke shape="sweep" color="fuchsia" class="absolute -top-10 -right-24 w-[420px] rotate-3 opacity-80" />
+        </div>
+        <span class="relative inline-flex items-center gap-2 rounded-full bg-brush-fuchsia px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white shadow-md shadow-fuchsia-500/25">
+          For creators · Soon
+        </span>
+        <h3 class="relative mt-4 text-2xl font-bold tracking-tight">Image Studio</h3>
+        <p class="relative mt-1 font-display text-sm font-semibold text-brush-fuchsia">AI-powered image creation and editing.</p>
+        <p class="relative mt-3 text-sm leading-relaxed text-muted">
+          Generate, edit, expand, upscale, and transform images with AI — a full creative
+          workspace in your browser. No installs, no subscriptions.
+        </p>
+        <ul class="relative mt-5 flex flex-wrap gap-2">
+          {
+            studioCapabilities.map((cap) => (
+              <li class="rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-xs font-medium text-brush-fuchsia">{cap}</li>
+            ))
+          }
+        </ul>
+        <p class="relative mt-5 text-xs font-medium uppercase tracking-wide text-stone-400">Creators · Designers · Everyone</p>
+        <div class="relative mt-4 flex flex-wrap gap-3">
+          <a href="/studio" class="group/create inline-flex items-center gap-1.5 rounded-xl bg-brush-fuchsia px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-fuchsia-500/25 transition hover:bg-fuchsia-600">
+            Open Image Studio
+            <ArrowRight class="h-4 w-4 transition-transform group-hover/create:translate-x-0.5" aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Image Studio showcase ═══ -->
+  <section class="border-y border-stone-100 bg-stone-50/50">
+    <div class="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-brush-fuchsia">Image Studio</p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+          A real AI image workspace,
+          <span class="relative inline-block">
+            <span>coming to your browser</span>
+            <BrushStroke shape="underline" color="fuchsia" class="absolute -bottom-2 left-0 h-2.5 w-full" />
+          </span>
+        </h2>
+        <p class="mt-4 text-muted">
+          Upload an image and paint changes with plain words — the studio does the rest.
+        </p>
+      </div>
+
+      <!-- product mockup -->
+      <div class="reveal mx-auto mt-12 max-w-4xl">
+        <div class="overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-xl shadow-stone-300/40">
+          <!-- window chrome -->
+          <div class="flex items-center gap-3 border-b border-stone-100 bg-stone-50 px-4 py-3">
+            <div class="flex gap-1.5" aria-hidden="true">
+              <span class="h-3 w-3 rounded-full bg-stone-300"></span>
+              <span class="h-3 w-3 rounded-full bg-stone-300"></span>
+              <span class="h-3 w-3 rounded-full bg-stone-300"></span>
+            </div>
+            <p class="flex-1 truncate rounded-lg bg-white px-3 py-1 text-center font-mono text-xs text-stone-500 ring-1 ring-stone-200">
+              brushllm.com/studio
+            </p>
+            <span class="rounded-full bg-brush-fuchsia px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-white">Soon</span>
+          </div>
+
+          <div class="flex flex-col sm:flex-row">
+            <!-- canvas: before / after -->
+            <div class="relative min-h-[260px] flex-1 overflow-hidden bg-stone-100">
+              <!-- before (left) -->
+              <div class="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-br from-stone-200 via-stone-300 to-stone-400/60 p-4">
+                <span class="absolute left-4 top-4 rounded-full bg-white/80 px-2.5 py-0.5 text-[11px] font-semibold text-stone-600 backdrop-blur">Before</span>
+                <div class="absolute bottom-4 left-4 space-y-2 opacity-60">
+                  <div class="h-2.5 w-24 rounded bg-stone-500/40"></div>
+                  <div class="h-2.5 w-16 rounded bg-stone-500/30"></div>
+                </div>
+              </div>
+              <!-- after (right) -->
+              <div class="absolute inset-y-0 right-0 w-1/2 overflow-hidden bg-gradient-to-br from-violet-500/80 via-fuchsia-500/70 to-orange-400/80">
+                <BrushStroke shape="sweep" color="amber" class="absolute -bottom-8 -right-16 w-[300px] rotate-6 opacity-70" />
+                <span class="absolute right-4 top-4 rounded-full bg-white/85 px-2.5 py-0.5 text-[11px] font-semibold text-brush-fuchsia backdrop-blur">After</span>
+                <div class="absolute bottom-4 right-4 rounded-xl bg-white/90 px-3 py-2 text-xs font-medium text-ink shadow-lg backdrop-blur">
+                  “golden hour, remove the crowd”
+                </div>
+              </div>
+              <!-- AI divider handle -->
+              <div class="absolute inset-y-0 left-1/2 w-0.5 -translate-x-1/2 bg-white/90 shadow-[0_0_12px_rgba(0,0,0,0.35)]" aria-hidden="true"></div>
+              <div class="absolute left-1/2 top-1/2 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-brush-violet text-white shadow-xl">
+                <Wand2 class="h-4.5 w-4.5" aria-hidden="true" />
+              </div>
+            </div>
+
+            <!-- tool rail -->
+            <div class="flex shrink-0 gap-1.5 border-t border-stone-100 bg-white p-2.5 sm:flex-col sm:border-t-0 sm:border-l">
+              <span title="Generate" class="flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 bg-white text-muted shadow-sm transition hover:border-fuchsia-300 hover:text-brush-fuchsia"><ImagePlus class="h-4.5 w-4.5" aria-hidden="true" /></span>
+              <span title="Edit" class="flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 bg-white text-muted shadow-sm transition hover:border-fuchsia-300 hover:text-brush-fuchsia"><Wand2 class="h-4.5 w-4.5" aria-hidden="true" /></span>
+              <span title="Remove" class="flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 bg-white text-muted shadow-sm transition hover:border-fuchsia-300 hover:text-brush-fuchsia"><Eraser class="h-4.5 w-4.5" aria-hidden="true" /></span>
+              <span title="Upscale" class="flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 bg-white text-muted shadow-sm transition hover:border-fuchsia-300 hover:text-brush-fuchsia"><Maximize2 class="h-4.5 w-4.5" aria-hidden="true" /></span>
+              <span title="Restyle" class="flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 bg-white text-muted shadow-sm transition hover:border-fuchsia-300 hover:text-brush-fuchsia"><Palette class="h-4.5 w-4.5" aria-hidden="true" /></span>
+            </div>
+          </div>
+
+          <!-- prompt bar -->
+          <div class="flex items-center gap-2.5 border-t border-stone-100 bg-white p-3">
+            <p class="flex-1 truncate rounded-xl bg-stone-100 px-4 py-2.5 text-sm text-stone-400">
+              Remove the background and add golden-hour light…
+            </p>
+            <span class="inline-flex items-center gap-1.5 rounded-xl bg-brush-violet px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-violet-500/25">
+              <Sparkles class="h-4 w-4" aria-hidden="true" />
+              Generate
+            </span>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a href="/studio" class="group/show inline-flex items-center gap-2 rounded-xl bg-brush-fuchsia px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-fuchsia-500/25 transition hover:bg-fuchsia-600">
+            Open Image Studio
+            <ArrowRight class="h-4 w-4 transition-transform group-hover/show:translate-x-0.5" aria-hidden="true" />
+          </a>
+          <a href={`mailto:${SITE.contactEmail}?subject=Image%20Studio%20early%20access`} class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-fuchsia-400 hover:text-brush-fuchsia">
+            Get early access
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ Features ═══ -->
   <section class="relative mx-auto max-w-6xl px-4 py-24 sm:px-6">
     <BrushStroke shape="sweep" color="fuchsia" class="absolute top-10 right-0 hidden w-96 rotate-2 opacity-10 lg:block" />
@@ -285,7 +489,7 @@ const faqs = [
         </span>
       </h2>
       <p class="mt-4 text-muted">
-        A straight path from “somewhere outside China” to “calling DeepSeek in production”.
+        A modern AI platform: one honest API for builders, one visual studio for creators.
       </p>
     </div>
     <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -350,75 +554,6 @@ const faqs = [
     </div>
   </section>
 
-  <!-- ═══ Two products, one key: gateway + app ═══ -->
-  <section class="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-    <div class="reveal mx-auto max-w-2xl text-center">
-      <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">More than an API</p>
-      <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">One key, two products</h2>
-      <p class="mt-4 text-muted">
-        BrushLLM is both an AI model gateway and an AI image app — same account, same key, same honest prices.
-      </p>
-    </div>
-
-    <div class="mt-12 grid gap-6 lg:grid-cols-2">
-      <!-- product 1: the gateway -->
-      <div class="reveal group rounded-[2rem] border border-stone-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg">
-        <span class="inline-flex items-center gap-2 rounded-full bg-brush-violet px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white shadow-md shadow-violet-500/25">
-          The gateway
-        </span>
-        <h3 class="mt-4 text-2xl font-bold tracking-tight">BrushLLM API</h3>
-        <p class="mt-3 text-sm leading-relaxed text-muted">
-          {models.length} models from 6 leading Chinese AI labs plus ChatGPT and text-to-image — one
-          OpenAI-compatible endpoint, per-token and per-image pricing, free tiers to start.
-        </p>
-        <ul class="mt-5 space-y-2 text-sm text-muted">
-          <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-violet"></span>Drop-in with any OpenAI SDK</li>
-          <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-cyan"></span>Chat, reasoning, embeddings & image models</li>
-          <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-orange"></span>Published prices, pay-as-you-go</li>
-        </ul>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="/models" class="inline-flex items-center gap-1.5 rounded-xl bg-brush-violet px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:bg-violet-700">
-            Browse models
-            <ArrowRight class="h-4 w-4" aria-hidden="true" />
-          </a>
-          <a href="/docs" class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-ink shadow-sm transition hover:border-violet-400 hover:text-brush-violet">
-            Read the docs
-          </a>
-        </div>
-      </div>
-
-      <!-- product 2: the app -->
-      <div class="reveal relative overflow-hidden rounded-[2rem] border border-stone-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:border-fuchsia-300 hover:shadow-lg">
-        <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-          <BrushStroke shape="sweep" color="fuchsia" class="absolute -top-10 -right-24 w-[420px] rotate-3 opacity-80" />
-          <BrushStroke shape="underline" color="cyan" class="absolute bottom-3 left-12 w-36 -rotate-2 opacity-70" />
-        </div>
-        <span class="relative inline-flex items-center gap-2 rounded-full bg-brush-fuchsia px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white shadow-md shadow-fuchsia-500/25">
-          The app · Soon
-        </span>
-        <h3 class="relative mt-4 text-2xl font-bold tracking-tight">Image Studio</h3>
-        <p class="relative mt-3 text-sm leading-relaxed text-muted">
-          The same models, wrapped in a browser-based AI photo editor. Upload an image and paint
-          changes with plain words — no installs, no subscriptions.
-        </p>
-        <ul class="relative mt-5 space-y-2 text-sm text-muted">
-          <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-fuchsia"></span>Generative fill & outpainting (GPT-Image-2)</li>
-          <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-orange"></span>One-click background removal (Jimeng)</li>
-          <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-cyan"></span>4K upscaling & style transfer (Seedream)</li>
-        </ul>
-        <div class="relative mt-6 flex flex-wrap gap-3">
-          <a href="/studio" class="group/studio inline-flex items-center gap-1.5 rounded-xl bg-brush-fuchsia px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-fuchsia-500/25 transition hover:bg-fuchsia-600">
-            See what’s coming
-            <ArrowRight class="h-4 w-4 transition-transform group-hover/studio:translate-x-0.5" aria-hidden="true" />
-          </a>
-          <a href={`mailto:${SITE.contactEmail}?subject=Image%20Studio%20early%20access`} class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-ink shadow-sm transition hover:border-fuchsia-400 hover:text-brush-fuchsia">
-            Get early access
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ═══ Stats band ═══ -->
   <section class="border-y border-stone-100">
     <div class="mx-auto grid max-w-6xl grid-cols-2 divide-stone-100 px-4 py-14 text-center sm:grid-cols-4 sm:divide-x sm:px-6">
@@ -432,7 +567,7 @@ const faqs = [
       </div>
       <div class="reveal p-4">
         <p class="text-4xl font-bold text-brush-orange sm:text-5xl">1</p>
-        <p class="mt-1.5 text-sm text-muted">API key</p>
+        <p class="mt-1.5 text-sm text-muted">Account</p>
       </div>
       <div class="reveal p-4">
         <p class="text-4xl font-bold text-brush-fuchsia sm:text-5xl" data-count-to="195">195</p>
@@ -454,7 +589,7 @@ const faqs = [
     </div>
   </section>
 
-  <!-- ═══ Final CTA: white card, swipes crossing inside ═══ -->
+  <!-- ═══ Final CTA ═══ -->
   <section class="mx-auto max-w-6xl px-4 py-24 sm:px-6">
     <div class="reveal relative overflow-hidden rounded-[2rem] border border-stone-200 bg-white px-6 py-20 text-center shadow-xl shadow-stone-200/60 sm:px-16">
       <div class="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -462,20 +597,29 @@ const faqs = [
         <BrushStroke shape="sweep" color="orange" class="absolute -right-32 -bottom-16 w-[560px] rotate-3 opacity-70" />
         <BrushStroke shape="underline" color="cyan" class="absolute right-[12%] bottom-16 w-56 rotate-2 opacity-70" />
       </div>
-      <h2 class="relative text-3xl font-bold tracking-tight sm:text-4xl">
-        Paint with China’s best models
+      <h2 class="relative text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+        Build with the world’s best AI
       </h2>
       <p class="relative mx-auto mt-4 max-w-xl text-muted">
-        One key, {models.length} models, 6 Chinese labs + ChatGPT — from the source to
-        your code, anywhere in the world.
+        One account for {models.length} models and a full AI image studio — from anywhere in the
+        world, at honest prices.
       </p>
-      <a
-        href={LINKS.signUp}
-        class="group relative mt-9 inline-flex items-center gap-2 rounded-2xl bg-brush-violet px-8 py-4 text-base font-semibold text-white shadow-xl shadow-violet-500/25 transition hover:scale-[1.02] hover:bg-violet-700"
-      >
-        Get my API key
-        <ArrowRight class="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-      </a>
+      <div class="relative mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a
+          href={LINKS.signUp}
+          class="group inline-flex items-center gap-2 rounded-2xl bg-brush-violet px-8 py-4 text-base font-semibold text-white shadow-xl shadow-violet-500/25 transition hover:scale-[1.02] hover:bg-violet-700"
+        >
+          Get started free
+          <ArrowRight class="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+        </a>
+        <a
+          href="/studio"
+          class="inline-flex items-center gap-2 rounded-2xl border border-stone-300 bg-white px-8 py-4 text-base font-semibold text-ink shadow-sm transition hover:border-fuchsia-400 hover:text-brush-fuchsia"
+        >
+          Try Image Studio
+          <ArrowRight class="h-4.5 w-4.5" aria-hidden="true" />
+        </a>
+      </div>
     </div>
   </section>
 

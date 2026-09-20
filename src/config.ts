@@ -8,9 +8,9 @@
 export const SITE = {
   name: 'BrushLLM',
   url: 'https://brushllm.com',
-  title: 'BrushLLM — Chinese AI, ChatGPT & image models, one API',
+  title: 'BrushLLM — AI Models. AI Images. One Platform.',
   description:
-    'China’s frontier models — DeepSeek, Qwen, GLM, Kimi — plus ChatGPT and text-to-image, through one OpenAI-compatible endpoint. A browser-based AI image editor is on the way.',
+    'One API for the world’s leading AI models — and Image Studio, a browser-based AI image editor. One platform for developers and creators.',
   contactEmail: 'hello@brushllm.com',
 } as const;
 
@@ -31,9 +31,9 @@ export const LINKS = {
 
 /** Main navigation (header + footer). `badge` renders a small pill (e.g. Soon). */
 export const NAV = [
-  { label: 'Models', href: '/models' },
-  { label: 'Pricing', href: '/pricing' },
+  { label: 'AI Models', href: '/models' },
   { label: 'Image Studio', href: '/studio', badge: 'Soon' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'Docs', href: '/docs' },
   { label: 'About', href: '/about' },
 ] as const;

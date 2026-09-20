@@ -215,7 +215,7 @@ export const models: Model[] = [
     id: 'gpt-5.2',
     name: 'GPT-5.2',
     provider: 'openai',
-    description: 'ChatGPT’s flagship — strong general reasoning, vision and tool use, alongside the Chinese labs.',
+    description: 'ChatGPT’s flagship — strong general reasoning, vision and tool use.',
     context: 400000,
     capabilities: ['chat', 'reasoning', 'tools', 'vision'],
     price: { input: 1.25, output: 10.0 },

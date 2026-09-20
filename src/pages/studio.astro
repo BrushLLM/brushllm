@@ -53,10 +53,17 @@ const planned = [
       </span>
     </h1>
     <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-      We’re building an AI image editor on top of the BrushLLM gateway — the same models you call
-      through the API, wrapped in a fast visual canvas. No installs, no subscriptions, just upload
+      BrushLLM Image Studio is AI image creation and editing for everyone — a full workspace in
+      your browser, powered by the BrushLLM platform. No installs, no subscriptions, just upload
       and paint.
     </p>
+    <ul class="mx-auto mt-6 flex max-w-xl flex-wrap justify-center gap-2">
+      {
+        ['Generate', 'Edit', 'Remove', 'Replace', 'Expand', 'Upscale', 'Restyle', 'Transform'].map((cap) => (
+          <li class="rounded-full border border-stone-200 bg-white px-3 py-1 text-xs font-medium text-brush-fuchsia shadow-sm">{cap}</li>
+        ))
+      }
+    </ul>
 
     <div class="mt-10 grid gap-5 text-left sm:grid-cols-2">
       {

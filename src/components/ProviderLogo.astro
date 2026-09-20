@@ -9,7 +9,7 @@ import kimi from '../assets/brands/kimi.svg?raw';
 import doubao from '../assets/brands/doubao.svg?raw';
 import minimax from '../assets/brands/minimax.svg?raw';
 import openai from '../assets/brands/openai.svg?raw';
-import glmLogo from '../assets/brands/glm.png';
+import glm from '../assets/brands/glm.svg?raw';
 
 const brandIcons: Record<string, string> = {
   deepseek,
@@ -18,11 +18,7 @@ const brandIcons: Record<string, string> = {
   doubao, // ByteDance mark (Doubao's parent)
   minimax,
   openai, // ChatGPT / GPT-Image
-};
-
-/* official raster marks (transparent background) */
-const brandImages: Record<string, string> = {
-  glm: glmLogo,
+  glm, // official raster mark wrapped in an inline svg
 };
 
 interface Props {
@@ -32,15 +28,10 @@ interface Props {
 
 const { provider, class: className = 'h-5 w-5' } = Astro.props;
 const icon = brandIcons[provider];
-const image = brandImages[provider];
 ---
 
 {
-  image ? (
-    <span class:list={['inline-flex [&_img]:h-full [&_img]:w-full', className]} aria-hidden="true">
-      <img src={image.src} width={image.width} height={image.height} alt="" loading="lazy" decoding="async" />
-    </span>
-  ) : icon ? (
+  icon ? (
     <span
       class:list={['inline-flex [&_svg]:h-full [&_svg]:w-full', className]}
       set:html={icon}

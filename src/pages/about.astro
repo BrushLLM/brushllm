@@ -8,16 +8,16 @@ import { models } from '../data/models';
 const values = [
   {
     icon: Globe2,
-    title: 'Source for the world',
+    title: 'Open to the world',
     description:
-      'China’s frontier models shouldn’t need a local ID, a local card, or a VPN to reach — and shouldn’t cost a fortune either. We deliver them, at the source, at prices any developer can afford.',
+      'Frontier AI shouldn’t need separate accounts, local payment hoops, or region locks — and shouldn’t cost a fortune either. One signup, in USD, from any country.',
     tile: 'bg-brush-violet shadow-violet-500/25',
   },
   {
     icon: Paintbrush,
-    title: 'Radical simplicity',
+    title: 'Two products, one account',
     description:
-      'One key, one endpoint, one bill. If integrating us takes longer than a coffee break, that’s our bug, not your problem.',
+      'One key, one endpoint, one bill — and a full image studio on the side. If integrating us takes longer than a coffee break, that’s our bug, not your problem.',
     tile: 'bg-brush-orange shadow-orange-500/25',
   },
   {
@@ -39,39 +39,37 @@ const values = [
 
 <BaseLayout
   title="About"
-  description="BrushLLM delivers the source of China’s frontier AI to developers in every country — one OpenAI-compatible endpoint, one key, one bill."
+  description="BrushLLM is an AI platform with two core products — AI Model Services (one API for the world’s leading models) and Image Studio, a browser-based AI image editor."
 >
   <section class="relative mx-auto max-w-4xl px-4 py-16 sm:px-6">
 <BrushStroke shape="sweep" color="violet" class="pointer-events-none absolute -top-10 -right-44 w-[620px] rotate-2 opacity-15" />
 
     <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">About</p>
     <h1 class="mt-3 text-4xl font-bold tracking-tight text-balance sm:text-5xl">
-      China’s AI, served at the
+      One platform for
       <span class="relative inline-block px-1">
         <BrushStroke shape="highlight" color="violet" class="absolute inset-x-0 top-1/2 h-[0.78em] -translate-y-[42%] -rotate-1 opacity-25" />
-        <span class="relative whitespace-nowrap text-ink">source</span>
+        <span class="relative whitespace-nowrap text-ink">AI models & AI images</span>
       </span>
-      — for everyone
     </h1>
 
     <div class="mt-8 space-y-5 text-lg leading-relaxed text-muted">
       <p>
-        DeepSeek, Qwen, GLM, Kimi — the labs behind these models are pushing the frontier of coding,
-        reasoning and agentic AI. But if you’re a developer outside mainland China, actually
-        <em>using</em> them means juggling local accounts, payments and docs in a language your
-        stack doesn’t speak.
+        BrushLLM is an AI company with two equally important products. <strong class="text-ink">AI
+        Model Services</strong> gives developers one OpenAI-compatible API for the world’s leading
+        models — DeepSeek, Qwen, GLM, Kimi, Doubao, MiniMax, GPT and text-to-image, {models.length}
+        models in one catalog. <strong class="text-ink">Image Studio</strong> is a browser-based AI
+        image editor that brings the same power to everyone — generate, edit, expand, upscale and
+        restyle images with plain words.
       </p>
       <p>
-        BrushLLM exists to close that gap — and to go one step further. We aggregate
-        {models.length} models from China’s leading labs, plus ChatGPT and text-to-image, behind a
-        single OpenAI-compatible endpoint billed in USD, documented in English, and reachable from
-        anywhere. Your code stays the same — only the base URL changes.
+        Both products run on one account, one balance, and the same promise: honest published
+        prices, pay-as-you-go, no subscriptions — and privacy by design. No trackers, no analytics,
+        no selling data, ever.
       </p>
       <p>
-        Our mission is simple: make frontier AI affordable and effortless for the world — every
-        country, every region, every developer with an idea worth building — and protect your
-        privacy at every hop. Beyond the gateway, Image Studio wraps the same models in a
-        browser-based AI photo editor, coming soon.
+        Our mission is simple: make powerful AI effortless and affordable for every developer and
+        creator, in every country — and protect your privacy at every hop.
       </p>
     </div>
 

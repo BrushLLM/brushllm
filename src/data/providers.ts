@@ -1,13 +1,13 @@
 /**
- * AI providers available through BrushLLM — China's leading labs plus OpenAI
- * (ChatGPT / GPT-Image). Edit this list to match what your sub2api actually serves.
+ * AI providers available through BrushLLM — the world's leading labs and OpenAI.
+ * Edit this list to match what your sub2api actually serves.
  */
 export interface Provider {
   /** slug used in models.ts and as data-provider filter key */
   id: string;
   /** English name */
   name: string;
-  /** Chinese name, kept for reference (never rendered on the site) */
+  /** original-market name, kept for reference (never rendered on the site) */
   nameZh: string;
   /** one-line blurb */
   blurb: string;
@@ -56,7 +56,7 @@ export const providers: Provider[] = [
     id: 'openai',
     name: 'OpenAI',
     nameZh: 'OpenAI',
-    blurb: 'ChatGPT and GPT-Image models, carried alongside the Chinese labs.',
+    blurb: 'ChatGPT and GPT-Image models, alongside the leading open labs.',
   },
 ];
 

@@ -7,8 +7,7 @@ import { formatContext, formatPrice, models } from '../data/models';
 import { providers } from '../data/providers';
 
 const providerName = (id: string) => providers.find((p) => p.id === id)?.name ?? id;
-const chatModels = models.filter((m) => !m.capabilities.includes('embeddings') && !m.capabilities.includes('image'));
-const embeddingModels = models.filter((m) => m.capabilities.includes('embeddings'));
+const chatModels = models.filter((m) => !m.capabilities.includes('image'));
 const imageModels = models.filter((m) => m.capabilities.includes('image'));
 const freeModels = models.filter((m) => m.price.input === 0 && m.price.output === 0);
 
@@ -99,39 +98,6 @@ const highlights = [
         </tbody>
       </table>
     </div>
-
-    {
-      embeddingModels.length > 0 && (
-        <>
-          <h2 class="reveal mt-12 text-2xl font-bold tracking-tight">Embeddings</h2>
-          <div class="reveal mt-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm">
-            <table class="w-full text-left text-sm">
-              <thead class="border-b border-stone-100 bg-stone-50 text-xs uppercase tracking-wide text-stone-500">
-                <tr>
-                  <th class="px-4 py-3 font-medium">Model</th>
-                  <th class="px-4 py-3 font-medium">Provider</th>
-                  <th class="px-4 py-3 font-medium">Context</th>
-                  <th class="px-4 py-3 text-right font-medium">Input / 1M</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-stone-100">
-                {embeddingModels.map((model) => (
-                  <tr class="transition hover:bg-stone-50">
-                    <td class="px-4 py-3">
-                      <p class="font-medium">{model.name}</p>
-                      <code class="mt-0.5 font-mono text-xs text-stone-500">{model.id}</code>
-                    </td>
-                    <td class="px-4 py-3 text-stone-700">{providerName(model.provider)}</td>
-                    <td class="px-4 py-3 text-stone-500">{formatContext(model.context)}</td>
-                    <td class="px-4 py-3 text-right font-semibold">{formatPrice(model.price.input)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </>
-      )
-    }
 
     {
       imageModels.length > 0 && (

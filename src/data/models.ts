@@ -6,7 +6,6 @@ export type Capability =
   | 'tools'
   | 'vision'
   | 'long-context'
-  | 'embeddings'
   | 'image';
 
 export const capabilityLabels: Record<Capability, string> = {
@@ -15,7 +14,6 @@ export const capabilityLabels: Record<Capability, string> = {
   tools: 'Tool Calling',
   vision: 'Vision',
   'long-context': 'Long Context',
-  embeddings: 'Embeddings',
   image: 'Text-to-Image',
 };
 
@@ -56,7 +54,7 @@ export interface Model {
   /**
    * Indicative price in USD per 1M tokens (input / output).
    * Placeholder values — align them with the rates configured in your
-   * sub2api console. `null` = not applicable (e.g. embeddings have no output price).
+   * sub2api console. `null` = not applicable (e.g. image models are priced per image).
    */
   price: { input: number | null; output: number | null };
   /** for image models: indicative price in USD per generated image */
@@ -196,16 +194,6 @@ export const models: Model[] = [
     context: 131072,
     capabilities: ['chat', 'vision'],
     price: { input: 0.28, output: 0.83 },
-  },
-  {
-    id: 'text-embedding-v4',
-    name: 'Text Embedding v4',
-    provider: 'qwen',
-    description: 'Multilingual embedding model for search and RAG pipelines.',
-    context: 8192,
-    capabilities: ['embeddings'],
-    price: { input: 0.05, output: null },
-    bestFor: ["rag"],
   },
   // ── Moonshot Kimi ───────────────────────────────────────────
   {

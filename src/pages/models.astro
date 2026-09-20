@@ -3,7 +3,7 @@ import { Search } from '@lucide/astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BrushStroke from '../components/BrushStroke.astro';
 import ModelCard from '../components/ModelCard.astro';
-import { bestForLabels, capabilityLabels, models } from '../data/models';
+import { capabilityLabels, models } from '../data/models';
 import { visibleProviders } from '../data/providers';
 
 const freeCount = models.filter((m) => m.price.input === 0 && m.price.output === 0).length;
@@ -99,34 +99,6 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
         </div>
       </div>
 
-      <div>
-        <p class="mb-1.5 text-[11px] font-semibold uppercase tracking-widest text-stone-400">Best for</p>
-        <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter by use case">
-          <button
-            type="button"
-            class="chip rounded-full border border-transparent bg-brush-violet px-3.5 py-1.5 text-sm font-semibold text-white shadow-md shadow-violet-500/25 transition"
-            data-group="bestfor"
-            data-value="all"
-            aria-pressed="true"
-          >
-            All
-          </button>
-          {
-            Object.entries(bestForLabels).map(([value, label]) => (
-              <button
-                type="button"
-                class="chip rounded-full border border-stone-300 bg-white px-3.5 py-1.5 text-sm font-medium text-muted transition hover:border-violet-400 hover:text-brush-violet"
-                data-group="bestfor"
-                data-value={value}
-                aria-pressed="false"
-              >
-                {label}
-              </button>
-            ))
-          }
-        </div>
-      </div>
-
       <p id="model-count" class="text-sm text-stone-500" aria-live="polite">
         Showing {models.length} of {models.length} models
       </p>
@@ -158,7 +130,7 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
     const emptyEl = document.getElementById('model-empty');
 
     /* one active value per filter group; groups combine with AND */
-    const active: Record<string, string> = { provider: 'all', capability: 'all', bestfor: 'all' };
+    const active: Record<string, string> = { provider: 'all', capability: 'all' };
 
     const setChipActive = (chip: HTMLButtonElement, on: boolean) => {
       chip.setAttribute('aria-pressed', String(on));
@@ -180,11 +152,9 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
 
       cards.forEach((card) => {
         const caps = (card.dataset.capabilities ?? '').split(',').filter(Boolean);
-        const tags = (card.dataset.bestfor ?? '').split(',').filter(Boolean);
         const show =
           (active.provider === 'all' || card.dataset.provider === active.provider) &&
           (active.capability === 'all' || caps.includes(active.capability)) &&
-          (active.bestfor === 'all' || tags.includes(active.bestfor)) &&
           (!query || (card.dataset.search ?? '').includes(query));
         card.classList.toggle('hidden', !show);
         if (show) visible++;

@@ -45,6 +45,27 @@ export interface Model {
 }
 
 export const models: Model[] = [
+  // ── OpenAI (ChatGPT) ────────────────────────────────
+  // ids and prices are placeholders — align them with your sub2api catalog.
+  {
+    id: 'gpt-5.2',
+    name: 'GPT-5.2',
+    provider: 'openai',
+    description: 'ChatGPT’s flagship — strong general reasoning, vision and tool use.',
+    context: 400000,
+    capabilities: ['chat', 'reasoning', 'tools', 'vision'],
+    price: { input: 1.25, output: 10.0 },
+    featured: true,
+  },
+  {
+    id: 'gpt-5.2-mini',
+    name: 'GPT-5.2 mini',
+    provider: 'openai',
+    description: 'Fast, cheap ChatGPT tier for high-volume chat, classification and extraction.',
+    context: 400000,
+    capabilities: ['chat', 'tools'],
+    price: { input: 0.25, output: 2.0 },
+  },
   // ── DeepSeek ────────────────────────────────────────────────
   {
     id: 'deepseek-chat',
@@ -65,6 +86,35 @@ export const models: Model[] = [
     capabilities: ['reasoning', 'tools', 'long-context'],
     price: { input: 0.55, output: 2.19 },
     featured: true,
+  },
+  // ── Zhipu GLM ───────────────────────────────────────────────
+  {
+    id: 'glm-4.6',
+    name: 'GLM-4.6',
+    provider: 'glm',
+    description: 'Z.ai flagship. Strong coding, writing, and agentic planning; 200K context.',
+    context: 204800,
+    capabilities: ['chat', 'reasoning', 'tools', 'long-context'],
+    price: { input: 0.6, output: 2.2 },
+    featured: true,
+  },
+  {
+    id: 'glm-4.5-air',
+    name: 'GLM-4.5 Air',
+    provider: 'glm',
+    description: 'Lighter GLM tuned for cost-sensitive production traffic.',
+    context: 131072,
+    capabilities: ['chat', 'tools'],
+    price: { input: 0.2, output: 1.1 },
+  },
+  {
+    id: 'glm-4.5-flash',
+    name: 'GLM-4.5 Flash',
+    provider: 'glm',
+    description: 'Free tier of the GLM family — great for prototypes and hobby projects.',
+    context: 131072,
+    capabilities: ['chat', 'tools'],
+    price: { input: 0, output: 0 },
   },
   // ── Qwen ────────────────────────────────────────────────────
   {
@@ -121,35 +171,6 @@ export const models: Model[] = [
     context: 8192,
     capabilities: ['embeddings'],
     price: { input: 0.05, output: null },
-  },
-  // ── Zhipu GLM ───────────────────────────────────────────────
-  {
-    id: 'glm-4.6',
-    name: 'GLM-4.6',
-    provider: 'glm',
-    description: 'Z.ai flagship. Strong coding, writing, and agentic planning; 200K context.',
-    context: 204800,
-    capabilities: ['chat', 'reasoning', 'tools', 'long-context'],
-    price: { input: 0.6, output: 2.2 },
-    featured: true,
-  },
-  {
-    id: 'glm-4.5-air',
-    name: 'GLM-4.5 Air',
-    provider: 'glm',
-    description: 'Lighter GLM tuned for cost-sensitive production traffic.',
-    context: 131072,
-    capabilities: ['chat', 'tools'],
-    price: { input: 0.2, output: 1.1 },
-  },
-  {
-    id: 'glm-4.5-flash',
-    name: 'GLM-4.5 Flash',
-    provider: 'glm',
-    description: 'Free tier of the GLM family — great for prototypes and hobby projects.',
-    context: 131072,
-    capabilities: ['chat', 'tools'],
-    price: { input: 0, output: 0 },
   },
   // ── Moonshot Kimi ───────────────────────────────────────────
   {
@@ -208,27 +229,6 @@ export const models: Model[] = [
     context: 204800,
     capabilities: ['chat', 'tools', 'long-context'],
     price: { input: 0.3, output: 1.2 },
-  },
-  // ── OpenAI (ChatGPT) ────────────────────────────────
-  // ids and prices are placeholders — align them with your sub2api catalog.
-  {
-    id: 'gpt-5.2',
-    name: 'GPT-5.2',
-    provider: 'openai',
-    description: 'ChatGPT’s flagship — strong general reasoning, vision and tool use.',
-    context: 400000,
-    capabilities: ['chat', 'reasoning', 'tools', 'vision'],
-    price: { input: 1.25, output: 10.0 },
-    featured: true,
-  },
-  {
-    id: 'gpt-5.2-mini',
-    name: 'GPT-5.2 mini',
-    provider: 'openai',
-    description: 'Fast, cheap ChatGPT tier for high-volume chat, classification and extraction.',
-    context: 400000,
-    capabilities: ['chat', 'tools'],
-    price: { input: 0.25, output: 2.0 },
   },
   // ── Image generation ────────────────────────────────────────
   // ids and prices are placeholders — align them with your sub2api catalog.

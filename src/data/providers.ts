@@ -17,22 +17,28 @@ export interface Provider {
 
 export const providers: Provider[] = [
   {
+    id: 'openai',
+    name: 'OpenAI',
+    nameZh: 'OpenAI',
+    blurb: 'ChatGPT and GPT-Image models, alongside the leading open labs.',
+  },
+  {
     id: 'deepseek',
     name: 'DeepSeek',
     nameZh: '深度求索',
     blurb: 'Open-weight reasoning pioneers behind the V3 and R1 series.',
   },
   {
-    id: 'qwen',
-    name: 'Alibaba Qwen',
-    nameZh: '通义千问',
-    blurb: 'Alibaba’s Qwen family — max-tier flagships to tiny open models.',
-  },
-  {
     id: 'glm',
     name: 'Zhipu GLM',
     nameZh: '智谱',
     blurb: 'Z.ai’s GLM series, strong at coding and agentic workflows.',
+  },
+  {
+    id: 'qwen',
+    name: 'Alibaba Qwen',
+    nameZh: '通义千问',
+    blurb: 'Alibaba’s Qwen family — max-tier flagships to tiny open models.',
   },
   {
     id: 'kimi',
@@ -51,12 +57,6 @@ export const providers: Provider[] = [
     name: 'MiniMax',
     nameZh: '稀宇科技',
     blurb: 'Efficient agentic models like MiniMax-M2.',
-  },
-  {
-    id: 'openai',
-    name: 'OpenAI',
-    nameZh: 'OpenAI',
-    blurb: 'ChatGPT and GPT-Image models, alongside the leading open labs.',
   },
 ];
 

@@ -110,27 +110,17 @@ h3,
 }
 
 /* ── shiny CTA: orbiting rim light (llmgateway / Aceternity) ─ */
-@keyframes shimmer-slide {
-  0% {
-    transform: translate(-150%, -150%);
-  }
-  100% {
-    transform: translate(150%, 150%);
-  }
-}
+/* pure rotation: the wedge element is flex-centered inside the button, so
+   the transform never needs a translate offset. */
 @keyframes spin-around {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
+  from {
+    transform: rotate(0deg);
   }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
+  to {
+    transform: rotate(360deg);
   }
 }
-/* the square carrier slides diagonally across the button and back */
-.shiny-slide {
-  animation: shimmer-slide 3s ease-in-out infinite alternate;
-}
-/* the conic light wedge rotates inside the carrier */
+/* the light wedge orbits the rim continuously — always visible */
 .shiny-spin {
   animation: spin-around 6s linear infinite;
 }
@@ -143,7 +133,6 @@ h3,
   }
   .marquee-track,
   .swipe-in,
-  .shiny-slide,
   .shiny-spin {
     animation: none;
   }

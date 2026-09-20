@@ -1,9 +1,9 @@
 ---
 /**
- * llmgateway-style shiny CTA: a white conic light wedge rotates inside a
- * square carrier that itself slides diagonally across the button (both
- * blurred 2px). An inner face covers the center, so the moving light reads
- * as a bright streak orbiting the button rim.
+ * llmgateway-style shiny CTA: a white conic light wedge rotates around the
+ * button center, centered and larger than the button so a bright arc is
+ * always present somewhere on the rim (never slides out of view). An inner
+ * face covers the center, so the light reads as a streak orbiting the border.
  */
 interface Props {
   href: string;
@@ -34,12 +34,10 @@ const {
     className,
   ]}
 >
-  <div class="pointer-events-none absolute -z-30 inset-0 overflow-visible blur-[2px]" aria-hidden="true">
-    <div class="shiny-slide absolute top-0 left-0 aspect-square h-full">
-      <div
-        class="shiny-spin absolute -inset-full bg-[conic-gradient(from_225deg,transparent_0deg,#ffffff_22.5deg,#ffffff_67.5deg,transparent_90deg)]"
-      >
-      </div>
+  <div class="pointer-events-none absolute -z-30 inset-0 flex items-center justify-center blur-[2px]" aria-hidden="true">
+    <div
+      class="shiny-spin aspect-square w-[150%] shrink-0 bg-[conic-gradient(from_235deg,transparent_0deg,#ffffff_20deg,#ffffff_60deg,transparent_80deg)]"
+    >
     </div>
   </div>
 
@@ -48,7 +46,7 @@ const {
   </span>
 
   <div
-    class:list={['pointer-events-none absolute inset-[2px] -z-20 rounded-[14px] transition-colors', bg, hoverBg]}
+    class:list={['pointer-events-none absolute inset-[3px] -z-20 rounded-[13px] transition-colors', bg, hoverBg]}
     aria-hidden="true"
   >
   </div>

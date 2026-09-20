@@ -22,6 +22,31 @@ import { LINKS, SITE } from '../config';
 import { models } from '../data/models';
 import { visibleProviders } from '../data/providers';
 
+/* GEO structured data: the two core products, stated factually */
+const productSchemas: Record<string, unknown>[] = [
+  {
+    '@type': 'Product',
+    '@id': `${SITE.url}/#ai-model-services`,
+    name: 'BrushLLM AI Model Services',
+    description:
+      'Unified API access to multiple AI models through one OpenAI-compatible endpoint. Built for developers, startups, and businesses.',
+    url: `${SITE.url}/models`,
+    brand: { '@type': 'Brand', name: 'BrushLLM' },
+    category: 'AI Model API',
+  },
+  {
+    '@type': 'SoftwareApplication',
+    '@id': `${SITE.url}/#image-studio`,
+    name: 'BrushLLM Image Studio',
+    applicationCategory: 'MultimediaApplication',
+    operatingSystem: 'Web',
+    description:
+      'AI-powered image creation and editing studio for creators and everyday users — generate, edit, remove, replace, expand, upscale, restyle, and transform images in the browser. Currently in development; early access is open.',
+    url: `${SITE.url}/studio`,
+    brand: { '@type': 'Brand', name: 'BrushLLM' },
+  },
+];
+
 const codeTabs = [
   {
     label: 'cURL',
@@ -177,6 +202,11 @@ const developerFaqs = [
       'Strictly pay-as-you-go in USD — per token for text models, per image for image models. No subscriptions or minimums; several models have free tiers.',
   },
   {
+    question: 'Is BrushLLM suitable for startups and businesses?',
+    answer:
+      'Yes. One endpoint covers every provider, usage-based pricing scales with you, each key carries its own spend quota, and volume discounts are available for committed use.',
+  },
+  {
     question: 'How do you protect my privacy?',
     answer:
       'We collect only what an account needs to function. No trackers, no analytics, no ads — your prompts are proxied straight to the upstream model and never stored, sold, or used to profile you.',
@@ -204,10 +234,20 @@ const creatorFaqs = [
     answer:
       'Yes — text-to-image generation, style transfer and detail-preserving upscaling all run in the same workspace, powered by GPT-Image, Jimeng and Seedream.',
   },
+  {
+    question: 'When will Image Studio be available?',
+    answer:
+      'Image Studio is currently in development and available through early access. Follow the Studio page for updates as it takes shape.',
+  },
+  {
+    question: 'How can I get early access?',
+    answer:
+      `Email ${'hello@brushllm.com'} with the subject “Image Studio early access” — we onboard early users in small batches and read every message.`,
+  },
 ];
 ---
 
-<BaseLayout>
+<BaseLayout faqSchema={[...developerFaqs, ...creatorFaqs]} extraSchema={productSchemas}>
   <!-- ═══ Hero ═══ -->
   <section class="relative overflow-hidden">
     <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
@@ -222,7 +262,7 @@ const creatorFaqs = [
       </p>
 
       <h1 class="reveal mx-auto mt-7 max-w-4xl text-5xl font-bold tracking-tight text-balance sm:text-6xl lg:text-7xl">
-        Your AI,
+        Your AI,{' '}
         <span class="relative inline-block px-0.5">
           <BrushStroke shape="highlight" color="violet" class="absolute inset-x-0 top-1/2 h-[0.78em] -translate-y-[42%] -rotate-1 opacity-25" />
           <span class="relative whitespace-nowrap text-ink">Without the Complexity.</span>
@@ -245,7 +285,7 @@ const creatorFaqs = [
           href="/studio"
           class="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-brush-fuchsia px-8 py-4 text-base font-semibold text-white shadow-xl shadow-fuchsia-500/25 transition hover:scale-[1.02] hover:bg-fuchsia-600 sm:w-auto"
         >
-          Open Image Studio
+          Explore Image Studio
           <ArrowRight class="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
         </a>
       </div>
@@ -257,7 +297,15 @@ const creatorFaqs = [
   <section class="mx-auto max-w-6xl px-4 py-24 sm:px-6">
     <div class="reveal mx-auto max-w-2xl text-center">
       <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">Two products</p>
-      <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">One platform. Two ways to build with AI.</h2>
+      <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">One platform. Built for developers and creators.</h2>
+      <p class="mt-4 leading-relaxed text-muted">
+        BrushLLM is an AI platform for developers and creators. It provides unified API access to
+        AI models through one endpoint —
+        <a href="/models" class="font-semibold text-brush-violet hover:text-violet-700">AI Model Services</a>
+        — and offers
+        <a href="/studio" class="font-semibold text-brush-fuchsia hover:text-fuchsia-700">Image Studio</a>,
+        an AI-powered image creation and editing studio.
+      </p>
     </div>
 
     <div class="mt-12 grid gap-6 lg:grid-cols-2">
@@ -313,7 +361,7 @@ const creatorFaqs = [
         <p class="relative mt-5 text-xs font-medium uppercase tracking-wide text-stone-400">Creators · Designers · Everyone</p>
         <div class="relative mt-4 flex flex-wrap gap-3">
           <a href="/studio" class="group/create inline-flex items-center gap-1.5 rounded-xl bg-brush-fuchsia px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-fuchsia-500/25 transition hover:bg-fuchsia-600">
-            Open Image Studio
+            Explore Image Studio
             <ArrowRight class="h-4 w-4 transition-transform group-hover/create:translate-x-0.5" aria-hidden="true" />
           </a>
         </div>
@@ -433,7 +481,7 @@ const creatorFaqs = [
 
         <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a href="/studio" class="group/show inline-flex items-center gap-2 rounded-xl bg-brush-fuchsia px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-fuchsia-500/25 transition hover:bg-fuchsia-600">
-            Open Image Studio
+            Explore Image Studio
             <ArrowRight class="h-4 w-4 transition-transform group-hover/show:translate-x-0.5" aria-hidden="true" />
           </a>
           <a href={`mailto:${SITE.contactEmail}?subject=Image%20Studio%20early%20access`} class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-fuchsia-400 hover:text-brush-fuchsia">
@@ -599,7 +647,7 @@ const creatorFaqs = [
             href="/studio"
             class="group inline-flex items-center gap-2 rounded-xl bg-brush-fuchsia px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-fuchsia-500/25 transition hover:bg-fuchsia-600"
           >
-            Open Image Studio
+            Explore Image Studio
             <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
           </a>
           <a href={`mailto:${SITE.contactEmail}?subject=Image%20Studio%20early%20access`} class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-fuchsia-400 hover:text-brush-fuchsia">

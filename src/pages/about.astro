@@ -17,7 +17,7 @@ const values = [
     icon: Paintbrush,
     title: 'Two products, one account',
     description:
-      'One key, one endpoint, one bill — and a full image studio on the side. If integrating us takes longer than a coffee break, that’s our bug, not your problem.',
+      'Two products, one account, one bill. If integrating us takes longer than a coffee break, that’s our bug, not your problem.',
     tile: 'bg-brush-orange shadow-orange-500/25',
   },
   {
@@ -60,14 +60,17 @@ const values = [
         design.
       </p>
       <p>
-        <strong class="text-ink">For developers.</strong> AI Model Services — a unified API for
-        accessing powerful AI models. {models.length} models from DeepSeek, Qwen, GLM, Kimi,
-        Doubao, MiniMax, OpenAI and more, behind one OpenAI-compatible endpoint.
+        <strong class="text-ink">For developers.</strong>
+        <a href="/models" class="font-semibold text-brush-violet hover:text-violet-700">AI Model Services</a>
+        — a unified API for accessing powerful AI models. {models.length} models from DeepSeek,
+        Qwen, GLM, Kimi, Doubao, MiniMax, OpenAI and more, behind one OpenAI-compatible endpoint.
       </p>
       <p>
-        <strong class="text-ink">For creators.</strong> Image Studio — an AI-powered image creation
-        and editing studio. Generate, edit, expand, upscale and restyle images with plain words,
-        right in the browser. Coming soon.
+        <strong class="text-ink">For creators.</strong>
+        <a href="/studio" class="font-semibold text-brush-fuchsia hover:text-fuchsia-700">Image Studio</a>
+        — an AI-powered image creation and editing studio. Generate, edit, expand, upscale and
+        restyle images with plain words, right in the browser. Currently in development;
+        <a href={`mailto:${SITE.contactEmail}?subject=Image%20Studio%20early%20access`} class="font-semibold text-brush-fuchsia hover:text-fuchsia-700"> early access is open</a>.
       </p>
     </div>
 

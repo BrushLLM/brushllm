@@ -4,6 +4,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import BrushStroke from '../components/BrushStroke.astro';
 import { SITE } from '../config';
 
+const studioSchema: Record<string, unknown>[] = [
+  {
+    '@type': 'SoftwareApplication',
+    '@id': `${SITE.url}/#image-studio`,
+    name: 'BrushLLM Image Studio',
+    applicationCategory: 'MultimediaApplication',
+    operatingSystem: 'Web',
+    description:
+      'AI-powered image creation and editing studio for creators and everyday users — generate, edit, remove, replace, expand, upscale, restyle, and transform images in the browser. Currently in development; early access is open.',
+    url: `${SITE.url}/studio`,
+    brand: { '@type': 'Brand', name: 'BrushLLM' },
+  },
+];
+
 const planned = [
   {
     icon: ImagePlus,
@@ -33,6 +47,7 @@ const planned = [
 ---
 
 <BaseLayout
+  extraSchema={studioSchema}
   title="Image Studio"
   description="BrushLLM Image Studio — a browser-based AI image editor on top of our gateway. Coming soon."
 >

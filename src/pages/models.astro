@@ -10,7 +10,7 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
 ---
 
 <BaseLayout
-  title="Models"
+  title="AI Models"
   description={`Browse ${models.length} AI models — from DeepSeek, Qwen, GLM and Kimi to GPT and text-to-image — with context windows, capabilities and indicative prices.`}
 >
   <section class="relative overflow-hidden">
@@ -83,7 +83,9 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
     <p class="mt-8 text-xs leading-relaxed text-stone-400">
       Prices are indicative list prices in USD — per 1M tokens for text models, per generated
       image for image models — and may differ from the rates configured in your console. Context
-      windows are the maximum supported by each upstream model.
+      windows are the maximum supported by each upstream model. See the
+      <a href="/docs" class="font-medium text-brush-violet hover:text-violet-700">Docs</a>
+      for integration details.
     </p>
   </section>
 

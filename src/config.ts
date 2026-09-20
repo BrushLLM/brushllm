@@ -8,9 +8,9 @@
 export const SITE = {
   name: 'BrushLLM',
   url: 'https://brushllm.com',
-  title: 'BrushLLM — AI Models. AI Images. One Platform.',
+  title: 'BrushLLM — Your AI, Without the Complexity',
   description:
-    'One API for the world’s leading AI models — and Image Studio, a browser-based AI image editor. One platform for developers and creators.',
+    'One API for powerful AI models. One studio for AI-powered image creation. BrushLLM is an AI platform for developers and creators.',
   contactEmail: 'hello@brushllm.com',
 } as const;
 

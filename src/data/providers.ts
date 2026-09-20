@@ -1,5 +1,5 @@
 /**
- * AI providers available through BrushLLM — the world's leading labs and OpenAI.
+ * AI providers available through BrushLLM — leading labs plus OpenAI.
  * Edit this list to match what your sub2api actually serves.
  */
 export interface Provider {

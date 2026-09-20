@@ -29,10 +29,11 @@ export const LINKS = {
   apiBase: 'https://api.brushllm.com/v1',
 } as const;
 
-/** Main navigation (header + footer) */
+/** Main navigation (header + footer). `badge` renders a small pill (e.g. Soon). */
 export const NAV = [
   { label: 'Models', href: '/models' },
   { label: 'Pricing', href: '/pricing' },
+  { label: 'Image Studio', href: '/studio', badge: 'Soon' },
   { label: 'Docs', href: '/docs' },
   { label: 'About', href: '/about' },
 ] as const;

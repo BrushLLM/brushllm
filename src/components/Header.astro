@@ -37,6 +37,11 @@ const isActive = (href: string) =>
             aria-current={isActive(item.href) ? 'page' : undefined}
           >
             {item.label}
+            {item.badge && (
+              <span class="ml-1 rounded-full bg-brush-fuchsia px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">
+                {item.badge}
+              </span>
+            )}
           </a>
         ))
       }

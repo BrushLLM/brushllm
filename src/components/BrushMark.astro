@@ -1,0 +1,16 @@
+---
+/**
+ * BrushLLM brand mark — the official brush illustration (inline SVG so it
+ * scales crisply at any size). Multicolor; use as-is, no currentColor.
+ */
+import brushMark from '../assets/brush-mark.svg?raw';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = 'h-8 w-8' } = Astro.props;
+---
+
+<span class:list={['inline-block align-middle [&_svg]:h-full [&_svg]:w-full', className]} set:html={brushMark} aria-hidden="true">
+</span>

@@ -1,17 +1,15 @@
 ---
-import FlatBrush from './FlatBrush.astro';
+import BrushMark from './BrushMark.astro';
 
 interface Props {
   class?: string;
 }
 
-const { class: className = 'h-7 w-7' } = Astro.props;
+const { class: className = 'h-9 w-9' } = Astro.props;
 ---
 
 <span class="inline-flex items-center gap-2.5">
-  <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-brush-violet text-white shadow-lg shadow-violet-500/25">
-    <FlatBrush class={className} />
-  </span>
+  <BrushMark class={className} />
   <span class="font-display text-xl font-bold tracking-tight">
     Brush<span class="text-brush-violet">LLM</span>
   </span>

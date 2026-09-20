@@ -72,10 +72,10 @@ const planned = [
       your browser, powered by the BrushLLM platform. No installs, no subscriptions, just upload
       and paint.
     </p>
-    <ul class="mx-auto mt-6 flex max-w-xl flex-wrap justify-center gap-2">
+    <ul class="mx-auto mt-6 flex flex-wrap justify-center gap-1.5 sm:gap-2">
       {
         ['Generate', 'Edit', 'Remove', 'Replace', 'Expand', 'Upscale', 'Restyle', 'Transform'].map((cap) => (
-          <li class="rounded-full border border-stone-200 bg-white px-3 py-1 text-xs font-medium text-brush-fuchsia shadow-sm">{cap}</li>
+          <li class="rounded-full border border-stone-200 bg-white px-2.5 py-1 text-[11px] font-medium text-brush-fuchsia shadow-sm sm:px-3 sm:text-xs">{cap}</li>
         ))
       }
     </ul>

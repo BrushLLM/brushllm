@@ -3,7 +3,7 @@ import { Search } from '@lucide/astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BrushStroke from '../components/BrushStroke.astro';
 import ModelCard from '../components/ModelCard.astro';
-import { models } from '../data/models';
+import { bestForLabels, capabilityLabels, models } from '../data/models';
 import { visibleProviders } from '../data/providers';
 
 const freeCount = models.filter((m) => m.price.input === 0 && m.price.output === 0).length;
@@ -43,27 +43,88 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
         />
       </div>
 
-      <div class="flex flex-wrap items-center gap-2" id="provider-chips" role="group" aria-label="Filter by provider">
-        <button
-          type="button"
-          class="chip rounded-full border border-transparent bg-brush-violet px-3.5 py-1.5 text-sm font-semibold text-white shadow-md shadow-violet-500/25 transition"
-          data-provider="all"
-          aria-pressed="true"
-        >
-          All
-        </button>
-        {
-          visibleProviders.map((provider) => (
-            <button
-              type="button"
-              class="chip rounded-full border border-stone-300 bg-white px-3.5 py-1.5 text-sm font-medium text-muted transition hover:border-violet-400 hover:text-brush-violet"
-              data-provider={provider.id}
-              aria-pressed="false"
-            >
-              {provider.name}
-            </button>
-          ))
-        }
+      <div>
+        <p class="mb-1.5 text-[11px] font-semibold uppercase tracking-widest text-stone-400">Provider</p>
+        <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter by provider">
+          <button
+            type="button"
+            class="chip rounded-full border border-transparent bg-brush-violet px-3.5 py-1.5 text-sm font-semibold text-white shadow-md shadow-violet-500/25 transition"
+            data-group="provider"
+            data-value="all"
+            aria-pressed="true"
+          >
+            All
+          </button>
+          {
+            visibleProviders.map((provider) => (
+              <button
+                type="button"
+                class="chip rounded-full border border-stone-300 bg-white px-3.5 py-1.5 text-sm font-medium text-muted transition hover:border-violet-400 hover:text-brush-violet"
+                data-group="provider"
+                data-value={provider.id}
+                aria-pressed="false"
+              >
+                {provider.name}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <p class="mb-1.5 text-[11px] font-semibold uppercase tracking-widest text-stone-400">Capability</p>
+        <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter by capability">
+          <button
+            type="button"
+            class="chip rounded-full border border-transparent bg-brush-violet px-3.5 py-1.5 text-sm font-semibold text-white shadow-md shadow-violet-500/25 transition"
+            data-group="capability"
+            data-value="all"
+            aria-pressed="true"
+          >
+            All
+          </button>
+          {
+            Object.entries(capabilityLabels).map(([value, label]) => (
+              <button
+                type="button"
+                class="chip rounded-full border border-stone-300 bg-white px-3.5 py-1.5 text-sm font-medium text-muted transition hover:border-violet-400 hover:text-brush-violet"
+                data-group="capability"
+                data-value={value}
+                aria-pressed="false"
+              >
+                {label}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <p class="mb-1.5 text-[11px] font-semibold uppercase tracking-widest text-stone-400">Best for</p>
+        <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter by use case">
+          <button
+            type="button"
+            class="chip rounded-full border border-transparent bg-brush-violet px-3.5 py-1.5 text-sm font-semibold text-white shadow-md shadow-violet-500/25 transition"
+            data-group="bestfor"
+            data-value="all"
+            aria-pressed="true"
+          >
+            All
+          </button>
+          {
+            Object.entries(bestForLabels).map(([value, label]) => (
+              <button
+                type="button"
+                class="chip rounded-full border border-stone-300 bg-white px-3.5 py-1.5 text-sm font-medium text-muted transition hover:border-violet-400 hover:text-brush-violet"
+                data-group="bestfor"
+                data-value={value}
+                aria-pressed="false"
+              >
+                {label}
+              </button>
+            ))
+          }
+        </div>
       </div>
 
       <p id="model-count" class="text-sm text-stone-500" aria-live="polite">
@@ -77,7 +138,7 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
     </div>
 
     <p id="model-empty" class="mt-10 hidden rounded-2xl border border-dashed border-stone-300 bg-white p-10 text-center text-muted">
-      No models match your search. Try a different keyword or provider.
+      No models match your filters. Try a different keyword, provider, capability or use case.
     </p>
 
     <p class="mt-8 text-xs leading-relaxed text-stone-400">
@@ -96,16 +157,35 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
     const countEl = document.getElementById('model-count');
     const emptyEl = document.getElementById('model-empty');
 
-    let activeProvider = 'all';
+    /* one active value per filter group; groups combine with AND */
+    const active: Record<string, string> = { provider: 'all', capability: 'all', bestfor: 'all' };
+
+    const setChipActive = (chip: HTMLButtonElement, on: boolean) => {
+      chip.setAttribute('aria-pressed', String(on));
+      chip.classList.toggle('bg-brush-violet', on);
+      chip.classList.toggle('text-white', on);
+      chip.classList.toggle('shadow-md', on);
+      chip.classList.toggle('shadow-violet-500/25', on);
+      chip.classList.toggle('font-semibold', on);
+      chip.classList.toggle('border-transparent', on);
+      chip.classList.toggle('border-stone-300', !on);
+      chip.classList.toggle('bg-white', !on);
+      chip.classList.toggle('text-muted', !on);
+      chip.classList.toggle('font-medium', !on);
+    };
 
     const apply = () => {
       const query = (searchInput?.value ?? '').trim().toLowerCase();
       let visible = 0;
 
       cards.forEach((card) => {
-        const matchesProvider = activeProvider === 'all' || card.dataset.provider === activeProvider;
-        const matchesQuery = !query || (card.dataset.search ?? '').includes(query);
-        const show = matchesProvider && matchesQuery;
+        const caps = (card.dataset.capabilities ?? '').split(',').filter(Boolean);
+        const tags = (card.dataset.bestfor ?? '').split(',').filter(Boolean);
+        const show =
+          (active.provider === 'all' || card.dataset.provider === active.provider) &&
+          (active.capability === 'all' || caps.includes(active.capability)) &&
+          (active.bestfor === 'all' || tags.includes(active.bestfor)) &&
+          (!query || (card.dataset.search ?? '').includes(query));
         card.classList.toggle('hidden', !show);
         if (show) visible++;
       });
@@ -118,20 +198,14 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
 
     chips.forEach((chip) => {
       chip.addEventListener('click', () => {
-        activeProvider = chip.dataset.provider ?? 'all';
+        const group = chip.dataset.group ?? 'provider';
+        const value = chip.dataset.value ?? 'all';
+        // clicking the active chip again resets the group to All
+        active[group] = active[group] === value && value !== 'all' ? 'all' : value;
         chips.forEach((c) => {
-          const active = c === chip;
-          c.setAttribute('aria-pressed', String(active));
-          c.classList.toggle('bg-brush-violet', active);
-          c.classList.toggle('text-white', active);
-          c.classList.toggle('shadow-md', active);
-          c.classList.toggle('shadow-violet-500/25', active);
-          c.classList.toggle('font-semibold', active);
-          c.classList.toggle('border-transparent', active);
-          c.classList.toggle('border-stone-300', !active);
-          c.classList.toggle('bg-white', !active);
-          c.classList.toggle('text-muted', !active);
-          c.classList.toggle('font-medium', !active);
+          if ((c.dataset.group ?? 'provider') === group) {
+            setChipActive(c, (c.dataset.value ?? 'all') === active[group]);
+          }
         });
         apply();
       });

@@ -19,6 +19,27 @@ export const capabilityLabels: Record<Capability, string> = {
   image: 'Text-to-Image',
 };
 
+export type BestFor =
+  | 'everyday-chat'
+  | 'agents'
+  | 'coding'
+  | 'reasoning'
+  | 'writing'
+  | 'rag'
+  | 'images'
+  | 'budget';
+
+export const bestForLabels: Record<BestFor, string> = {
+  'everyday-chat': 'Everyday chat',
+  agents: 'Agents & tools',
+  coding: 'Coding',
+  reasoning: 'Deep reasoning',
+  writing: 'Writing & content',
+  rag: 'Search & RAG',
+  images: 'Image creation',
+  budget: 'Budget & free',
+};
+
 export interface Model {
   /** the exact string you pass as `model` in API requests */
   id: string;
@@ -30,6 +51,8 @@ export interface Model {
   /** context window in tokens; null for image models */
   context: number | null;
   capabilities: Capability[];
+  /** use-case tags driving the "Best for" filter */
+  bestFor?: BestFor[];
   /**
    * Indicative price in USD per 1M tokens (input / output).
    * Placeholder values — align them with the rates configured in your
@@ -55,6 +78,7 @@ export const models: Model[] = [
     context: 400000,
     capabilities: ['chat', 'reasoning', 'tools', 'vision'],
     price: { input: 1.25, output: 10.0 },
+    bestFor: ["agents","reasoning","writing"],
     featured: true,
   },
   {
@@ -65,6 +89,7 @@ export const models: Model[] = [
     context: 400000,
     capabilities: ['chat', 'tools'],
     price: { input: 0.25, output: 2.0 },
+    bestFor: ["everyday-chat","budget"],
   },
   // ── DeepSeek ────────────────────────────────────────────────
   {
@@ -75,6 +100,7 @@ export const models: Model[] = [
     context: 131072,
     capabilities: ['chat', 'tools', 'long-context'],
     price: { input: 0.28, output: 0.42 },
+    bestFor: ["everyday-chat","agents"],
     featured: true,
   },
   {
@@ -85,6 +111,7 @@ export const models: Model[] = [
     context: 131072,
     capabilities: ['reasoning', 'tools', 'long-context'],
     price: { input: 0.55, output: 2.19 },
+    bestFor: ["reasoning","coding"],
     featured: true,
   },
   // ── Zhipu GLM ───────────────────────────────────────────────
@@ -96,6 +123,7 @@ export const models: Model[] = [
     context: 204800,
     capabilities: ['chat', 'reasoning', 'tools', 'long-context'],
     price: { input: 0.6, output: 2.2 },
+    bestFor: ["coding","writing","agents"],
     featured: true,
   },
   {
@@ -106,6 +134,7 @@ export const models: Model[] = [
     context: 131072,
     capabilities: ['chat', 'tools'],
     price: { input: 0.2, output: 1.1 },
+    bestFor: ["everyday-chat","budget"],
   },
   {
     id: 'glm-4.5-flash',
@@ -115,6 +144,7 @@ export const models: Model[] = [
     context: 131072,
     capabilities: ['chat', 'tools'],
     price: { input: 0, output: 0 },
+    bestFor: ["budget","everyday-chat"],
   },
   // ── Qwen ────────────────────────────────────────────────────
   {
@@ -125,6 +155,7 @@ export const models: Model[] = [
     context: 262144,
     capabilities: ['chat', 'tools', 'long-context'],
     price: { input: 1.2, output: 6.0 },
+    bestFor: ["agents","writing","everyday-chat"],
     featured: true,
   },
   {
@@ -135,6 +166,7 @@ export const models: Model[] = [
     context: 262144,
     capabilities: ['chat', 'reasoning', 'tools', 'long-context'],
     price: { input: 0.2, output: 0.8 },
+    bestFor: ["reasoning"],
   },
   {
     id: 'qwen3-32b',
@@ -144,6 +176,7 @@ export const models: Model[] = [
     context: 131072,
     capabilities: ['chat', 'reasoning', 'tools'],
     price: { input: 0.06, output: 0.24 },
+    bestFor: ["everyday-chat","budget"],
   },
   {
     id: 'qwen3-coder-plus',
@@ -153,6 +186,7 @@ export const models: Model[] = [
     context: 262144,
     capabilities: ['chat', 'tools', 'long-context'],
     price: { input: 0.35, output: 1.4 },
+    bestFor: ["coding","agents"],
   },
   {
     id: 'qwen-vl-max',
@@ -171,6 +205,7 @@ export const models: Model[] = [
     context: 8192,
     capabilities: ['embeddings'],
     price: { input: 0.05, output: null },
+    bestFor: ["rag"],
   },
   // ── Moonshot Kimi ───────────────────────────────────────────
   {
@@ -181,6 +216,7 @@ export const models: Model[] = [
     context: 262144,
     capabilities: ['chat', 'tools', 'long-context'],
     price: { input: 0.6, output: 2.5 },
+    bestFor: ["agents","coding"],
     featured: true,
   },
   {
@@ -191,6 +227,7 @@ export const models: Model[] = [
     context: 262144,
     capabilities: ['reasoning', 'tools', 'long-context'],
     price: { input: 0.6, output: 2.5 },
+    bestFor: ["reasoning","agents"],
   },
   // ── ByteDance Doubao ────────────────────────────────────────
   {
@@ -201,6 +238,7 @@ export const models: Model[] = [
     context: 262144,
     capabilities: ['chat', 'reasoning', 'tools', 'long-context'],
     price: { input: 0.04, output: 0.16 },
+    bestFor: ["everyday-chat","reasoning","budget"],
   },
   {
     id: 'doubao-seed-1-6-flash',
@@ -210,6 +248,7 @@ export const models: Model[] = [
     context: 262144,
     capabilities: ['chat', 'tools'],
     price: { input: 0, output: 0 },
+    bestFor: ["budget","everyday-chat"],
   },
   {
     id: 'doubao-seed-1-6-vision',
@@ -229,6 +268,7 @@ export const models: Model[] = [
     context: 204800,
     capabilities: ['chat', 'tools', 'long-context'],
     price: { input: 0.3, output: 1.2 },
+    bestFor: ["coding","agents","budget"],
   },
   // ── Image generation ────────────────────────────────────────
   // ids and prices are placeholders — align them with your sub2api catalog.
@@ -240,6 +280,7 @@ export const models: Model[] = [
     context: null,
     capabilities: ['image'],
     price: { input: null, output: null },
+    bestFor: ["images"],
     imagePrice: 0.11,
     resolution: 'Up to 2K',
     featured: true,
@@ -252,6 +293,7 @@ export const models: Model[] = [
     context: null,
     capabilities: ['image'],
     price: { input: null, output: null },
+    bestFor: ["images"],
     imagePrice: 0.04,
     resolution: 'Up to 2K',
   },
@@ -263,6 +305,7 @@ export const models: Model[] = [
     context: null,
     capabilities: ['image'],
     price: { input: null, output: null },
+    bestFor: ["images"],
     imagePrice: 0.05,
     resolution: 'Up to 4K',
   },

@@ -29,7 +29,7 @@ const isActive = (href: string) =>
           <a
             href={item.href}
             class:list={[
-              'rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+              'flex items-center rounded-lg px-3 py-2 text-sm font-medium transition-colors',
               isActive(item.href)
                 ? 'bg-stone-100 text-brush-violet'
                 : 'text-muted hover:bg-stone-100 hover:text-ink',
@@ -83,7 +83,7 @@ const isActive = (href: string) =>
           <a
             href={item.href}
             class:list={[
-              'rounded-lg px-3 py-2.5 text-sm font-medium',
+              'flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium',
               isActive(item.href)
                 ? 'bg-stone-100 text-brush-violet'
                 : 'text-muted hover:bg-stone-100 hover:text-ink',

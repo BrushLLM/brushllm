@@ -1,70 +1,55 @@
 ---
 /**
- * Decorative hand-painted brush stroke with a vivid gradient.
- * Paints itself in via the .stroke-draw CSS animation.
+ * A wide, flat brush swipe painted in one vivid color — the site's signature mark.
+ * Filled path (not a stroked line), irregular edges, slight tilt: like one pass
+ * of a paint brush on a white wall.
  *
- * variant: 'brush' (violet→fuchsia→orange) | 'cool' (cyan→blue→violet) | 'warm' (amber→rose→fuchsia)
- * shape:   'sweep' (wide 600×120) | 'underline' (320×44)
+ * shape:   'highlight' (wide band behind headline text)
+ *          'underline' (short swipe under a word)
+ *          'sweep'     (long decorative swipe for section corners)
+ * color:   key of `colors` below
  */
 interface Props {
-  variant?: 'brush' | 'cool' | 'warm';
-  shape?: 'sweep' | 'underline';
+  shape?: 'highlight' | 'underline' | 'sweep';
+  color?: 'violet' | 'fuchsia' | 'orange' | 'cyan' | 'rose' | 'amber';
   class?: string;
 }
 
-const { variant = 'brush', shape = 'sweep', class: className = '' } = Astro.props;
+const { shape = 'sweep', color = 'violet', class: className = '' } = Astro.props;
 
-const gradients: Record<string, { from: string; mid: string; to: string }> = {
-  brush: { from: '#7c3aed', mid: '#d946ef', to: '#f97316' },
-  cool: { from: '#06b6d4', mid: '#2563eb', to: '#7c3aed' },
-  warm: { from: '#f59e0b', mid: '#f43f5e', to: '#d946ef' },
+const colors: Record<string, string> = {
+  violet: '#7C3AED',
+  fuchsia: '#D946EF',
+  orange: '#F97316',
+  cyan: '#06B6D4',
+  rose: '#F43F5E',
+  amber: '#F59E0B',
 };
-const g = gradients[variant]!;
-const id = `stroke-${variant}-${Math.random().toString(36).slice(2, 8)}`;
+const fill = colors[color]!;
 
-const paths = {
-  sweep: {
-    viewBox: '0 0 600 120',
-    d: 'M14 86 C 130 18, 300 112, 448 62 S 566 30, 590 40',
-    dots: [
-      { cx: 552, cy: 62, r: 7 },
-      { cx: 578, cy: 74, r: 4 },
-      { cx: 534, cy: 44, r: 3 },
-    ],
+const shapes = {
+  highlight: {
+    viewBox: '0 0 400 100',
+    d: 'M8 55 C 90 24, 280 22, 392 38 L 390 82 C 280 66, 92 72, 10 96 Z',
   },
   underline: {
-    viewBox: '0 0 320 24',
-    d: 'M8 14 C 90 4, 210 20, 312 10',
-    dots: [
-      { cx: 300, cy: 12, r: 5 },
-      { cx: 314, cy: 15, r: 3 },
-    ],
+    viewBox: '0 0 320 26',
+    d: 'M6 12 C 90 2, 220 20, 314 8 L 313 18 C 220 28, 90 12, 7 22 Z',
+  },
+  sweep: {
+    viewBox: '0 0 600 130',
+    d: 'M12 72 C 130 18, 300 26, 420 44 C 500 56, 560 40, 590 50 L 586 84 C 540 72, 480 90, 380 76 C 260 60, 120 82, 16 108 Z',
   },
 };
-const p = paths[shape];
+const s = shapes[shape];
 ---
 
 <svg
-  class:list={['pointer-events-none select-none', className]}
-  viewBox={p.viewBox}
-  fill="none"
+  class:list={['swipe-in pointer-events-none select-none', className]}
+  viewBox={s.viewBox}
+  fill={fill}
   aria-hidden="true"
   preserveAspectRatio="none"
 >
-  <defs>
-    <linearGradient id={id} x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color={g.from}></stop>
-      <stop offset="50%" stop-color={g.mid}></stop>
-      <stop offset="100%" stop-color={g.to}></stop>
-    </linearGradient>
-  </defs>
-  <path
-    class="stroke-draw"
-    d={p.d}
-    stroke={`url(#${id})`}
-    stroke-width={shape === 'sweep' ? 22 : 12}
-    stroke-linecap="round"
-    style={`--dash: ${shape === 'sweep' ? 700 : 360}`}
-  ></path>
-  {p.dots.map((dot) => <circle cx={dot.cx} cy={dot.cy} r={dot.r} fill={g.to} opacity="0.85"></circle>)}
+  <path d={s.d}></path>
 </svg>

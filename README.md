@@ -21,9 +21,10 @@ npm run preview   # serve the built site locally
 | `src/config.ts` | **Single source of truth for all external links** — sub2api console URL, login/register paths, and the `https://api.brushllm.com/v1` base URL shown in docs & code samples. Change your sub2api address here only. |
 | `src/data/models.ts` | The model catalog (id, provider, context, capabilities, indicative prices). Edit to match what your sub2api actually serves — counts on the homepage update automatically. |
 | `src/data/providers.ts` | The ten Chinese AI labs shown on the homepage and used as filter chips on `/models`. |
-| `src/data/news.ts` | AI News items (see below). |
+| `src/data/news.ts` | AI News items — each gets its own page at `/news/<slug>` (see below). |
 | `src/pages/` | `/`, `/models`, `/docs`, `/pricing`, `/about`, `/news`, `404`. |
-| `og-source.svg` | Source for `public/og.png` (social sharing card). Regenerate with `node -e "require('sharp')('og-source.svg').resize(1200,630).png().toFile('public/og.png')"`. |
+| `og-source.svg` | Source for the social sharing card. `public/og.png` is **generated from it at build time** (`prebuild` → `scripts/gen-og.mjs`) and is not committed. |
+| `scripts/gen-og.mjs` | Renders og-source.svg → public/og.png with sharp. |
 
 ## Daily AI News update
 
@@ -62,6 +63,7 @@ The homepage shows the latest 6 items; `/news` lists everything.
 
 ## Brand
 
-Light "paper & ink" theme: paper white background, ink black text, cinnabar
-(`#BE3A2B`) accent. Logo = cinnabar tile + open ink ring (enso). Dark mode is
-intentionally not implemented.
+Pure white canvas — all color lives in wide, flat brush swipes (the signature
+mark) and solid-color controls: violet `#7C3AED`, fuchsia `#D946EF`,
+orange `#F97316`, cyan `#06B6D4`, rose `#F43F5E`, amber `#F59E0B`.
+Swipes wipe in like a fresh pass of paint; no dark mode, no gradient washes.

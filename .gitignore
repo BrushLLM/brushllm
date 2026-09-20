@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # ZCode session metadata
 .zcode/
+
+# generated at build time from og-source.svg
+public/og.png

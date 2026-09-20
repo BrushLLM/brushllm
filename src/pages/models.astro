@@ -14,15 +14,12 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
   description={`Browse ${models.length} models from ${providers.length} Chinese AI labs — DeepSeek, Qwen, GLM, Kimi, Doubao, MiniMax and more — with context windows, capabilities and indicative per-token pricing.`}
 >
   <section class="relative overflow-hidden">
-    <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-      <div class="blob absolute -top-20 right-0 h-72 w-72 rounded-full bg-fuchsia-200/40 blur-3xl"></div>
-      <div class="blob blob-slow absolute -top-10 -left-16 h-72 w-72 rounded-full bg-violet-200/40 blur-3xl"></div>
-    </div>
+<BrushStroke shape="sweep" color="cyan" class="pointer-events-none absolute -top-10 -right-44 w-[640px] rotate-2 opacity-15" />
     <div class="mx-auto max-w-6xl px-4 pt-16 pb-8 sm:px-6">
       <p class="text-sm font-semibold uppercase tracking-widest text-brush-fuchsia">Model catalog</p>
       <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
         {models.length} models. {providers.length} labs.
-        <span class="text-brush">One endpoint.</span>
+        <span class="relative inline-block">One endpoint.<BrushStroke shape="underline" color="amber" class="absolute -bottom-2 left-0 h-2.5 w-full" /></span>
       </h1>
       <p class="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
         Every model below is callable through the same OpenAI-compatible API and the same key. Prices
@@ -41,7 +38,7 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
           type="search"
           placeholder="Search by name, id or provider…"
           autocomplete="off"
-          class="w-full rounded-xl border border-violet-200 bg-white py-2.5 pr-4 pl-10 text-sm shadow-sm placeholder:text-stone-400 focus:border-fuchsia-400 focus:ring-2 focus:ring-fuchsia-200 focus:outline-none"
+          class="w-full rounded-xl border border-stone-300 bg-white py-2.5 pr-4 pl-10 text-sm shadow-sm placeholder:text-stone-400 focus:border-violet-400 focus:ring-2 focus:ring-violet-200 focus:outline-none"
           aria-label="Search models"
         />
       </div>
@@ -49,7 +46,7 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
       <div class="flex flex-wrap items-center gap-2" id="provider-chips" role="group" aria-label="Filter by provider">
         <button
           type="button"
-          class="chip rounded-full border border-transparent bg-brush px-3.5 py-1.5 text-sm font-semibold text-white shadow-md shadow-fuchsia-500/25 transition"
+          class="chip rounded-full border border-transparent bg-brush-violet px-3.5 py-1.5 text-sm font-semibold text-white shadow-md shadow-violet-500/25 transition"
           data-provider="all"
           aria-pressed="true"
         >
@@ -59,7 +56,7 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
           providers.map((provider) => (
             <button
               type="button"
-              class="chip rounded-full border border-violet-200 bg-white px-3.5 py-1.5 text-sm font-medium text-muted transition hover:border-fuchsia-300 hover:text-brush-violet"
+              class="chip rounded-full border border-stone-300 bg-white px-3.5 py-1.5 text-sm font-medium text-muted transition hover:border-violet-400 hover:text-brush-violet"
               data-provider={provider.id}
               aria-pressed="false"
             >
@@ -79,7 +76,7 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
       {models.map((model) => <ModelCard model={model} />)}
     </div>
 
-    <p id="model-empty" class="mt-10 hidden rounded-2xl border border-dashed border-violet-200 bg-white p-10 text-center text-muted">
+    <p id="model-empty" class="mt-10 hidden rounded-2xl border border-dashed border-stone-300 bg-white p-10 text-center text-muted">
       No models match your search. Try a different keyword or provider.
     </p>
 
@@ -122,13 +119,13 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
         chips.forEach((c) => {
           const active = c === chip;
           c.setAttribute('aria-pressed', String(active));
-          c.classList.toggle('bg-brush', active);
+          c.classList.toggle('bg-brush-violet', active);
           c.classList.toggle('text-white', active);
           c.classList.toggle('shadow-md', active);
-          c.classList.toggle('shadow-fuchsia-500/25', active);
+          c.classList.toggle('shadow-violet-500/25', active);
           c.classList.toggle('font-semibold', active);
           c.classList.toggle('border-transparent', active);
-          c.classList.toggle('border-violet-200', !active);
+          c.classList.toggle('border-stone-300', !active);
           c.classList.toggle('bg-white', !active);
           c.classList.toggle('text-muted', !active);
           c.classList.toggle('font-medium', !active);

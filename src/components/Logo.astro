@@ -9,10 +9,10 @@ const { class: className = 'h-7 w-7' } = Astro.props;
 ---
 
 <span class="inline-flex items-center gap-2.5">
-  <span class="bg-brush flex h-9 w-9 items-center justify-center rounded-xl text-white shadow-lg shadow-fuchsia-500/25">
+  <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-brush-violet text-white shadow-lg shadow-violet-500/25">
     <Brush class={className} stroke-width={2} aria-hidden="true" />
   </span>
   <span class="font-display text-xl font-bold tracking-tight">
-    Brush<span class="text-brush">LLM</span>
+    Brush<span class="text-brush-violet">LLM</span>
   </span>
 </span>

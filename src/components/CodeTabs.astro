@@ -12,8 +12,8 @@ interface Props {
 const { tabs, class: className = '' } = Astro.props;
 ---
 
-<div class:list={['overflow-hidden rounded-2xl border border-violet-100 bg-white shadow-lg shadow-violet-100/50', className]} data-codetabs>
-  <div class="flex items-center justify-between gap-2 border-b border-violet-100 bg-gradient-to-r from-violet-50 via-fuchsia-50 to-orange-50 pl-2 pr-2 sm:pr-3">
+<div class:list={['overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-lg shadow-stone-200/60', className]} data-codetabs>
+  <div class="flex items-center justify-between gap-2 border-b border-stone-100 bg-stone-50 pl-2 pr-2 sm:pr-3">
     <div class="flex flex-wrap gap-1" role="tablist">
       {
         tabs.map((tab, i) => (
@@ -25,7 +25,7 @@ const { tabs, class: className = '' } = Astro.props;
     </div>
     <button
       type="button"
-      class="shrink-0 rounded-lg border border-violet-200 bg-white px-2.5 py-1.5 text-xs font-medium text-muted transition-colors hover:border-fuchsia-300 hover:text-brush-violet"
+      class="shrink-0 rounded-lg border border-stone-200 bg-white px-2.5 py-1.5 text-xs font-medium text-muted transition-colors hover:border-violet-300 hover:text-brush-violet"
       data-copy
     >
       Copy
@@ -54,9 +54,7 @@ const { tabs, class: className = '' } = Astro.props;
   }
   .tab-btn[aria-selected='true'] {
     color: var(--color-brush-violet);
-    border-image: linear-gradient(90deg, #7c3aed, #d946ef, #f97316) 1;
-    border-bottom-style: solid;
-    border-bottom-width: 2px;
+    border-bottom: 2px solid var(--color-brush-violet);
   }
 </style>
 

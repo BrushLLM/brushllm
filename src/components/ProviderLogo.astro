@@ -1,0 +1,54 @@
+---
+/**
+ * Provider brand mark: official simple-icons SVG where a public icon exists,
+ * otherwise a designed monogram tile. Icons use currentColor.
+ */
+import deepseek from '../assets/brands/deepseek.svg?raw';
+import qwen from '../assets/brands/qwen.svg?raw';
+import kimi from '../assets/brands/kimi.svg?raw';
+import doubao from '../assets/brands/doubao.svg?raw';
+import minimax from '../assets/brands/minimax.svg?raw';
+import baidu from '../assets/brands/baidu.svg?raw';
+
+const brandIcons: Record<string, string> = {
+  deepseek,
+  qwen,
+  kimi,
+  doubao, // ByteDance mark (Doubao's parent)
+  minimax,
+  ernie: baidu,
+};
+
+/* monogram tile colors for labs without a public icon */
+const monograms: Record<string, { letter: string; tile: string }> = {
+  glm: { letter: 'Z', tile: 'bg-cyan-100 text-cyan-700' }, // Z.ai
+  hunyuan: { letter: 'H', tile: 'bg-blue-100 text-blue-700' },
+  spark: { letter: 'S', tile: 'bg-amber-100 text-amber-700' },
+  stepfun: { letter: 'F', tile: 'bg-rose-100 text-rose-700' },
+};
+
+interface Props {
+  provider: string;
+  class?: string;
+}
+
+const { provider, class: className = 'h-5 w-5' } = Astro.props;
+const icon = brandIcons[provider];
+const monogram = monograms[provider];
+---
+
+{
+  icon ? (
+    <span
+      class:list={['inline-flex [&_svg]:h-full [&_svg]:w-full', className]}
+      set:html={icon}
+      aria-hidden="true"
+    />
+  ) : monogram ? (
+    <span class:list={['inline-flex items-center justify-center font-display text-sm font-bold', monogram.tile, className]} aria-hidden="true">
+      {monogram.letter}
+    </span>
+  ) : (
+    <span class="inline-flex h-5 w-5 rounded-full bg-stone-200" aria-hidden="true" />
+  )
+}

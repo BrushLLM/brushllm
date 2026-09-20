@@ -1,13 +1,12 @@
 ---
 /**
  * A wide, flat brush swipe painted in one vivid color — the site's signature mark.
- * Filled path (not a stroked line), irregular edges, slight tilt: like one pass
- * of a paint brush on a white wall.
+ * Filled band with irregular edges + lighter/darker bristle streaks clipped
+ * inside, so it reads as one pass of a flat paint brush, not a flat rectangle.
  *
- * shape:   'highlight' (wide band behind headline text)
- *          'underline' (short swipe under a word)
- *          'sweep'     (long decorative swipe for section corners)
- * color:   key of `colors` below
+ * shape: 'highlight' (band behind headline text — render at low opacity
+ *         with ink text on top), 'underline' (short swipe under a word),
+ *         'sweep' (long decorative swipe for section corners)
  */
 interface Props {
   shape?: 'highlight' | 'underline' | 'sweep';
@@ -27,29 +26,60 @@ const colors: Record<string, string> = {
 };
 const fill = colors[color]!;
 
-const shapes = {
+const shapes: Record<string, { viewBox: string; d: string; streaks: { d: string; stroke: string; opacity: number; width: number }[] }> = {
   highlight: {
     viewBox: '0 0 400 100',
     d: 'M8 55 C 90 24, 280 22, 392 38 L 390 82 C 280 66, 92 72, 10 96 Z',
+    streaks: [
+      { d: 'M24 52 C 110 34, 270 32, 380 44', stroke: '#ffffff', opacity: 0.5, width: 8 },
+      { d: 'M20 68 C 120 52, 280 50, 384 60', stroke: '#ffffff', opacity: 0.3, width: 4.5 },
+      { d: 'M40 60 C 140 44, 300 42, 372 52', stroke: '#000000', opacity: 0.12, width: 6 },
+    ],
   },
   underline: {
     viewBox: '0 0 320 26',
     d: 'M6 12 C 90 2, 220 20, 314 8 L 313 18 C 220 28, 90 12, 7 22 Z',
+    streaks: [
+      { d: 'M16 12 C 100 6, 210 16, 306 11', stroke: '#ffffff', opacity: 0.3, width: 3 },
+      { d: 'M14 18 C 100 12, 210 22, 300 16', stroke: '#000000', opacity: 0.06, width: 2.5 },
+    ],
   },
   sweep: {
     viewBox: '0 0 600 130',
     d: 'M12 72 C 130 18, 300 26, 420 44 C 500 56, 560 40, 590 50 L 586 84 C 540 72, 480 90, 380 76 C 260 60, 120 82, 16 108 Z',
+    streaks: [
+      { d: 'M40 66 C 170 34, 330 38, 470 54 C 530 60, 570 52, 586 58', stroke: '#ffffff', opacity: 0.25, width: 9 },
+      { d: 'M30 88 C 160 62, 340 62, 470 74 C 520 79, 552 76, 578 76', stroke: '#ffffff', opacity: 0.14, width: 5 },
+      { d: 'M60 78 C 200 50, 380 52, 500 66', stroke: '#000000', opacity: 0.06, width: 7 },
+    ],
   },
 };
-const s = shapes[shape];
+const s = shapes[shape]!;
+const clipId = `swipe-${shape}-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
 <svg
   class:list={['swipe-in pointer-events-none select-none', className]}
   viewBox={s.viewBox}
-  fill={fill}
   aria-hidden="true"
   preserveAspectRatio="none"
 >
-  <path d={s.d}></path>
+  <defs>
+    <clipPath id={clipId}>
+      <path d={s.d}></path>
+    </clipPath>
+  </defs>
+  <path d={s.d} fill={fill}></path>
+  <g clip-path={`url(#${clipId})`}>
+    {s.streaks.map((streak) => (
+      <path
+        d={streak.d}
+        fill="none"
+        stroke={streak.stroke}
+        stroke-opacity={streak.opacity}
+        stroke-width={streak.width}
+        stroke-linecap="round"
+      ></path>
+    ))}
+  </g>
 </svg>

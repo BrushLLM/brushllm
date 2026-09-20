@@ -10,12 +10,13 @@ import {
   Sparkles,
   Wallet,
   Zap,
-} from 'lucide-astro';
+} from '@lucide/astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BrushStroke from '../components/BrushStroke.astro';
 import CodeTabs from '../components/CodeTabs.astro';
 import FAQ from '../components/FAQ.astro';
 import NewsList from '../components/NewsList.astro';
+import ProviderLogo from '../components/ProviderLogo.astro';
 import { LINKS } from '../config';
 import { models } from '../data/models';
 import { providers } from '../data/providers';
@@ -188,19 +189,7 @@ const faqs = [
   },
 ];
 
-/* rotating solid colors for provider marquee tiles */
-const tileColors = [
-  'bg-violet-100 text-violet-700',
-  'bg-fuchsia-100 text-fuchsia-700',
-  'bg-orange-100 text-orange-700',
-  'bg-cyan-100 text-cyan-700',
-  'bg-blue-100 text-blue-700',
-  'bg-rose-100 text-rose-700',
-  'bg-amber-100 text-amber-700',
-  'bg-purple-100 text-purple-700',
-  'bg-teal-100 text-teal-700',
-  'bg-indigo-100 text-indigo-700',
-] as const;
+
 ---
 
 <BaseLayout>
@@ -221,19 +210,20 @@ const tileColors = [
       <h1 class="reveal mx-auto mt-7 max-w-4xl text-5xl font-bold tracking-tight text-balance sm:text-6xl lg:text-7xl">
         China’s AI,
         <span class="relative inline-block px-1">
-          <BrushStroke shape="highlight" color="violet" class="absolute inset-x-0 top-1/2 h-[0.72em] -translate-y-[38%] -rotate-1" />
-          <span class="relative whitespace-nowrap text-white">straight from</span>
+          <BrushStroke shape="highlight" color="violet" class="absolute inset-x-0 top-1/2 h-[0.78em] -translate-y-[42%] -rotate-1 opacity-25" />
+          <span class="relative whitespace-nowrap text-ink">straight from</span>
         </span>
         {' '}
         <span class="relative inline-block px-1">
-          <BrushStroke shape="highlight" color="orange" class="absolute inset-x-0 top-1/2 h-[0.72em] -translate-y-[38%] rotate-1" />
-          <span class="relative whitespace-nowrap text-white">the source</span>
+          <BrushStroke shape="highlight" color="orange" class="absolute inset-x-0 top-1/2 h-[0.78em] -translate-y-[42%] rotate-1 opacity-25" />
+          <span class="relative whitespace-nowrap text-ink">the source</span>
         </span>
       </h1>
 
       <p class="reveal mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted">
         BrushLLM connects developers in every country directly to China’s frontier models —
-        DeepSeek, Qwen, GLM, Kimi, Doubao and more — through a single OpenAI-compatible endpoint.
+        DeepSeek, Qwen, GLM, Kimi, Doubao and more — through one OpenAI-compatible endpoint,
+        at honest pay-as-you-go prices.
       </p>
 
       <div class="reveal mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -266,13 +256,10 @@ const tileColors = [
         {
           [...providers, ...providers].map((provider, i) => (
             <div class="flex shrink-0 items-center gap-3 rounded-2xl border border-stone-200 bg-white px-5 py-4 shadow-sm transition hover:-translate-y-0.5 hover:border-violet-300">
-              <span class={`flex h-9 w-9 items-center justify-center rounded-xl text-sm font-bold ${tileColors[i % tileColors.length]}`}>
-                {provider.name.charAt(0)}
+              <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-stone-50">
+                <ProviderLogo provider={provider.id} class="h-6 w-6" />
               </span>
-              <span>
-                <span class="block text-sm font-semibold">{provider.name}</span>
-                <span class="block font-sans text-xs text-stone-400">{provider.nameZh}</span>
-              </span>
+              <span class="block text-sm font-semibold">{provider.name}</span>
             </div>
           ))
         }

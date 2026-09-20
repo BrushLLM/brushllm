@@ -109,6 +109,37 @@ h3,
   animation: swipe-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
 }
 
+/* ── hero CTA: rotating rim light + sliding shine ─────────── */
+@keyframes btn-rim-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes btn-shine {
+  0%,
+  100% {
+    transform: translateX(-160%) skew-x(-12deg);
+  }
+  50% {
+    transform: translateX(260%) skew-x(-12deg);
+  }
+}
+/* .btn-rim sits behind the button (larger than it, blurred) so the rotating
+   conic beam reads as a light circling the button rim. */
+.btn-rim {
+  background: conic-gradient(
+    from 90deg,
+    transparent 0deg,
+    rgba(255, 255, 255, 0.9) 55deg,
+    transparent 110deg
+  );
+  animation: btn-rim-spin 6s linear infinite;
+}
+/* .btn-shine is a half-width highlight sweeping across the button face. */
+.btn-shine {
+  animation: btn-shine 3.2s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
@@ -116,7 +147,9 @@ h3,
     transition: none;
   }
   .marquee-track,
-  .swipe-in {
+  .swipe-in,
+  .btn-rim,
+  .btn-shine {
     animation: none;
   }
 }

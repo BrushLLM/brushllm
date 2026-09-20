@@ -2,7 +2,7 @@
  * BrushLLM site-wide configuration.
  *
  * This is the single place to change where your sub2api deployment lives.
- * Every "Sign in" / "Get API Key" button and every code example on the site
+ * Every "Log In" / "Get Started" button and every code example on the site
  * derives from the values below.
  */
 export const SITE = {
@@ -21,9 +21,9 @@ export const SITE = {
 export const LINKS = {
   /** Console root */
   console: 'https://api.brushllm.com',
-  /** Login page — header “Sign in” button */
+  /** Login page — header “Log In” link */
   signIn: 'https://api.brushllm.com/login',
-  /** Registration page — “Get API Key” buttons */
+  /** Registration page — “Get Started” buttons and the hero “Get API Key” CTA */
   signUp: 'https://api.brushllm.com/register',
   /** OpenAI-compatible base URL shown in docs and code samples */
   apiBase: 'https://api.brushllm.com/v1',

@@ -272,17 +272,21 @@ const creatorFaqs = [
 
       <div class="reveal mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <a
-          href="/models"
-          class="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-brush-violet px-8 py-4 text-base font-semibold text-white shadow-xl shadow-violet-500/25 transition hover:scale-[1.02] hover:bg-violet-700 sm:w-auto"
+          href={LINKS.signUp}
+          class="group relative inline-flex w-full transform-gpu rounded-2xl transition-transform duration-300 hover:scale-[1.02] active:translate-y-px sm:w-auto"
         >
-          Explore AI Models
-          <ArrowRight class="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+          <span class="btn-rim pointer-events-none absolute -inset-full opacity-60 blur-sm" aria-hidden="true"></span>
+          <span class="relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl bg-brush-violet px-8 py-4 text-base font-semibold text-white shadow-xl shadow-violet-500/25 transition-colors group-hover:bg-violet-700 sm:w-auto">
+            <span class="btn-shine pointer-events-none absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent" aria-hidden="true"></span>
+            <span class="relative">Get API Key</span>
+            <ArrowRight class="relative h-4.5 w-4.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+          </span>
         </a>
         <a
           href="/studio"
           class="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-brush-fuchsia px-8 py-4 text-base font-semibold text-white shadow-xl shadow-fuchsia-500/25 transition hover:scale-[1.02] hover:bg-fuchsia-600 sm:w-auto"
         >
-          Explore Image Studio
+          Open Studio
           <ArrowRight class="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
         </a>
       </div>

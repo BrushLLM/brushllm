@@ -32,18 +32,24 @@ npm run preview   # serve the built site locally
    ```ts
    {
      date: '2026-09-21',
+     slug: 'ernie-x2-live',              // url-safe unique id → /news/ernie-x2-live
      title: 'New model: ERNIE X2 is live',
-     summary: 'One or two sentences about it.',
-     link: '/models',          // optional
+     summary: 'One or two sentences (shown on cards).',
+     body: [
+       'First paragraph of the story…',
+       'Second paragraph…',
+     ],
    },
    ```
 2. Commit and push:
    ```sh
    git add . && git commit -m "news: ERNIE X2" && git push
    ```
+   (Or just ask ZCode to add the item and push via the GitHub MCP.)
 3. Cloudflare Pages rebuilds and deploys automatically (~1 min).
 
-The homepage shows the latest 6 items; `/news` lists everything.
+The homepage shows the latest 6 cards, `/news` lists them all, and every item
+has its own detail page at `/news/<slug>` with prev/next navigation.
 
 ## Deploy to Cloudflare Pages
 

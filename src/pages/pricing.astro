@@ -16,7 +16,7 @@ const highlights = [
     icon: Percent,
     title: 'Pay-as-you-go only',
     description: 'Per-token billing in USD. No subscriptions, no minimums, no markup games — top up and go',
-    tile: 'bg-brush-violet shadow-violet-500/25',
+    tile: 'bg-brush-blue shadow-blue-500/25',
   },
   {
     icon: Gift,
@@ -55,7 +55,7 @@ const highlights = [
     <div class="grid gap-5 sm:grid-cols-3">
       {
         highlights.map((item) => (
-          <div class="reveal rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg">
+          <div class="reveal rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg">
             <div class={`flex h-11 w-11 items-center justify-center rounded-xl text-white shadow-lg ${item.tile}`}>
               <item.icon class="h-5 w-5" aria-hidden="true" />
             </div>
@@ -147,7 +147,7 @@ const highlights = [
       <p class="relative mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted">
         Top up, set key quotas and watch usage in real time — all in the console
       </p>
-      <a href={LINKS.console} class="group relative mt-6 inline-flex items-center gap-2 rounded-xl bg-brush-violet px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:bg-violet-700">
+      <a href={LINKS.console} class="group relative mt-6 inline-flex items-center gap-2 rounded-xl bg-brush-blue px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition hover:bg-blue-700">
         Open the console
         <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
       </a>

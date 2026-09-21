@@ -23,7 +23,7 @@ const planned = [
     icon: ImagePlus,
     title: 'Generative fill & edit',
     description: 'Select any region and describe the change — inpainting and outpainting powered by GPT-Image-2',
-    tile: 'bg-brush-violet shadow-violet-500/25',
+    tile: 'bg-brush-green shadow-emerald-500/25',
   },
   {
     icon: Eraser,
@@ -83,7 +83,7 @@ const planned = [
     <div class="mt-10 grid gap-5 text-left sm:grid-cols-2">
       {
         planned.map((item) => (
-          <div class="reveal rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg">
+          <div class="reveal rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-fuchsia-300 hover:shadow-lg">
             <div class={`flex h-11 w-11 items-center justify-center rounded-xl text-white shadow-lg ${item.tile}`}>
               <item.icon class="h-5 w-5" aria-hidden="true" />
             </div>
@@ -96,7 +96,7 @@ const planned = [
 
     <div class="reveal relative mt-14 overflow-hidden rounded-[2rem] border border-stone-200 bg-white px-6 py-12 shadow-xl shadow-stone-200/60 sm:px-14">
       <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-        <BrushStroke shape="sweep" color="violet" class="absolute -top-8 -left-24 w-[460px] -rotate-6 opacity-80" />
+        <BrushStroke shape="sweep" color="fuchsia" class="absolute -top-8 -left-24 w-[460px] -rotate-6 opacity-80" />
         <BrushStroke shape="underline" color="cyan" class="absolute right-[14%] bottom-8 w-44 rotate-2 opacity-70" />
       </div>
       <h2 class="relative text-2xl font-bold tracking-tight">Want early access?</h2>
@@ -106,14 +106,14 @@ const planned = [
       <div class="relative mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <a
           href={`mailto:${SITE.contactEmail}?subject=Image%20Studio%20early%20access`}
-          class="group inline-flex items-center gap-2 rounded-xl bg-brush-violet px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:bg-violet-700"
+          class="group inline-flex items-center gap-2 rounded-xl bg-brush-fuchsia px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-fuchsia-500/25 transition hover:bg-fuchsia-600"
         >
           {SITE.contactEmail}
           <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
         </a>
         <a
           href="/models"
-          class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-violet-400 hover:text-brush-violet"
+          class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-blue-400 hover:text-brush-blue"
         >
           Browse image models
         </a>

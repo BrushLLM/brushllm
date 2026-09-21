@@ -129,20 +129,20 @@ const errors = [
 
     <!-- Steps -->
     <ol class="mt-12 space-y-5">
-      <li class="reveal flex gap-5 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:border-violet-300">
-        <span class="bg-brush-violet flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-bold text-white shadow-lg shadow-violet-500/25">1</span>
+      <li class="reveal flex gap-5 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:border-blue-300">
+        <span class="bg-brush-blue flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-bold text-white shadow-lg shadow-blue-500/25">1</span>
         <div>
           <h2 class="font-semibold">Get an API key</h2>
           <p class="mt-1.5 text-sm leading-relaxed text-muted">
-            <a href={LINKS.signUp} class="font-semibold text-brush-violet hover:text-violet-700">Create an account</a>
-            or <a href={LINKS.signIn} class="font-semibold text-brush-violet hover:text-violet-700">sign in</a> to the console, then create a
+            <a href={LINKS.signUp} class="font-semibold text-brush-blue hover:text-blue-700">Create an account</a>
+            or <a href={LINKS.signIn} class="font-semibold text-brush-blue hover:text-blue-700">sign in</a> to the console, then create a
             key. Keys look like <code class="rounded bg-stone-100 px-1.5 py-0.5 font-mono text-xs">brsh-…</code> — treat them
             like passwords and set a spend quota if you hand them to tools
           </p>
         </div>
       </li>
-      <li class="reveal flex gap-5 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:border-violet-300">
-        <span class="bg-brush-violet flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-bold text-white shadow-lg shadow-violet-500/25">2</span>
+      <li class="reveal flex gap-5 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:border-blue-300">
+        <span class="bg-brush-blue flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-bold text-white shadow-lg shadow-blue-500/25">2</span>
         <div>
           <h2 class="font-semibold">Set the base URL and key</h2>
           <p class="mt-1.5 text-sm leading-relaxed text-muted">
@@ -154,8 +154,8 @@ const errors = [
           </div>
         </div>
       </li>
-      <li class="reveal flex gap-5 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:border-violet-300">
-        <span class="bg-brush-violet flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-bold text-white shadow-lg shadow-violet-500/25">3</span>
+      <li class="reveal flex gap-5 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:border-blue-300">
+        <span class="bg-brush-blue flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-bold text-white shadow-lg shadow-blue-500/25">3</span>
         <div>
           <h2 class="font-semibold">Call any model by id</h2>
           <p class="mt-1.5 text-sm leading-relaxed text-muted">
@@ -180,7 +180,7 @@ const errors = [
     <h2 class="reveal mt-16 text-2xl font-bold tracking-tight" id="model-ids">Model ids</h2>
     <p class="reveal mt-3 text-muted">
       Use these exact ids (case-sensitive). See the
-      <a href="/models" class="font-semibold text-brush-violet hover:text-violet-700">models page</a> for descriptions and capabilities.
+      <a href="/models" class="font-semibold text-brush-blue hover:text-blue-700">models page</a> for descriptions and capabilities.
       Image models are called via <code class="rounded bg-stone-100 px-1.5 py-0.5 font-mono text-xs">POST /v1/images/generations</code>
       with the same API key.
     </p>
@@ -224,7 +224,7 @@ const errors = [
           {
             errors.map((error) => (
               <tr>
-                <td class="px-4 py-2.5 font-mono font-semibold text-brush-violet">{error.code}</td>
+                <td class="px-4 py-2.5 font-mono font-semibold text-brush-blue">{error.code}</td>
                 <td class="px-4 py-2.5 text-stone-700">{error.meaning}</td>
                 <td class="px-4 py-2.5 text-stone-500">{error.fix}</td>
               </tr>
@@ -240,13 +240,13 @@ const errors = [
         <BrushStroke shape="sweep" color="cyan" class="absolute -top-10 -left-28 w-[480px] -rotate-3 opacity-80" />
         <BrushStroke shape="underline" color="amber" class="absolute right-[14%] -bottom-2 w-52 rotate-2 opacity-70" />
       </div>
-      <LifeBuoy class="relative mx-auto h-10 w-10 text-brush-violet" aria-hidden="true" />
+      <LifeBuoy class="relative mx-auto h-10 w-10 text-brush-blue" aria-hidden="true" />
       <h2 class="relative mt-4 text-xl font-bold tracking-tight">Stuck on something?</h2>
       <p class="relative mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted">
         Check the console for keys, quotas and billing, or email us at
-        <a href={`mailto:${SITE.contactEmail}`} class="font-semibold text-brush-violet underline underline-offset-2">{SITE.contactEmail}</a>
+        <a href={`mailto:${SITE.contactEmail}`} class="font-semibold text-brush-blue underline underline-offset-2">{SITE.contactEmail}</a>
       </p>
-      <a href={LINKS.console} class="group relative mt-6 inline-flex items-center gap-2 rounded-xl bg-brush-violet px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:bg-violet-700">
+      <a href={LINKS.console} class="group relative mt-6 inline-flex items-center gap-2 rounded-xl bg-brush-blue px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition hover:bg-blue-700">
         Open the console
         <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
       </a>

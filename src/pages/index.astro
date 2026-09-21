@@ -120,8 +120,8 @@ func main() {
 
 /* AI Model Services benefit cards */
 const benefitStyles = [
-  'bg-brush-violet shadow-violet-500/25',
-  'bg-brush-cyan shadow-cyan-500/25',
+  'bg-brush-blue shadow-blue-500/25',
+  'bg-brush-green shadow-emerald-500/25',
   'bg-brush-orange shadow-orange-500/25',
   'bg-brush-amber shadow-amber-500/25',
 ] as const;
@@ -298,7 +298,7 @@ const creatorFaqs = [
       <p class="mt-4 leading-relaxed text-muted">
         BrushLLM is an AI platform for developers and creators. It provides unified API access to
         AI models through one endpoint —
-        <a href="/models" class="font-semibold text-brush-violet hover:text-violet-700">AI Model Services</a>
+        <a href="/models" class="font-semibold text-brush-blue hover:text-blue-700">AI Model Services</a>
         — and offers
         <a href="/studio" class="font-semibold text-brush-fuchsia hover:text-fuchsia-700">Image Studio</a>,
         an AI-powered image creation and editing studio.
@@ -307,28 +307,28 @@ const creatorFaqs = [
 
     <div class="mt-12 grid gap-6 lg:grid-cols-2">
       <!-- product 1: AI Model Services -->
-      <div class="reveal group rounded-[2rem] border border-stone-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg">
-        <span class="inline-flex items-center gap-2 rounded-full bg-brush-violet px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white shadow-md shadow-violet-500/25">
+      <div class="reveal group rounded-[2rem] border border-stone-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg">
+        <span class="inline-flex items-center gap-2 rounded-full bg-brush-blue px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white shadow-md shadow-blue-500/25">
           For developers
         </span>
         <h3 class="mt-4 text-2xl font-bold tracking-tight">AI Model Services</h3>
-        <p class="mt-1 font-display text-sm font-semibold text-brush-violet">One API for powerful AI models</p>
+        <p class="mt-1 font-display text-sm font-semibold text-brush-blue">One API for powerful AI models</p>
         <p class="mt-3 text-sm leading-relaxed text-muted">
           Access powerful AI models through a single API — {models.length} models, {visibleProviders.length}
           providers, unified and usage-based.
         </p>
         <ul class="mt-5 space-y-2 text-sm text-muted">
-          <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-violet"></span>Unified, OpenAI-compatible endpoint</li>
+          <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-blue"></span>Unified, OpenAI-compatible endpoint</li>
           <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-cyan"></span>Chat, reasoning, vision & image models</li>
           <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-orange"></span>Published prices, pay-as-you-go, free tiers</li>
         </ul>
         <p class="mt-5 text-xs font-medium uppercase tracking-wide text-stone-400">Developers · Startups · Businesses</p>
         <div class="mt-4 flex flex-wrap gap-3">
-          <a href="/models" class="group/dev inline-flex items-center gap-1.5 rounded-xl bg-brush-violet px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:bg-violet-700">
+          <a href="/models" class="group/dev inline-flex items-center gap-1.5 rounded-xl bg-brush-blue px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition hover:bg-blue-700">
             Explore AI Models
             <ArrowRight class="h-4 w-4 transition-transform group-hover/dev:translate-x-0.5" aria-hidden="true" />
           </a>
-          <a href="/docs" class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-ink shadow-sm transition hover:border-violet-400 hover:text-brush-violet">
+          <a href="/docs" class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-ink shadow-sm transition hover:border-blue-400 hover:text-brush-blue">
             Read the docs
           </a>
         </div>
@@ -383,7 +383,7 @@ const creatorFaqs = [
     <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {
         benefits.map((benefit, i) => (
-          <div class="reveal group rounded-3xl border border-stone-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1.5 hover:border-violet-300 hover:shadow-lg hover:shadow-violet-100">
+          <div class="reveal group rounded-3xl border border-stone-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1.5 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-100">
             <div class={`flex h-12 w-12 items-center justify-center rounded-2xl text-white shadow-lg ${benefitStyles[i % benefitStyles.length]}`}>
               <benefit.icon class="h-5.5 w-5.5" stroke-width={2} aria-hidden="true" />
             </div>
@@ -469,7 +469,7 @@ const creatorFaqs = [
             <p class="flex-1 truncate rounded-xl bg-stone-100 px-4 py-2.5 text-sm text-stone-400">
               Remove the background and add golden-hour light…
             </p>
-            <span class="inline-flex items-center gap-1.5 rounded-xl bg-brush-violet px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-violet-500/25">
+            <span class="inline-flex items-center gap-1.5 rounded-xl bg-brush-fuchsia px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-fuchsia-500/25">
               <Sparkles class="h-4 w-4" aria-hidden="true" />
               Generate
             </span>
@@ -498,7 +498,7 @@ const creatorFaqs = [
       <div class="marquee-track flex gap-3 pr-3">
         {
           [...visibleProviders, ...visibleProviders].map((provider) => (
-            <div class="flex shrink-0 items-center gap-3 rounded-2xl border border-stone-200 bg-white px-5 py-4 shadow-sm transition hover:-translate-y-0.5 hover:border-violet-300">
+            <div class="flex shrink-0 items-center gap-3 rounded-2xl border border-stone-200 bg-white px-5 py-4 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300">
               <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-stone-50">
                 <ProviderLogo provider={provider.id} class="h-6 w-6" />
               </span>
@@ -513,11 +513,11 @@ const creatorFaqs = [
   <section class="border-b border-stone-100">
     <div class="mx-auto grid max-w-6xl grid-cols-2 divide-stone-100 px-4 py-14 text-center sm:grid-cols-4 sm:divide-x sm:px-6">
       <div class="reveal p-4">
-        <p class="text-4xl font-bold text-brush-violet sm:text-5xl" data-count-to={visibleProviders.length} data-suffix="+">{visibleProviders.length}+</p>
+        <p class="text-4xl font-bold text-brush-blue sm:text-5xl" data-count-to={visibleProviders.length} data-suffix="+">{visibleProviders.length}+</p>
         <p class="mt-1.5 text-sm text-muted">AI providers</p>
       </div>
       <div class="reveal p-4">
-        <p class="text-4xl font-bold text-brush-cyan sm:text-5xl" data-count-to={models.length} data-suffix="+">{models.length}+</p>
+        <p class="text-4xl font-bold text-brush-green sm:text-5xl" data-count-to={models.length} data-suffix="+">{models.length}+</p>
         <p class="mt-1.5 text-sm text-muted">Models, one catalog</p>
       </div>
       <div class="reveal p-4">
@@ -544,7 +544,7 @@ const creatorFaqs = [
         {
           steps.map((step, i) => (
             <div class="reveal relative text-center">
-              <div class="relative mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-brush-violet text-white shadow-lg shadow-violet-500/25">
+              <div class="relative mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-brush-green text-white shadow-lg shadow-emerald-500/25">
                 <step.icon class="h-5.5 w-5.5" aria-hidden="true" />
                 <span class="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-ink text-[11px] font-bold text-white">
                   {i + 1}
@@ -558,7 +558,7 @@ const creatorFaqs = [
       </div>
       <div class="reveal mt-12 rounded-2xl border border-stone-200 bg-white p-5 text-center shadow-sm">
         <p class="font-mono text-sm text-stone-600">
-          base_url = <span class="font-semibold text-brush-violet">{LINKS.apiBase}</span>
+          base_url = <span class="font-semibold text-brush-blue">{LINKS.apiBase}</span>
         </p>
       </div>
     </div>
@@ -587,7 +587,7 @@ const creatorFaqs = [
       </div>
 
       <div class="reveal mx-auto mt-12 max-w-3xl">
-        <h3 class="text-center font-display text-sm font-semibold uppercase tracking-widest text-brush-violet">For developers</h3>
+        <h3 class="text-center font-display text-sm font-semibold uppercase tracking-widest text-brush-blue">For developers</h3>
         <div class="mt-5">
           <FAQ faqs={developerFaqs} />
         </div>
@@ -608,7 +608,7 @@ const creatorFaqs = [
       <!-- developer CTA -->
       <div class="reveal relative overflow-hidden rounded-[2rem] border border-stone-200 bg-white px-8 py-16 text-center shadow-xl shadow-stone-200/60">
         <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-          <BrushStroke shape="sweep" color="violet" class="absolute -top-10 -left-24 w-[480px] -rotate-6 opacity-80" />
+          <BrushStroke shape="sweep" color="blue" class="absolute -top-10 -left-24 w-[480px] -rotate-6 opacity-80" />
           <BrushStroke shape="underline" color="cyan" class="absolute right-[14%] bottom-14 w-48 rotate-2 opacity-70" />
         </div>
         <h2 class="relative text-3xl font-bold tracking-tight sm:text-4xl">Build with AI</h2>
@@ -618,12 +618,12 @@ const creatorFaqs = [
         <div class="relative mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href="/docs"
-            class="group inline-flex items-center gap-2 rounded-xl bg-brush-violet px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:bg-violet-700"
+            class="group inline-flex items-center gap-2 rounded-xl bg-brush-blue px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition hover:bg-blue-700"
           >
             Explore the API
             <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
           </a>
-          <a href="/models" class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-violet-400 hover:text-brush-violet">
+          <a href="/models" class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-blue-400 hover:text-brush-blue">
             Browse Models
           </a>
         </div>

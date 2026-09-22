@@ -76,7 +76,9 @@ h3,
 }
 .marquee-track {
   width: max-content;
-  animation: marquee 32s linear infinite;
+  /* six copies ≈ 7.9k px wide: -50% (three copies) still covers ultrawide
+     viewports, and 96s keeps the same ~41px/s visual speed as before */
+  animation: marquee 96s linear infinite;
 }
 .marquee:hover .marquee-track {
   animation-play-state: paused;

@@ -178,6 +178,11 @@ const studioCapabilities = [
   'Transform',
 ];
 
+/* Marquee: six copies of the provider row. The -50% loop point lands on a
+   copy boundary (seamless wrap), and half the track — three copies, ~3.9k px —
+   stays wider than any viewport so the track's right end is never exposed. */
+const marqueeProviders = Array.from({ length: 6 }, () => visibleProviders).flat();
+
 const developerFaqs = [
   {
     question: 'What is BrushLLM?',
@@ -497,7 +502,7 @@ const creatorFaqs = [
     <div class="marquee relative mt-7 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_24%,black_76%,transparent)]">
       <div class="marquee-track flex gap-3 pr-3">
         {
-          [...visibleProviders, ...visibleProviders].map((provider) => (
+          marqueeProviders.map((provider) => (
             <div class="flex shrink-0 items-center gap-3 rounded-2xl border border-stone-200 bg-white px-5 py-4 shadow-sm transition hover:-translate-y-0.5 hover:border-violet-300">
               <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-stone-50">
                 <ProviderLogo provider={provider.id} class="h-6 w-6" />

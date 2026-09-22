@@ -11,7 +11,7 @@ const values = [
     title: 'Open to the world',
     description:
       'Frontier AI shouldn’t need separate accounts, local payment hoops, or region locks — and shouldn’t cost a fortune either. One signup, in USD, from any country',
-    tile: 'bg-brush-blue shadow-blue-500/25',
+    tile: 'bg-brush-violet shadow-violet-500/25',
   },
   {
     icon: Paintbrush,
@@ -25,14 +25,14 @@ const values = [
     title: 'Honest pricing',
     description:
       'Published per-token rates, no subscription traps, and free tiers that stay free. You should always know what a request costs',
-    tile: 'bg-brush-green shadow-emerald-500/25',
+    tile: 'bg-brush-violet shadow-violet-500/25',
   },
   {
     icon: EyeOff,
     title: 'Privacy by design',
     description:
       'We collect only what your account needs to function. No trackers, no analytics, no ads — your prompts are never stored, sold, or used to profile you',
-    tile: 'bg-brush-rose shadow-rose-500/25',
+    tile: 'bg-brush-orange shadow-orange-500/25',
   },
 ];
 ---
@@ -58,23 +58,23 @@ const values = [
       </p>
       <p>
         <strong class="text-ink">For developers.</strong>
-        <a href="/models" class="font-semibold text-brush-blue hover:text-blue-700">AI Model Services</a>
+        <a href="/models" class="font-semibold text-brush-violet hover:text-violet-700">AI Model Services</a>
         — a unified API for accessing powerful AI models. {models.length} models from DeepSeek,
         Qwen, GLM, Kimi, Doubao, MiniMax, OpenAI and more, behind one OpenAI-compatible endpoint.
       </p>
       <p>
         <strong class="text-ink">For creators.</strong>
-        <a href="/studio" class="font-semibold text-brush-fuchsia hover:text-fuchsia-700">Image Studio</a>
+        <a href="/studio" class="font-semibold text-brush-orange hover:text-orange-700">Image Studio</a>
         — an AI-powered image creation and editing studio. Generate, edit, expand, upscale and
         restyle images with plain words, right in the browser. Currently in development;
-        <a href={`mailto:${SITE.contactEmail}?subject=Image%20Studio%20early%20access`} class="font-semibold text-brush-fuchsia hover:text-fuchsia-700"> early access is open</a>.
+        <a href={`mailto:${SITE.contactEmail}?subject=Image%20Studio%20early%20access`} class="font-semibold text-brush-orange hover:text-orange-700"> early access is open</a>.
       </p>
     </div>
 
     <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {
         values.map((value) => (
-          <div class="reveal rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg">
+          <div class="reveal rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg">
             <div class={`flex h-11 w-11 items-center justify-center rounded-xl text-white shadow-lg ${value.tile}`}>
               <value.icon class="h-5 w-5" aria-hidden="true" />
             </div>
@@ -93,7 +93,7 @@ const values = [
       <div class="mt-4 flex flex-wrap gap-3">
         <a
           href={`mailto:${SITE.contactEmail}`}
-          class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-ink shadow-sm transition hover:border-blue-400 hover:text-brush-blue"
+          class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-ink shadow-sm transition hover:border-violet-400 hover:text-brush-violet"
         >
           {SITE.contactEmail}
         </a>

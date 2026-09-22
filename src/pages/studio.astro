@@ -23,7 +23,7 @@ const planned = [
     icon: ImagePlus,
     title: 'Generative fill & edit',
     description: 'Select any region and describe the change — inpainting and outpainting powered by GPT-Image-2',
-    tile: 'bg-brush-green shadow-emerald-500/25',
+    tile: 'bg-brush-violet shadow-violet-500/25',
   },
   {
     icon: Eraser,
@@ -35,13 +35,13 @@ const planned = [
     icon: Maximize2,
     title: 'Upscale to 4K',
     description: 'Crisp upscaling with detail reconstruction, driven by Doubao Seedream',
-    tile: 'bg-brush-cyan shadow-cyan-500/25',
+    tile: 'bg-brush-violet shadow-violet-500/25',
   },
   {
     icon: Wand2,
     title: 'Style transfer',
     description: 'Repaint an image in a new style while keeping composition and identity',
-    tile: 'bg-brush-fuchsia shadow-fuchsia-500/25',
+    tile: 'bg-brush-orange shadow-orange-500/25',
   },
 ];
 ---
@@ -53,11 +53,11 @@ const planned = [
 >
   <section class="relative mx-auto max-w-4xl px-4 py-20 text-center sm:px-6">
     <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-      <BrushStroke shape="sweep" color="cyan" class="absolute -top-10 -left-40 w-[620px] -rotate-6 opacity-15" />
-      <BrushStroke shape="sweep" color="amber" class="absolute top-40 -right-44 w-[560px] rotate-3 opacity-15" />
+      <BrushStroke shape="sweep" color="violet" class="absolute -top-10 -left-40 w-[620px] -rotate-6 opacity-15" />
+      <BrushStroke shape="sweep" color="orange" class="absolute top-40 -right-44 w-[560px] rotate-3 opacity-15" />
     </div>
 
-    <span class="inline-flex items-center gap-2 rounded-full bg-brush-fuchsia px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-white shadow-md shadow-fuchsia-500/25">
+    <span class="inline-flex items-center gap-2 rounded-full bg-brush-orange px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-white shadow-md shadow-orange-500/25">
       Coming soon
     </span>
     <h1 class="mt-6 text-4xl font-bold tracking-tight text-balance sm:text-5xl">
@@ -75,7 +75,7 @@ const planned = [
     <ul class="mx-auto mt-6 flex flex-wrap justify-center gap-1.5 sm:gap-2">
       {
         ['Generate', 'Edit', 'Remove', 'Replace', 'Expand', 'Upscale', 'Restyle', 'Transform'].map((cap) => (
-          <li class="rounded-full border border-stone-200 bg-white px-2.5 py-1 text-[11px] font-medium text-brush-fuchsia shadow-sm sm:px-3 sm:text-xs">{cap}</li>
+          <li class="rounded-full border border-stone-200 bg-white px-2.5 py-1 text-[11px] font-medium text-brush-orange shadow-sm sm:px-3 sm:text-xs">{cap}</li>
         ))
       }
     </ul>
@@ -83,7 +83,7 @@ const planned = [
     <div class="mt-10 grid gap-5 text-left sm:grid-cols-2">
       {
         planned.map((item) => (
-          <div class="reveal rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-fuchsia-300 hover:shadow-lg">
+          <div class="reveal rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-orange-300 hover:shadow-lg">
             <div class={`flex h-11 w-11 items-center justify-center rounded-xl text-white shadow-lg ${item.tile}`}>
               <item.icon class="h-5 w-5" aria-hidden="true" />
             </div>
@@ -96,8 +96,8 @@ const planned = [
 
     <div class="reveal relative mt-14 overflow-hidden rounded-[2rem] border border-stone-200 bg-white px-6 py-12 shadow-xl shadow-stone-200/60 sm:px-14">
       <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-        <BrushStroke shape="sweep" color="fuchsia" class="absolute -top-8 -left-24 w-[460px] -rotate-6 opacity-80" />
-        <BrushStroke shape="underline" color="cyan" class="absolute right-[14%] bottom-8 w-44 rotate-2 opacity-70" />
+        <BrushStroke shape="sweep" color="orange" class="absolute -top-8 -left-24 w-[460px] -rotate-6 opacity-80" />
+        <BrushStroke shape="underline" color="orange" class="absolute right-[14%] bottom-8 w-44 rotate-2 opacity-70" />
       </div>
       <h2 class="relative text-2xl font-bold tracking-tight">Want early access?</h2>
       <p class="relative mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted">
@@ -106,14 +106,14 @@ const planned = [
       <div class="relative mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <a
           href={`mailto:${SITE.contactEmail}?subject=Image%20Studio%20early%20access`}
-          class="group inline-flex items-center gap-2 rounded-xl bg-brush-fuchsia px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-fuchsia-500/25 transition hover:bg-fuchsia-600"
+          class="group inline-flex items-center gap-2 rounded-xl bg-brush-orange px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-500/25 transition hover:bg-orange-600"
         >
           {SITE.contactEmail}
           <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
         </a>
         <a
           href="/models"
-          class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-blue-400 hover:text-brush-blue"
+          class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-violet-400 hover:text-brush-violet"
         >
           Browse image models
         </a>

@@ -11,21 +11,16 @@
  */
 interface Props {
   shape?: 'highlight' | 'underline' | 'sweep';
-  color?: 'violet' | 'fuchsia' | 'orange' | 'cyan' | 'rose' | 'amber' | 'blue' | 'green';
+  color?: 'violet' | 'orange';
   class?: string;
 }
 
 const { shape = 'sweep', color = 'violet', class: className = '' } = Astro.props;
 
+/* 60-30-10: violet is the primary, orange its warm complement */
 const colors: Record<string, string> = {
   violet: '#7C3AED',
-  fuchsia: '#D946EF',
   orange: '#F97316',
-  cyan: '#06B6D4',
-  rose: '#F43F5E',
-  amber: '#F59E0B',
-  blue: '#2563EB',
-  green: '#059669',
 };
 const fill = colors[color]!;
 

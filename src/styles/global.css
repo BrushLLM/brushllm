@@ -8,14 +8,10 @@
   --color-ink: #1a1b25;
   --color-muted: #565870;
 
+  /* 60-30-10 palette: neutrals carry the canvas (60), violet is the
+     primary brand color (30), orange its warm complement for accents (10) */
   --color-brush-violet: #7c3aed;
-  --color-brush-fuchsia: #d946ef;
   --color-brush-orange: #f97316;
-  --color-brush-cyan: #06b6d4;
-  --color-brush-blue: #2563eb;
-  --color-brush-green: #059669;
-  --color-brush-amber: #f59e0b;
-  --color-brush-rose: #f43f5e;
 
   --font-sans:
     'Inter Variable', ui-sans-serif, system-ui, 'PingFang SC', 'Hiragino Sans GB',
@@ -67,15 +63,15 @@ h3,
 }
 
 /* ── marquee ──────────────────────────────────────────────── */
-/* from -50% to 0: the track slides rightward, so cards enter at the left
-   edge of the screen and exit right. The two duplicated halves make the
-   wrap from 0 back to -50% visually seamless. */
+/* from 0 to -50%: the track slides leftward, so cards enter at the right
+   edge of the screen and exit left. The two duplicated halves make the
+   wrap from -50% back to 0 visually seamless. */
 @keyframes marquee {
   from {
-    transform: translateX(-50%);
+    transform: translateX(0);
   }
   to {
-    transform: translateX(0);
+    transform: translateX(-50%);
   }
 }
 .marquee-track {

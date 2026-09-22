@@ -64,7 +64,7 @@ h3,
 
 /* ── marquee ──────────────────────────────────────────────── */
 /* from 0 to -50%: the track slides leftward, so cards enter at the right
-   edge of the screen and exit left. The two duplicated halves make the
+   edge of the screen and exit left. The duplicated copies make the
    wrap from -50% back to 0 visually seamless. */
 @keyframes marquee {
   from {

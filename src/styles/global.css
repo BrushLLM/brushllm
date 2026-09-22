@@ -67,12 +67,15 @@ h3,
 }
 
 /* ── marquee ──────────────────────────────────────────────── */
+/* from -50% to 0: the track slides rightward, so cards enter at the left
+   edge of the screen and exit right. The two duplicated halves make the
+   wrap from 0 back to -50% visually seamless. */
 @keyframes marquee {
   from {
-    transform: translateX(0);
+    transform: translateX(-50%);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateX(0);
   }
 }
 .marquee-track {

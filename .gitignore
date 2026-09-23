@@ -32,3 +32,6 @@ public/og.png
 # generated at build time from src/assets/brush-mark.svg
 public/favicon-32.png
 public/apple-touch-icon.png
+
+# generated at build time from src/assets/site-icon.svg
+public/favicon.svg

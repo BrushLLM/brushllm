@@ -47,13 +47,6 @@ export const providers: Provider[] = [
     blurb: 'Kimi K2 — long-context and agentic MoE models.',
   },
   {
-    id: 'doubao',
-    name: 'ByteDance Doubao',
-    nameZh: '字节豆包',
-    blurb: 'Volcano Engine’s Seed models, blazing price-performance.',
-    hidden: true,
-  },
-  {
     id: 'minimax',
     name: 'MiniMax',
     nameZh: '稀宇科技',

@@ -16,10 +16,10 @@ const { faqs } = Astro.props;
 <div class="mx-auto max-w-3xl space-y-3">
   {
     faqs.map((faq) => (
-      <details class="faq group rounded-2xl border border-stone-200 bg-white px-5 py-4 shadow-sm transition hover:border-violet-300 [&_summary::-webkit-details-marker]:hidden">
+      <details class="faq group rounded-2xl border border-stone-200 bg-white px-5 py-4 shadow-sm transition hover:border-mint-400 [&_summary::-webkit-details-marker]:hidden">
         <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-semibold">
           {faq.question}
-          <span class="bg-violet-50 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-brush-violet transition-transform duration-300 group-open:rotate-45">
+          <span class="bg-mint-50 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-mint-700 transition-transform duration-300 group-open:rotate-45">
             <Plus class="h-3.5 w-3.5" aria-hidden="true" />
           </span>
         </summary>

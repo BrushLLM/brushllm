@@ -27,6 +27,20 @@
   --color-violet-800: #5b1cb0;
   --color-violet-900: #48168a;
 
+  /* mint ramp: 500 is the icon's mint for fills (always with ink text);
+     700 is the readable-on-white deep mint for links and text */
+  --color-brush-mint: #2aefc8;
+  --color-mint-50: #edfcf8;
+  --color-mint-100: #d2f8ee;
+  --color-mint-200: #a7f1de;
+  --color-mint-300: #6fe9cd;
+  --color-mint-400: #3cefcb;
+  --color-mint-500: #2aefc8;
+  --color-mint-600: #14c9a6;
+  --color-mint-700: #066e5a;
+  --color-mint-800: #055c4c;
+  --color-mint-900: #044a3e;
+
   /* lemon ramp: 500 is the icon's yellow for fills; 600 hovers; 700 is the
      readable-on-white mustard for text */
   --color-orange-50: #fefbe3;

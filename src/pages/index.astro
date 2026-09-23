@@ -118,12 +118,12 @@ func main() {
   },
 ];
 
-/* AI Model Services benefit cards */
+/* AI Model Services benefit cards — icon tiles rotate the icon's trio */
 const benefitStyles = [
-  'bg-brush-violet shadow-violet-500/25',
-  'bg-brush-orange shadow-orange-500/25',
-  'bg-brush-violet shadow-violet-500/25',
-  'bg-brush-orange shadow-orange-500/25',
+  'bg-brush-mint text-ink shadow-mint-600/25',
+  'bg-brush-orange text-ink shadow-orange-500/25',
+  'bg-brush-violet text-white shadow-violet-500/25',
+  'bg-brush-mint text-ink shadow-mint-600/25',
 ] as const;
 
 const benefits = [
@@ -258,11 +258,11 @@ const creatorFaqs = [
   <section class="relative overflow-hidden">
     <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
       <BrushStroke shape="sweep" color="violet" class="absolute -top-8 -left-40 w-[720px] -rotate-6 opacity-20" />
-      <BrushStroke shape="sweep" color="orange" class="absolute top-40 -right-52 w-[680px] rotate-3 opacity-15" />
+      <BrushStroke shape="sweep" color="mint" class="absolute top-40 -right-52 w-[680px] rotate-3 opacity-15" />
     </div>
 
     <div class="mx-auto max-w-6xl px-4 pb-20 pt-20 text-center sm:px-6 sm:pt-28">
-      <p class="reveal mx-auto inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white px-4 py-1.5 text-xs font-semibold text-brush-violet shadow-sm">
+      <p class="reveal mx-auto inline-flex items-center gap-2 rounded-full border border-stone-200 bg-white px-4 py-1.5 text-xs font-semibold text-stone-600 shadow-sm">
         <span class="h-2 w-2 rounded-full bg-brush-orange"></span>
         For developers · For creators
       </p>
@@ -304,7 +304,7 @@ const creatorFaqs = [
       <p class="mt-4 leading-relaxed text-muted">
         BrushLLM is an AI platform for developers and creators. It provides unified API access to
         AI models through one endpoint —
-        <a href="/models" class="font-semibold text-brush-violet hover:text-violet-700">AI Model Services</a>
+        <a href="/models" class="font-semibold text-mint-700 hover:text-mint-800">AI Model Services</a>
         — and offers
         <a href="/studio" class="font-semibold text-orange-700 hover:text-orange-700">Image Studio</a>,
         an AI-powered image creation and editing studio.
@@ -314,27 +314,27 @@ const creatorFaqs = [
     <div class="mt-12 grid gap-6 lg:grid-cols-2">
       <!-- product 1: AI Model Services -->
       <div class="reveal group rounded-[2rem] border border-stone-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg">
-        <span class="inline-flex items-center gap-2 rounded-full bg-brush-violet px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white shadow-md shadow-violet-500/25">
+        <span class="inline-flex items-center gap-2 rounded-full bg-brush-mint px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-ink shadow-md shadow-mint-600/25">
           For developers
         </span>
         <h3 class="mt-4 text-2xl font-bold tracking-tight">AI Model Services</h3>
-        <p class="mt-1 font-display text-sm font-semibold text-brush-violet">One API for powerful AI models</p>
+        <p class="mt-1 font-display text-sm font-semibold text-mint-700">One API for powerful AI models</p>
         <p class="mt-3 text-sm leading-relaxed text-muted">
           Access powerful AI models through a single API — {models.length} models, {visibleProviders.length}
           providers, unified and usage-based.
         </p>
         <ul class="mt-5 space-y-2 text-sm text-muted">
-          <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-violet"></span>Unified, OpenAI-compatible endpoint</li>
-          <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-violet"></span>Chat, reasoning, vision & image models</li>
+          <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-mint"></span>Unified, OpenAI-compatible endpoint</li>
+          <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-mint"></span>Chat, reasoning, vision & image models</li>
           <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-orange"></span>Published prices, pay-as-you-go, free tiers</li>
         </ul>
         <p class="mt-5 text-xs font-medium uppercase tracking-wide text-stone-400">Developers · Startups · Businesses</p>
         <div class="mt-4 flex flex-wrap gap-3">
-          <a href="/models" class="group/dev inline-flex items-center gap-1.5 rounded-xl bg-brush-violet px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:bg-violet-700">
+          <a href="/models" class="group/dev inline-flex items-center gap-1.5 rounded-xl bg-brush-mint px-5 py-2.5 text-sm font-semibold text-ink shadow-lg shadow-mint-600/25 transition hover:bg-mint-600">
             Explore AI Models
             <ArrowRight class="h-4 w-4 transition-transform group-hover/dev:translate-x-0.5" aria-hidden="true" />
           </a>
-          <a href="/docs" class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-ink shadow-sm transition hover:border-violet-400 hover:text-brush-violet">
+          <a href="/docs" class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-ink shadow-sm transition hover:border-mint-400 hover:text-mint-700">
             Read the docs
           </a>
         </div>
@@ -376,7 +376,7 @@ const creatorFaqs = [
   <section class="relative mx-auto max-w-6xl px-4 py-24 sm:px-6">
     <BrushStroke shape="sweep" color="violet" class="absolute top-10 right-0 hidden w-96 rotate-2 opacity-10 lg:block" />
     <div class="reveal mx-auto max-w-2xl text-center">
-      <p class="text-sm font-semibold uppercase tracking-widest text-orange-700">Why BrushLLM</p>
+      <p class="text-sm font-semibold uppercase tracking-widest text-mint-700">Why BrushLLM</p>
       <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
         Everything you need,
         <span class="relative inline-block">
@@ -389,8 +389,8 @@ const creatorFaqs = [
     <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {
         benefits.map((benefit, i) => (
-          <div class="reveal group rounded-3xl border border-stone-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1.5 hover:border-violet-300 hover:shadow-lg hover:shadow-violet-100">
-            <div class={`flex h-12 w-12 items-center justify-center rounded-2xl text-white shadow-lg ${benefitStyles[i % benefitStyles.length]}`}>
+          <div class="reveal group rounded-3xl border border-stone-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1.5 hover:border-mint-400 hover:shadow-lg hover:shadow-mint-100">
+            <div class={`flex h-12 w-12 items-center justify-center rounded-2xl shadow-lg ${benefitStyles[i % benefitStyles.length]}`}>
               <benefit.icon class="h-5.5 w-5.5" stroke-width={2} aria-hidden="true" />
             </div>
             <h3 class="mt-5 text-lg font-semibold">{benefit.title}</h3>
@@ -446,7 +446,7 @@ const creatorFaqs = [
                 </div>
               </div>
               <!-- after (right) -->
-              <div class="absolute inset-y-0 right-0 w-1/2 overflow-hidden bg-gradient-to-br from-violet-500/80 via-violet-400/70 to-orange-400/80">
+              <div class="absolute inset-y-0 right-0 w-1/2 overflow-hidden bg-gradient-to-br from-violet-500/80 via-mint-400/70 to-orange-400/80">
                 <BrushStroke shape="sweep" color="violet" class="absolute -bottom-8 -right-16 w-[300px] rotate-6 opacity-70" />
                 <span class="absolute right-4 top-4 rounded-full bg-white/85 px-2.5 py-0.5 text-[11px] font-semibold text-orange-700 backdrop-blur">After</span>
                 <div class="absolute bottom-4 right-4 rounded-xl bg-white/90 px-3 py-2 text-xs font-medium text-ink shadow-lg backdrop-blur">
@@ -455,7 +455,7 @@ const creatorFaqs = [
               </div>
               <!-- AI divider handle -->
               <div class="absolute inset-y-0 left-1/2 w-0.5 -translate-x-1/2 bg-white/90 shadow-[0_0_12px_rgba(0,0,0,0.35)]" aria-hidden="true"></div>
-              <div class="absolute left-1/2 top-1/2 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-brush-violet text-white shadow-xl">
+              <div class="absolute left-1/2 top-1/2 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-brush-mint text-ink shadow-xl">
                 <Wand2 class="h-4.5 w-4.5" aria-hidden="true" />
               </div>
             </div>
@@ -504,7 +504,7 @@ const creatorFaqs = [
       <div class="marquee-track flex gap-3 pr-3">
         {
           marqueeProviders.map((provider) => (
-            <div class="flex shrink-0 items-center gap-3 rounded-2xl border border-stone-200 bg-white px-5 py-4 shadow-sm transition hover:-translate-y-0.5 hover:border-violet-300">
+            <div class="flex shrink-0 items-center gap-3 rounded-2xl border border-stone-200 bg-white px-5 py-4 shadow-sm transition hover:-translate-y-0.5 hover:border-mint-400">
               <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-stone-50">
                 <ProviderLogo provider={provider.id} class="h-6 w-6" />
               </span>
@@ -527,11 +527,11 @@ const creatorFaqs = [
         <p class="mt-1.5 text-sm text-muted">Models, one catalog</p>
       </div>
       <div class="reveal p-4">
-        <p class="text-4xl font-bold text-brush-violet sm:text-5xl">1</p>
+        <p class="text-4xl font-bold text-mint-700 sm:text-5xl">1</p>
         <p class="mt-1.5 text-sm text-muted">Account</p>
       </div>
       <div class="reveal p-4">
-        <p class="text-4xl font-bold text-orange-700 sm:text-5xl" data-count-to="195">195</p>
+        <p class="text-4xl font-bold text-brush-violet sm:text-5xl" data-count-to="195">195</p>
         <p class="mt-1.5 text-sm text-muted">Countries served</p>
       </div>
     </div>
@@ -541,7 +541,7 @@ const creatorFaqs = [
   <section class="bg-white">
     <div class="mx-auto max-w-6xl px-4 py-24 sm:px-6">
       <div class="reveal mx-auto max-w-2xl text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">How it works</p>
+        <p class="text-sm font-semibold uppercase tracking-widest text-mint-700">How it works</p>
         <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Three steps to your first token</h2>
       </div>
       <div class="relative mt-16 grid gap-10 md:grid-cols-3">
@@ -564,7 +564,7 @@ const creatorFaqs = [
       </div>
       <div class="reveal mt-12 rounded-2xl border border-stone-200 bg-white p-5 text-center shadow-sm">
         <p class="font-mono text-sm text-stone-600">
-          base_url = <span class="font-semibold text-brush-violet">{LINKS.apiBase}</span>
+          base_url = <span class="font-semibold text-mint-700">{LINKS.apiBase}</span>
         </p>
       </div>
     </div>
@@ -573,7 +573,7 @@ const creatorFaqs = [
   <!-- ═══ Code examples ═══ -->
   <section class="relative mx-auto max-w-6xl px-4 py-24 sm:px-6">
     <div class="reveal mx-auto max-w-2xl text-center">
-      <p class="text-sm font-semibold uppercase tracking-widest text-orange-700">Drop-in compatible</p>
+      <p class="text-sm font-semibold uppercase tracking-widest text-mint-700">Drop-in compatible</p>
       <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Keep your code, change one line</h2>
       <p class="mt-4 text-muted">
         If it works with the OpenAI API, it works with BrushLLM. Here’s the same request in four languages.
@@ -588,12 +588,12 @@ const creatorFaqs = [
   <section class="border-t border-stone-100">
     <div class="mx-auto max-w-6xl px-4 py-24 sm:px-6">
       <div class="reveal mx-auto max-w-2xl text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">FAQ</p>
+        <p class="text-sm font-semibold uppercase tracking-widest text-mint-700">FAQ</p>
         <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Questions, answered</h2>
       </div>
 
       <div class="reveal mx-auto mt-12 max-w-3xl">
-        <h3 class="text-center font-display text-sm font-semibold uppercase tracking-widest text-brush-violet">For developers</h3>
+        <h3 class="text-center font-display text-sm font-semibold uppercase tracking-widest text-mint-700">For developers</h3>
         <div class="mt-5">
           <FAQ faqs={developerFaqs} />
         </div>
@@ -624,12 +624,12 @@ const creatorFaqs = [
         <div class="relative mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href="/docs"
-            class="group inline-flex items-center gap-2 rounded-xl bg-brush-violet px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:bg-violet-700"
+            class="group inline-flex items-center gap-2 rounded-xl bg-brush-mint px-6 py-3 text-sm font-semibold text-ink shadow-lg shadow-mint-600/25 transition hover:bg-mint-600"
           >
             Explore the API
             <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
           </a>
-          <a href="/models" class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-violet-400 hover:text-brush-violet">
+          <a href="/models" class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-mint-400 hover:text-mint-700">
             Browse Models
           </a>
         </div>

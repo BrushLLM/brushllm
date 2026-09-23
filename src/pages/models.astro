@@ -14,7 +14,7 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
   description={`Browse ${models.length} AI models — from DeepSeek, Qwen, GLM and Kimi to GPT and text-to-image — with context windows, capabilities and indicative prices.`}
 >
   <section class="relative overflow-hidden">
-<BrushStroke shape="sweep" color="violet" class="pointer-events-none absolute -top-10 -right-44 w-[640px] rotate-2 opacity-15" />
+<BrushStroke shape="sweep" color="mint" class="pointer-events-none absolute -top-10 -right-44 w-[640px] rotate-2 opacity-15" />
     <div class="mx-auto max-w-6xl px-4 pt-16 pb-8 sm:px-6">
       <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">AI models</p>
       <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
@@ -38,7 +38,7 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
           type="search"
           placeholder="Search by name, id or provider…"
           autocomplete="off"
-          class="w-full rounded-xl border border-stone-300 bg-white py-2.5 pr-4 pl-10 text-sm shadow-sm placeholder:text-stone-400 focus:border-violet-400 focus:ring-2 focus:ring-violet-200 focus:outline-none"
+          class="w-full rounded-xl border border-stone-300 bg-white py-2.5 pr-4 pl-10 text-sm shadow-sm placeholder:text-stone-400 focus:border-mint-400 focus:ring-2 focus:ring-mint-200 focus:outline-none"
           aria-label="Search models"
         />
       </div>
@@ -48,7 +48,7 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
         <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter by provider">
           <button
             type="button"
-            class="chip rounded-full border border-transparent bg-brush-violet px-3.5 py-1.5 text-sm font-semibold text-white shadow-md shadow-violet-500/25 transition"
+            class="chip rounded-full border border-transparent bg-brush-mint px-3.5 py-1.5 text-sm font-semibold text-ink shadow-md shadow-mint-600/25 transition"
             data-group="provider"
             data-value="all"
             aria-pressed="true"
@@ -59,7 +59,7 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
             visibleProviders.map((provider) => (
               <button
                 type="button"
-                class="chip rounded-full border border-stone-300 bg-white px-3.5 py-1.5 text-sm font-medium text-muted transition hover:border-violet-400 hover:text-brush-violet"
+                class="chip rounded-full border border-stone-300 bg-white px-3.5 py-1.5 text-sm font-medium text-muted transition hover:border-mint-400 hover:text-mint-700"
                 data-group="provider"
                 data-value={provider.id}
                 aria-pressed="false"
@@ -76,7 +76,7 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
         <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter by capability">
           <button
             type="button"
-            class="chip rounded-full border border-transparent bg-brush-violet px-3.5 py-1.5 text-sm font-semibold text-white shadow-md shadow-violet-500/25 transition"
+            class="chip rounded-full border border-transparent bg-brush-mint px-3.5 py-1.5 text-sm font-semibold text-ink shadow-md shadow-mint-600/25 transition"
             data-group="capability"
             data-value="all"
             aria-pressed="true"
@@ -87,7 +87,7 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
             Object.entries(capabilityLabels).map(([value, label]) => (
               <button
                 type="button"
-                class="chip rounded-full border border-stone-300 bg-white px-3.5 py-1.5 text-sm font-medium text-muted transition hover:border-violet-400 hover:text-brush-violet"
+                class="chip rounded-full border border-stone-300 bg-white px-3.5 py-1.5 text-sm font-medium text-muted transition hover:border-mint-400 hover:text-mint-700"
                 data-group="capability"
                 data-value={value}
                 aria-pressed="false"
@@ -117,7 +117,7 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
       Prices are indicative list prices in USD — per 1M tokens for text models, per generated
       image for image models — and may differ from the rates configured in your console. Context
       windows are the maximum supported by each upstream model. See the
-      <a href="/docs" class="font-medium text-brush-violet hover:text-violet-700">Docs</a>
+      <a href="/docs" class="font-medium text-mint-700 hover:text-mint-800">Docs</a>
       for integration details.
     </p>
   </section>
@@ -134,10 +134,10 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
 
     const setChipActive = (chip: HTMLButtonElement, on: boolean) => {
       chip.setAttribute('aria-pressed', String(on));
-      chip.classList.toggle('bg-brush-violet', on);
-      chip.classList.toggle('text-white', on);
+      chip.classList.toggle('bg-brush-mint', on);
+      chip.classList.toggle('text-ink', on);
       chip.classList.toggle('shadow-md', on);
-      chip.classList.toggle('shadow-violet-500/25', on);
+      chip.classList.toggle('shadow-mint-600/25', on);
       chip.classList.toggle('font-semibold', on);
       chip.classList.toggle('border-transparent', on);
       chip.classList.toggle('border-stone-300', !on);

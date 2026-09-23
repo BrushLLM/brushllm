@@ -13,7 +13,7 @@ const isActive = (href: string) =>
   <p class="font-medium text-muted">
     <span class="rounded-full bg-orange-100 px-2 py-0.5 text-[11px] font-semibold text-orange-700">New</span>
     {' '}BrushLLM Image Studio is on the way — AI image creation and editing in your browser.
-    {' '}<a href="/studio" class="font-semibold text-brush-violet hover:underline">Get early access →</a>
+    {' '}<a href="/studio" class="font-semibold text-mint-700 hover:underline">Get early access →</a>
   </p>
 </div>
 
@@ -31,7 +31,7 @@ const isActive = (href: string) =>
             class:list={[
               'flex items-center rounded-lg px-3 py-2 text-sm font-medium transition-colors',
               isActive(item.href)
-                ? 'bg-stone-100 text-brush-violet'
+                ? 'bg-stone-100 text-mint-700'
                 : 'text-muted hover:bg-stone-100 hover:text-ink',
             ]}
             aria-current={isActive(item.href) ? 'page' : undefined}
@@ -56,7 +56,7 @@ const isActive = (href: string) =>
       </a>
       <a
         href={LINKS.signUp}
-        class="group inline-flex items-center gap-1.5 rounded-xl bg-brush-violet px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:bg-violet-700"
+        class="group inline-flex items-center gap-1.5 rounded-xl bg-brush-mint px-4 py-2 text-sm font-semibold text-ink shadow-lg shadow-mint-600/25 transition hover:bg-mint-600"
       >
         Get Started
         <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
@@ -85,7 +85,7 @@ const isActive = (href: string) =>
             class:list={[
               'flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium',
               isActive(item.href)
-                ? 'bg-stone-100 text-brush-violet'
+                ? 'bg-stone-100 text-mint-700'
                 : 'text-muted hover:bg-stone-100 hover:text-ink',
             ]}
           >
@@ -97,13 +97,13 @@ const isActive = (href: string) =>
     <div class="mt-3 flex flex-col gap-2">
       <a
         href={LINKS.signUp}
-        class="rounded-xl bg-brush-violet px-4 py-2.5 text-center text-sm font-semibold text-white shadow-lg shadow-violet-500/25 hover:bg-violet-700"
+        class="rounded-xl bg-brush-mint px-4 py-2.5 text-center text-sm font-semibold text-ink shadow-lg shadow-mint-600/25 hover:bg-mint-600"
       >
         Get Started
       </a>
       <a
         href={LINKS.signIn}
-        class="rounded-xl border border-violet-200 px-4 py-2.5 text-center text-sm font-medium text-muted hover:bg-violet-50"
+        class="rounded-xl border border-mint-200 px-4 py-2.5 text-center text-sm font-medium text-muted hover:bg-mint-50"
       >
         Log In
       </a>

@@ -11,7 +11,7 @@
  */
 interface Props {
   shape?: 'highlight' | 'underline' | 'sweep';
-  color?: 'violet' | 'orange';
+  color?: 'violet' | 'orange' | 'mint';
   class?: string;
 }
 
@@ -21,6 +21,7 @@ const { shape = 'sweep', color = 'violet', class: className = '' } = Astro.props
 const colors: Record<string, string> = {
   violet: '#893CED',
   orange: '#F4EA2A',
+  mint: '#2AEFC8',
 };
 const fill = colors[color]!;
 

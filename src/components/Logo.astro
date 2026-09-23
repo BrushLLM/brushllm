@@ -1,5 +1,5 @@
 ---
-import BrushMark from './BrushMark.astro';
+import siteIcon from '../assets/site-icon.png';
 
 interface Props {
   class?: string;
@@ -9,7 +9,7 @@ const { class: className = 'h-9 w-9' } = Astro.props;
 ---
 
 <span class="inline-flex items-center gap-2.5">
-  <BrushMark class={className} />
+  <img src={siteIcon} alt="" aria-hidden="true" width="36" height="36" class:list={['inline-block align-middle', className]} />
   <span class="font-display text-xl font-bold tracking-tight">
     Brush<span class="text-brush-violet">LLM</span>
   </span>

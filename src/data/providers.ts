@@ -51,6 +51,7 @@ export const providers: Provider[] = [
     name: 'ByteDance Doubao',
     nameZh: '字节豆包',
     blurb: 'Volcano Engine’s Seed models, blazing price-performance.',
+    hidden: true,
   },
   {
     id: 'minimax',

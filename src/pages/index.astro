@@ -286,6 +286,7 @@ const creatorFaqs = [
           bg="bg-brush-orange"
           hoverBg="group-hover:bg-orange-600"
           shadowColor="shadow-orange-500/25"
+          class="text-ink!"
         >
           Image Studio
           <ArrowRight class="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
@@ -305,7 +306,7 @@ const creatorFaqs = [
         AI models through one endpoint —
         <a href="/models" class="font-semibold text-brush-violet hover:text-violet-700">AI Model Services</a>
         — and offers
-        <a href="/studio" class="font-semibold text-brush-orange hover:text-orange-700">Image Studio</a>,
+        <a href="/studio" class="font-semibold text-orange-700 hover:text-orange-700">Image Studio</a>,
         an AI-powered image creation and editing studio.
       </p>
     </div>
@@ -344,11 +345,11 @@ const creatorFaqs = [
         <div class="pointer-events-none absolute inset-0" aria-hidden="true">
           <BrushStroke shape="sweep" color="orange" class="absolute -top-10 -right-24 w-[420px] rotate-3 opacity-80" />
         </div>
-        <span class="relative inline-flex items-center gap-2 rounded-full bg-brush-orange px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-white shadow-md shadow-orange-500/25">
+        <span class="relative inline-flex items-center gap-2 rounded-full bg-brush-orange px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-ink shadow-md shadow-orange-500/25">
           For creators · Soon
         </span>
         <h3 class="relative mt-4 text-2xl font-bold tracking-tight">Image Studio</h3>
-        <p class="relative mt-1 font-display text-sm font-semibold text-brush-orange">AI-powered image creation and editing for everyone</p>
+        <p class="relative mt-1 font-display text-sm font-semibold text-orange-700">AI-powered image creation and editing for everyone</p>
         <p class="relative mt-3 text-sm leading-relaxed text-muted">
           Generate, edit, expand, upscale, and transform images with AI — a full creative
           workspace in your browser. No installs, no subscriptions.
@@ -356,13 +357,13 @@ const creatorFaqs = [
         <ul class="relative mt-5 flex flex-wrap gap-2">
           {
             studioCapabilities.map((cap) => (
-              <li class="rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-xs font-medium text-brush-orange">{cap}</li>
+              <li class="rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-xs font-medium text-orange-700">{cap}</li>
             ))
           }
         </ul>
         <p class="relative mt-5 text-xs font-medium uppercase tracking-wide text-stone-400">Creators · Designers · Everyone</p>
         <div class="relative mt-4 flex flex-wrap gap-3">
-          <a href="/studio" class="group/create inline-flex items-center gap-1.5 rounded-xl bg-brush-orange px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-orange-500/25 transition hover:bg-orange-600">
+          <a href="/studio" class="group/create inline-flex items-center gap-1.5 rounded-xl bg-brush-orange px-5 py-2.5 text-sm font-semibold text-ink shadow-lg shadow-orange-500/25 transition hover:bg-orange-600">
             Explore Image Studio
             <ArrowRight class="h-4 w-4 transition-transform group-hover/create:translate-x-0.5" aria-hidden="true" />
           </a>
@@ -375,7 +376,7 @@ const creatorFaqs = [
   <section class="relative mx-auto max-w-6xl px-4 py-24 sm:px-6">
     <BrushStroke shape="sweep" color="violet" class="absolute top-10 right-0 hidden w-96 rotate-2 opacity-10 lg:block" />
     <div class="reveal mx-auto max-w-2xl text-center">
-      <p class="text-sm font-semibold uppercase tracking-widest text-brush-orange">Why BrushLLM</p>
+      <p class="text-sm font-semibold uppercase tracking-widest text-orange-700">Why BrushLLM</p>
       <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
         Everything you need,
         <span class="relative inline-block">
@@ -404,7 +405,7 @@ const creatorFaqs = [
   <section class="border-y border-stone-100 bg-stone-50/50">
     <div class="mx-auto max-w-6xl px-4 py-24 sm:px-6">
       <div class="reveal mx-auto max-w-2xl text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-brush-orange">Image Studio</p>
+        <p class="text-sm font-semibold uppercase tracking-widest text-orange-700">Image Studio</p>
         <h2 class="mt-3 text-3xl font-bold tracking-tight text-balance sm:text-4xl">
           A real AI image workspace,
           <span class="relative inline-block">
@@ -430,7 +431,7 @@ const creatorFaqs = [
             <p class="flex-1 truncate rounded-lg bg-white px-3 py-1 text-center font-mono text-xs text-stone-500 ring-1 ring-stone-200">
               brushllm.com/studio
             </p>
-            <span class="rounded-full bg-brush-orange px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-white">Soon</span>
+            <span class="rounded-full bg-brush-orange px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-ink">Soon</span>
           </div>
 
           <div class="flex flex-col sm:flex-row">
@@ -447,7 +448,7 @@ const creatorFaqs = [
               <!-- after (right) -->
               <div class="absolute inset-y-0 right-0 w-1/2 overflow-hidden bg-gradient-to-br from-violet-500/80 via-violet-400/70 to-orange-400/80">
                 <BrushStroke shape="sweep" color="violet" class="absolute -bottom-8 -right-16 w-[300px] rotate-6 opacity-70" />
-                <span class="absolute right-4 top-4 rounded-full bg-white/85 px-2.5 py-0.5 text-[11px] font-semibold text-brush-orange backdrop-blur">After</span>
+                <span class="absolute right-4 top-4 rounded-full bg-white/85 px-2.5 py-0.5 text-[11px] font-semibold text-orange-700 backdrop-blur">After</span>
                 <div class="absolute bottom-4 right-4 rounded-xl bg-white/90 px-3 py-2 text-xs font-medium text-ink shadow-lg backdrop-blur">
                   “golden hour, remove the crowd”
                 </div>
@@ -461,11 +462,11 @@ const creatorFaqs = [
 
             <!-- tool rail -->
             <div class="flex shrink-0 gap-1.5 border-t border-stone-100 bg-white p-2.5 sm:flex-col sm:border-t-0 sm:border-l">
-              <span title="Generate" class="flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 bg-white text-muted shadow-sm transition hover:border-orange-300 hover:text-brush-orange"><ImagePlus class="h-4.5 w-4.5" aria-hidden="true" /></span>
-              <span title="Edit" class="flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 bg-white text-muted shadow-sm transition hover:border-orange-300 hover:text-brush-orange"><Wand2 class="h-4.5 w-4.5" aria-hidden="true" /></span>
-              <span title="Remove" class="flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 bg-white text-muted shadow-sm transition hover:border-orange-300 hover:text-brush-orange"><Eraser class="h-4.5 w-4.5" aria-hidden="true" /></span>
-              <span title="Upscale" class="flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 bg-white text-muted shadow-sm transition hover:border-orange-300 hover:text-brush-orange"><Maximize2 class="h-4.5 w-4.5" aria-hidden="true" /></span>
-              <span title="Restyle" class="flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 bg-white text-muted shadow-sm transition hover:border-orange-300 hover:text-brush-orange"><Palette class="h-4.5 w-4.5" aria-hidden="true" /></span>
+              <span title="Generate" class="flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 bg-white text-muted shadow-sm transition hover:border-orange-300 hover:text-orange-700"><ImagePlus class="h-4.5 w-4.5" aria-hidden="true" /></span>
+              <span title="Edit" class="flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 bg-white text-muted shadow-sm transition hover:border-orange-300 hover:text-orange-700"><Wand2 class="h-4.5 w-4.5" aria-hidden="true" /></span>
+              <span title="Remove" class="flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 bg-white text-muted shadow-sm transition hover:border-orange-300 hover:text-orange-700"><Eraser class="h-4.5 w-4.5" aria-hidden="true" /></span>
+              <span title="Upscale" class="flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 bg-white text-muted shadow-sm transition hover:border-orange-300 hover:text-orange-700"><Maximize2 class="h-4.5 w-4.5" aria-hidden="true" /></span>
+              <span title="Restyle" class="flex h-10 w-10 items-center justify-center rounded-xl border border-stone-200 bg-white text-muted shadow-sm transition hover:border-orange-300 hover:text-orange-700"><Palette class="h-4.5 w-4.5" aria-hidden="true" /></span>
             </div>
           </div>
 
@@ -474,7 +475,7 @@ const creatorFaqs = [
             <p class="flex-1 truncate rounded-xl bg-stone-100 px-4 py-2.5 text-sm text-stone-400">
               Remove the background and add golden-hour light…
             </p>
-            <span class="inline-flex items-center gap-1.5 rounded-xl bg-brush-orange px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-orange-500/25">
+            <span class="inline-flex items-center gap-1.5 rounded-xl bg-brush-orange px-4 py-2.5 text-sm font-semibold text-ink shadow-md shadow-orange-500/25">
               <Sparkles class="h-4 w-4" aria-hidden="true" />
               Generate
             </span>
@@ -482,11 +483,11 @@ const creatorFaqs = [
         </div>
 
         <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a href="/studio" class="group/show inline-flex items-center gap-2 rounded-xl bg-brush-orange px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-500/25 transition hover:bg-orange-600">
+          <a href="/studio" class="group/show inline-flex items-center gap-2 rounded-xl bg-brush-orange px-6 py-3 text-sm font-semibold text-ink shadow-lg shadow-orange-500/25 transition hover:bg-orange-600">
             Explore Image Studio
             <ArrowRight class="h-4 w-4 transition-transform group-hover/show:translate-x-0.5" aria-hidden="true" />
           </a>
-          <a href={`mailto:${SITE.contactEmail}?subject=Image%20Studio%20early%20access`} class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-orange-400 hover:text-brush-orange">
+          <a href={`mailto:${SITE.contactEmail}?subject=Image%20Studio%20early%20access`} class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-orange-400 hover:text-orange-700">
             Get early access
           </a>
         </div>
@@ -522,7 +523,7 @@ const creatorFaqs = [
         <p class="mt-1.5 text-sm text-muted">AI providers</p>
       </div>
       <div class="reveal p-4">
-        <p class="text-4xl font-bold text-brush-orange sm:text-5xl" data-count-to={models.length} data-suffix="+">{models.length}+</p>
+        <p class="text-4xl font-bold text-orange-700 sm:text-5xl" data-count-to={models.length} data-suffix="+">{models.length}+</p>
         <p class="mt-1.5 text-sm text-muted">Models, one catalog</p>
       </div>
       <div class="reveal p-4">
@@ -530,7 +531,7 @@ const creatorFaqs = [
         <p class="mt-1.5 text-sm text-muted">Account</p>
       </div>
       <div class="reveal p-4">
-        <p class="text-4xl font-bold text-brush-orange sm:text-5xl" data-count-to="195">195</p>
+        <p class="text-4xl font-bold text-orange-700 sm:text-5xl" data-count-to="195">195</p>
         <p class="mt-1.5 text-sm text-muted">Countries served</p>
       </div>
     </div>
@@ -572,7 +573,7 @@ const creatorFaqs = [
   <!-- ═══ Code examples ═══ -->
   <section class="relative mx-auto max-w-6xl px-4 py-24 sm:px-6">
     <div class="reveal mx-auto max-w-2xl text-center">
-      <p class="text-sm font-semibold uppercase tracking-widest text-brush-orange">Drop-in compatible</p>
+      <p class="text-sm font-semibold uppercase tracking-widest text-orange-700">Drop-in compatible</p>
       <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Keep your code, change one line</h2>
       <p class="mt-4 text-muted">
         If it works with the OpenAI API, it works with BrushLLM. Here’s the same request in four languages.
@@ -599,7 +600,7 @@ const creatorFaqs = [
       </div>
 
       <div class="reveal mx-auto mt-14 max-w-3xl">
-        <h3 class="text-center font-display text-sm font-semibold uppercase tracking-widest text-brush-orange">For creators</h3>
+        <h3 class="text-center font-display text-sm font-semibold uppercase tracking-widest text-orange-700">For creators</h3>
         <div class="mt-5">
           <FAQ faqs={creatorFaqs} />
         </div>
@@ -647,12 +648,12 @@ const creatorFaqs = [
         <div class="relative mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href="/studio"
-            class="group inline-flex items-center gap-2 rounded-xl bg-brush-orange px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-500/25 transition hover:bg-orange-600"
+            class="group inline-flex items-center gap-2 rounded-xl bg-brush-orange px-6 py-3 text-sm font-semibold text-ink shadow-lg shadow-orange-500/25 transition hover:bg-orange-600"
           >
             Explore Image Studio
             <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
           </a>
-          <a href={`mailto:${SITE.contactEmail}?subject=Image%20Studio%20early%20access`} class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-orange-400 hover:text-brush-orange">
+          <a href={`mailto:${SITE.contactEmail}?subject=Image%20Studio%20early%20access`} class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-orange-400 hover:text-orange-700">
             Get early access
           </a>
         </div>

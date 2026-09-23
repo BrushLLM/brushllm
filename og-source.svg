@@ -2,11 +2,11 @@
   <!-- white canvas, wide solid brush swipes -->
   <rect width="1200" height="630" fill="#FFFFFF" />
 
-  <path d="M-40 118 C 220 30, 700 66, 1240 20 L 1240 96 C 700 130, 220 96, -40 190 Z" fill="#06B6D4" opacity="0.9" />
-  <path d="M-40 512 C 300 430, 860 476, 1240 414 L 1240 492 C 860 548, 300 508, -40 596 Z" fill="#F97316" opacity="0.85" />
-  <path d="M-40 320 C 260 282, 560 300, 760 286 L 758 330 C 560 344, 260 328, -40 366 Z" fill="#D946EF" opacity="0.9" />
-  <circle cx="806" cy="300" r="13" fill="#7C3AED" />
-  <circle cx="840" cy="318" r="8" fill="#7C3AED" opacity="0.7" />
+  <path d="M-40 118 C 220 30, 700 66, 1240 20 L 1240 96 C 700 130, 220 96, -40 190 Z" fill="#2AEFC8" opacity="0.9" />
+  <path d="M-40 512 C 300 430, 860 476, 1240 414 L 1240 492 C 860 548, 300 508, -40 596 Z" fill="#F4EA2A" opacity="0.85" />
+  <path d="M-40 320 C 260 282, 560 300, 760 286 L 758 330 C 560 344, 260 328, -40 366 Z" fill="#C644EF" opacity="0.9" />
+  <circle cx="806" cy="300" r="13" fill="#893CED" />
+  <circle cx="840" cy="318" r="8" fill="#893CED" opacity="0.7" />
 
   <!-- logo mark -->
   <g transform="translate(92 196) scale(0.107)">

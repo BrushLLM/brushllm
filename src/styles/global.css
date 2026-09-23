@@ -8,10 +8,37 @@
   --color-ink: #1a1b25;
   --color-muted: #565870;
 
-  /* 60-30-10 palette: neutrals carry the canvas (60), violet is the
-     primary brand color (30), orange its warm complement for accents (10) */
-  --color-brush-violet: #7c3aed;
-  --color-brush-orange: #f97316;
+  /* Palette from the official site icon (src/assets/site-icon.png):
+     violet-magenta gradient purple is the primary, lemon yellow (with ink
+     text, echoing the icon's black outlines) the accent. The violet/orange
+     ramps below override Tailwind defaults so every violet and orange
+     utility matches the icon. */
+  --color-brush-violet: #893ced;
+  --color-brush-orange: #f4ea2a;
+
+  --color-violet-50: #faf3fe;
+  --color-violet-100: #f3e4fd;
+  --color-violet-200: #e6c9fa;
+  --color-violet-300: #d3a5f5;
+  --color-violet-400: #bc72ee;
+  --color-violet-500: #a840ee;
+  --color-violet-600: #893ced;
+  --color-violet-700: #6e24d6;
+  --color-violet-800: #5b1cb0;
+  --color-violet-900: #48168a;
+
+  /* lemon ramp: 500 is the icon's yellow for fills; 600 hovers; 700 is the
+     readable-on-white mustard for text */
+  --color-orange-50: #fefbe3;
+  --color-orange-100: #fdf6be;
+  --color-orange-200: #fbee87;
+  --color-orange-300: #f9e44e;
+  --color-orange-400: #f7ec4e;
+  --color-orange-500: #f4ea2a;
+  --color-orange-600: #d9b80a;
+  --color-orange-700: #8a6a00;
+  --color-orange-800: #6b560a;
+  --color-orange-900: #4a3b06;
 
   --font-sans:
     'Inter Variable', ui-sans-serif, system-ui, 'PingFang SC', 'Hiragino Sans GB',
@@ -44,8 +71,8 @@ h3,
 }
 
 ::selection {
-  background: #ede9fe;
-  color: #2e1065;
+  background: #f3e4fd;
+  color: #48168a;
 }
 
 /* ── brush highlight band behind headline text ────────────── */
@@ -53,7 +80,7 @@ h3,
    phrase can wrap on small screens: box-decoration-break: clone repaints the
    band behind every line fragment. Violet at the same 25% the SVG band used. */
 .brush-band {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 100' preserveAspectRatio='none'%3E%3Cpath d='M12 42 L 388 40 L 386 80 L 14 84 Z' fill='%237C3AED' fill-opacity='0.25'/%3E%3Cpath d='M28 52 L 372 51' stroke='%23ffffff' stroke-opacity='0.175' stroke-width='6' fill='none'/%3E%3Cpath d='M24 66 L 376 64' stroke='%23ffffff' stroke-opacity='0.1125' stroke-width='3.5' fill='none'/%3E%3Cpath d='M50 59 L 350 57' stroke='%23000000' stroke-opacity='0.03' stroke-width='4' fill='none'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 100' preserveAspectRatio='none'%3E%3Cpath d='M12 42 L 388 40 L 386 80 L 14 84 Z' fill='%23893CED' fill-opacity='0.25'/%3E%3Cpath d='M28 52 L 372 51' stroke='%23ffffff' stroke-opacity='0.175' stroke-width='6' fill='none'/%3E%3Cpath d='M24 66 L 376 64' stroke='%23ffffff' stroke-opacity='0.1125' stroke-width='3.5' fill='none'/%3E%3Cpath d='M50 59 L 350 57' stroke='%23000000' stroke-opacity='0.03' stroke-width='4' fill='none'/%3E%3C/svg%3E");
   background-size: 100% 0.78em;
   background-position: 0 60%;
   background-repeat: no-repeat;

@@ -57,7 +57,7 @@ const planned = [
       <BrushStroke shape="sweep" color="orange" class="absolute top-40 -right-44 w-[560px] rotate-3 opacity-15" />
     </div>
 
-    <span class="inline-flex items-center gap-2 rounded-full bg-brush-orange px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-white shadow-md shadow-orange-500/25">
+    <span class="inline-flex items-center gap-2 rounded-full bg-brush-orange px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-ink shadow-md shadow-orange-500/25">
       Coming soon
     </span>
     <h1 class="mt-6 text-4xl font-bold tracking-tight text-balance sm:text-5xl">
@@ -75,7 +75,7 @@ const planned = [
     <ul class="mx-auto mt-6 flex flex-wrap justify-center gap-1.5 sm:gap-2">
       {
         ['Generate', 'Edit', 'Remove', 'Replace', 'Expand', 'Upscale', 'Restyle', 'Transform'].map((cap) => (
-          <li class="rounded-full border border-stone-200 bg-white px-2.5 py-1 text-[11px] font-medium text-brush-orange shadow-sm sm:px-3 sm:text-xs">{cap}</li>
+          <li class="rounded-full border border-stone-200 bg-white px-2.5 py-1 text-[11px] font-medium text-orange-700 shadow-sm sm:px-3 sm:text-xs">{cap}</li>
         ))
       }
     </ul>
@@ -106,7 +106,7 @@ const planned = [
       <div class="relative mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <a
           href={`mailto:${SITE.contactEmail}?subject=Image%20Studio%20early%20access`}
-          class="group inline-flex items-center gap-2 rounded-xl bg-brush-orange px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-500/25 transition hover:bg-orange-600"
+          class="group inline-flex items-center gap-2 rounded-xl bg-brush-orange px-6 py-3 text-sm font-semibold text-ink shadow-lg shadow-orange-500/25 transition hover:bg-orange-600"
         >
           {SITE.contactEmail}
           <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />

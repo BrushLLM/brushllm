@@ -30,7 +30,7 @@ const schemaGraph: Record<string, unknown>[] = [
     '@id': `${SITE.url}/#organization`,
     name: SITE.name,
     url: SITE.url,
-    logo: `${SITE.url}/favicon.svg`,
+    logo: `${SITE.url}/apple-touch-icon.png`,
     email: SITE.contactEmail,
     description:
       'BrushLLM is an AI platform for developers and creators, offering AI Model Services (one API for powerful AI models) and Image Studio (AI-powered image creation and editing).',
@@ -68,7 +68,6 @@ const schemaJson = JSON.stringify({ '@context': 'https://schema.org', '@graph': 
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="generator" content={Astro.generator} />

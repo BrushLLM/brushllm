@@ -17,10 +17,10 @@ interface Props {
 
 const { shape = 'sweep', color = 'violet', class: className = '' } = Astro.props;
 
-/* 60-30-10: violet is the primary, orange its warm complement */
+/* palette from the site icon: gradient purple + lemon yellow */
 const colors: Record<string, string> = {
-  violet: '#7C3AED',
-  orange: '#F97316',
+  violet: '#893CED',
+  orange: '#F4EA2A',
 };
 const fill = colors[color]!;
 

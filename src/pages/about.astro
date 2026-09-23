@@ -18,14 +18,14 @@ const values = [
     title: 'Two products, one account',
     description:
       'Two products, one account, one bill. If integrating us takes longer than a coffee break, that’s our bug, not your problem',
-    tile: 'bg-brush-mint text-ink shadow-mint-600/25',
+    tile: 'bg-brush-orange text-ink shadow-orange-500/25',
   },
   {
     icon: Tag,
     title: 'Honest pricing',
     description:
       'Published per-token rates, no subscription traps, and free tiers that stay free. You should always know what a request costs',
-    tile: 'bg-brush-orange text-ink shadow-orange-500/25',
+    tile: 'bg-brush-mint text-ink shadow-mint-600/25',
   },
   {
     icon: EyeOff,
@@ -44,7 +44,7 @@ const values = [
   <section class="relative mx-auto max-w-4xl overflow-hidden px-4 py-16 sm:px-6">
 <BrushStroke shape="sweep" color="violet" class="pointer-events-none absolute -top-10 -right-44 w-[620px] rotate-2 opacity-15" />
 
-    <p class="text-sm font-semibold uppercase tracking-widest text-mint-700">About</p>
+    <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">About</p>
     <h1 class="mt-3 text-4xl font-bold tracking-tight text-balance sm:text-5xl">
       AI products for
       <span class="brush-band text-ink">developers and creators</span>
@@ -93,13 +93,13 @@ const values = [
       <div class="mt-4 flex flex-wrap gap-3">
         <a
           href={`mailto:${SITE.contactEmail}`}
-          class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-ink shadow-sm transition hover:border-mint-400 hover:text-mint-700"
+          class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-5 py-2.5 text-sm font-semibold text-ink shadow-sm transition hover:border-violet-400 hover:text-brush-violet"
         >
           {SITE.contactEmail}
         </a>
         <a
           href={LINKS.signUp}
-          class="group inline-flex items-center gap-2 rounded-xl bg-brush-mint px-5 py-2.5 text-sm font-semibold text-ink shadow-lg shadow-mint-600/25 transition hover:bg-mint-600"
+          class="group inline-flex items-center gap-2 rounded-xl bg-brush-violet px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:bg-violet-700"
         >
           Get started
           <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />

@@ -22,6 +22,7 @@ npm run preview   # serve the built site locally
 | --- | --- |
 | `src/config.ts` | **Single source of truth for all external links** — sub2api console URL, login/register paths, and the `https://api.brushllm.com/v1` base URL shown in docs & code samples. Change your sub2api address here only. |
 | `src/data/models.ts` | The model catalog (id, provider, context, capabilities, indicative prices; `imagePrice`/`resolution` for text-to-image models). Edit to match what your sub2api actually serves — counts on the homepage update automatically. |
+| `src/data/compare.ts` | Homepage price-check table: BrushLLM final rates vs OpenRouter all-in cost (list + 5.5% credit-purchase fee). OpenRouter list prices via their public API — update the `retrieved` date in the file header when refreshing. |
 | `src/data/providers.ts` | The providers shown on the homepage marquee and used as filter chips on `/models` — leading AI labs plus OpenAI. |
 | `src/pages/` | `/`, `/models`, `/docs`, `/pricing`, `/studio` (Image Studio, coming soon), `/about`, `404`. |
 | `og-source.svg` | Source for the social sharing card. `public/og.png` is **generated from it at build time** (`prebuild` → `scripts/gen-og.mjs`) and is not committed. |

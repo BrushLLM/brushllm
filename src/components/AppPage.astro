@@ -12,7 +12,6 @@ import { SITE } from '../config';
 
 export interface AppFeatureGroup {
   title: string;
-  /** accent for the group's icon tiles: rotates the icon trio */
   items: { title: string; description: string }[];
 }
 
@@ -39,13 +38,6 @@ const schema: Record<string, unknown> = {
   brand: { '@type': 'Brand', name: 'BrushLLM' },
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
 };
-
-/* icon tiles rotate the icon trio like the homepage benefit cards */
-const tileStyles = [
-  'bg-brush-violet text-white shadow-violet-500/25',
-  'bg-brush-orange text-ink shadow-orange-500/25',
-  'bg-brush-mint text-ink shadow-mint-600/25',
-] as const;
 ---
 
 <BaseLayout title={app.name} description={`${app.tagline} — ${app.description}`} extraSchema={[schema, ...extraSchema]}>
@@ -82,20 +74,34 @@ const tileStyles = [
     <p class="mt-5 text-sm text-stone-500">{app.platforms.join(' · ')}</p>
   </section>
 
+  <!-- the app itself: official screenshot in a window frame -->
+  <section class="mx-auto max-w-5xl px-4 pb-16 sm:px-6">
+    <div class="reveal overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-xl shadow-stone-300/40">
+      <div class="flex items-center gap-3 border-b border-stone-100 bg-stone-50 px-4 py-2.5">
+        <div class="flex gap-1.5" aria-hidden="true">
+          <span class="h-2.5 w-2.5 rounded-full bg-stone-300"></span>
+          <span class="h-2.5 w-2.5 rounded-full bg-stone-300"></span>
+          <span class="h-2.5 w-2.5 rounded-full bg-stone-300"></span>
+        </div>
+        <p class="flex-1 truncate rounded-lg bg-white px-3 py-1 text-center font-mono text-xs text-stone-500 ring-1 ring-stone-200">
+          BrushLLM {app.name}
+        </p>
+      </div>
+      <img src={app.screenshot} alt={`BrushLLM ${app.name} interface`} width="1200" class="w-full" loading="lazy" />
+    </div>
+  </section>
+
   <section class="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
     <slot name="intro" />
     {
       featureGroups.map((group) => (
-        <div class="reveal mt-12">
-          <h2 class="text-2xl font-bold tracking-tight">{group.title}</h2>
-          <div class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {group.items.map((item, i) => (
-              <div class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg">
-                <div class={`flex h-11 w-11 items-center justify-center rounded-xl shadow-lg ${tileStyles[i % tileStyles.length]}`}>
-                  <span class="text-sm font-bold">{String(i + 1).padStart(2, '0')}</span>
-                </div>
-                <h3 class="mt-4 font-semibold">{item.title}</h3>
-                <p class="mt-2 text-sm leading-relaxed text-muted">{item.description}</p>
+        <div class="reveal mt-10">
+          <h2 class="text-xl font-bold tracking-tight">{group.title}</h2>
+          <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {group.items.map((item) => (
+              <div class="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg">
+                <h3 class="font-semibold">{item.title}</h3>
+                <p class="mt-1.5 text-sm leading-relaxed text-muted">{item.description}</p>
               </div>
             ))}
           </div>

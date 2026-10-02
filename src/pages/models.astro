@@ -105,7 +105,7 @@ const freeCount = models.filter((m) => m.price.input === 0 && m.price.output ===
     </div>
 
     <!-- grid -->
-    <div id="model-grid" class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <div id="model-grid" class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {models.map((model) => <ModelCard model={model} />)}
     </div>
 

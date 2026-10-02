@@ -6,6 +6,9 @@
 import imageStudioIcon from '../assets/apps/image-studio.png?url';
 import videoStudioIcon from '../assets/apps/video-studio.png?url';
 import playerIcon from '../assets/apps/player.png?url';
+import imageStudioShot from '../assets/apps/image-studio-shot.png?url';
+import videoStudioShot from '../assets/apps/video-studio-shot.png?url';
+import playerShot from '../assets/apps/player-shot.png?url';
 
 export interface SiteApp {
   /** slug, also the icon filename */
@@ -25,6 +28,8 @@ export interface SiteApp {
   highlights: string[];
   /** app icon URL (256px PNG) */
   icon: string;
+  /** official app screenshot URL */
+  screenshot: string;
 }
 
 export const apps: SiteApp[] = [
@@ -40,6 +45,7 @@ export const apps: SiteApp[] = [
     platforms: ['macOS (Apple Silicon)', 'Windows 11 (x64 / ARM64)'],
     highlights: ['25+ local tools', 'AI edits via BrushLLM API', '9 languages', 'Zero telemetry'],
     icon: imageStudioIcon,
+    screenshot: imageStudioShot,
   },
   {
     id: 'video-studio',
@@ -53,6 +59,7 @@ export const apps: SiteApp[] = [
     platforms: ['macOS (Apple Silicon)', 'Windows 11 (x64 / ARM64)'],
     highlights: ['25+ tools', '100% local processing', '9 languages', 'Zero network requests'],
     icon: videoStudioIcon,
+    screenshot: videoStudioShot,
   },
   {
     id: 'player',
@@ -67,6 +74,7 @@ export const apps: SiteApp[] = [
     license: 'GPL-3.0',
     highlights: ['Every format via mpv', 'WebDAV · SMB · Emby · Jellyfin', 'HDR & hardware decode', '9 languages'],
     icon: playerIcon,
+    screenshot: playerShot,
   },
 ];
 

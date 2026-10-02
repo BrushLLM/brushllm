@@ -127,7 +127,19 @@ const errors = [
       know how to call BrushLLM — here’s the thirty-second version.
     </p>
 
+    <nav class="mt-6 flex flex-wrap gap-2" aria-label="Docs sections">
+      {[
+        ['Quickstart', '#quickstart'],
+        ['First request', '#examples'],
+        ['Model ids', '#model-ids'],
+        ['Errors', '#errors'],
+      ].map(([label, href]) => (
+        <a href={href} class="rounded-full border border-stone-200 bg-white px-3.5 py-1.5 text-sm font-medium text-muted transition hover:border-violet-300 hover:text-brush-violet">{label}</a>
+      ))}
+    </nav>
+
     <!-- Steps -->
+    <div id="quickstart" class="scroll-mt-24"></div>
     <ol class="mt-12 space-y-5">
       <li class="reveal flex gap-5 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:border-violet-300">
         <span class="bg-brush-violet flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-bold text-white shadow-lg shadow-violet-500/25">1</span>

@@ -23,8 +23,6 @@ import ShinyButton from '../components/ShinyButton.astro';
 import { LINKS, SITE } from '../config';
 import { models } from '../data/models';
 import { visibleProviders } from '../data/providers';
-import { compareRows, orAllIn, savePct, fmt } from '../data/compare';
-import AppDownload from '../components/AppDownload.astro';
 import { apps } from '../data/apps';
 
 /* GEO structured data: the platform's products, stated factually */
@@ -346,7 +344,16 @@ const creatorFaqs = [
           <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-violet"></span>Chat, reasoning, vision & image models</li>
           <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-orange"></span>Published prices, pay-as-you-go, free tiers</li>
         </ul>
-        <p class="mt-5 text-xs font-medium uppercase tracking-wide text-stone-500">Developers · Startups · Businesses</p>
+        <ul class="mt-5 flex flex-wrap gap-2">
+          {[
+            ['Models', '/models'],
+            ['Pricing', '/pricing'],
+            ['Docs', '/docs'],
+            ['Console', LINKS.console],
+          ].map(([label, href]) => (
+            <li><a href={href} class="rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-xs font-medium text-muted transition hover:border-violet-300 hover:text-brush-violet">{label}</a></li>
+          ))}
+        </ul>
         <div class="mt-4 flex flex-wrap gap-3">
           <a href="/models" class="group/dev inline-flex items-center gap-1.5 rounded-xl bg-brush-violet px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:bg-violet-700">
             Explore AI Models
@@ -377,7 +384,14 @@ const creatorFaqs = [
             <li class="rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-xs font-medium text-orange-700">{cap}</li>
           ))}
         </ul>
-        <p class="relative mt-5 text-xs font-medium uppercase tracking-wide text-stone-500">Open source · macOS · Windows</p>
+                <div class="relative mt-5 flex items-center gap-3">
+          {apps.map((a) => (
+            <a href={a.href} title={a.name} class="transition-transform hover:-translate-y-0.5">
+              <img src={a.icon} alt="" width="32" height="32" class="h-8 w-8 rounded-lg shadow-sm" />
+            </a>
+          ))}
+          <span class="text-xs font-medium uppercase tracking-wide text-stone-500">Open source · macOS · Windows</span>
+        </div>
         <div class="relative mt-4 flex flex-wrap gap-3">
           <a href="/apps" class="group/create inline-flex items-center gap-1.5 rounded-xl bg-brush-orange px-5 py-2.5 text-sm font-semibold text-ink shadow-lg shadow-orange-500/25 transition hover:bg-orange-600">
             Explore the apps
@@ -389,11 +403,11 @@ const creatorFaqs = [
   </section>
 
   <!-- ═══ AI Model Services benefits ═══ -->
-  <section class="relative mx-auto max-w-6xl px-4 py-24 sm:px-6">
+  <section class="relative mx-auto max-w-6xl px-4 py-16 sm:px-6">
     <BrushStroke shape="sweep" color="violet" class="absolute top-10 right-0 hidden w-96 rotate-2 opacity-10 lg:block" />
     <div class="reveal mx-auto max-w-2xl text-center">
       <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">Why BrushLLM</p>
-      <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+      <h2 class="mt-3 text-2xl font-bold tracking-tight">
         Everything you need,
         <span class="relative inline-block">
           <span>nothing you don’t</span>
@@ -419,49 +433,49 @@ const creatorFaqs = [
 
   <!-- ═══ Apps: the BrushLLM desktop family ═══ -->
   <section id="apps" class="border-y border-stone-100 bg-stone-50/50">
-    <div class="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
       <div class="reveal mx-auto max-w-2xl text-center">
         <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">Apps</p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+        <h2 class="mt-3 text-2xl font-bold tracking-tight">
           Free local-first apps,
           <span class="relative inline-block">
             <span>built on one platform</span>
             <BrushStroke shape="underline" color="orange" class="absolute -bottom-2 left-0 h-2.5 w-full" />
           </span>
         </h2>
-        <p class="mt-4 text-muted">
-          Three open-source desktop tools for macOS and Windows — zero telemetry, zero accounts.
-          Image Studio’s AI features plug straight into the BrushLLM API.
-        </p>
       </div>
 
-      <div class="mt-12 grid gap-6 lg:grid-cols-3">
+      <div class="mt-10 grid gap-5 lg:grid-cols-3">
         {
           apps.map((app) => (
-            <div class="reveal group flex flex-col rounded-[2rem] border border-stone-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg">
-              <img src={app.icon} alt="" width="64" height="64" class="h-16 w-16 rounded-2xl shadow-lg shadow-stone-300/50" />
-              <h3 class="mt-5 text-xl font-bold tracking-tight"><a href={app.href} class="transition-colors hover:text-brush-violet">{app.name}</a></h3>
-              <p class="mt-1 font-display text-sm font-semibold text-brush-violet">{app.tagline}</p>
-              <p class="mt-3 text-sm leading-relaxed text-muted">{app.description}</p>
-              <ul class="mt-4 flex flex-wrap gap-1.5">
-                {app.highlights.map((h) => (
-                  <li class="rounded-full border border-stone-200 bg-stone-50 px-2.5 py-1 text-[11px] font-medium text-stone-600">{h}</li>
-                ))}
-              </ul>
-              <p class="mt-4 text-xs font-medium uppercase tracking-wide text-stone-500">{app.platforms.join(' · ')}</p>
-              <div class="mt-auto pt-6">
-                <AppDownload releases={app.releases} repo={app.repo} />
+            <div class="reveal group rounded-3xl border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg">
+              <div class="flex items-center gap-4">
+                <img src={app.icon} alt="" width="56" height="56" class="h-14 w-14 rounded-2xl shadow-md shadow-stone-300/50" />
+                <div>
+                  <h3 class="text-lg font-bold tracking-tight">
+                    <a href={app.href} class="transition-colors hover:text-brush-violet">{app.name}</a>
+                  </h3>
+                  <p class="text-sm text-muted">{app.tagline}</p>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center justify-between border-t border-stone-100 pt-4">
+                <a href={app.href} class="text-sm font-semibold text-brush-violet hover:text-violet-700">Learn more →</a>
+                <a href={app.releases} class="text-sm font-medium text-muted transition-colors hover:text-brush-violet" rel="noopener">Download ↗</a>
               </div>
             </div>
           ))
         }
       </div>
+      <p class="reveal mt-6 text-center text-sm text-muted">
+        Details, screenshots and installers on the
+        <a href="/apps" class="font-semibold text-brush-violet hover:text-violet-700">apps page →</a>
+      </p>
     </div>
   </section>
 
   <!-- ═══ Available models + stats ═══ -->
-  <section class="border-b border-stone-100 py-10">
-    <h2 class="text-center text-xs font-semibold uppercase tracking-[0.2em] text-stone-400">
+  <section class="border-b border-stone-100 py-12">
+    <h2 class="text-center text-xs font-semibold uppercase tracking-[0.2em] text-stone-500">
       Available models, one API
     </h2>
     <div class="marquee relative mt-7 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_24%,black_76%,transparent)]">
@@ -478,10 +492,8 @@ const creatorFaqs = [
         }
       </div>
     </div>
-  </section>
 
-  <section class="border-b border-stone-100">
-    <div class="mx-auto grid max-w-6xl grid-cols-2 divide-stone-100 px-4 py-14 text-center sm:grid-cols-4 sm:divide-x sm:px-6">
+    <div class="mx-auto mt-10 grid max-w-6xl grid-cols-2 divide-stone-100 px-4 text-center sm:grid-cols-4 sm:divide-x sm:px-6">
       <div class="reveal p-4">
         <p class="text-4xl font-bold text-brush-violet sm:text-5xl" data-count-to={visibleProviders.length} data-suffix="+">{visibleProviders.length}+</p>
         <p class="mt-1.5 text-sm text-muted">AI providers</p>
@@ -499,73 +511,20 @@ const creatorFaqs = [
         <p class="mt-1.5 text-sm text-muted">Countries served</p>
       </div>
     </div>
+    <p class="mt-6 text-center text-sm text-muted">
+      Our all-in rates beat OpenRouter on 7 head-to-head models —
+      <a href="/pricing" class="font-semibold text-brush-violet hover:text-violet-700">see the comparison →</a>
+    </p>
   </section>
 
-  <!-- ═══ Price check vs OpenRouter ═══ -->
+  <!-- ═══ How it works + first request ═══ -->
   <section class="bg-white">
-    <div class="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-      <div class="reveal mx-auto max-w-2xl text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">Price check</p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-          Same models,
-          <span class="relative inline-block">
-            <span>smaller all-in bills</span>
-            <BrushStroke shape="underline" color="orange" class="absolute -bottom-2 left-0 h-2.5 w-full" />
-          </span>
-        </h2>
-        <p class="mt-4 text-muted">
-          OpenRouter adds a payment fee when you buy credits — 5.5% by card — on top of every
-          model’s list price. BrushLLM’s published rate is the final rate you pay.
-        </p>
-      </div>
-
-      <div class="reveal mx-auto mt-12 max-w-4xl overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm">
-        <table class="w-full text-left text-sm">
-          <thead class="border-b border-stone-100 bg-stone-50 text-xs uppercase tracking-wide text-stone-500">
-            <tr>
-              <th class="px-4 py-3 font-medium">Model</th>
-              <th class="px-4 py-3 text-right font-medium">BrushLLM <span class="font-normal normal-case">in / out per 1M</span></th>
-              <th class="px-4 py-3 text-right font-medium">OpenRouter list <span class="font-normal normal-case">in / out</span></th>
-              <th class="px-4 py-3 text-right font-medium">OpenRouter all-in* <span class="font-normal normal-case">in / out</span></th>
-              <th class="px-4 py-3 text-right font-medium">You save</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-stone-100">
-            {
-              compareRows.map((row) => (
-                <tr class="transition hover:bg-stone-50">
-                  <td class="px-4 py-3 font-medium">{row.name}</td>
-                  <td class="px-4 py-3 text-right font-semibold">{fmt(row.ours.input)} / {fmt(row.ours.output)}</td>
-                  <td class="px-4 py-3 text-right text-stone-500">{fmt(row.openrouter.input)} / {fmt(row.openrouter.output)}</td>
-                  <td class="px-4 py-3 text-right text-stone-500">{fmt(orAllIn(row.openrouter.input))} / {fmt(orAllIn(row.openrouter.output))}</td>
-                  <td class="px-4 py-3 text-right font-semibold text-mint-700">
-                    up to {Math.max(savePct(row.ours.input, row.openrouter.input), savePct(row.ours.output, row.openrouter.output))}%
-                  </td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
-
-      <p class="reveal mx-auto mt-4 max-w-4xl text-xs leading-relaxed text-stone-500">
-        *All-in = OpenRouter list price plus the 5.5% credit-purchase fee (Stripe; crypto is 5%).
-        Savings compare BrushLLM’s final rate with OpenRouter’s all-in rate. OpenRouter list prices
-        via their public API, retrieved Sep 2026 — indicative; verify current rates on both platforms.
-        The full BrushLLM catalog is on the
-        <a href="/pricing" class="font-medium text-brush-violet hover:text-violet-700">pricing page</a>.
-      </p>
-    </div>
-  </section>
-
-  <!-- ═══ How it works ═══ -->
-  <section class="bg-white">
-    <div class="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
       <div class="reveal mx-auto max-w-2xl text-center">
         <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">How it works</p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Three steps to your first token</h2>
+        <h2 class="mt-3 text-2xl font-bold tracking-tight">Three steps to your first token</h2>
       </div>
-      <div class="relative mt-16 grid gap-10 md:grid-cols-3">
+      <div class="relative mt-12 grid gap-10 md:grid-cols-3">
         <!-- dashed connector -->
         <div class="absolute top-6 right-[16%] left-[16%] hidden border-t-2 border-dashed border-stone-300 md:block" aria-hidden="true"></div>
         {
@@ -588,29 +547,25 @@ const creatorFaqs = [
           base_url = <span class="font-semibold text-brush-violet">{LINKS.apiBase}</span>
         </p>
       </div>
-    </div>
-  </section>
 
-  <!-- ═══ Code examples ═══ -->
-  <section class="relative mx-auto max-w-6xl px-4 py-24 sm:px-6">
-    <div class="reveal mx-auto max-w-2xl text-center">
-      <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">Drop-in compatible</p>
-      <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Keep your code, change one line</h2>
-      <p class="mt-4 text-muted">
-        If it works with the OpenAI API, it works with BrushLLM. Here’s the same request in four languages.
-      </p>
-    </div>
-    <div class="reveal mx-auto mt-10 max-w-3xl">
-      <CodeTabs tabs={codeTabs} />
+      <div class="reveal mx-auto mt-14 max-w-2xl text-center">
+        <h3 class="text-xl font-bold tracking-tight">Keep your code, change one line</h3>
+        <p class="mt-2 text-muted">
+          If it works with the OpenAI API, it works with BrushLLM — the same request in four languages.
+        </p>
+      </div>
+      <div class="reveal mx-auto mt-8 max-w-3xl">
+        <CodeTabs tabs={codeTabs} />
+      </div>
     </div>
   </section>
 
   <!-- ═══ FAQ: developers + creators ═══ -->
   <section class="border-t border-stone-100">
-    <div class="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
       <div class="reveal mx-auto max-w-2xl text-center">
         <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">FAQ</p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Questions, answered</h2>
+        <h2 class="mt-3 text-2xl font-bold tracking-tight">Questions, answered</h2>
       </div>
 
       <div class="reveal mx-auto mt-12 max-w-3xl">
@@ -630,7 +585,7 @@ const creatorFaqs = [
   </section>
 
   <!-- ═══ Final CTAs: build + create ═══ -->
-  <section class="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
     <div class="grid gap-6 lg:grid-cols-2">
       <!-- developer CTA -->
       <div class="reveal relative overflow-hidden rounded-[2rem] border border-stone-200 bg-white px-8 py-16 text-center shadow-xl shadow-stone-200/60">

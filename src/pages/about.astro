@@ -4,6 +4,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import BrushStroke from '../components/BrushStroke.astro';
 import { LINKS, SITE } from '../config';
 import { models } from '../data/models';
+import { apps } from '../data/apps';
+import { visibleProviders } from '../data/providers';
 
 const values = [
   {
@@ -82,6 +84,29 @@ const values = [
           </div>
         ))
       }
+    </div>
+
+    <div class="reveal mt-12">
+      <h2 class="text-xl font-bold tracking-tight">The BrushLLM family</h2>
+      <p class="mt-2 text-sm leading-relaxed text-muted">
+        One platform, two tracks — a unified API for developers, and a family of free
+        local-first desktop apps for creators.
+      </p>
+      <div class="mt-5 grid gap-4 sm:grid-cols-2">
+        <a href="/models" class="group rounded-2xl border border-stone-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg">
+          <h3 class="font-semibold group-hover:text-brush-violet">AI Model Services</h3>
+          <p class="mt-1.5 text-sm text-muted">One OpenAI-compatible endpoint for {models.length} models from {visibleProviders.length} providers — pay per token or per image.</p>
+        </a>
+        {apps.map((app) => (
+          <a href={app.href} class="group flex items-center gap-4 rounded-2xl border border-stone-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg">
+            <img src={app.icon} alt="" width="40" height="40" class="h-10 w-10 shrink-0 rounded-xl shadow-sm" />
+            <div>
+              <h3 class="font-semibold group-hover:text-brush-violet">{app.name}</h3>
+              <p class="text-sm text-muted">{app.tagline}</p>
+            </div>
+          </a>
+        ))}
+      </div>
     </div>
 
     <div class="reveal mt-12 rounded-2xl border border-stone-200 bg-white p-8 shadow-sm">

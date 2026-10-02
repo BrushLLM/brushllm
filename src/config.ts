@@ -10,7 +10,7 @@ export const SITE = {
   url: 'https://brushllm.com',
   title: 'BrushLLM — Your AI, Without the Complexity',
   description:
-    'Access powerful AI models through one API, and create with AI in one studio. BrushLLM is an AI platform for developers and creators.',
+    'Access powerful AI models through one API, and create with free local-first desktop apps. BrushLLM is an AI platform for developers and creators.',
   contactEmail: 'hello@brushllm.com',
 } as const;
 

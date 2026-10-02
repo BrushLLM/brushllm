@@ -1,8 +1,8 @@
 # BrushLLM — brushllm.com
 
-Marketing & showcase site for **BrushLLM** — an AI platform with two core
-products: **AI Model Services** (one API for powerful AI models) and
-**Image Studio**, a browser-based AI image editor (coming soon). Built with
+Marketing & showcase site for **BrushLLM** — an AI platform: **AI Model Services**
+(one API for powerful AI models) plus three free local-first desktop apps —
+**Image Studio**, **Video Studio** and **Player** (github.com/BrushLLM). Built with
 [Astro](https://astro.build) (static output, light theme only). The login
 screen, console, and the API itself are served by a separate sub2api
 deployment at `api.brushllm.com` — this site only links to it.

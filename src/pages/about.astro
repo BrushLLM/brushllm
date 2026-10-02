@@ -15,9 +15,9 @@ const values = [
   },
   {
     icon: Paintbrush,
-    title: 'Two products, one account',
+    title: 'One platform, one account',
     description:
-      'Two products, one account, one bill. If integrating us takes longer than a coffee break, that’s our bug, not your problem',
+      'One platform, one account, one bill. If integrating us takes longer than a coffee break, that’s our bug, not your problem',
     tile: 'bg-brush-orange text-ink shadow-orange-500/25',
   },
   {
@@ -39,7 +39,7 @@ const values = [
 
 <BaseLayout
   title="About"
-  description="BrushLLM builds AI products for both developers and creators — a unified API for powerful AI models, and a studio for AI-powered image creation and editing."
+  description="BrushLLM builds AI products for both developers and creators — a unified API for powerful AI models, and free local-first desktop apps for images, video and media."
 >
   <section class="relative mx-auto max-w-4xl overflow-hidden px-4 py-16 sm:px-6">
 <BrushStroke shape="sweep" color="violet" class="pointer-events-none absolute -top-10 -right-44 w-[620px] rotate-2 opacity-15" />
@@ -52,8 +52,8 @@ const values = [
 
     <div class="mt-8 space-y-5 text-lg leading-relaxed text-muted">
       <p>
-        BrushLLM builds AI products for both developers and creators. Two products, one account,
-        one balance — and the same promise in each: simple tools, published prices, privacy by
+        BrushLLM builds AI products for both developers and creators. One platform, one
+        account — and the same promise in each: simple tools, published prices, privacy by
         design.
       </p>
       <p>
@@ -64,10 +64,9 @@ const values = [
       </p>
       <p>
         <strong class="text-ink">For creators.</strong>
-        <a href="/studio" class="font-semibold text-orange-700 hover:text-orange-700">Image Studio</a>
-        — an AI-powered image creation and editing studio. Generate, edit, expand, upscale and
-        restyle images with plain words, right in the browser. Currently in development;
-        <a href={`mailto:${SITE.contactEmail}?subject=Image%20Studio%20early%20access`} class="font-semibold text-orange-700 hover:text-orange-700"> early access is open</a>.
+        <a href="/#apps" class="font-semibold text-brush-violet hover:text-violet-700">Image Studio, Video Studio and Player</a>
+        — free local-first desktop apps for macOS and Windows. Image Studio pairs free local
+        tools with AI editing through the same API; all three are open source with zero telemetry.
       </p>
     </div>
 

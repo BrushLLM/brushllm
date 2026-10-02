@@ -26,7 +26,7 @@ import { compareRows, orAllIn, savePct, fmt } from '../data/compare';
 import AppDownload from '../components/AppDownload.astro';
 import { apps } from '../data/apps';
 
-/* GEO structured data: the two core products, stated factually */
+/* GEO structured data: the platform's products, stated factually */
 const productSchemas: Record<string, unknown>[] = [
   {
     '@type': 'Product',
@@ -195,17 +195,6 @@ const steps = [
   },
 ];
 
-const studioCapabilities = [
-  'Generate',
-  'Edit',
-  'Remove',
-  'Replace',
-  'Expand',
-  'Upscale',
-  'Restyle',
-  'Transform',
-];
-
 /* Marquee: six copies of the provider row. The -50% loop point lands on a
    copy boundary (seamless wrap), and half the track — three copies, ~3.9k px —
    stays wider than any viewport so the track's right end is never exposed. */
@@ -215,7 +204,7 @@ const developerFaqs = [
   {
     question: 'What is BrushLLM?',
     answer:
-      'BrushLLM is an AI platform with two core products. AI Model Services gives developers one API for powerful AI models, and Image Studio is an AI-powered image creation and editing app for everyone. One account covers both.',
+      'BrushLLM is an AI platform for developers and creators. AI Model Services gives developers one API for powerful AI models, and a family of free local-first desktop apps — Image Studio, Video Studio and Player — covers the creator side. One account covers the platform.',
   },
   {
     question: 'How does the API work?',
@@ -256,17 +245,17 @@ const creatorFaqs = [
   {
     question: 'What can I do with Image Studio?',
     answer:
-      'Generate new images from text, edit them with plain words, remove or replace objects, expand the canvas, upscale to 4K, and restyle entire photos.',
+      'Convert, compress, crop and clean up images with free local tools — then generate, remove backgrounds, erase objects, fill and restyle with AI, billed per image.',
   },
   {
     question: 'Can I edit existing images?',
     answer:
-      'Yes. Upload any image, select a region or the whole canvas, and describe the change — inpainting, outpainting and background removal are all built in.',
+      'Yes. Open any image, select a region or the whole canvas, and describe the change — inpainting and background removal are built in.',
   },
   {
     question: 'Can I generate and transform images?',
     answer:
-      'Yes — text-to-image generation, style transfer and detail-preserving upscaling all run in the same workspace, powered by GPT-Image.',
+      'Yes — text-to-image generation and restyling run in the same workspace, powered by GPT-Image through the BrushLLM API.',
   },
   {
     question: 'Where do I get the apps?',
@@ -301,7 +290,7 @@ const creatorFaqs = [
       </h1>
 
       <p class="reveal mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted">
-        Access powerful AI models through one API, and create with AI in one studio
+        Access powerful AI models through one API, and create with free local-first apps
       </p>
 
       <div class="reveal mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -320,22 +309,22 @@ const creatorFaqs = [
           <ArrowRight class="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
         </ShinyButton>
       </div>
-      <p class="reveal mt-5 text-sm text-stone-500">One account covers both products</p>
+      <p class="reveal mt-5 text-sm text-stone-500">One account for the whole platform</p>
     </div>
   </section>
 
-  <!-- ═══ Two products, visually equal ═══ -->
+  <!-- ═══ One platform: API + apps ═══ -->
   <section class="mx-auto max-w-6xl px-4 py-24 sm:px-6">
     <div class="reveal mx-auto max-w-2xl text-center">
-      <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">Two products</p>
+      <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">One platform</p>
       <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">One platform, built for developers and creators</h2>
       <p class="mt-4 leading-relaxed text-muted">
-        BrushLLM is an AI platform for developers and creators. It provides unified API access to
-        AI models through one endpoint —
-        <a href="/models" class="font-semibold text-brush-violet hover:text-violet-700">AI Model Services</a>
-        — and offers
-        <a href="/studio" class="font-semibold text-orange-700 hover:text-orange-700">Image Studio</a>,
-        an AI-powered image creation and editing studio.
+        BrushLLM is one platform for developers and creators: unified API access to powerful AI
+        models through
+        <a href="/models" class="font-semibold text-brush-violet hover:text-violet-700">AI Model Services</a>,
+        plus a family of
+        <a href="/#apps" class="font-semibold text-brush-violet hover:text-violet-700">free local-first desktop apps</a>
+        — with Image Studio’s AI features billed through the same API.
       </p>
     </div>
 
@@ -356,7 +345,7 @@ const creatorFaqs = [
           <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-violet"></span>Chat, reasoning, vision & image models</li>
           <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-brush-orange"></span>Published prices, pay-as-you-go, free tiers</li>
         </ul>
-        <p class="mt-5 text-xs font-medium uppercase tracking-wide text-stone-400">Developers · Startups · Businesses</p>
+        <p class="mt-5 text-xs font-medium uppercase tracking-wide text-stone-500">Developers · Startups · Businesses</p>
         <div class="mt-4 flex flex-wrap gap-3">
           <a href="/models" class="group/dev inline-flex items-center gap-1.5 rounded-xl bg-brush-violet px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:bg-violet-700">
             Explore AI Models
@@ -374,25 +363,23 @@ const creatorFaqs = [
           <BrushStroke shape="sweep" color="orange" class="absolute -top-10 -right-24 w-[420px] rotate-3 opacity-80" />
         </div>
         <span class="relative inline-flex items-center gap-2 rounded-full bg-brush-orange px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-ink shadow-md shadow-orange-500/25">
-          For creators · Desktop app
+          For creators · Free apps
         </span>
-        <h3 class="relative mt-4 text-2xl font-bold tracking-tight">Image Studio</h3>
-        <p class="relative mt-1 font-display text-sm font-semibold text-orange-700">Local-first image toolbox with AI superpowers</p>
+        <h3 class="relative mt-4 text-2xl font-bold tracking-tight">Desktop Apps</h3>
+        <p class="relative mt-1 font-display text-sm font-semibold text-orange-700">Free local-first tools for everyday work</p>
         <p class="relative mt-3 text-sm leading-relaxed text-muted">
-          Free local tools for everyday edits, plus AI generation and editing through the
-          BrushLLM API — billed per image. macOS and Windows.
+          Image Studio, Video Studio and Player — open-source desktop apps for macOS and
+          Windows, zero telemetry. Image Studio’s AI features run on the same API.
         </p>
         <ul class="relative mt-5 flex flex-wrap gap-2">
-          {
-            studioCapabilities.map((cap) => (
-              <li class="rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-xs font-medium text-orange-700">{cap}</li>
-            ))
-          }
+          {['Image Studio', 'Video Studio', 'Player'].map((cap) => (
+            <li class="rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-xs font-medium text-orange-700">{cap}</li>
+          ))}
         </ul>
-        <p class="relative mt-5 text-xs font-medium uppercase tracking-wide text-stone-400">Creators · Designers · Everyone</p>
+        <p class="relative mt-5 text-xs font-medium uppercase tracking-wide text-stone-500">Open source · macOS · Windows</p>
         <div class="relative mt-4 flex flex-wrap gap-3">
-          <a href="/studio" class="group/create inline-flex items-center gap-1.5 rounded-xl bg-brush-orange px-5 py-2.5 text-sm font-semibold text-ink shadow-lg shadow-orange-500/25 transition hover:bg-orange-600">
-            Explore Image Studio
+          <a href="/#apps" class="group/create inline-flex items-center gap-1.5 rounded-xl bg-brush-orange px-5 py-2.5 text-sm font-semibold text-ink shadow-lg shadow-orange-500/25 transition hover:bg-orange-600">
+            Explore the apps
             <ArrowRight class="h-4 w-4 transition-transform group-hover/create:translate-x-0.5" aria-hidden="true" />
           </a>
         </div>
@@ -676,7 +663,8 @@ const creatorFaqs = [
         </div>
         <h2 class="relative text-3xl font-bold tracking-tight sm:text-4xl">Create with AI</h2>
         <p class="relative mx-auto mt-3 max-w-sm text-sm leading-relaxed text-muted">
-          Generate, edit and transform images in a full AI studio — right in your browser
+          Free local-first desktop apps — create and edit images, video and media, with AI
+          superpowers in Image Studio
         </p>
         <div class="relative mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
@@ -686,8 +674,8 @@ const creatorFaqs = [
             Explore Image Studio
             <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
           </a>
-          <a href={`mailto:${SITE.contactEmail}?subject=Image%20Studio%20early%20access`} class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-orange-400 hover:text-orange-700">
-            Get early access
+          <a href="/#apps" class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-orange-400 hover:text-orange-700">
+            See all apps
           </a>
         </div>
       </div>

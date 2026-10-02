@@ -32,7 +32,7 @@ export const LINKS = {
 /** Main navigation (header + footer). `badge` renders a small pill (e.g. Soon). */
 export const NAV = [
   { label: 'AI Models', href: '/models' },
-  { label: 'Apps', href: '/#apps' },
+  { label: 'Apps', href: '/apps' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'Docs', href: '/docs' },
   { label: 'About', href: '/about' },

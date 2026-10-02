@@ -1,123 +1,45 @@
 ---
-import { ArrowRight, Eraser, ImagePlus, Maximize2, Wand2 } from '@lucide/astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import BrushStroke from '../components/BrushStroke.astro';
-import { SITE } from '../config';
+import AppPage from '../components/AppPage.astro';
+import { appById } from '../data/apps';
+import { LINKS } from '../config';
 
-const studioSchema: Record<string, unknown>[] = [
-  {
-    '@type': 'SoftwareApplication',
-    '@id': `${SITE.url}/#image-studio`,
-    name: 'BrushLLM Image Studio',
-    applicationCategory: 'MultimediaApplication',
-    operatingSystem: 'Web',
-    description:
-      'AI-powered image creation and editing studio for creators and everyday users — generate, edit, remove, replace, expand, upscale, restyle, and transform images in the browser. Currently in development; early access is open.',
-    url: `${SITE.url}/studio`,
-    brand: { '@type': 'Brand', name: 'BrushLLM' },
-  },
-];
+const app = appById('image-studio')!;
 
-const planned = [
+const featureGroups = [
   {
-    icon: ImagePlus,
-    title: 'Generative fill & edit',
-    description: 'Select any region and describe the change — inpainting and outpainting powered by GPT-Image-2',
-    tile: 'bg-brush-orange text-ink shadow-orange-500/25',
+    title: 'Local tools — free, offline, private',
+    items: [
+      { title: 'Convert & compress', description: '8 input formats to 8 output formats (including AVIF and WebP), with Lanczos resampling and quality control.' },
+      { title: 'Resize, crop & rotate', description: 'Batch-friendly geometry tools with precise pixel dimensions and aspect presets.' },
+      { title: 'Watermarks & annotation', description: 'Text and image watermarks, arrows, boxes and freehand annotation for screenshots and docs.' },
+      { title: 'EXIF view, edit & strip', description: 'Inspect full metadata, rewrite fields, or scrub location and camera data before sharing.' },
+      { title: 'Stitch, mosaic & shadows', description: 'Combine images into grids, pixelate regions, add rounded corners and drop shadows.' },
+      { title: 'Color tools', description: 'Brightness, contrast and saturation, color replacement, and a magnifying color picker.' },
+    ],
   },
   {
-    icon: Eraser,
-    title: 'Background removal',
-    description: 'One-click cutouts with clean edges — no manual masking',
-    tile: 'bg-brush-violet text-white shadow-violet-500/25',
-  },
-  {
-    icon: Maximize2,
-    title: 'Upscale to 4K',
-    description: 'Crisp upscaling with detail reconstruction',
-    tile: 'bg-brush-mint text-ink shadow-mint-600/25',
-  },
-  {
-    icon: Wand2,
-    title: 'Style transfer',
-    description: 'Repaint an image in a new style while keeping composition and identity',
-    tile: 'bg-brush-orange text-ink shadow-orange-500/25',
+    title: 'AI tools — powered by the BrushLLM gateway',
+    items: [
+      { title: 'Generate images', description: 'Text-to-image with GPT-Image — billed per generated image, no subscription.' },
+      { title: 'Remove backgrounds', description: 'One-click cutouts with clean edges, straight from your desktop.' },
+      { title: 'Remove objects & watermarks', description: 'Select a region and describe what should disappear — inpainting fills it in.' },
+      { title: 'Generative fill', description: 'Expand, replace or swap content with optional reference images (e.g. person swap).' },
+      { title: 'Restyle', description: 'Repaint an image in a new style while keeping composition and identity.' },
+      { title: 'Your key, your quota', description: 'API key lives in the OS keychain; each key carries its own spend quota from the console.' },
+    ],
   },
 ];
 ---
 
-<BaseLayout
-  extraSchema={studioSchema}
-  title="Image Studio"
-  description="BrushLLM Image Studio — a browser-based AI image editor on top of our gateway. Coming soon."
->
-  <section class="relative mx-auto max-w-4xl px-4 py-20 text-center sm:px-6">
-    <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-      <BrushStroke shape="sweep" color="violet" class="absolute -top-10 -left-40 w-[620px] -rotate-6 opacity-15" />
-      <BrushStroke shape="sweep" color="mint" class="absolute top-40 -right-44 w-[560px] rotate-3 opacity-15" />
-    </div>
-
-    <span class="inline-flex items-center gap-2 rounded-full bg-brush-orange px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-ink shadow-md shadow-orange-500/25">
-      Coming soon
-    </span>
-    <h1 class="mt-6 text-4xl font-bold tracking-tight text-balance sm:text-5xl">
-      Image Studio,
-      <span class="relative inline-block">
-        <span>right in your browser</span>
-        <BrushStroke shape="underline" color="orange" class="absolute -bottom-2 left-0 h-2.5 w-full" />
-      </span>
-    </h1>
-    <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-      BrushLLM Image Studio is AI image creation and editing for everyone — a full workspace in
-      your browser, powered by the BrushLLM platform. No installs, no subscriptions, just upload
-      and paint.
-    </p>
-    <ul class="mx-auto mt-6 flex flex-wrap justify-center gap-1.5 sm:gap-2">
-      {
-        ['Generate', 'Edit', 'Remove', 'Replace', 'Expand', 'Upscale', 'Restyle', 'Transform'].map((cap) => (
-          <li class="rounded-full border border-stone-200 bg-white px-2.5 py-1 text-[11px] font-medium text-orange-700 shadow-sm sm:px-3 sm:text-xs">{cap}</li>
-        ))
-      }
-    </ul>
-
-    <div class="mt-10 grid gap-5 text-left sm:grid-cols-2">
-      {
-        planned.map((item) => (
-          <div class="reveal rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-orange-300 hover:shadow-lg">
-            <div class={`flex h-11 w-11 items-center justify-center rounded-xl shadow-lg ${item.tile}`}>
-              <item.icon class="h-5 w-5" aria-hidden="true" />
-            </div>
-            <h2 class="mt-4 font-semibold">{item.title}</h2>
-            <p class="mt-2 text-sm leading-relaxed text-muted">{item.description}</p>
-          </div>
-        ))
-      }
-    </div>
-
-    <div class="reveal relative mt-14 overflow-hidden rounded-[2rem] border border-stone-200 bg-white px-6 py-12 shadow-xl shadow-stone-200/60 sm:px-14">
-      <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-        <BrushStroke shape="sweep" color="orange" class="absolute -top-8 -left-24 w-[460px] -rotate-6 opacity-80" />
-        <BrushStroke shape="underline" color="orange" class="absolute right-[14%] bottom-8 w-44 rotate-2 opacity-70" />
-      </div>
-      <h2 class="relative text-2xl font-bold tracking-tight">Want early access?</h2>
-      <p class="relative mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted">
-        Tell us what you’d build with it — we onboard early users in small batches
-      </p>
-      <div class="relative mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <a
-          href={`mailto:${SITE.contactEmail}?subject=Image%20Studio%20early%20access`}
-          class="group inline-flex items-center gap-2 rounded-xl bg-brush-orange px-6 py-3 text-sm font-semibold text-ink shadow-lg shadow-orange-500/25 transition hover:bg-orange-600"
-        >
-          {SITE.contactEmail}
-          <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-        </a>
-        <a
-          href="/models"
-          class="inline-flex items-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-violet-400 hover:text-brush-violet"
-        >
-          Browse image models
-        </a>
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+<AppPage app={app} badge="Desktop app · Free + pay-per-AI" featureGroups={featureGroups}>
+  <p slot="intro" class="reveal mx-auto mt-0 max-w-2xl text-center text-muted">
+    Every local tool is free and runs entirely on your device — Rust engine, no uploads. AI features
+    call the same
+    <a href={LINKS.apiBase} class="font-semibold text-brush-violet hover:text-violet-700">BrushLLM API</a>
+    that powers the rest of the platform, billed per image at
+    <a href="/pricing" class="font-semibold text-brush-violet hover:text-violet-700">published rates</a>.
+  </p>
+  <a slot="outro" href="/models" class="relative mt-4 inline-block text-sm font-semibold text-brush-violet hover:text-violet-700">
+    Browse the image models behind the AI tools →
+  </a>
+</AppPage>

@@ -1,0 +1,44 @@
+---
+import AppPage from '../components/AppPage.astro';
+import { appById } from '../data/apps';
+
+const app = appById('player')!;
+
+const featureGroups = [
+  {
+    title: 'Playback',
+    items: [
+      { title: 'Every format', description: 'Built on mpv: MKV, MP4, AVI, MOV, WebM, FLAC, MP3 and everything else mpv plays.' },
+      { title: 'HDR output', description: 'PQ and EDR passthrough on supported displays, with toggleable hardware decoding.' },
+      { title: 'Disc images', description: 'Play ISO Blu-ray and DVD images directly.' },
+      { title: 'Controls', description: 'A-B loop, playback speed, frame stepping, chapters and screenshots.' },
+      { title: 'Playlist & history', description: 'Drag-to-reorder playlists, resume where you left off, bookmarks.' },
+      { title: 'Mini window', description: 'A floating always-on-top mini player for multitasking.' },
+    ],
+  },
+  {
+    title: 'Streaming',
+    items: [
+      { title: 'WebDAV & SMB', description: 'Browse and stream from your NAS — native macOS SMB mounting included.' },
+      { title: 'FTP', description: 'A built-in FTP client with directory browsing and direct streaming.' },
+      { title: 'Emby & Jellyfin', description: 'Log in, browse libraries and direct-stream without transcoding.' },
+      { title: 'HTTP & HLS', description: 'Play links and m3u8/HLS streams with adjustable read-ahead buffer.' },
+    ],
+  },
+  {
+    title: 'Subtitles & tools',
+    items: [
+      { title: 'Auto-loaded subtitles', description: 'Matching sidecar files load automatically; external ones load on demand.' },
+      { title: 'Live styling', description: 'Font, size, color and position — restyled while you watch.' },
+      { title: 'Equalizer & recording', description: 'Audio equalizer, plus stream recording for archival.' },
+    ],
+  },
+];
+---
+
+<AppPage app={app} badge="Desktop app · Open source" featureGroups={featureGroups}>
+  <p slot="intro" class="reveal mx-auto mt-0 max-w-2xl text-center text-muted">
+    The macOS app is a native Swift + SwiftUI build around libmpv; the Windows app is a Tauri rewrite
+    with the same mpv core. Zero telemetry, updates checked only when you ask.
+  </p>
+</AppPage>

@@ -22,9 +22,11 @@ npm run preview   # serve the built site locally
 | --- | --- |
 | `src/config.ts` | **Single source of truth for all external links** — sub2api console URL, login/register paths, and the `https://api.brushllm.com/v1` base URL shown in docs & code samples. Change your sub2api address here only. |
 | `src/data/models.ts` | The model catalog (id, provider, context, capabilities, indicative prices; `imagePrice`/`resolution` for text-to-image models). Edit to match what your sub2api actually serves — counts on the homepage update automatically. |
+| `src/assets/logo.png` | The brand logo (1024px palette PNG, the "orbiting planet" mark). Favicon PNGs are generated from it at build; the og card composites it. |
+| `src/data/apps.ts` | The three desktop apps (Image Studio / Video Studio / Player) — taglines, platforms, GitHub repo & Releases links, card highlights. Icons in `src/assets/apps/` come from each repo's `.github/assets/icon.png`. |
 | `src/data/compare.ts` | Homepage price-check table: BrushLLM final rates vs OpenRouter all-in cost (list + 5.5% credit-purchase fee). OpenRouter list prices via their public API — update the `retrieved` date in the file header when refreshing. |
 | `src/data/providers.ts` | The providers shown on the homepage marquee and used as filter chips on `/models` — leading AI labs plus OpenAI. |
-| `src/pages/` | `/`, `/models`, `/docs`, `/pricing`, `/studio` (Image Studio, coming soon), `/about`, `404`. |
+| `src/pages/` | `/`, `/models`, `/docs`, `/pricing`, `/studio` + `/video-studio` + `/player` (desktop app pages, shared `AppPage.astro` scaffold), `/about`, `404`. |
 | `og-source.svg` | Source for the social sharing card. `public/og.png` is **generated from it at build time** (`prebuild` → `scripts/gen-og.mjs`) and is not committed. |
 | `scripts/gen-og.mjs` | Renders og-source.svg → public/og.png with sharp. |
 | `scripts/gen-brand-assets.mjs` | Rasterizes `src/assets/brush-mark.svg` into PNG favicon fallbacks at `predev`/`prebuild` (Safari can't use SVG favicons). The GLM mark is an inline svg (`src/assets/brands/glm.svg`), committed as text. |

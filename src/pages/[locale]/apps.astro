@@ -1,0 +1,10 @@
+---
+import AppsContent from '../../components/pages/AppsContent.astro';
+import { PREFIXED_LOCALES } from '../../config';
+
+export function getStaticPaths() {
+  return PREFIXED_LOCALES.map((locale) => ({ params: { locale } }));
+}
+---
+
+<AppsContent locale={Astro.params.locale} />

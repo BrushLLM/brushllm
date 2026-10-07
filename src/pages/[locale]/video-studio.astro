@@ -1,0 +1,10 @@
+---
+import VideoStudioContent from '../../components/pages/VideoStudioContent.astro';
+import { PREFIXED_LOCALES } from '../../config';
+
+export function getStaticPaths() {
+  return PREFIXED_LOCALES.map((locale) => ({ params: { locale } }));
+}
+---
+
+<VideoStudioContent locale={Astro.params.locale} />

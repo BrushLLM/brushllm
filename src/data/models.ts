@@ -251,8 +251,8 @@ export function formatContext(tokens: number | null): string {
   return `${Math.round(tokens / 1024)}K`;
 }
 
-export function formatPrice(value: number | null | undefined): string {
+export function formatPrice(value: number | null | undefined, freeLabel = 'Free'): string {
   if (value === null || value === undefined) return '—';
-  if (value === 0) return 'Free';
+  if (value === 0) return freeLabel;
   return `$${value % 1 === 0 ? value.toFixed(0) : value.toFixed(2)}`;
 }

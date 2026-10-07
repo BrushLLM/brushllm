@@ -1,0 +1,10 @@
+---
+import ModelsContent from '../../components/pages/ModelsContent.astro';
+import { PREFIXED_LOCALES } from '../../config';
+
+export function getStaticPaths() {
+  return PREFIXED_LOCALES.map((locale) => ({ params: { locale } }));
+}
+---
+
+<ModelsContent locale={Astro.params.locale} />

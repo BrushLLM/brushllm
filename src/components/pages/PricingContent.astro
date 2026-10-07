@@ -1,0 +1,197 @@
+---
+import { ArrowRight, Gift, Percent, Scale } from '@lucide/astro';
+import BrushStroke from '../BrushStroke.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { LINKS, type LocaleCode } from '../../config';
+import { formatContext, formatPrice, models } from '../../data/models';
+import { compareRows, orAllIn, savePct, fmt } from '../../data/compare';
+import { providers } from '../../data/providers';
+import { getDictionary } from '../../i18n';
+
+interface Props {
+  locale?: LocaleCode;
+}
+
+const { locale = 'en' } = Astro.props;
+const t = await getDictionary(locale);
+const p = t.pages.pricing;
+
+const providerName = (id: string) => providers.find((pr) => pr.id === id)?.name ?? id;
+const chatModels = models.filter((m) => !m.capabilities.includes('image'));
+const imageModels = models.filter((m) => m.capabilities.includes('image'));
+const freeModels = models.filter((m) => m.price.input === 0 && m.price.output === 0);
+
+const highlightIcons = [Percent, Gift, Scale];
+const highlights = p.highlights.map((item, i) => ({
+  icon: highlightIcons[i % highlightIcons.length],
+  title: item.title.replace('{count}', String(freeModels.length)),
+  description: item.description,
+  tile: ['bg-brush-violet text-white shadow-violet-500/25', 'bg-brush-orange text-ink shadow-orange-500/25', 'bg-brush-mint text-ink shadow-mint-600/25'][i % 3],
+}));
+---
+
+<BaseLayout locale={locale} title={t.nav.pricing} description={p.metaDescription}>
+  <section class="relative overflow-hidden">
+    <BrushStroke shape="sweep" color="mint" class="pointer-events-none absolute -top-10 -left-40 w-[620px] -rotate-2 opacity-15" />
+    <div class="mx-auto max-w-6xl px-4 pt-16 pb-8 sm:px-6">
+      <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">{p.eyebrow}</p>
+      <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
+        {p.title} <span class="relative inline-block">{p.titleBand}<BrushStroke shape="underline" color="orange" class="absolute -bottom-2 left-0 h-2.5 w-full" /></span>
+      </h1>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
+        {p.intro}
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 pb-8 sm:px-6">
+    <div class="grid gap-5 sm:grid-cols-3">
+      {
+        highlights.map((item) => (
+          <div class="reveal rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg">
+            <div class={`flex h-11 w-11 items-center justify-center rounded-xl shadow-lg ${item.tile}`}>
+              <item.icon class="h-5 w-5" aria-hidden="true" />
+            </div>
+            <h2 class="mt-4 font-semibold">{item.title}</h2>
+            <p class="mt-2 text-sm leading-relaxed text-muted">{item.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
+    <h2 class="reveal mt-8 text-2xl font-bold tracking-tight">{p.textModelsTitle}</h2>
+    <div class="reveal mt-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm">
+      <table class="w-full text-left text-sm">
+        <thead class="border-b border-stone-100 bg-stone-50 text-xs uppercase tracking-wide text-stone-500">
+          <tr>
+            <th class="px-4 py-3 font-medium">{p.table.model}</th>
+            <th class="px-4 py-3 font-medium">{p.table.provider}</th>
+            <th class="px-4 py-3 font-medium">{p.table.context}</th>
+            <th class="px-4 py-3 text-right font-medium">{p.table.input}</th>
+            <th class="px-4 py-3 text-right font-medium">{p.table.output}</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-stone-100">
+          {
+            chatModels.map((model) => (
+              <tr class="transition hover:bg-stone-50">
+                <td class="px-4 py-3">
+                  <p class="font-medium">{model.name}</p>
+                  <code class="mt-0.5 font-mono text-xs text-stone-500">{model.id}</code>
+                </td>
+                <td class="px-4 py-3 text-stone-700">{providerName(model.provider)}</td>
+                <td class="px-4 py-3 text-stone-500">{formatContext(model.context)}</td>
+                <td class="px-4 py-3 text-right font-semibold">{formatPrice(model.price.input, t.common.free)}</td>
+                <td class="px-4 py-3 text-right font-semibold">{formatPrice(model.price.output, t.common.free)}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    {
+      imageModels.length > 0 && (
+        <>
+          <h2 class="reveal mt-12 text-2xl font-bold tracking-tight">{p.imageModelsTitle}</h2>
+          <div class="reveal mt-6 overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm">
+            <table class="w-full text-left text-sm">
+              <thead class="border-b border-stone-100 bg-stone-50 text-xs uppercase tracking-wide text-stone-500">
+                <tr>
+                  <th class="px-4 py-3 font-medium">{p.table.model}</th>
+                  <th class="px-4 py-3 font-medium">{p.table.provider}</th>
+                  <th class="px-4 py-3 font-medium">{p.table.resolution}</th>
+                  <th class="px-4 py-3 text-right font-medium">{p.table.pricePerImage}</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-100">
+                {imageModels.map((model) => (
+                  <tr class="transition hover:bg-stone-50">
+                    <td class="px-4 py-3">
+                      <p class="font-medium">{model.name}</p>
+                      <code class="mt-0.5 font-mono text-xs text-stone-500">{model.id}</code>
+                    </td>
+                    <td class="px-4 py-3 text-stone-700">{providerName(model.provider)}</td>
+                    <td class="px-4 py-3 text-stone-500">{model.resolution ?? '—'}</td>
+                    <td class="px-4 py-3 text-right font-semibold">{formatPrice(model.imagePrice, t.common.free)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )
+    }
+
+    <p class="mt-8 text-xs leading-relaxed text-stone-400">
+      {p.footnote}
+    </p>
+
+    <!-- ── Compare with OpenRouter ── -->
+    <div class="reveal mt-16">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">{p.compareEyebrow}</p>
+        <h2 class="mt-3 text-2xl font-bold tracking-tight">
+          {p.compareTitle}
+          <span class="relative inline-block">
+            <span>{p.compareTitleBand}</span>
+            <BrushStroke shape="underline" color="orange" class="absolute -bottom-2 left-0 h-2.5 w-full" />
+          </span>
+        </h2>
+        <p class="mt-4 text-muted">
+          {p.compareIntro}
+        </p>
+      </div>
+
+      <div class="reveal mx-auto mt-10 max-w-4xl overflow-x-auto rounded-2xl border border-stone-200 bg-white shadow-sm">
+        <table class="w-full text-left text-sm">
+          <thead class="border-b border-stone-100 bg-stone-50 text-xs uppercase tracking-wide text-stone-500">
+            <tr>
+              <th class="px-4 py-3 font-medium">{p.compareTable.model}</th>
+              <th class="px-4 py-3 text-right font-medium">BrushLLM <span class="font-normal normal-case">{p.compareTable.ours}</span></th>
+              <th class="px-4 py-3 text-right font-medium">OpenRouter <span class="font-normal normal-case">{p.compareTable.orList}</span></th>
+              <th class="px-4 py-3 text-right font-medium">OpenRouter <span class="font-normal normal-case">{p.compareTable.orAllIn}</span></th>
+              <th class="px-4 py-3 text-right font-medium">{p.compareTable.youSave}</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-stone-100">
+            {
+              compareRows.map((row) => (
+                <tr class="transition hover:bg-stone-50">
+                  <td class="px-4 py-3 font-medium">{row.name}</td>
+                  <td class="px-4 py-3 text-right font-semibold">{fmt(row.ours.input)} / {fmt(row.ours.output)}</td>
+                  <td class="px-4 py-3 text-right text-stone-500">{fmt(row.openrouter.input)} / {fmt(row.openrouter.output)}</td>
+                  <td class="px-4 py-3 text-right text-stone-500">{fmt(orAllIn(row.openrouter.input))} / {fmt(orAllIn(row.openrouter.output))}</td>
+                  <td class="px-4 py-3 text-right font-semibold text-mint-700">
+                    {p.compareTable.upTo.replace('{pct}', String(Math.max(savePct(row.ours.input, row.openrouter.input), savePct(row.ours.output, row.openrouter.output))))}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <p class="reveal mx-auto mt-4 max-w-4xl text-xs leading-relaxed text-stone-500">
+        {p.compareFootnote}
+      </p>
+    </div>
+
+    <div class="reveal relative mt-12 overflow-hidden rounded-[2rem] border border-stone-200 bg-white px-6 py-14 text-center shadow-xl shadow-stone-200/60 sm:px-16">
+      <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+        <BrushStroke shape="sweep" color="violet" class="absolute -top-8 -left-28 w-[520px] -rotate-6 opacity-80" />
+        <BrushStroke shape="underline" color="orange" class="absolute right-[12%] bottom-10 w-48 rotate-2 opacity-70" />
+      </div>
+      <h2 class="relative text-2xl font-bold tracking-tight sm:text-3xl">{p.ctaTitle}</h2>
+      <p class="relative mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted">
+        {p.ctaText}
+      </p>
+      <a href={LINKS.console} class="group relative mt-6 inline-flex items-center gap-2 rounded-xl bg-brush-violet px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:bg-violet-700">
+        {t.common.openTheConsole}
+        <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+      </a>
+    </div>
+  </section>
+</BaseLayout>

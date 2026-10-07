@@ -1,0 +1,22 @@
+---
+import AppPage from '../AppPage.astro';
+import { appById } from '../../data/apps';
+import type { LocaleCode } from '../../config';
+import { getDictionary } from '../../i18n';
+
+interface Props {
+  locale?: LocaleCode;
+}
+
+const { locale = 'en' } = Astro.props;
+const t = await getDictionary(locale);
+const v = t.pages.videoStudio;
+
+const app = appById('video-studio')!;
+---
+
+<AppPage app={app} badge={v.badge} featureGroups={v.groups} locale={locale}>
+  <p slot="intro" class="reveal mx-auto mt-0 max-w-2xl text-center text-muted">
+    {v.intro}
+  </p>
+</AppPage>

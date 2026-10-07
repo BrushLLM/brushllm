@@ -2,7 +2,8 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE } from '../config';
+import { LOCALES, SITE, type LocaleCode } from '../config';
+import { getDictionary, localePath } from '../i18n';
 
 export interface FaqEntry {
   question: string;
@@ -12,16 +13,30 @@ export interface FaqEntry {
 interface Props {
   title?: string;
   description?: string;
+  /** page locale — drives <html lang>, hreflang alternates and SEO strings */
+  locale?: LocaleCode;
   /** visible FAQ entries on this page — emitted as matching FAQPage JSON-LD */
   faqSchema?: FaqEntry[];
   /** extra JSON-LD nodes for this page (Product, SoftwareApplication, …) */
   extraSchema?: Record<string, unknown>[];
 }
 
-const { title, description = SITE.description, faqSchema, extraSchema = [] } = Astro.props;
-const pageTitle = title ? `${title} · ${SITE.name}` : SITE.title;
+const { title, locale = 'en', faqSchema, extraSchema = [] } = Astro.props;
+const t = await getDictionary(locale);
+const description = Astro.props.description ?? t.site.description;
+const pageTitle = title ? `${title} · ${SITE.name}` : t.site.title;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL('/og.png', Astro.site);
+
+/* hreflang alternates: one per locale + x-default pointing at the English
+   (unprefixed) URL of this page. English pages and prefixed pages of the
+   same route share the same canonical path after the prefix is stripped. */
+const canonicalPath = Astro.url.pathname.replace(/^\/[a-z]{2}(?:-[A-Za-z]{2})?(?=\/|$)/, '') || '/';
+const alternates = LOCALES.map((l) => ({
+  hreflang: l.htmlLang,
+  href: new URL(localePath(l.code, canonicalPath === '/' ? '/' : canonicalPath), Astro.site),
+}));
+alternates.push({ hreflang: 'x-default', href: new URL(canonicalPath === '/' ? '/' : canonicalPath, Astro.site) });
 
 /* Structured data (SEO + GEO): stable, factual entity graph for AI answer engines */
 const schemaGraph: Record<string, unknown>[] = [
@@ -32,8 +47,7 @@ const schemaGraph: Record<string, unknown>[] = [
     url: SITE.url,
     logo: `${SITE.url}/apple-touch-icon.png`,
     email: SITE.contactEmail,
-    description:
-      'BrushLLM is an AI platform for developers and creators, offering AI Model Services (one API for powerful AI models) and free local-first desktop apps — Image Studio, Video Studio and Player.',
+    description: t.site.organizationDescription,
   },
   {
     '@type': 'WebSite',
@@ -60,7 +74,7 @@ const schemaJson = JSON.stringify({ '@context': 'https://schema.org', '@graph': 
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -68,6 +82,7 @@ const schemaJson = JSON.stringify({ '@context': 'https://schema.org', '@graph': 
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonical} />
+    {alternates.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)}
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=logo-planet" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="generator" content={Astro.generator} />
@@ -79,13 +94,14 @@ const schemaJson = JSON.stringify({ '@context': 'https://schema.org', '@graph': 
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
     <meta name="twitter:card" content="summary_large_image" />
+    {locale === 'en' && <script is:inline src="/scripts/locale-redirect.js" />}
   </head>
   <body class="flex min-h-screen flex-col">
-    <Header />
+    <Header locale={locale} />
     <main class="flex-1">
       <slot />
     </main>
-    <Footer />
+    <Footer locale={locale} />
     <script>
       const observer = new IntersectionObserver(
         (entries) => {

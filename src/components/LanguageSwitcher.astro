@@ -1,0 +1,126 @@
+---
+/**
+ * Language switcher: a details/summary dropdown of plain links — no JS
+ * required to choose a language. The order of LOCALES in src/config.ts is
+ * the display order and must not be sorted alphabetically.
+ *
+ * "System" (first entry) links to the unprefixed URL of the current page;
+ * a tiny inline script rewrites its href to the visitor's best matching
+ * locale so it always means "this page, in my language".
+ */
+import { LOCALES, type LocaleCode } from '../config';
+import { getDictionary, localePath, stripLocale } from '../i18n';
+
+interface Props {
+  locale?: LocaleCode;
+  /** compact variant for the mobile menu */
+  compact?: boolean;
+}
+
+const { locale = 'en', compact = false } = Astro.props;
+const t = await getDictionary(locale);
+const currentPath = stripLocale(Astro.url.pathname);
+const systemHref = currentPath === '/' ? '/' : currentPath;
+const systemLabel = LOCALES.find((l) => l.code === locale)?.label ?? 'English';
+---
+
+<div class="lang-switcher relative" data-locale={locale}>
+  <details class="group">
+    <summary
+      class:list={[
+        'flex cursor-pointer list-none items-center gap-1.5 rounded-lg text-sm font-medium text-muted transition-colors hover:bg-stone-100 hover:text-ink',
+        compact ? 'px-3 py-2.5' : 'px-2.5 py-2',
+      ]}
+      aria-label={t.languageSwitcher.label}
+      title={t.languageSwitcher.label}
+    >
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+        <path d="M2 12h20"></path>
+      </svg>
+      <span class="max-w-24 truncate">{systemLabel}</span>
+      <svg class="h-3 w-3 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="m6 9 6 6 6-6"></path>
+      </svg>
+    </summary>
+    <ul
+      class:list={[
+        'absolute z-50 mt-1 max-h-[min(24rem,70vh)] w-52 overflow-y-auto rounded-xl border border-stone-200 bg-white py-1.5 shadow-xl shadow-stone-200/60',
+        compact ? 'static w-full' : 'right-0',
+      ]}
+    >
+      <li>
+        <a
+          href={systemHref}
+          data-lang-system
+          class="flex items-center justify-between gap-2 px-3.5 py-2 text-sm font-medium text-muted transition-colors hover:bg-stone-50 hover:text-ink"
+        >
+          <span>{t.languageSwitcher.system}</span>
+          <span class="text-[10px] font-semibold uppercase tracking-wide text-brush-violet">↺</span>
+        </a>
+      </li>
+      {
+        LOCALES.map((l) => (
+          <li>
+            <a
+              href={localePath(l.code, currentPath)}
+              hreflang={l.htmlLang}
+              lang={l.htmlLang}
+              aria-current={l.code === locale ? 'true' : undefined}
+              class:list={[
+                'flex items-center gap-2 px-3.5 py-2 text-sm transition-colors hover:bg-stone-50 hover:text-ink',
+                l.code === locale ? 'font-semibold text-brush-violet' : 'font-medium text-muted',
+              ]}
+            >
+              {l.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </details>
+</div>
+
+<script>
+  // Rewrite the "System" link to the visitor's best-matching locale, and
+  // persist an explicit language choice so the first-visit redirect never
+  // overrides it. Plain links keep the switcher usable without this script.
+  document.querySelectorAll<HTMLAnchorElement>('.lang-switcher a[href^="/"]').forEach((link) => {
+    link.addEventListener('click', () => {
+      try {
+        const m = /^\/([a-z]{2}(?:-[A-Za-z]{2})?)\//.exec(link.getAttribute('href') ?? '');
+        localStorage.setItem('brushllm-locale', m ? m[1] : 'en');
+      } catch {
+        /* storage unavailable — choice still applies via the URL */
+      }
+    });
+  });
+
+  document.querySelectorAll<HTMLAnchorElement>('[data-lang-system]').forEach((link) => {
+    const codes = ['de', 'en', 'es', 'fr', 'it', 'nl', 'pl', 'pt-BR', 'tr', 'id', 'vi', 'ja', 'zh-CN', 'zh-TW', 'ko'];
+    const match = (navigator.languages ?? [navigator.language])
+      .map((tag) => tag.toLowerCase())
+      .find((tag) => {
+        if (codes.includes(tag)) return tag;
+        const base = tag.split('-')[0];
+        if (base === 'pt') return codes.includes(tag) ? tag : null;
+        if (base === 'zh') {
+          if (tag.includes('tw') || tag.includes('hk') || tag.includes('hant')) return 'zh-TW';
+          return 'zh-CN';
+        }
+        return codes.includes(base) ? base : null;
+      });
+    if (match && match !== 'en') {
+      const path = link.getAttribute('href') ?? '/';
+      link.setAttribute('href', path === '/' ? `/${match}/` : `/${match}${path}`);
+    }
+  });
+
+  // Close the dropdown after choosing a language (details stays open otherwise).
+  document.querySelectorAll<HTMLDetailsElement>('.lang-switcher details').forEach((details) => {
+    details.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).closest('a')) details.open = false;
+    });
+  });
+</script>

@@ -37,3 +37,32 @@ export const NAV = [
   { label: 'Docs', href: '/docs' },
   { label: 'About', href: '/about' },
 ] as const;
+
+/**
+ * Supported site languages, in the exact order they must appear in the
+ * language switcher. `label` is the language's own name for itself
+ * (endonym) and is never translated. `en` is the default locale and keeps
+ * unprefixed URLs; every other locale lives under `/{code}/`.
+ */
+export const LOCALES = [
+  { code: 'de', label: 'Deutsch', htmlLang: 'de' },
+  { code: 'en', label: 'English', htmlLang: 'en' },
+  { code: 'es', label: 'Español', htmlLang: 'es' },
+  { code: 'fr', label: 'Français', htmlLang: 'fr' },
+  { code: 'it', label: 'Italiano', htmlLang: 'it' },
+  { code: 'nl', label: 'Nederlands', htmlLang: 'nl' },
+  { code: 'pl', label: 'Polski', htmlLang: 'pl' },
+  { code: 'pt-BR', label: 'Português do Brasil', htmlLang: 'pt-BR' },
+  { code: 'tr', label: 'Türkçe', htmlLang: 'tr' },
+  { code: 'id', label: 'Bahasa Indonesia', htmlLang: 'id' },
+  { code: 'vi', label: 'Tiếng Việt', htmlLang: 'vi' },
+  { code: 'ja', label: '日本語', htmlLang: 'ja' },
+  { code: 'zh-CN', label: '简体中文', htmlLang: 'zh-CN' },
+  { code: 'zh-TW', label: '繁體中文', htmlLang: 'zh-TW' },
+  { code: 'ko', label: '한국어', htmlLang: 'ko' },
+] as const;
+
+export type LocaleCode = (typeof LOCALES)[number]['code'];
+
+/** Locales that get a URL prefix (everything except the default `en`). */
+export const PREFIXED_LOCALES = LOCALES.filter((l) => l.code !== 'en').map((l) => l.code);

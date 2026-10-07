@@ -8,7 +8,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import AppDownload from './AppDownload.astro';
 import BrushStroke from './BrushStroke.astro';
 import type { SiteApp } from '../data/apps';
-import { SITE } from '../config';
+import { SITE, type LocaleCode } from '../config';
+import { getDictionary, localePath } from '../i18n';
 
 export interface AppFeatureGroup {
   title: string;
@@ -22,9 +23,15 @@ interface Props {
   badge?: string;
   /** extra JSON-LD nodes for this page */
   extraSchema?: Record<string, unknown>[];
+  locale?: LocaleCode;
 }
 
-const { app, featureGroups, badge = 'Desktop app · Free', extraSchema = [] } = Astro.props;
+const { app, featureGroups, extraSchema = [], locale = 'en' } = Astro.props;
+const t = await getDictionary(locale);
+const badge = Astro.props.badge ?? 'Desktop app · Free';
+const appTr = t.data.apps[app.id as keyof typeof t.data.apps];
+const tagline = appTr.tagline.replace(/^[a-z]/, (c) => c.toLowerCase());
+const description = appTr.description;
 
 const schema: Record<string, unknown> = {
   '@type': 'SoftwareApplication',
@@ -32,15 +39,15 @@ const schema: Record<string, unknown> = {
   name: `BrushLLM ${app.name}`,
   applicationCategory: 'MultimediaApplication',
   operatingSystem: 'macOS, Windows',
-  description: app.description,
-  url: `${SITE.url}${app.href}`,
+  description,
+  url: `${SITE.url}${localePath(locale, app.href)}`,
   downloadUrl: app.releases,
   brand: { '@type': 'Brand', name: 'BrushLLM' },
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
 };
 ---
 
-<BaseLayout title={app.name} description={`${app.tagline} — ${app.description}`} extraSchema={[schema, ...extraSchema]}>
+<BaseLayout locale={locale} title={app.name} description={`${tagline} — ${description}`} extraSchema={[schema, ...extraSchema]}>
   <section class="relative mx-auto max-w-4xl overflow-hidden px-4 py-20 text-center sm:px-6">
     <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
       <BrushStroke shape="sweep" color="violet" class="absolute -top-10 -left-40 w-[620px] -rotate-6 opacity-15" />
@@ -54,19 +61,19 @@ const schema: Record<string, unknown> = {
     <h1 class="mt-6 text-4xl font-bold tracking-tight text-balance sm:text-5xl">
       BrushLLM {app.name},
       <span class="relative inline-block">
-        <span>{app.tagline.replace(/^[a-z]/, (c) => c.toLowerCase())}</span>
+        <span>{tagline}</span>
         <BrushStroke shape="underline" color="orange" class="absolute -bottom-2 left-0 h-2.5 w-full" />
       </span>
     </h1>
-    <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted">{app.description}</p>
+    <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted">{description}</p>
 
     <div class="mt-8 flex justify-center">
-      <AppDownload releases={app.releases} repo={app.repo} />
+      <AppDownload releases={app.releases} repo={app.repo} locale={locale} />
     </div>
 
     <ul class="mx-auto mt-6 flex flex-wrap justify-center gap-1.5 sm:gap-2">
       {
-        app.highlights.map((h) => (
+        appTr.highlights.map((h) => (
           <li class="rounded-full border border-stone-200 bg-white px-2.5 py-1 text-[11px] font-medium text-stone-600 shadow-sm sm:px-3 sm:text-xs">{h}</li>
         ))
       }
@@ -117,12 +124,12 @@ const schema: Record<string, unknown> = {
         <div class="pointer-events-none absolute inset-0" aria-hidden="true">
           <BrushStroke shape="underline" color="ink" class="absolute right-[14%] bottom-8 w-44 rotate-2 opacity-70" />
         </div>
-        <h2 class="relative text-2xl font-bold tracking-tight">Open source, honest software</h2>
+        <h2 class="relative text-2xl font-bold tracking-tight">{t.appPage.openSourceTitle}</h2>
         <p class="relative mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted">
-          Source code, issues and releases live on GitHub{app.license ? ` — ${app.license}` : ''}. No telemetry, no accounts, no ads.
+          {t.appPage.openSourceText.replace('{license}', app.license ? ` — ${app.license}` : '')}
         </p>
         <div class="relative mt-6 flex justify-center">
-          <AppDownload releases={app.releases} repo={app.repo} />
+          <AppDownload releases={app.releases} repo={app.repo} locale={locale} />
         </div>
         <slot name="outro" />
       </div>

@@ -1,4 +1,7 @@
 ---
+import type { LocaleCode } from '../config';
+import { getDictionary } from '../i18n';
+
 export interface Tab {
   label: string;
   code: string;
@@ -7,9 +10,11 @@ export interface Tab {
 interface Props {
   tabs: Tab[];
   class?: string;
+  locale?: LocaleCode;
 }
 
-const { tabs, class: className = '' } = Astro.props;
+const { tabs, class: className = '', locale = 'en' } = Astro.props;
+const t = await getDictionary(locale);
 ---
 
 <div class:list={['overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-lg shadow-stone-200/60', className]} data-codetabs>
@@ -27,8 +32,11 @@ const { tabs, class: className = '' } = Astro.props;
       type="button"
       class="shrink-0 rounded-lg border border-stone-200 bg-white px-2.5 py-1.5 text-xs font-medium text-muted transition-colors hover:border-violet-300 hover:text-brush-violet"
       data-copy
+      data-copy-label={t.common.copy}
+      data-copied-label={t.common.copied}
+      data-copy-fallback-label={t.common.copyFallback}
     >
-      Copy
+      {t.common.copy}
     </button>
   </div>
   {
@@ -76,13 +84,18 @@ const { tabs, class: className = '' } = Astro.props;
     copyBtn?.addEventListener('click', async () => {
       const active = panels.findIndex((panel) => !panel.classList.contains('hidden'));
       const text = panels[active]?.textContent?.trim() ?? '';
+      const labels = {
+        copy: copyBtn?.dataset.copyLabel ?? 'Copy',
+        copied: copyBtn?.dataset.copiedLabel ?? 'Copied!',
+        fallback: copyBtn?.dataset.copyFallbackLabel ?? 'Press ⌘C',
+      };
       try {
         await navigator.clipboard.writeText(text);
-        copyBtn.textContent = 'Copied!';
+        copyBtn.textContent = labels.copied;
       } catch {
-        copyBtn.textContent = 'Press ⌘C';
+        copyBtn.textContent = labels.fallback;
       }
-      setTimeout(() => (copyBtn.textContent = 'Copy'), 1500);
+      setTimeout(() => (copyBtn.textContent = labels.copy), 1500);
     });
   });
 </script>

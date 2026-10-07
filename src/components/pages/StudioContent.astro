@@ -1,0 +1,28 @@
+---
+import AppPage from '../AppPage.astro';
+import { appById } from '../../data/apps';
+import { LINKS, type LocaleCode } from '../../config';
+import { getDictionary, localePath } from '../../i18n';
+
+interface Props {
+  locale?: LocaleCode;
+}
+
+const { locale = 'en' } = Astro.props;
+const t = await getDictionary(locale);
+const s = t.pages.studio;
+const L = (path: string) => localePath(locale, path);
+
+const app = appById('image-studio')!;
+---
+
+<AppPage app={app} badge={s.badge} featureGroups={s.groups} locale={locale}>
+  <p slot="intro" class="reveal mx-auto mt-0 max-w-2xl text-center text-muted">
+    <Fragment set:html={s.intro
+      .replace('{apiLink}', `<a href="${LINKS.apiBase}" class="font-semibold text-brush-violet hover:text-violet-700">${s.introApiLink}</a>`)
+      .replace('{ratesLink}', `<a href="${L('/pricing')}" class="font-semibold text-brush-violet hover:text-violet-700">${s.introRatesLink}</a>`)} />
+  </p>
+  <a slot="outro" href={L('/models')} class="relative mt-4 inline-block text-sm font-semibold text-brush-violet hover:text-violet-700">
+    {s.outro}
+  </a>
+</AppPage>

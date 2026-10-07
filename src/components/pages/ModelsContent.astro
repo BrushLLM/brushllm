@@ -1,0 +1,191 @@
+---
+import { Search } from '@lucide/astro';
+import BrushStroke from '../BrushStroke.astro';
+import ModelCard from '../ModelCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { type LocaleCode } from '../../config';
+import { models } from '../../data/models';
+import { visibleProviders } from '../../data/providers';
+import { getDictionary, localePath } from '../../i18n';
+
+interface Props {
+  locale?: LocaleCode;
+}
+
+const { locale = 'en' } = Astro.props;
+const t = await getDictionary(locale);
+const m = t.pages.models;
+const L = (path: string) => localePath(locale, path);
+
+const freeCount = models.filter((m2) => m2.price.input === 0 && m2.price.output === 0).length;
+const intro =
+  m.intro + (freeCount > 0 ? m.introFree.replace('{count}', String(freeCount)) : '');
+const title = m.title.replace('{count}', String(models.length)).replace('{providers}', String(visibleProviders.length));
+const metaDescription = m.metaDescription.replace('{count}', String(models.length));
+---
+
+<BaseLayout locale={locale} title={t.nav.models} description={metaDescription}>
+  <section class="relative overflow-hidden">
+    <BrushStroke shape="sweep" color="mint" class="pointer-events-none absolute -top-10 -right-44 w-[640px] rotate-2 opacity-15" />
+    <div class="mx-auto max-w-6xl px-4 pt-16 pb-8 sm:px-6">
+      <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">{m.eyebrow}</p>
+      <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
+        {title}{' '}
+        <span class="relative inline-block">{m.titleBand}<BrushStroke shape="underline" color="orange" class="absolute -bottom-2 left-0 h-2.5 w-full" /></span>
+      </h1>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
+        {intro}
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
+    <!-- controls -->
+    <div class="flex flex-col gap-4">
+      <div class="relative max-w-md">
+        <Search class="pointer-events-none absolute top-1/2 left-3.5 h-4 w-4 -translate-y-1/2 text-stone-400" aria-hidden="true" />
+        <input
+          id="model-search"
+          type="search"
+          placeholder={m.searchPlaceholder}
+          autocomplete="off"
+          class="w-full rounded-xl border border-stone-300 bg-white py-2.5 pr-4 pl-10 text-sm shadow-sm placeholder:text-stone-400 focus:border-violet-400 focus:ring-2 focus:ring-violet-200 focus:outline-none"
+          aria-label={m.searchLabel}
+        />
+      </div>
+
+      <div>
+        <p class="mb-1.5 text-[11px] font-semibold uppercase tracking-widest text-stone-400">{m.providerLabel}</p>
+        <div class="flex flex-wrap items-center gap-2" role="group" aria-label={m.providerGroup}>
+          <button
+            type="button"
+            class="chip rounded-full border border-transparent bg-brush-violet px-3.5 py-1.5 text-sm font-semibold text-white shadow-md shadow-violet-500/25 transition"
+            data-group="provider"
+            data-value="all"
+            aria-pressed="true"
+          >
+            {m.all}
+          </button>
+          {
+            visibleProviders.map((provider) => (
+              <button
+                type="button"
+                class="chip rounded-full border border-stone-300 bg-white px-3.5 py-1.5 text-sm font-medium text-muted transition hover:border-violet-400 hover:text-brush-violet"
+                data-group="provider"
+                data-value={provider.id}
+                aria-pressed="false"
+              >
+                {provider.name}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <p class="mb-1.5 text-[11px] font-semibold uppercase tracking-widest text-stone-400">{m.capabilityLabel}</p>
+        <div class="flex flex-wrap items-center gap-2" role="group" aria-label={m.capabilityGroup}>
+          <button
+            type="button"
+            class="chip rounded-full border border-transparent bg-brush-violet px-3.5 py-1.5 text-sm font-semibold text-white shadow-md shadow-violet-500/25 transition"
+            data-group="capability"
+            data-value="all"
+            aria-pressed="true"
+          >
+            {m.all}
+          </button>
+          {
+            Object.entries(t.data.capability).map(([value, label]) => (
+              <button
+                type="button"
+                class="chip rounded-full border border-stone-300 bg-white px-3.5 py-1.5 text-sm font-medium text-muted transition hover:border-violet-400 hover:text-brush-violet"
+                data-group="capability"
+                data-value={value}
+                aria-pressed="false"
+              >
+                {label}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <p id="model-count" class="text-sm text-stone-500" aria-live="polite">
+        {m.showing.replace('{visible}', String(models.length)).replace('{total}', String(models.length))}
+      </p>
+    </div>
+
+    <!-- grid -->
+    <div id="model-grid" class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {models.map((model) => <ModelCard model={model} locale={locale} />)}
+    </div>
+
+    <p id="model-empty" class="mt-10 hidden rounded-2xl border border-dashed border-stone-300 bg-white p-10 text-center text-muted">
+      {m.empty}
+    </p>
+
+    <p class="mt-8 text-xs leading-relaxed text-stone-400">
+      <Fragment set:html={m.footnote.replace('{docsLink}', `<a href="${L('/docs')}" class="font-medium text-brush-violet hover:text-violet-700">${m.footnoteDocsLink}</a>`)} />
+    </p>
+  </section>
+
+  <script define:vars={{ showingTemplate: m.showing }}>
+    const searchInput = document.getElementById('model-search') as HTMLInputElement | null;
+    const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.chip'));
+    const cards = Array.from(document.querySelectorAll<HTMLElement>('.model-card'));
+    const countEl = document.getElementById('model-count');
+    const emptyEl = document.getElementById('model-empty');
+
+    /* one active value per filter group; groups combine with AND */
+    const active: Record<string, string> = { provider: 'all', capability: 'all' };
+
+    const setChipActive = (chip: HTMLButtonElement, on: boolean) => {
+      chip.setAttribute('aria-pressed', String(on));
+      chip.classList.toggle('bg-brush-violet', on);
+      chip.classList.toggle('text-white', on);
+      chip.classList.toggle('shadow-md', on);
+      chip.classList.toggle('shadow-violet-500/25', on);
+      chip.classList.toggle('font-semibold', on);
+      chip.classList.toggle('border-transparent', on);
+      chip.classList.toggle('border-stone-300', !on);
+      chip.classList.toggle('bg-white', !on);
+      chip.classList.toggle('text-muted', !on);
+      chip.classList.toggle('font-medium', !on);
+    };
+
+    const apply = () => {
+      const query = (searchInput?.value ?? '').trim().toLowerCase();
+      let visible = 0;
+
+      cards.forEach((card) => {
+        const caps = (card.dataset.capabilities ?? '').split(',').filter(Boolean);
+        const show =
+          (active.provider === 'all' || card.dataset.provider === active.provider) &&
+          (active.capability === 'all' || caps.includes(active.capability)) &&
+          (!query || (card.dataset.search ?? '').includes(query));
+        card.classList.toggle('hidden', !show);
+        if (show) visible++;
+      });
+
+      if (countEl) countEl.textContent = showingTemplate.replace('{visible}', String(visible)).replace('{total}', String(cards.length));
+      emptyEl?.classList.toggle('hidden', visible !== 0);
+    };
+
+    searchInput?.addEventListener('input', apply);
+
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const group = chip.dataset.group ?? 'provider';
+        const value = chip.dataset.value ?? 'all';
+        // clicking the active chip again resets the group to All
+        active[group] = active[group] === value && value !== 'all' ? 'all' : value;
+        chips.forEach((c) => {
+          if ((c.dataset.group ?? 'provider') === group) {
+            setChipActive(c, (c.dataset.value ?? 'all') === active[group]);
+          }
+        });
+        apply();
+      });
+    });
+  </script>
+</BaseLayout>

@@ -31,7 +31,7 @@ const ja: Dictionary = {
 
   languageSwitcher: {
     label: '言語',
-    system: 'システムに従う',
+    system: 'Auto',
     systemTitle: 'ブラウザーの言語に従う',
   },
 

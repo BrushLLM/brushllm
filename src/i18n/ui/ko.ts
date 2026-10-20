@@ -31,7 +31,7 @@ const ko: Dictionary = {
 
   languageSwitcher: {
     label: '언어',
-    system: '시스템 따르기',
+    system: 'Auto',
     systemTitle: '브라우저 언어를 따릅니다',
   },
 

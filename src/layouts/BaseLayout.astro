@@ -94,7 +94,7 @@ const schemaJson = JSON.stringify({ '@context': 'https://schema.org', '@graph': 
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
     <meta name="twitter:card" content="summary_large_image" />
-    {locale === 'en' && <script is:inline src="/scripts/locale-redirect.js" />}
+    {locale === 'en' && <script is:inline src="/scripts/locale-redirect.js?v=i18n9" />}
   </head>
   <body class="flex min-h-screen flex-col">
     <Header locale={locale} />

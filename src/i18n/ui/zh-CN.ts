@@ -32,7 +32,7 @@ const zhCN: Dictionary = {
 
   languageSwitcher: {
     label: '语言',
-    system: '跟随系统',
+    system: 'Auto',
     systemTitle: '跟随浏览器语言',
   },
 

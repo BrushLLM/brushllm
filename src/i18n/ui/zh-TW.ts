@@ -31,7 +31,7 @@ const zhTW: Dictionary = {
 
   languageSwitcher: {
     label: '語言',
-    system: '跟隨系統',
+    system: 'Auto',
     systemTitle: '跟隨瀏覽器語言',
   },
 

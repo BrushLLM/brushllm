@@ -31,7 +31,7 @@ const fr: Dictionary = {
 
   languageSwitcher: {
     label: 'Langue',
-    system: 'Système',
+    system: 'Auto',
     systemTitle: 'Suivre la langue du navigateur',
   },
 

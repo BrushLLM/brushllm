@@ -31,7 +31,7 @@ const ptBR: Dictionary = {
 
   languageSwitcher: {
     label: 'Idioma',
-    system: 'Sistema',
+    system: 'Auto',
     systemTitle: 'Seguir o idioma do navegador',
   },
 

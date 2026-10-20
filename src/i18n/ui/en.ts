@@ -40,7 +40,7 @@ const en = {
 
   languageSwitcher: {
     label: 'Language',
-    system: 'System',
+    system: 'Auto',
     systemTitle: 'Follow your browser language',
   },
 

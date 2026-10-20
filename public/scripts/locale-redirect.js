@@ -14,7 +14,7 @@
     var KEY = 'brushllm-locale';
     if (localStorage.getItem(KEY)) return;
 
-    var codes = ['de', 'en', 'es', 'fr', 'it', 'nl', 'pl', 'pt-BR', 'tr', 'id', 'vi', 'ja', 'zh-CN', 'zh-TW', 'ko'];
+    var codes = ['en', 'de', 'es', 'fr', 'pt-BR', 'ja', 'zh-CN', 'zh-TW', 'ko'];
     var match = (navigator.languages || [navigator.language])
       .map(function (tag) { return (tag || '').toLowerCase(); })
       .map(function (tag) {

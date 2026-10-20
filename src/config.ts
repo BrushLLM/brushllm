@@ -45,17 +45,11 @@ export const NAV = [
  * unprefixed URLs; every other locale lives under `/{code}/`.
  */
 export const LOCALES = [
-  { code: 'de', label: 'Deutsch', htmlLang: 'de' },
   { code: 'en', label: 'English', htmlLang: 'en' },
+  { code: 'de', label: 'Deutsch', htmlLang: 'de' },
   { code: 'es', label: 'Español', htmlLang: 'es' },
   { code: 'fr', label: 'Français', htmlLang: 'fr' },
-  { code: 'it', label: 'Italiano', htmlLang: 'it' },
-  { code: 'nl', label: 'Nederlands', htmlLang: 'nl' },
-  { code: 'pl', label: 'Polski', htmlLang: 'pl' },
-  { code: 'pt-BR', label: 'Português do Brasil', htmlLang: 'pt-BR' },
-  { code: 'tr', label: 'Türkçe', htmlLang: 'tr' },
-  { code: 'id', label: 'Bahasa Indonesia', htmlLang: 'id' },
-  { code: 'vi', label: 'Tiếng Việt', htmlLang: 'vi' },
+  { code: 'pt-BR', label: 'Português (Brasil)', htmlLang: 'pt-BR' },
   { code: 'ja', label: '日本語', htmlLang: 'ja' },
   { code: 'zh-CN', label: '简体中文', htmlLang: 'zh-CN' },
   { code: 'zh-TW', label: '繁體中文', htmlLang: 'zh-TW' },

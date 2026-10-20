@@ -6,22 +6,16 @@ How the BrushLLM site handles its nine languages: where translations live, how t
 
 The language switcher must always show, in this exact order:
 
-1. **System** (follow the browser language — the default/preferred entry)
-2. Deutsch (`de`)
-3. English (`en` — the default locale, unprefixed URLs)
+1. **System / Auto** (follow the browser language — the default/preferred entry)
+2. English (`en` — the default locale, unprefixed URLs)
+3. Deutsch (`de`)
 4. Español (`es`)
 5. Français (`fr`)
-6. Italiano (`it`)
-7. Nederlands (`nl`)
-8. Polski (`pl`)
-9. Português do Brasil (`pt-BR`)
-10. Türkçe (`tr`)
-11. Bahasa Indonesia (`id`)
-12. Tiếng Việt (`vi`)
-13. 日本語 (`ja`)
-14. 简体中文 (`zh-CN`)
-15. 繁體中文 (`zh-TW`)
-16. 한국어 (`ko`)
+6. Português (Brasil) (`pt-BR`)
+7. 日本語 (`ja`)
+8. 简体中文 (`zh-CN`)
+9. 繁體中文 (`zh-TW`)
+10. 한국어 (`ko`)
 
 The order and the labels are defined once in `src/config.ts` (`LOCALES`). **Never sort this list alphabetically** — the display order is a product decision, not a code concern. Each entry carries its endonym (the language's own name for itself), which is never translated.
 

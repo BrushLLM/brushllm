@@ -98,7 +98,7 @@ const systemLabel = LOCALES.find((l) => l.code === locale)?.label ?? 'English';
   });
 
   document.querySelectorAll<HTMLAnchorElement>('[data-lang-system]').forEach((link) => {
-    const codes = ['de', 'en', 'es', 'fr', 'it', 'nl', 'pl', 'pt-BR', 'tr', 'id', 'vi', 'ja', 'zh-CN', 'zh-TW', 'ko'];
+    const codes = ['en', 'de', 'es', 'fr', 'pt-BR', 'ja', 'zh-CN', 'zh-TW', 'ko'];
     const match = (navigator.languages ?? [navigator.language])
       .map((tag) => tag.toLowerCase())
       .find((tag) => {

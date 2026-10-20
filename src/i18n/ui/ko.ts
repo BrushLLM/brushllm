@@ -64,8 +64,8 @@ const ko: Dictionary = {
     copied: '복사됨!',
     copyFallback: '⌘C를 누르세요',
     learnMore: '자세히 보기',
-    learnMoreArrow: '자세히 보기 →',
-    downloadArrow: '다운로드 ↗',
+    learnMoreArrow: '자세히 보기',
+    downloadArrow: '다운로드',
     exploreAiModels: 'AI 모델 둘러보기',
     exploreTheApps: '앱 둘러보기',
     exploreTheApi: 'API 둘러보기',
@@ -161,7 +161,7 @@ const ko: Dictionary = {
       appsSectionTitle: '무료 로컬 퍼스트 앱,',
       appsSectionTitleBand: '하나의 플랫폼 위에',
       appsSectionFooter: '상세 정보·스크린샷·설치 파일은 {link}',
-      appsSectionFooterLink: '앱 페이지 →',
+      appsSectionFooterLink: '앱 페이지',
 
       benefitsEyebrow: '우리 API를 선택해야 하는 이유',
       benefitsTitle: '필요한 모든 것,',
@@ -177,7 +177,7 @@ const ko: Dictionary = {
       statsEyebrow: '사용 가능한 모델, 하나의 API',
       stats: { providers: 'AI 공급자', models: '모델, 단일 카탈로그', account: '계정', countries: '서비스 국가' },
       statsCompare: '우리의 최종 가격은 7개 정면 비교 모델에서 OpenRouter보다 낮습니다 —— {link}',
-      statsCompareLink: '비교 보기 →',
+      statsCompareLink: '비교 보기',
 
       howEyebrow: '작동 방식',
       howTitle: '첫 토큰까지 세 단계',
@@ -369,7 +369,7 @@ const ko: Dictionary = {
       intro: '모든 로컬 도구는 무료이며 완전히 기기에서 동작합니다 —— Rust 엔진, 업로드 없음. AI 기능은 플랫폼 전체를 구동하는 같은 {apiLink}를 호출하며, {ratesLink}에 따라 장당 과금됩니다.',
       introApiLink: 'BrushLLM API',
       introRatesLink: '공개 요금',
-      outro: 'AI 도구 뒤의 이미지 모델 둘러보기 →',
+      outro: 'AI 도구 뒤의 이미지 모델 둘러보기',
       groups: [
         {
           title: '로컬 도구 —— 무료, 오프라인, 프라이빗',

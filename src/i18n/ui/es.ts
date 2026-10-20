@@ -64,8 +64,8 @@ const es: Dictionary = {
     copied: '¡Copiado!',
     copyFallback: 'Pulsa ⌘C',
     learnMore: 'Saber más',
-    learnMoreArrow: 'Saber más →',
-    downloadArrow: 'Descargar ↗',
+    learnMoreArrow: 'Saber más',
+    downloadArrow: 'Descargar',
     exploreAiModels: 'Explorar modelos de IA',
     exploreTheApps: 'Explorar las apps',
     exploreTheApi: 'Explorar la API',
@@ -161,7 +161,7 @@ const es: Dictionary = {
       appsSectionTitle: 'Apps gratuitas de uso local,',
       appsSectionTitleBand: 'construidas sobre una plataforma',
       appsSectionFooter: 'Detalles, capturas e instaladores en la {link}',
-      appsSectionFooterLink: 'página de apps →',
+      appsSectionFooterLink: 'página de apps',
 
       benefitsEyebrow: 'Por qué nuestra API',
       benefitsTitle: 'Todo lo que necesitas,',
@@ -177,7 +177,7 @@ const es: Dictionary = {
       statsEyebrow: 'Modelos disponibles, una API',
       stats: { providers: 'Proveedores de IA', models: 'Modelos, un catálogo', account: 'Cuenta', countries: 'Países atendidos' },
       statsCompare: 'Nuestros precios finales superan a OpenRouter en 7 comparaciones directas —— {link}',
-      statsCompareLink: 'ver la comparación →',
+      statsCompareLink: 'ver la comparación',
 
       howEyebrow: 'Cómo funciona',
       howTitle: 'Tres pasos hasta tu primer token',
@@ -369,7 +369,7 @@ const es: Dictionary = {
       intro: 'Cada herramienta local es gratuita y se ejecuta por completo en tu dispositivo —— motor en Rust, sin subidas. Las funciones de IA llaman a la misma {apiLink} que impulsa el resto de la plataforma, facturadas por imagen a {ratesLink}.',
       introApiLink: 'API de BrushLLM',
       introRatesLink: 'tarifas publicadas',
-      outro: 'Ver los modelos de imagen detrás de las herramientas de IA →',
+      outro: 'Ver los modelos de imagen detrás de las herramientas de IA',
       groups: [
         {
           title: 'Herramientas locales —— gratis, sin conexión, privadas',

@@ -64,8 +64,8 @@ const ja: Dictionary = {
     copied: 'コピーしました！',
     copyFallback: '⌘C を押してください',
     learnMore: '詳しく見る',
-    learnMoreArrow: '詳しく見る →',
-    downloadArrow: 'ダウンロード ↗',
+    learnMoreArrow: '詳しく見る',
+    downloadArrow: 'ダウンロード',
     exploreAiModels: 'AI モデルを見る',
     exploreTheApps: 'アプリを見る',
     exploreTheApi: 'API を見る',
@@ -161,7 +161,7 @@ const ja: Dictionary = {
       appsSectionTitle: '無料のローカルファーストアプリ、',
       appsSectionTitleBand: 'ひとつのプラットフォーム上に',
       appsSectionFooter: '詳細・スクリーンショット・インストーラーは{link}',
-      appsSectionFooterLink: 'アプリページ →',
+      appsSectionFooterLink: 'アプリページ',
 
       benefitsEyebrow: '私たちの API が選ばれる理由',
       benefitsTitle: '必要なすべてを、',
@@ -177,7 +177,7 @@ const ja: Dictionary = {
       statsEyebrow: '利用可能なモデル、ひとつの API',
       stats: { providers: 'AI プロバイダー', models: 'モデル、単一カタログ', account: 'アカウント', countries: '対応国・地域' },
       statsCompare: '当社の込々価格は 7 モデルの直接比較で OpenRouter を下回ります —— {link}',
-      statsCompareLink: '比較を見る →',
+      statsCompareLink: '比較を見る',
 
       howEyebrow: '仕組み',
       howTitle: '最初のトークンまで 3 ステップ',
@@ -369,7 +369,7 @@ const ja: Dictionary = {
       intro: 'すべてのローカルツールが無料で、完全に端末内で動作 —— Rust エンジン、アップロードなし。AI 機能はプラットフォーム全体を支える同じ{apiLink}を呼び出し、{ratesLink}で枚単位の課金です。',
       introApiLink: 'BrushLLM API',
       introRatesLink: '公示レート',
-      outro: 'AI ツールを支える画像モデルを見る →',
+      outro: 'AI ツールを支える画像モデルを見る',
       groups: [
         {
           title: 'ローカルツール —— 無料・オフライン・プライベート',

@@ -64,8 +64,8 @@ const ptBR: Dictionary = {
     copied: 'Copiado!',
     copyFallback: 'Pressione ⌘C',
     learnMore: 'Saiba mais',
-    learnMoreArrow: 'Saiba mais →',
-    downloadArrow: 'Baixar ↗',
+    learnMoreArrow: 'Saiba mais',
+    downloadArrow: 'Baixar',
     exploreAiModels: 'Explorar modelos de IA',
     exploreTheApps: 'Explorar os aplicativos',
     exploreTheApi: 'Explorar a API',
@@ -161,7 +161,7 @@ const ptBR: Dictionary = {
       appsSectionTitle: 'Aplicativos locais gratuitos,',
       appsSectionTitleBand: 'construídos sobre uma plataforma',
       appsSectionFooter: 'Detalhes, capturas de tela e instaladores na {link}',
-      appsSectionFooterLink: 'página de aplicativos →',
+      appsSectionFooterLink: 'página de aplicativos',
 
       benefitsEyebrow: 'Por que nossa API',
       benefitsTitle: 'Tudo o que você precisa,',
@@ -177,7 +177,7 @@ const ptBR: Dictionary = {
       statsEyebrow: 'Modelos disponíveis, uma API',
       stats: { providers: 'Provedores de IA', models: 'Modelos, um catálogo', account: 'Conta', countries: 'Países atendidos' },
       statsCompare: 'Nossos preços finais batem o OpenRouter em 7 comparações diretas —— {link}',
-      statsCompareLink: 'veja a comparação →',
+      statsCompareLink: 'veja a comparação',
 
       howEyebrow: 'Como funciona',
       howTitle: 'Três passos até seu primeiro token',
@@ -369,7 +369,7 @@ const ptBR: Dictionary = {
       intro: 'Cada ferramenta local é gratuita e roda inteiramente no seu dispositivo —— motor em Rust, sem uploads. Os recursos de IA chamam a mesma {apiLink} que alimenta o resto da plataforma, cobrados por imagem nas {ratesLink}.',
       introApiLink: 'API do BrushLLM',
       introRatesLink: 'tarifas publicadas',
-      outro: 'Veja os modelos de imagem por trás das ferramentas de IA →',
+      outro: 'Veja os modelos de imagem por trás das ferramentas de IA',
       groups: [
         {
           title: 'Ferramentas locais —— gratuitas, offline, privadas',

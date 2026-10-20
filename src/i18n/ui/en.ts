@@ -74,8 +74,8 @@ const en = {
     copied: 'Copied!',
     copyFallback: 'Press ⌘C',
     learnMore: 'Learn more',
-    learnMoreArrow: 'Learn more →',
-    downloadArrow: 'Download ↗',
+    learnMoreArrow: 'Learn more',
+    downloadArrow: 'Download',
     exploreAiModels: 'Explore AI Models',
     exploreTheApps: 'Explore the apps',
     exploreTheApi: 'Explore the API',
@@ -179,7 +179,7 @@ const en = {
       appsSectionTitle: 'Free local-first apps,',
       appsSectionTitleBand: 'built on one platform',
       appsSectionFooter: 'Details, screenshots and installers on the {link}',
-      appsSectionFooterLink: 'apps page →',
+      appsSectionFooterLink: 'apps page',
 
       benefitsEyebrow: 'Why our API',
       benefitsTitle: 'Everything you need,',
@@ -195,7 +195,7 @@ const en = {
       statsEyebrow: 'Available models, one API',
       stats: { providers: 'AI providers', models: 'Models, one catalog', account: 'Account', countries: 'Countries served' },
       statsCompare: 'Our all-in rates beat OpenRouter on 7 head-to-head models — {link}',
-      statsCompareLink: 'see the comparison →',
+      statsCompareLink: 'see the comparison',
 
       howEyebrow: 'How it works',
       howTitle: 'Three steps to your first token',
@@ -396,7 +396,7 @@ const en = {
         'Every local tool is free and runs entirely on your device — Rust engine, no uploads. AI features call the same {apiLink} that powers the rest of the platform, billed per image at {ratesLink}.',
       introApiLink: 'BrushLLM API',
       introRatesLink: 'published rates',
-      outro: 'Browse the image models behind the AI tools →',
+      outro: 'Browse the image models behind the AI tools',
       groups: [
         {
           title: 'Local tools — free, offline, private',

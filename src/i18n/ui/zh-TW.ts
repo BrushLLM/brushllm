@@ -64,8 +64,8 @@ const zhTW: Dictionary = {
     copied: '已複製！',
     copyFallback: '請按 ⌘C',
     learnMore: '了解更多',
-    learnMoreArrow: '了解更多 →',
-    downloadArrow: '下載 ↗',
+    learnMoreArrow: '了解更多',
+    downloadArrow: '下載',
     exploreAiModels: '瀏覽 AI 模型',
     exploreTheApps: '瀏覽應用程式',
     exploreTheApi: '了解 API',
@@ -161,7 +161,7 @@ const zhTW: Dictionary = {
       appsSectionTitle: '免費本機優先的應用，',
       appsSectionTitleBand: '建構於一個平台',
       appsSectionFooter: '詳情、截圖與安裝包見{link}',
-      appsSectionFooterLink: '應用程式頁面 →',
+      appsSectionFooterLink: '應用程式頁面',
 
       benefitsEyebrow: '為什麼選擇我們的 API',
       benefitsTitle: '你需要的一切，',
@@ -177,7 +177,7 @@ const zhTW: Dictionary = {
       statsEyebrow: '可用模型，一個 API',
       stats: { providers: 'AI 供應商', models: '模型，一個目錄', account: '帳號', countries: '服務國家/地區' },
       statsCompare: '我們的到手價在 7 個對標模型上低於 OpenRouter —— {link}',
-      statsCompareLink: '查看比較 →',
+      statsCompareLink: '查看比較',
 
       howEyebrow: '運作原理',
       howTitle: '三步拿到第一個 token',
@@ -369,7 +369,7 @@ const zhTW: Dictionary = {
       intro: '每個本機工具都免費且完全在你的裝置上執行 —— Rust 引擎、零上傳。AI 功能呼叫驅動整個平台的同一個{apiLink}，按張、按{ratesLink}計費。',
       introApiLink: 'BrushLLM API',
       introRatesLink: '公布價格',
-      outro: '瀏覽 AI 工具背後的影像模型 →',
+      outro: '瀏覽 AI 工具背後的影像模型',
       groups: [
         {
           title: '本機工具 —— 免費、離線、私密',

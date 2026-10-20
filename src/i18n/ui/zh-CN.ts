@@ -66,8 +66,8 @@ const zhCN: Dictionary = {
     copied: '已复制！',
     copyFallback: '请按 ⌘C',
     learnMore: '了解更多',
-    learnMoreArrow: '了解更多 →',
-    downloadArrow: '下载 ↗',
+    learnMoreArrow: '了解更多',
+    downloadArrow: '下载',
     exploreAiModels: '浏览 AI 模型',
     exploreTheApps: '浏览应用',
     exploreTheApi: '了解 API',
@@ -168,7 +168,7 @@ const zhCN: Dictionary = {
       appsSectionTitle: '免费的本地优先应用，',
       appsSectionTitleBand: '构建于一个平台',
       appsSectionFooter: '详情、截图与安装包见{link}',
-      appsSectionFooterLink: '应用页面 →',
+      appsSectionFooterLink: '应用页面',
 
       benefitsEyebrow: '为什么选我们的 API',
       benefitsTitle: '你需要的一切，',
@@ -184,7 +184,7 @@ const zhCN: Dictionary = {
       statsEyebrow: '可用模型，一个 API',
       stats: { providers: 'AI 供应商', models: '模型，同一目录', account: '账号', countries: '服务国家/地区' },
       statsCompare: '我们的到手价在 7 个对比模型上低于 OpenRouter ——{link}',
-      statsCompareLink: '查看对比 →',
+      statsCompareLink: '查看对比',
 
       howEyebrow: '工作原理',
       howTitle: '三步拿到你的第一个 token',
@@ -385,7 +385,7 @@ const zhCN: Dictionary = {
         '每个本地工具都免费且完全在你的设备上运行 —— Rust 引擎、不上传。AI 功能调用驱动整个平台的同一个{apiLink}，按张计费，价格{ratesLink}。',
       introApiLink: 'BrushLLM API',
       introRatesLink: '公开透明',
-      outro: '浏览 AI 工具背后的图像模型 →',
+      outro: '浏览 AI 工具背后的图像模型',
       groups: [
         {
           title: '本地工具 —— 免费、离线、私密',

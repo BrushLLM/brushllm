@@ -28,7 +28,7 @@ const systemLabel = LOCALES.find((l) => l.code === locale)?.label ?? 'English';
   <details class="group">
     <summary
       class:list={[
-        'flex cursor-pointer list-none items-center gap-1.5 rounded-lg text-sm font-medium text-muted transition-colors hover:bg-stone-100 hover:text-ink',
+        'flex cursor-pointer list-none items-center gap-1.5 rounded-chip text-sm font-medium text-muted transition-colors hover:bg-stone-100 hover:text-ink',
         compact ? 'px-3 py-2.5' : 'px-2.5 py-2',
       ]}
       aria-label={t.languageSwitcher.label}
@@ -46,7 +46,7 @@ const systemLabel = LOCALES.find((l) => l.code === locale)?.label ?? 'English';
     </summary>
     <ul
       class:list={[
-        'absolute z-50 mt-1 max-h-[min(24rem,70vh)] w-52 overflow-y-auto rounded-xl border border-stone-200 bg-white py-1.5 shadow-xl shadow-stone-200/60',
+        'absolute z-50 mt-1 max-h-[min(24rem,70vh)] w-52 overflow-y-auto rounded-control border border-stone-200 bg-white py-1.5 shadow-lift',
         compact ? 'static w-full' : 'right-0',
       ]}
     >
@@ -57,7 +57,7 @@ const systemLabel = LOCALES.find((l) => l.code === locale)?.label ?? 'English';
           class="flex items-center justify-between gap-2 px-3.5 py-2 text-sm font-medium text-muted transition-colors hover:bg-stone-50 hover:text-ink"
         >
           <span>{t.languageSwitcher.system}</span>
-          <span class="text-[10px] font-semibold uppercase tracking-wide text-brush-violet">↺</span>
+          <span class="text-[10px] font-semibold text-brush-violet">↺</span>
         </a>
       </li>
       {

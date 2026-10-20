@@ -64,8 +64,8 @@ const de: Dictionary = {
     copied: 'Kopiert!',
     copyFallback: '⌘C drücken',
     learnMore: 'Mehr erfahren',
-    learnMoreArrow: 'Mehr erfahren →',
-    downloadArrow: 'Herunterladen ↗',
+    learnMoreArrow: 'Mehr erfahren',
+    downloadArrow: 'Herunterladen',
     exploreAiModels: 'KI-Modelle entdecken',
     exploreTheApps: 'Apps entdecken',
     exploreTheApi: 'API entdecken',
@@ -161,7 +161,7 @@ const de: Dictionary = {
       appsSectionTitle: 'Kostenlose Local-First-Apps,',
       appsSectionTitleBand: 'auf einer Plattform gebaut',
       appsSectionFooter: 'Details, Screenshots und Installer auf der {link}',
-      appsSectionFooterLink: 'App-Seite →',
+      appsSectionFooterLink: 'App-Seite',
 
       benefitsEyebrow: 'Warum unsere API',
       benefitsTitle: 'Alles, was du brauchst,',
@@ -177,7 +177,7 @@ const de: Dictionary = {
       statsEyebrow: 'Verfügbare Modelle, eine API',
       stats: { providers: 'KI-Anbieter', models: 'Modelle, ein Katalog', account: 'Konto', countries: 'Bediente Länder' },
       statsCompare: 'Unsere Endpreise schlagen OpenRouter bei 7 Direktvergleichen —— {link}',
-      statsCompareLink: 'siehe den Vergleich →',
+      statsCompareLink: 'siehe den Vergleich',
 
       howEyebrow: 'So funktioniert es',
       howTitle: 'Drei Schritte zu deinem ersten Token',
@@ -369,7 +369,7 @@ const de: Dictionary = {
       intro: 'Jedes lokale Werkzeug ist kostenlos und läuft vollständig auf deinem Gerät —— Rust-Engine, keine Uploads. KI-Funktionen rufen dieselbe {apiLink} auf, die den Rest der Plattform antreibt, abgerechnet pro Bild zu {ratesLink}.',
       introApiLink: 'BrushLLM-API',
       introRatesLink: 'veröffentlichten Preisen',
-      outro: 'Die Bildmodelle hinter den KI-Werkzeugen ansehen →',
+      outro: 'Die Bildmodelle hinter den KI-Werkzeugen ansehen',
       groups: [
         {
           title: 'Lokale Werkzeuge —— kostenlos, offline, privat',

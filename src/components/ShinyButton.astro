@@ -1,9 +1,9 @@
 ---
 /**
- * llmgateway-style shiny CTA: a white conic light wedge rotates around the
- * button center, centered and larger than the button so a bright arc is
- * always present somewhere on the rim (never slides out of view). An inner
- * face covers the center, so the light reads as a streak orbiting the border.
+ * Primary CTA button. Quiet and disciplined: solid fill, brand shadow,
+ * color-only hover — no orbiting-light gimmicks, no layout-shifting motion.
+ * The API (bg / hoverBg / shadowColor / class) is unchanged so existing
+ * call sites keep working, including the ink-text override on accent fills.
  */
 interface Props {
   href: string;
@@ -11,7 +11,7 @@ interface Props {
   bg?: string;
   /** hover face color class, e.g. group-hover:bg-violet-700 */
   hoverBg?: string;
-  /** tailwind shadow color class, e.g. shadow-violet-500/25 */
+  /** shadow class, e.g. shadow-brand */
   shadowColor?: string;
   class?: string;
 }
@@ -20,7 +20,7 @@ const {
   href,
   bg = 'bg-brush-violet',
   hoverBg = 'group-hover:bg-violet-700',
-  shadowColor = 'shadow-violet-500/25',
+  shadowColor = 'shadow-brand',
   class: className = '',
 } = Astro.props;
 ---
@@ -28,29 +28,12 @@ const {
 <a
   href={href}
   class:list={[
-    'group relative z-0 flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-2xl border border-white/15 py-4 pr-8 pl-8 text-base font-semibold whitespace-nowrap text-white shadow-xl transition-transform duration-300 ease-in-out transform-gpu hover:scale-[1.02] active:translate-y-px sm:w-auto',
+    'group inline-flex w-full items-center justify-center gap-2 rounded-control px-8 py-4 text-base font-semibold whitespace-nowrap text-white transition-colors duration-200 sm:w-auto',
     bg,
+    hoverBg,
     shadowColor,
     className,
   ]}
 >
-  <div class="pointer-events-none absolute -z-30 inset-0 flex items-center justify-center blur-[2px]" aria-hidden="true">
-    <div
-      class="shiny-spin aspect-square w-[150%] shrink-0 bg-[conic-gradient(from_235deg,transparent_0deg,#ffffff_20deg,#ffffff_60deg,transparent_80deg)]"
-    >
-    </div>
-  </div>
-
-  <span class="relative z-10 inline-flex items-center gap-2">
-    <slot />
-  </span>
-
-  <div
-    class:list={['pointer-events-none absolute inset-[3px] -z-20 rounded-[13px] transition-colors', bg, hoverBg]}
-    aria-hidden="true"
-  >
-  </div>
-
-  <div class="pointer-events-none absolute inset-0 rounded-2xl shadow-[inset_0_-8px_10px_#ffffff1f]" aria-hidden="true">
-  </div>
+  <slot />
 </a>

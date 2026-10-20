@@ -46,7 +46,7 @@ const appData = apps.map((app) => {
       <BrushStroke shape="sweep" color="mint" class="absolute top-40 -right-44 w-[560px] rotate-3 opacity-15" />
     </div>
 
-    <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">{a.eyebrow}</p>
+    <p class="text-sm font-semibold text-brush-violet">{a.eyebrow}</p>
     <h1 class="mt-3 text-4xl font-bold tracking-tight text-balance sm:text-5xl">
       {a.title}
       <span class="relative inline-block">
@@ -64,8 +64,8 @@ const appData = apps.map((app) => {
     <div class="space-y-6">
       {
         appData.map((app) => (
-          <div class="reveal flex flex-col gap-6 rounded-[2rem] border border-stone-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg sm:flex-row">
-            <img src={app.icon} alt="" width="80" height="80" class="h-20 w-20 shrink-0 rounded-2xl shadow-lg shadow-stone-300/50" />
+          <div class="reveal flex flex-col gap-6 rounded-panel border border-stone-200 bg-white p-8 shadow-soft transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lift sm:flex-row">
+            <img src={app.icon} alt="" width="80" height="80" class="h-20 w-20 shrink-0 rounded-card shadow-lift shadow-stone-300/50" />
             <div class="flex-1">
               <h2 class="text-2xl font-bold tracking-tight">{app.name}</h2>
               <p class="mt-1 font-display text-sm font-semibold text-brush-violet">{app.tagline}</p>
@@ -75,28 +75,28 @@ const appData = apps.map((app) => {
                   <li class="rounded-full border border-stone-200 bg-stone-50 px-2.5 py-1 text-[11px] font-medium text-stone-600">{h}</li>
                 ))}
               </ul>
-              <p class="mt-3 text-xs font-medium uppercase tracking-wide text-stone-500">
+              <p class="mt-3 text-xs font-medium text-stone-500">
                 {app.platforms.join(' · ')}{app.license ? ` · ${app.license}` : ''}
               </p>
             </div>
             <div class="flex shrink-0 flex-col justify-center gap-3">
               <a
                 href={app.href}
-                class="group inline-flex items-center justify-center gap-2 rounded-xl bg-brush-violet px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:bg-violet-700"
+                class="group inline-flex items-center justify-center gap-2 rounded-control bg-brush-violet px-6 py-3 text-sm font-semibold text-white shadow-brand transition hover:bg-violet-700"
               >
                 {t.common.learnMore}
                 <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
               </a>
               <a
                 href={app.releases}
-                class="inline-flex items-center justify-center gap-2 rounded-xl border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-violet-400 hover:text-brush-violet"
+                class="inline-flex items-center justify-center gap-2 rounded-control border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-soft transition hover:border-violet-400 hover:text-brush-violet"
               >
                 <Download class="h-4 w-4" aria-hidden="true" />
                 {t.common.download}
               </a>
               <a
                 href={app.repo}
-                class="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-2 text-sm font-medium text-muted transition hover:text-brush-violet"
+                class="inline-flex items-center justify-center gap-2 rounded-control px-6 py-2 text-sm font-medium text-muted transition hover:text-brush-violet"
               >
                 <ExternalLink class="h-4 w-4" aria-hidden="true" />
                 {t.common.github}
@@ -107,14 +107,14 @@ const appData = apps.map((app) => {
       }
     </div>
 
-    <div class="reveal mt-14 rounded-[2rem] border border-stone-200 bg-white p-8 text-center shadow-sm">
+    <div class="reveal mt-14 rounded-panel border border-stone-200 bg-white p-8 text-center shadow-soft">
       <h2 class="text-xl font-bold tracking-tight">{a.apiTitle}</h2>
       <p class="mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted">
         {a.apiText}
       </p>
       <a
         href={L('/models')}
-        class="group mt-5 inline-flex items-center gap-2 rounded-xl bg-brush-violet px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:bg-violet-700"
+        class="group mt-5 inline-flex items-center gap-2 rounded-control bg-brush-violet px-6 py-3 text-sm font-semibold text-white shadow-brand transition hover:bg-violet-700"
       >
         {t.common.exploreAiModels}
         <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />

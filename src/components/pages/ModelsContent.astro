@@ -28,7 +28,7 @@ const metaDescription = m.metaDescription.replace('{count}', String(models.lengt
   <section class="relative overflow-hidden">
     <BrushStroke shape="sweep" color="mint" class="pointer-events-none absolute -top-10 -right-44 w-[640px] rotate-2 opacity-15" />
     <div class="mx-auto max-w-6xl px-4 pt-16 pb-8 sm:px-6">
-      <p class="text-sm font-semibold uppercase tracking-widest text-brush-violet">{m.eyebrow}</p>
+      <p class="text-sm font-semibold text-brush-violet">{m.eyebrow}</p>
       <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
         {title}{' '}
         <span class="relative inline-block">{m.titleBand}<BrushStroke shape="underline" color="orange" class="absolute -bottom-2 left-0 h-2.5 w-full" /></span>
@@ -49,17 +49,17 @@ const metaDescription = m.metaDescription.replace('{count}', String(models.lengt
           type="search"
           placeholder={m.searchPlaceholder}
           autocomplete="off"
-          class="w-full rounded-xl border border-stone-300 bg-white py-2.5 pr-4 pl-10 text-sm shadow-sm placeholder:text-stone-400 focus:border-violet-400 focus:ring-2 focus:ring-violet-200 focus:outline-none"
+          class="w-full rounded-control border border-stone-300 bg-white py-2.5 pr-4 pl-10 text-sm shadow-soft placeholder:text-stone-400 focus:border-violet-400 focus:ring-2 focus:ring-violet-200 focus:outline-none"
           aria-label={m.searchLabel}
         />
       </div>
 
       <div>
-        <p class="mb-1.5 text-[11px] font-semibold uppercase tracking-widest text-stone-400">{m.providerLabel}</p>
+        <p class="mb-1.5 text-[11px] font-semibold text-stone-400">{m.providerLabel}</p>
         <div class="flex flex-wrap items-center gap-2" role="group" aria-label={m.providerGroup}>
           <button
             type="button"
-            class="chip rounded-full border border-transparent bg-brush-violet px-3.5 py-1.5 text-sm font-semibold text-white shadow-md shadow-violet-500/25 transition"
+            class="chip rounded-full border border-transparent bg-brush-violet px-3.5 py-1.5 text-sm font-semibold text-white shadow-brand transition"
             data-group="provider"
             data-value="all"
             aria-pressed="true"
@@ -83,11 +83,11 @@ const metaDescription = m.metaDescription.replace('{count}', String(models.lengt
       </div>
 
       <div>
-        <p class="mb-1.5 text-[11px] font-semibold uppercase tracking-widest text-stone-400">{m.capabilityLabel}</p>
+        <p class="mb-1.5 text-[11px] font-semibold text-stone-400">{m.capabilityLabel}</p>
         <div class="flex flex-wrap items-center gap-2" role="group" aria-label={m.capabilityGroup}>
           <button
             type="button"
-            class="chip rounded-full border border-transparent bg-brush-violet px-3.5 py-1.5 text-sm font-semibold text-white shadow-md shadow-violet-500/25 transition"
+            class="chip rounded-full border border-transparent bg-brush-violet px-3.5 py-1.5 text-sm font-semibold text-white shadow-brand transition"
             data-group="capability"
             data-value="all"
             aria-pressed="true"
@@ -120,7 +120,7 @@ const metaDescription = m.metaDescription.replace('{count}', String(models.lengt
       {models.map((model) => <ModelCard model={model} locale={locale} />)}
     </div>
 
-    <p id="model-empty" class="mt-10 hidden rounded-2xl border border-dashed border-stone-300 bg-white p-10 text-center text-muted">
+    <p id="model-empty" class="mt-10 hidden rounded-card border border-dashed border-stone-300 bg-white p-10 text-center text-muted">
       {m.empty}
     </p>
 
@@ -143,8 +143,8 @@ const metaDescription = m.metaDescription.replace('{count}', String(models.lengt
       chip.setAttribute('aria-pressed', String(on));
       chip.classList.toggle('bg-brush-violet', on);
       chip.classList.toggle('text-white', on);
-      chip.classList.toggle('shadow-md', on);
-      chip.classList.toggle('shadow-violet-500/25', on);
+      chip.classList.toggle('shadow-card', on);
+      chip.classList.toggle('shadow-brand', on);
       chip.classList.toggle('font-semibold', on);
       chip.classList.toggle('border-transparent', on);
       chip.classList.toggle('border-stone-300', !on);

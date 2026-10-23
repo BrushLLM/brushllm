@@ -1,0 +1,22 @@
+# Locale-URL normalization (Cloudflare Pages).
+# Visitors land on lowercase or region-tagged variants (e.g. /en-us/,
+# /pt-br/...) from stale caches, extensions or mistyped links; serve the
+# canonical locale URL instead of a 404. Unknown variants not listed here
+# are rescued client-side by the script in 404.html.
+/en-us/*  /:splat      301
+/en-gb/*  /:splat      301
+/en-uk/*  /:splat      301
+/en/*     /:splat      301
+/pt-br/*  /pt-BR/:splat 301
+/pt-pt/*  /pt-BR/:splat 301
+/zh-cn/*  /zh-CN/:splat 301
+/zh-tw/*  /zh-TW/:splat 301
+/zh-hk/*  /zh-TW/:splat 301
+/ja-jp/*  /ja/:splat   301
+/ko-kr/*  /ko/:splat   301
+/de-de/*  /de/:splat   301
+/de-at/*  /de/:splat   301
+/de-ch/*  /de/:splat   301
+/fr-fr/*  /fr/:splat   301
+/es-es/*  /es/:splat   301
+/es-mx/*  /es/:splat   301

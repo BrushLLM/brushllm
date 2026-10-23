@@ -3,7 +3,7 @@
  * 占位符 {count}/{year}/{pct} 等保持原样，渲染时替换。
  * 不翻译：模型 id、URL、代码示例、价格、许可证标识、产品名。
  */
-import type { Dictionary } from '../index';
+import type { Dictionary } from './index';
 
 const zhCN: Dictionary = {
   site: {
@@ -57,6 +57,8 @@ const zhCN: Dictionary = {
   },
 
   common: {
+    skipToContent: '跳到主要内容',
+    codeExamples: '代码示例',
     download: '下载',
     github: 'GitHub',
     tryIt: '试一试',
@@ -64,7 +66,7 @@ const zhCN: Dictionary = {
     free: '免费',
     copy: '复制',
     copied: '已复制！',
-    copyFallback: '请按 ⌘C',
+    copyFallback: '复制失败',
     learnMore: '了解更多',
     learnMoreArrow: '了解更多',
     downloadArrow: '下载',
@@ -271,8 +273,8 @@ const zhCN: Dictionary = {
       title: '{count} 个模型 · {providers} 家供应商 ·',
       titleBand: '一个端点',
       intro:
-        '下列所有模型都可通过同一个 OpenAI 兼容 API 与同一把密钥调用。价格为参考价 —— 文本模型按每 1M token 计美元，图像模型按张计美元{free}。',
-      introFree: ' —— 其中 {count} 个模型免费',
+        '下列所有模型都可通过同一个 OpenAI 兼容 API 与同一把密钥调用。价格为参考价 —— 文本模型按每 1M token 计美元，图像模型按张计美元。',
+      introFree: ' —— 其中 {count} 个免费',
       searchPlaceholder: '按名称、id 或供应商搜索…',
       searchLabel: '搜索模型',
       providerLabel: '供应商',
@@ -312,9 +314,9 @@ const zhCN: Dictionary = {
         'OpenRouter 购买额度时收取支付手续费 —— 卡支付 5.5% —— 叠加在每个模型的目录价之上。BrushLLM 公布的价格即你的最终价格。',
       compareTable: {
         model: '模型',
-        ours: 'BrushLLM 输入 / 输出每 1M',
-        orList: 'OpenRouter 目录价 输入 / 输出',
-        orAllIn: 'OpenRouter 到手价* 输入 / 输出',
+        ours: '输入 / 输出每 1M',
+        orList: '目录价 输入 / 输出',
+        orAllIn: '到手价* 输入 / 输出',
         youSave: '为你节省',
         upTo: '最高 {pct}%',
       },
@@ -529,3 +531,4 @@ const zhCN: Dictionary = {
 };
 
 export default zhCN;
+

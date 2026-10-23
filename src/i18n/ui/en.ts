@@ -65,6 +65,8 @@ const en = {
   },
 
   common: {
+    skipToContent: 'Skip to content',
+    codeExamples: 'Code examples',
     download: 'Download',
     github: 'GitHub',
     tryIt: 'Try it',
@@ -72,7 +74,7 @@ const en = {
     free: 'Free',
     copy: 'Copy',
     copied: 'Copied!',
-    copyFallback: 'Press ⌘C',
+    copyFallback: 'Copy failed',
     learnMore: 'Learn more',
     learnMoreArrow: 'Learn more',
     downloadArrow: 'Download',
@@ -282,8 +284,8 @@ const en = {
       title: '{count} models · {providers} providers ·',
       titleBand: 'One endpoint',
       intro:
-        'Every model below is callable through the same OpenAI-compatible API and the same key. Prices are indicative — USD per 1M tokens for text models, USD per image for image models{free}.',
-      introFree: ' — {count} models are free',
+        'Every model below is callable through the same OpenAI-compatible API and the same key. Prices are indicative — USD per 1M tokens for text models, USD per image for image models.',
+      introFree: ' — {count} of them free',
       searchPlaceholder: 'Search by name, id or provider…',
       searchLabel: 'Search models',
       providerLabel: 'Provider',
@@ -323,9 +325,9 @@ const en = {
         'OpenRouter adds a payment fee when you buy credits — 5.5% by card — on top of every model’s list price. BrushLLM’s published rate is the final rate you pay.',
       compareTable: {
         model: 'Model',
-        ours: 'BrushLLM in / out per 1M',
-        orList: 'OpenRouter list in / out',
-        orAllIn: 'OpenRouter all-in* in / out',
+        ours: 'in / out per 1M',
+        orList: 'list in / out',
+        orAllIn: 'all-in* in / out',
         youSave: 'You save',
         upTo: 'up to {pct}%',
       },
@@ -540,3 +542,4 @@ const en = {
 };
 
 export default en;
+

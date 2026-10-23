@@ -19,9 +19,11 @@ interface Props {
   faqSchema?: FaqEntry[];
   /** extra JSON-LD nodes for this page (Product, SoftwareApplication, …) */
   extraSchema?: Record<string, unknown>[];
+  /** emit noindex (error pages) */
+  noindex?: boolean;
 }
 
-const { title, locale = 'en', faqSchema, extraSchema = [] } = Astro.props;
+const { title, locale = 'en', faqSchema, extraSchema = [], noindex = false } = Astro.props;
 const t = await getDictionary(locale);
 const description = Astro.props.description ?? t.site.description;
 const pageTitle = title ? `${title} · ${SITE.name}` : t.site.title;
@@ -77,10 +79,11 @@ const schemaJson = JSON.stringify({ '@context': 'https://schema.org', '@graph': 
 <html lang={locale}>
   <head>
     <meta charset="utf-8" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
     <link rel="canonical" href={canonical} />
     {alternates.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)}
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=logo-purple" />
@@ -93,12 +96,18 @@ const schemaJson = JSON.stringify({ '@context': 'https://schema.org', '@graph': 
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:card" content="summary_large_image" />
     {locale === 'en' && <script is:inline src="/scripts/locale-redirect.js?v=i18n9" />}
   </head>
   <body class="flex min-h-screen flex-col">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-control focus:bg-brush-violet focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white">
+      {t.common.skipToContent}
+    </a>
     <Header locale={locale} />
-    <main class="flex-1">
+    <main id="main" class="flex-1">
       <slot />
     </main>
     <Footer locale={locale} />

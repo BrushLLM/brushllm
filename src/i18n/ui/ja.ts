@@ -3,7 +3,7 @@
  * プレースホルダー {count}/{year}/{pct} はそのまま残し、描画時に置換される。
  * 翻訳しない：モデル id、URL、コード例、価格、ライセンス識別子、製品名。
  */
-import type { Dictionary } from '../index';
+import type { Dictionary } from './index';
 
 const ja: Dictionary = {
   site: {
@@ -55,6 +55,8 @@ const ja: Dictionary = {
   },
 
   common: {
+    skipToContent: '本文へスキップ',
+    codeExamples: 'コード例',
     download: 'ダウンロード',
     github: 'GitHub',
     tryIt: '試す',
@@ -62,7 +64,7 @@ const ja: Dictionary = {
     free: '無料',
     copy: 'コピー',
     copied: 'コピーしました！',
-    copyFallback: '⌘C を押してください',
+    copyFallback: 'コピーできませんでした',
     learnMore: '詳しく見る',
     learnMoreArrow: '詳しく見る',
     downloadArrow: 'ダウンロード',
@@ -261,8 +263,8 @@ const ja: Dictionary = {
       eyebrow: 'AI モデル',
       title: '{count} モデル · {providers} プロバイダー ·',
       titleBand: '単一エンドポイント',
-      intro: '以下のモデルはすべて、同じ OpenAI 互換 API と同じキーで呼び出せます。価格は参考値 —— テキストモデルは 1M トークンあたり、画像モデルは 1 枚あたり、米ドル建て{free}。',
-      introFree: ' —— うち {count} モデルが無料',
+      intro: '以下のモデルはすべて、同じ OpenAI 互換 API と同じキーで呼び出せます。価格は参考値 —— テキストモデルは 1M トークンあたり、画像モデルは 1 枚あたり、米ドル建て。',
+      introFree: ' —— うち{count}個が無料',
       searchPlaceholder: '名前・id・プロバイダーで検索…',
       searchLabel: 'モデルを検索',
       providerLabel: 'プロバイダー',
@@ -298,9 +300,9 @@ const ja: Dictionary = {
       compareIntro: 'OpenRouter はクレジット購入時に決済手数料 —— カードで 5.5% —— を各モデルの定価に上乗せします。BrushLLM の公示価格が、あなたの支払う最終価格です。',
       compareTable: {
         model: 'モデル',
-        ours: 'BrushLLM 入/出力 1M あたり',
-        orList: 'OpenRouter 定価 入/出力',
-        orAllIn: 'OpenRouter 込々* 入/出力',
+        ours: '入/出力 1M あたり',
+        orList: '定価 入/出力',
+        orAllIn: '込々* 入/出力',
         youSave: '節約額',
         upTo: '最大 {pct}%',
       },
@@ -510,3 +512,4 @@ const ja: Dictionary = {
 };
 
 export default ja;
+

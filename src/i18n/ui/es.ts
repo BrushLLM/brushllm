@@ -3,7 +3,7 @@
  * Los marcadores {count}/{year}/{pct} se mantienen y se sustituyen al renderizar.
  * No se traduce: ids de modelos, URLs, ejemplos de código, precios, identificadores de licencia, nombres de producto.
  */
-import type { Dictionary } from '../index';
+import type { Dictionary } from './index';
 
 const es: Dictionary = {
   site: {
@@ -55,6 +55,8 @@ const es: Dictionary = {
   },
 
   common: {
+    skipToContent: 'Ir al contenido',
+    codeExamples: 'Ejemplos de código',
     download: 'Descargar',
     github: 'GitHub',
     tryIt: 'Pruébalo',
@@ -62,7 +64,7 @@ const es: Dictionary = {
     free: 'Gratis',
     copy: 'Copiar',
     copied: '¡Copiado!',
-    copyFallback: 'Pulsa ⌘C',
+    copyFallback: 'Error al copiar',
     learnMore: 'Saber más',
     learnMoreArrow: 'Saber más',
     downloadArrow: 'Descargar',
@@ -261,8 +263,8 @@ const es: Dictionary = {
       eyebrow: 'Modelos de IA',
       title: '{count} modelos · {providers} proveedores ·',
       titleBand: 'Un endpoint',
-      intro: 'Todos los modelos de abajo se pueden llamar a través de la misma API compatible con OpenAI y la misma clave. Los precios son orientativos —— USD por 1M de tokens para modelos de texto, USD por imagen para modelos de imagen{free}.',
-      introFree: ' —— {count} modelos son gratis',
+      intro: 'Todos los modelos de abajo se pueden llamar a través de la misma API compatible con OpenAI y la misma clave. Los precios son orientativos —— USD por 1M de tokens para modelos de texto, USD por imagen para modelos de imagen.',
+      introFree: ' — {count} de ellos gratis',
       searchPlaceholder: 'Buscar por nombre, id o proveedor…',
       searchLabel: 'Buscar modelos',
       providerLabel: 'Proveedor',
@@ -298,9 +300,9 @@ const es: Dictionary = {
       compareIntro: 'OpenRouter añade una comisión de pago al comprar créditos —— 5,5% con tarjeta —— sobre el precio de lista de cada modelo. La tarifa publicada de BrushLLM es la tarifa final que pagas.',
       compareTable: {
         model: 'Modelo',
-        ours: 'BrushLLM ent/sal por 1M',
-        orList: 'OpenRouter lista ent/sal',
-        orAllIn: 'OpenRouter todo incluido* ent/sal',
+        ours: 'ent/sal por 1M',
+        orList: 'lista ent/sal',
+        orAllIn: 'todo incluido* ent/sal',
         youSave: 'Ahorras',
         upTo: 'hasta {pct}%',
       },
@@ -510,3 +512,4 @@ const es: Dictionary = {
 };
 
 export default es;
+

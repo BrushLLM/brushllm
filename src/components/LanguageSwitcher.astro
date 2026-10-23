@@ -104,12 +104,13 @@ const systemLabel = LOCALES.find((l) => l.code === locale)?.label ?? 'English';
 
   document.querySelectorAll<HTMLAnchorElement>('[data-lang-system]').forEach((link) => {
     const codes = ['en', 'de', 'es', 'fr', 'pt-BR', 'ja', 'zh-CN', 'zh-TW', 'ko'];
+    const byLower = new Map(codes.map((c) => [c.toLowerCase(), c]));
     const match = (navigator.languages ?? [navigator.language])
       .map((tag) => tag.toLowerCase())
       .find((tag) => {
-        if (codes.includes(tag)) return tag;
+        if (byLower.has(tag)) return byLower.get(tag);
         const base = tag.split('-')[0];
-        if (base === 'pt') return codes.includes(tag) ? tag : null;
+        if (base === 'pt') return null;
         if (base === 'zh') {
           if (tag.includes('tw') || tag.includes('hk') || tag.includes('hant')) return 'zh-TW';
           return 'zh-CN';

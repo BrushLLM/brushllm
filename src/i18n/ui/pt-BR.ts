@@ -3,7 +3,7 @@
  * Os marcadores {count}/{year}/{pct} permanecem e são substituídos na renderização.
  * Não traduzir: ids de modelos, URLs, exemplos de código, preços, identificadores de licença, nomes de produto.
  */
-import type { Dictionary } from '../index';
+import type { Dictionary } from './index';
 
 const ptBR: Dictionary = {
   site: {
@@ -55,6 +55,8 @@ const ptBR: Dictionary = {
   },
 
   common: {
+    skipToContent: 'Ir para o conteúdo',
+    codeExamples: 'Exemplos de código',
     download: 'Baixar',
     github: 'GitHub',
     tryIt: 'Experimentar',
@@ -62,7 +64,7 @@ const ptBR: Dictionary = {
     free: 'Grátis',
     copy: 'Copiar',
     copied: 'Copiado!',
-    copyFallback: 'Pressione ⌘C',
+    copyFallback: 'Falha ao copiar',
     learnMore: 'Saiba mais',
     learnMoreArrow: 'Saiba mais',
     downloadArrow: 'Baixar',
@@ -261,8 +263,8 @@ const ptBR: Dictionary = {
       eyebrow: 'Modelos de IA',
       title: '{count} modelos · {providers} provedores ·',
       titleBand: 'Um endpoint',
-      intro: 'Todos os modelos abaixo podem ser chamados pela mesma API compatível com OpenAI e a mesma chave. Os preços são indicativos —— USD por 1M tokens para modelos de texto, USD por imagem para modelos de imagem{free}.',
-      introFree: ' —— {count} modelos são gratuitos',
+      intro: 'Todos os modelos abaixo podem ser chamados pela mesma API compatível com OpenAI e a mesma chave. Os preços são indicativos —— USD por 1M tokens para modelos de texto, USD por imagem para modelos de imagem.',
+      introFree: ' — {count} de graça',
       searchPlaceholder: 'Buscar por nome, id ou provedor…',
       searchLabel: 'Buscar modelos',
       providerLabel: 'Provedor',
@@ -298,9 +300,9 @@ const ptBR: Dictionary = {
       compareIntro: 'O OpenRouter cobra uma taxa de pagamento na compra de créditos —— 5,5% no cartão —— por cima do preço de tabela de cada modelo. O preço publicado pelo BrushLLM é o preço final que você paga.',
       compareTable: {
         model: 'Modelo',
-        ours: 'BrushLLM ent/saída por 1M',
-        orList: 'OpenRouter tabela ent/saída',
-        orAllIn: 'OpenRouter tudo incluído* ent/saída',
+        ours: 'ent/saída por 1M',
+        orList: 'tabela ent/saída',
+        orAllIn: 'tudo incluído* ent/saída',
         youSave: 'Você economiza',
         upTo: 'até {pct}%',
       },
@@ -510,3 +512,4 @@ const ptBR: Dictionary = {
 };
 
 export default ptBR;
+

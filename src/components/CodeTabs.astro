@@ -15,14 +15,24 @@ interface Props {
 
 const { tabs, class: className = '', locale = 'en' } = Astro.props;
 const t = await getDictionary(locale);
+const uid = `ct-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
 <div class:list={['overflow-hidden rounded-card border border-stone-200 bg-white shadow-lift', className]} data-codetabs>
   <div class="flex items-center justify-between gap-2 border-b border-stone-100 bg-stone-50 pl-2 pr-2 sm:pr-3">
-    <div class="flex flex-wrap gap-1" role="tablist">
+    <div class="flex flex-wrap gap-1" role="tablist" aria-label={t.common.codeExamples}>
       {
         tabs.map((tab, i) => (
-          <button type="button" class="tab-btn px-3 py-2.5 text-sm font-medium" data-tab={i} role="tab" aria-selected={i === 0 ? 'true' : 'false'}>
+          <button
+            type="button"
+            class="tab-btn px-3 py-2.5 text-sm font-medium"
+            data-tab={i}
+            role="tab"
+            id={`${uid}-tab-${i}`}
+            aria-controls={`${uid}-panel-${i}`}
+            aria-selected={i === 0 ? 'true' : 'false'}
+            tabindex={i === 0 ? 0 : -1}
+          >
             {tab.label}
           </button>
         ))
@@ -36,7 +46,7 @@ const t = await getDictionary(locale);
       data-copied-label={t.common.copied}
       data-copy-fallback-label={t.common.copyFallback}
     >
-      {t.common.copy}
+      <span aria-live="polite">{t.common.copy}</span>
     </button>
   </div>
   {
@@ -44,6 +54,10 @@ const t = await getDictionary(locale);
       <pre
         class:list={['overflow-x-auto p-4 font-mono text-[13px] leading-relaxed text-stone-800', i !== 0 && 'hidden']}
         data-panel={i}
+        id={`${uid}-panel-${i}`}
+        role="tabpanel"
+        aria-labelledby={`${uid}-tab-${i}`}
+        tabindex="0"
       >
         <code>{tab.code}</code>
       </pre>
@@ -73,29 +87,51 @@ const t = await getDictionary(locale);
     const copyBtn = root.querySelector<HTMLButtonElement>('[data-copy]');
 
     const activate = (index: number) => {
-      buttons.forEach((btn, i) => btn.setAttribute('aria-selected', String(i === index)));
+      buttons.forEach((btn, i) => {
+        const on = i === index;
+        btn.setAttribute('aria-selected', String(on));
+        btn.tabIndex = on ? 0 : -1;
+      });
       panels.forEach((panel, i) => panel.classList.toggle('hidden', i !== index));
     };
 
-    buttons.forEach((btn) => {
-      btn.addEventListener('click', () => activate(Number(btn.dataset.tab)));
+    buttons.forEach((btn, i) => {
+      btn.addEventListener('click', () => activate(i));
+      // WAI-ARIA tabs pattern: arrow keys move between tabs, Home/End jump
+      btn.addEventListener('keydown', (e) => {
+        let next: number | null = null;
+        if (e.key === 'ArrowRight') next = (i + 1) % buttons.length;
+        else if (e.key === 'ArrowLeft') next = (i - 1 + buttons.length) % buttons.length;
+        else if (e.key === 'Home') next = 0;
+        else if (e.key === 'End') next = buttons.length - 1;
+        if (next !== null) {
+          e.preventDefault();
+          activate(next);
+          buttons[next]?.focus();
+        }
+      });
     });
 
     copyBtn?.addEventListener('click', async () => {
+      if (!copyBtn) return;
+      const live = copyBtn.querySelector('[aria-live]') ?? copyBtn;
       const active = panels.findIndex((panel) => !panel.classList.contains('hidden'));
       const text = panels[active]?.textContent?.trim() ?? '';
       const labels = {
-        copy: copyBtn?.dataset.copyLabel ?? 'Copy',
-        copied: copyBtn?.dataset.copiedLabel ?? 'Copied!',
-        fallback: copyBtn?.dataset.copyFallbackLabel ?? 'Press ⌘C',
+        copy: copyBtn.dataset.copyLabel ?? 'Copy',
+        copied: copyBtn.dataset.copiedLabel ?? 'Copied!',
+        fallback: copyBtn.dataset.copyFallbackLabel ?? 'Copy failed',
       };
+      let handle = 0;
       try {
         await navigator.clipboard.writeText(text);
-        copyBtn.textContent = labels.copied;
+        live.textContent = labels.copied;
       } catch {
-        copyBtn.textContent = labels.fallback;
+        live.textContent = labels.fallback;
       }
-      setTimeout(() => (copyBtn.textContent = labels.copy), 1500);
+      clearTimeout(Number(copyBtn.dataset.resetTimer ?? 0));
+      handle = window.setTimeout(() => (live.textContent = labels.copy), 1500);
+      copyBtn.dataset.resetTimer = String(handle);
     });
   });
 </script>

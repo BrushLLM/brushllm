@@ -30,6 +30,8 @@ export interface SiteApp {
   icon: string;
   /** official app screenshot URL */
   screenshot: string;
+  /** intrinsic screenshot size, for CLS-free rendering */
+  screenshotSize: { width: number; height: number };
 }
 
 export const apps: SiteApp[] = [
@@ -46,6 +48,7 @@ export const apps: SiteApp[] = [
     highlights: ['25+ local tools', 'AI edits via BrushLLM API', '9 languages', 'Zero telemetry'],
     icon: imageStudioIcon,
     screenshot: imageStudioShot,
+    screenshotSize: { width: 1200, height: 813 },
   },
   {
     id: 'video-studio',
@@ -60,6 +63,7 @@ export const apps: SiteApp[] = [
     highlights: ['25+ tools', '100% local processing', '9 languages', 'Zero network requests'],
     icon: videoStudioIcon,
     screenshot: videoStudioShot,
+    screenshotSize: { width: 1200, height: 750 },
   },
   {
     id: 'player',
@@ -75,6 +79,7 @@ export const apps: SiteApp[] = [
     highlights: ['Every format via mpv', 'WebDAV · SMB · Emby · Jellyfin', 'HDR & hardware decode', '9 languages'],
     icon: playerIcon,
     screenshot: playerShot,
+    screenshotSize: { width: 1068, height: 688 },
   },
 ];
 

@@ -105,7 +105,6 @@ input:focus-visible,
 details:focus-visible {
   outline: 2px solid var(--color-brush-violet);
   outline-offset: 2px;
-  border-radius: var(--radius-chip);
 }
 
 ::selection {
@@ -145,7 +144,8 @@ details:focus-visible {
      viewports, and 96s keeps the same ~41px/s visual speed as before */
   animation: marquee 96s linear infinite;
 }
-.marquee:hover .marquee-track {
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
   animation-play-state: paused;
 }
 
@@ -156,6 +156,18 @@ details:focus-visible {
 }
 .reveal.is-visible {
   opacity: 1;
+}
+/* progressive enhancement: hide-for-animation only when JS is running;
+   printing always shows everything regardless */
+html:not(.js) .reveal,
+.print-show .reveal {
+  opacity: 1;
+  transition: none;
+}
+@media print {
+  .reveal {
+    opacity: 1 !important;
+  }
 }
 
 /* ── brush swipe: wipes in like a fresh pass of paint ─────── */
@@ -173,6 +185,9 @@ details:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   .reveal {
     opacity: 1;
     transition: none;

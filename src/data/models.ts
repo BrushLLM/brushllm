@@ -110,7 +110,6 @@ export const models: Model[] = [
     capabilities: ['reasoning', 'tools', 'long-context'],
     price: { input: 0.55, output: 2.19 },
     bestFor: ["reasoning","coding"],
-    featured: true,
   },
   // ── Zhipu GLM ───────────────────────────────────────────────
   {
@@ -154,7 +153,6 @@ export const models: Model[] = [
     capabilities: ['chat', 'tools', 'long-context'],
     price: { input: 1.2, output: 6.0 },
     bestFor: ["agents","writing","everyday-chat"],
-    featured: true,
   },
   {
     id: 'qwen3-235b-a22b',
@@ -205,7 +203,6 @@ export const models: Model[] = [
     capabilities: ['chat', 'tools', 'long-context'],
     price: { input: 0.6, output: 2.5 },
     bestFor: ["agents","coding"],
-    featured: true,
   },
   {
     id: 'kimi-k2-thinking',

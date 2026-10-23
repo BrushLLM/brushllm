@@ -282,9 +282,9 @@ const faqSchema = [...developerFaqs, ...creatorFaqs];
     <!-- product 2: Image Studio -->
     <div class="reveal relative overflow-hidden rounded-panel border border-stone-200 bg-white p-8 shadow-soft transition hover:-translate-y-1 hover:border-orange-300 hover:shadow-lift">
       <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-        <BrushStroke shape="sweep" color="orange" class="absolute -top-10 -right-24 w-[420px] rotate-3 opacity-80" />
+        <BrushStroke shape="sweep" color="orange" class="absolute -top-10 -right-24 w-[420px] rotate-3 opacity-25" />
       </div>
-      <span class="relative inline-flex items-center gap-2 rounded-full bg-brush-orange px-3 py-1 text-[11px] font-semibold text-ink shadow-card shadow-lift">
+      <span class="relative inline-flex items-center gap-2 rounded-full bg-brush-orange px-3 py-1 text-[11px] font-semibold text-ink shadow-card">
         {home.appsCardBadge}
       </span>
       <h3 class="relative mt-4 text-2xl font-bold tracking-tight">{home.appsCardTitle}</h3>
@@ -407,19 +407,19 @@ const faqSchema = [...developerFaqs, ...creatorFaqs];
 
   <div class="mx-auto mt-10 grid max-w-6xl grid-cols-2 divide-stone-100 px-4 text-center sm:grid-cols-4 sm:divide-x sm:px-6">
     <div class="reveal p-4">
-      <p class="text-4xl font-bold text-brush-violet sm:text-5xl" data-count-to={visibleProviders.length} data-suffix="+">{visibleProviders.length}+</p>
+      <p class="text-4xl font-bold text-brush-violet tabular-nums sm:text-5xl" data-count-to={visibleProviders.length} data-suffix="+">{visibleProviders.length}+</p>
       <p class="mt-1.5 text-sm text-muted">{home.stats.providers}</p>
     </div>
     <div class="reveal p-4">
-      <p class="text-4xl font-bold text-brush-orange sm:text-5xl" data-count-to={models.length} data-suffix="+">{models.length}+</p>
+      <p class="inline-block rounded-chip bg-brush-orange px-3 text-4xl font-bold text-ink tabular-nums sm:text-5xl" data-count-to={models.length} data-suffix="+">{models.length}+</p>
       <p class="mt-1.5 text-sm text-muted">{home.stats.models}</p>
     </div>
     <div class="reveal p-4">
-      <p class="text-4xl font-bold text-mint-700 sm:text-5xl">1</p>
+      <p class="text-4xl font-bold text-mint-700 tabular-nums sm:text-5xl">1</p>
       <p class="mt-1.5 text-sm text-muted">{home.stats.account}</p>
     </div>
     <div class="reveal p-4">
-      <p class="text-4xl font-bold text-brush-violet sm:text-5xl" data-count-to="195">195</p>
+      <p class="text-4xl font-bold text-brush-violet tabular-nums sm:text-5xl" data-count-to="195">195</p>
       <p class="mt-1.5 text-sm text-muted">{home.stats.countries}</p>
     </div>
   </div>
@@ -441,7 +441,7 @@ const faqSchema = [...developerFaqs, ...creatorFaqs];
       {
         steps.map((step, i) => (
           <div class="reveal relative text-center">
-            <div class="relative mx-auto flex h-12 w-12 items-center justify-center rounded-card bg-brush-mint text-ink shadow-lift shadow-lift">
+            <div class="relative mx-auto flex h-12 w-12 items-center justify-center rounded-card bg-brush-mint text-ink shadow-lift">
               <step.icon class="h-5.5 w-5.5" aria-hidden="true" />
               <span class="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-ink text-[11px] font-bold text-white">
                 {i + 1}
@@ -501,8 +501,8 @@ const faqSchema = [...developerFaqs, ...creatorFaqs];
     <!-- developer CTA -->
     <div class="reveal relative overflow-hidden rounded-panel border border-stone-200 bg-white px-8 py-16 text-center shadow-lift">
       <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-        <BrushStroke shape="sweep" color="violet" class="absolute -top-10 -left-24 w-[480px] -rotate-6 opacity-80" />
-        <BrushStroke shape="underline" color="orange" class="absolute right-[14%] bottom-14 w-48 rotate-2 opacity-70" />
+        <BrushStroke shape="sweep" color="violet" class="absolute -top-10 -left-24 w-[480px] -rotate-6 opacity-25" />
+        <BrushStroke shape="underline" color="orange" class="absolute right-[14%] bottom-14 w-48 rotate-2 opacity-25" />
       </div>
       <h2 class="relative text-3xl font-bold tracking-tight sm:text-4xl">{home.ctaBuildTitle}</h2>
       <p class="relative mx-auto mt-3 max-w-sm text-sm leading-relaxed text-muted">
@@ -525,8 +525,8 @@ const faqSchema = [...developerFaqs, ...creatorFaqs];
     <!-- creator CTA -->
     <div class="reveal relative overflow-hidden rounded-panel border border-stone-200 bg-white px-8 py-16 text-center shadow-lift">
       <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-        <BrushStroke shape="sweep" color="orange" class="absolute -top-10 -right-24 w-[480px] rotate-3 opacity-80" />
-        <BrushStroke shape="underline" color="violet" class="absolute bottom-14 left-[14%] w-48 -rotate-2 opacity-70" />
+        <BrushStroke shape="sweep" color="orange" class="absolute -top-10 -right-24 w-[480px] rotate-3 opacity-25" />
+        <BrushStroke shape="underline" color="violet" class="absolute bottom-14 left-[14%] w-48 -rotate-2 opacity-25" />
       </div>
       <h2 class="relative text-3xl font-bold tracking-tight sm:text-4xl">{home.ctaCreateTitle}</h2>
       <p class="relative mx-auto mt-3 max-w-sm text-sm leading-relaxed text-muted">

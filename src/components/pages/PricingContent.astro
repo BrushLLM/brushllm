@@ -62,7 +62,7 @@ const highlights = p.highlights.map((item, i) => ({
 
   <section class="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
     <h2 class="reveal mt-8 text-2xl font-bold tracking-tight">{p.textModelsTitle}</h2>
-    <div class="reveal mt-6 overflow-x-auto rounded-card border border-stone-200 bg-white shadow-soft">
+    <div class="reveal mt-6 overflow-x-auto tabindex="0" role="region" aria-label="scrollable table" rounded-card border border-stone-200 bg-white shadow-soft">
       <table class="w-full text-left text-sm">
         <thead class="border-b border-stone-100 bg-stone-50 text-xs text-stone-500">
           <tr>
@@ -83,8 +83,8 @@ const highlights = p.highlights.map((item, i) => ({
                 </td>
                 <td class="px-4 py-3 text-stone-700">{providerName(model.provider)}</td>
                 <td class="px-4 py-3 text-stone-500">{formatContext(model.context)}</td>
-                <td class="px-4 py-3 text-right font-semibold">{formatPrice(model.price.input, t.common.free)}</td>
-                <td class="px-4 py-3 text-right font-semibold">{formatPrice(model.price.output, t.common.free)}</td>
+                <td class="px-4 py-3 text-right font-semibold tabular-nums">{formatPrice(model.price.input, t.common.free)}</td>
+                <td class="px-4 py-3 text-right font-semibold tabular-nums">{formatPrice(model.price.output, t.common.free)}</td>
               </tr>
             ))
           }
@@ -96,7 +96,7 @@ const highlights = p.highlights.map((item, i) => ({
       imageModels.length > 0 && (
         <>
           <h2 class="reveal mt-12 text-2xl font-bold tracking-tight">{p.imageModelsTitle}</h2>
-          <div class="reveal mt-6 overflow-x-auto rounded-card border border-stone-200 bg-white shadow-soft">
+          <div class="reveal mt-6 overflow-x-auto tabindex="0" role="region" aria-label="scrollable table" rounded-card border border-stone-200 bg-white shadow-soft">
             <table class="w-full text-left text-sm">
               <thead class="border-b border-stone-100 bg-stone-50 text-xs text-stone-500">
                 <tr>
@@ -115,7 +115,7 @@ const highlights = p.highlights.map((item, i) => ({
                     </td>
                     <td class="px-4 py-3 text-stone-700">{providerName(model.provider)}</td>
                     <td class="px-4 py-3 text-stone-500">{model.resolution ?? '—'}</td>
-                    <td class="px-4 py-3 text-right font-semibold">{formatPrice(model.imagePrice, t.common.free)}</td>
+                    <td class="px-4 py-3 text-right font-semibold tabular-nums">{formatPrice(model.imagePrice, t.common.free)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -125,7 +125,7 @@ const highlights = p.highlights.map((item, i) => ({
       )
     }
 
-    <p class="mt-8 text-xs leading-relaxed text-stone-400">
+    <p class="mt-8 text-xs leading-relaxed text-stone-500">
       {p.footnote}
     </p>
 
@@ -145,7 +145,7 @@ const highlights = p.highlights.map((item, i) => ({
         </p>
       </div>
 
-      <div class="reveal mx-auto mt-10 max-w-4xl overflow-x-auto rounded-card border border-stone-200 bg-white shadow-soft">
+      <div class="reveal mx-auto mt-10 max-w-4xl overflow-x-auto tabindex="0" role="region" aria-label="scrollable table" rounded-card border border-stone-200 bg-white shadow-soft">
         <table class="w-full text-left text-sm">
           <thead class="border-b border-stone-100 bg-stone-50 text-xs text-stone-500">
             <tr>
@@ -161,9 +161,9 @@ const highlights = p.highlights.map((item, i) => ({
               compareRows.map((row) => (
                 <tr class="transition hover:bg-stone-50">
                   <td class="px-4 py-3 font-medium">{row.name}</td>
-                  <td class="px-4 py-3 text-right font-semibold">{fmt(row.ours.input)} / {fmt(row.ours.output)}</td>
-                  <td class="px-4 py-3 text-right text-stone-500">{fmt(row.openrouter.input)} / {fmt(row.openrouter.output)}</td>
-                  <td class="px-4 py-3 text-right text-stone-500">{fmt(orAllIn(row.openrouter.input))} / {fmt(orAllIn(row.openrouter.output))}</td>
+                  <td class="px-4 py-3 text-right font-semibold tabular-nums">{fmt(row.ours.input)} / {fmt(row.ours.output)}</td>
+                  <td class="px-4 py-3 text-right text-stone-500 tabular-nums">{fmt(row.openrouter.input)} / {fmt(row.openrouter.output)}</td>
+                  <td class="px-4 py-3 text-right text-stone-500 tabular-nums">{fmt(orAllIn(row.openrouter.input))} / {fmt(orAllIn(row.openrouter.output))}</td>
                   <td class="px-4 py-3 text-right font-semibold text-mint-700">
                     {p.compareTable.upTo.replace('{pct}', String(Math.max(savePct(row.ours.input, row.openrouter.input), savePct(row.ours.output, row.openrouter.output))))}
                   </td>

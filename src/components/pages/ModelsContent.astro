@@ -43,19 +43,19 @@ const metaDescription = m.metaDescription.replace('{count}', String(models.lengt
     <!-- controls -->
     <div class="flex flex-col gap-4">
       <div class="relative max-w-md">
-        <Search class="pointer-events-none absolute top-1/2 left-3.5 h-4 w-4 -translate-y-1/2 text-stone-400" aria-hidden="true" />
+        <Search class="pointer-events-none absolute top-1/2 left-3.5 h-4 w-4 -translate-y-1/2 text-stone-500" aria-hidden="true" />
         <input
           id="model-search"
           type="search"
           placeholder={m.searchPlaceholder}
           autocomplete="off"
-          class="w-full rounded-control border border-stone-300 bg-white py-2.5 pr-4 pl-10 text-sm shadow-soft placeholder:text-stone-400 focus:border-violet-400 focus:ring-2 focus:ring-violet-200 focus:outline-none"
+          class="w-full rounded-control border border-stone-300 bg-white py-2.5 pr-4 pl-10 text-sm shadow-soft placeholder:text-stone-500 focus:border-violet-400 focus:ring-2 focus:ring-violet-200 focus:outline-none"
           aria-label={m.searchLabel}
         />
       </div>
 
       <div>
-        <p class="mb-1.5 text-[11px] font-semibold text-stone-400">{m.providerLabel}</p>
+        <p class="mb-1.5 text-[11px] font-semibold text-stone-500">{m.providerLabel}</p>
         <div class="flex flex-wrap items-center gap-2" role="group" aria-label={m.providerGroup}>
           <button
             type="button"
@@ -83,7 +83,7 @@ const metaDescription = m.metaDescription.replace('{count}', String(models.lengt
       </div>
 
       <div>
-        <p class="mb-1.5 text-[11px] font-semibold text-stone-400">{m.capabilityLabel}</p>
+        <p class="mb-1.5 text-[11px] font-semibold text-stone-500">{m.capabilityLabel}</p>
         <div class="flex flex-wrap items-center gap-2" role="group" aria-label={m.capabilityGroup}>
           <button
             type="button"
@@ -124,7 +124,7 @@ const metaDescription = m.metaDescription.replace('{count}', String(models.lengt
       {m.empty}
     </p>
 
-    <p class="mt-8 text-xs leading-relaxed text-stone-400">
+    <p class="mt-8 text-xs leading-relaxed text-stone-500">
       <Fragment set:html={m.footnote.replace('{docsLink}', `<a href="${L('/docs')}" class="font-medium text-brush-violet hover:text-violet-700">${m.footnoteDocsLink}</a>`)} />
     </p>
   </section>
@@ -144,13 +144,15 @@ const metaDescription = m.metaDescription.replace('{count}', String(models.lengt
       chip.classList.toggle('bg-brush-violet', on);
       chip.classList.toggle('text-white', on);
       chip.classList.toggle('shadow-card', on);
-      chip.classList.toggle('shadow-brand', on);
+      chip.classList.toggle('shadow-card', on);
       chip.classList.toggle('font-semibold', on);
       chip.classList.toggle('border-transparent', on);
       chip.classList.toggle('border-stone-300', !on);
       chip.classList.toggle('bg-white', !on);
       chip.classList.toggle('text-muted', !on);
       chip.classList.toggle('font-medium', !on);
+      chip.classList.toggle('hover:border-violet-400', !on);
+      chip.classList.toggle('hover:text-brush-violet', !on);
     };
 
     const apply = () => {

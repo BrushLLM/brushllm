@@ -15,12 +15,14 @@
     if (localStorage.getItem(KEY)) return;
 
     var codes = ['en', 'de', 'es', 'fr', 'pt-BR', 'ja', 'zh-CN', 'zh-TW', 'ko'];
+    var byLower = {};
+    codes.forEach(function (c) { byLower[c.toLowerCase()] = c; });
     var match = (navigator.languages || [navigator.language])
       .map(function (tag) { return (tag || '').toLowerCase(); })
       .map(function (tag) {
-        if (codes.indexOf(tag) !== -1) return tag;
+        if (byLower[tag]) return byLower[tag];
         var base = tag.split('-')[0];
-        if (base === 'pt') return codes.indexOf(tag) !== -1 ? tag : null;
+        if (base === 'pt') return null;
         if (base === 'zh') {
           if (tag.indexOf('tw') !== -1 || tag.indexOf('hk') !== -1 || tag.indexOf('hant') !== -1) return 'zh-TW';
           return 'zh-CN';

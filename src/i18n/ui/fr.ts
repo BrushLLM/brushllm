@@ -3,7 +3,7 @@
  * Les marqueurs {count}/{year}/{pct} restent en place et sont remplacés au rendu.
  * À ne pas traduire : ids de modèles, URLs, exemples de code, prix, identifiants de licence, noms de produit.
  */
-import type { Dictionary } from '../index';
+import type { Dictionary } from './index';
 
 const fr: Dictionary = {
   site: {
@@ -55,6 +55,8 @@ const fr: Dictionary = {
   },
 
   common: {
+    skipToContent: 'Aller au contenu',
+    codeExamples: 'Exemples de code',
     download: 'Télécharger',
     github: 'GitHub',
     tryIt: 'Essayer',
@@ -62,7 +64,7 @@ const fr: Dictionary = {
     free: 'Gratuit',
     copy: 'Copier',
     copied: 'Copié !',
-    copyFallback: 'Appuyez sur ⌘C',
+    copyFallback: 'Échec de la copie',
     learnMore: 'En savoir plus',
     learnMoreArrow: 'En savoir plus',
     downloadArrow: 'Télécharger',
@@ -261,8 +263,8 @@ const fr: Dictionary = {
       eyebrow: 'Modèles d’IA',
       title: '{count} modèles · {providers} fournisseurs ·',
       titleBand: 'Un endpoint',
-      intro: 'Tous les modèles ci-dessous sont appelables via la même API compatible OpenAI et la même clé. Les prix sont indicatifs —— en USD par 1M de tokens pour le texte, par image pour l’image{free}.',
-      introFree: ' —— dont {count} modèles gratuits',
+      intro: 'Tous les modèles ci-dessous sont appelables via la même API compatible OpenAI et la même clé. Les prix sont indicatifs —— en USD par 1M de tokens pour le texte, par image pour l’image.',
+      introFree: ' — {count} sans frais',
       searchPlaceholder: 'Rechercher par nom, id ou fournisseur…',
       searchLabel: 'Rechercher des modèles',
       providerLabel: 'Fournisseur',
@@ -298,9 +300,9 @@ const fr: Dictionary = {
       compareIntro: 'OpenRouter ajoute des frais de paiement à l’achat de crédits —— 5,5 % par carte —— au-dessus du prix catalogue de chaque modèle. Le prix publié par BrushLLM est le prix final que vous payez.',
       compareTable: {
         model: 'Modèle',
-        ours: 'BrushLLM in / out par 1M',
-        orList: 'OpenRouter catalogue in / out',
-        orAllIn: 'OpenRouter tout compris* in / out',
+        ours: 'in / out par 1M',
+        orList: 'catalogue in / out',
+        orAllIn: 'tout compris* in / out',
         youSave: 'Vous économisez',
         upTo: 'jusqu’à {pct} %',
       },
@@ -510,3 +512,4 @@ const fr: Dictionary = {
 };
 
 export default fr;
+

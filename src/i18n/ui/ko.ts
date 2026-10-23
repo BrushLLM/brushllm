@@ -3,7 +3,7 @@
  * 플레이스홀더 {count}/{year}/{pct}는 그대로 두고 렌더링 시 교체됨.
  * 번역하지 않음: 모델 id, URL, 코드 예제, 가격, 라이선스 식별자, 제품명.
  */
-import type { Dictionary } from '../index';
+import type { Dictionary } from './index';
 
 const ko: Dictionary = {
   site: {
@@ -55,6 +55,8 @@ const ko: Dictionary = {
   },
 
   common: {
+    skipToContent: '본문으로 건너뛰기',
+    codeExamples: '코드 예제',
     download: '다운로드',
     github: 'GitHub',
     tryIt: '사용해 보기',
@@ -62,7 +64,7 @@ const ko: Dictionary = {
     free: '무료',
     copy: '복사',
     copied: '복사됨!',
-    copyFallback: '⌘C를 누르세요',
+    copyFallback: '복사 실패',
     learnMore: '자세히 보기',
     learnMoreArrow: '자세히 보기',
     downloadArrow: '다운로드',
@@ -261,8 +263,8 @@ const ko: Dictionary = {
       eyebrow: 'AI 모델',
       title: '모델 {count}개 · 공급자 {providers}곳 ·',
       titleBand: '엔드포인트 하나',
-      intro: '아래 모든 모델은 같은 OpenAI 호환 API와 같은 키로 호출할 수 있습니다. 가격은 참고용 —— 텍스트 모델은 1M 토큰당, 이미지 모델은 장당, USD{free}.',
-      introFree: ' —— 그중 {count}개 모델 무료',
+      intro: '아래 모든 모델은 같은 OpenAI 호환 API와 같은 키로 호출할 수 있습니다. 가격은 참고용 —— 텍스트 모델은 1M 토큰당, 이미지 모델은 장당, USD.',
+      introFree: ' —— 그중 {count}개 무료',
       searchPlaceholder: '이름·id·공급자로 검색…',
       searchLabel: '모델 검색',
       providerLabel: '공급자',
@@ -298,9 +300,9 @@ const ko: Dictionary = {
       compareIntro: 'OpenRouter는 크레딧 구매 시 결제 수수료 —— 카드 5.5% —— 를 모든 모델 정가 위에 얹습니다. BrushLLM의 공개 가격이 당신이 내는 최종 가격입니다.',
       compareTable: {
         model: '모델',
-        ours: 'BrushLLM 입/출력 1M당',
-        orList: 'OpenRouter 정가 입/출력',
-        orAllIn: 'OpenRouter 최종가* 입/출력',
+        ours: '입/출력 1M당',
+        orList: '정가 입/출력',
+        orAllIn: '최종가* 입/출력',
         youSave: '절약액',
         upTo: '최대 {pct}%',
       },
@@ -510,3 +512,4 @@ const ko: Dictionary = {
 };
 
 export default ko;
+

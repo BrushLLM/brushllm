@@ -3,7 +3,7 @@
  * Platzhalter {count}/{year}/{pct} bleiben erhalten und werden beim Rendern ersetzt.
  * Nicht übersetzt: Modell-ids, URLs, Codebeispiele, Preise, Lizenzkennungen, Produktnamen.
  */
-import type { Dictionary } from '../index';
+import type { Dictionary } from './index';
 
 const de: Dictionary = {
   site: {
@@ -55,6 +55,8 @@ const de: Dictionary = {
   },
 
   common: {
+    skipToContent: 'Zum Inhalt springen',
+    codeExamples: 'Codebeispiele',
     download: 'Herunterladen',
     github: 'GitHub',
     tryIt: 'Ausprobieren',
@@ -62,7 +64,7 @@ const de: Dictionary = {
     free: 'Kostenlos',
     copy: 'Kopieren',
     copied: 'Kopiert!',
-    copyFallback: '⌘C drücken',
+    copyFallback: 'Kopieren fehlgeschlagen',
     learnMore: 'Mehr erfahren',
     learnMoreArrow: 'Mehr erfahren',
     downloadArrow: 'Herunterladen',
@@ -261,8 +263,8 @@ const de: Dictionary = {
       eyebrow: 'KI-Modelle',
       title: '{count} Modelle · {providers} Anbieter ·',
       titleBand: 'Ein Endpunkt',
-      intro: 'Jedes Modell unten ist über dieselbe OpenAI-kompatible API und denselben Key aufrufbar. Preise sind Richtwerte —— USD pro 1M Tokens für Textmodelle, USD pro Bild für Bildmodelle{free}.',
-      introFree: ' —— {count} Modelle sind kostenlos',
+      intro: 'Jedes Modell unten ist über dieselbe OpenAI-kompatible API und denselben Key aufrufbar. Preise sind Richtwerte —— USD pro 1M Tokens für Textmodelle, USD pro Bild für Bildmodelle.',
+      introFree: ' — {count} davon kostenlos',
       searchPlaceholder: 'Nach Name, id oder Anbieter suchen…',
       searchLabel: 'Modelle suchen',
       providerLabel: 'Anbieter',
@@ -298,9 +300,9 @@ const de: Dictionary = {
       compareIntro: 'OpenRouter erhebt beim Kreditkauf eine Zahlungsgebühr —— 5,5% per Karte —— obendrauf auf den Listenpreis jedes Modells. BrushLLMs veröffentlichter Preis ist der Endpreis, den du zahlst.',
       compareTable: {
         model: 'Modell',
-        ours: 'BrushLLM in / out pro 1M',
-        orList: 'OpenRouter Liste in / out',
-        orAllIn: 'OpenRouter Endpreis* in / out',
+        ours: 'in / out pro 1M',
+        orList: 'Liste in / out',
+        orAllIn: 'Endpreis* in / out',
         youSave: 'Du sparst',
         upTo: 'bis zu {pct}%',
       },
@@ -510,3 +512,4 @@ const de: Dictionary = {
 };
 
 export default de;
+

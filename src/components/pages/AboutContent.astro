@@ -31,7 +31,7 @@ const values = a.values.map((value, i) => ({
 
     <p class="text-sm font-semibold text-brush-violet">{a.eyebrow}</p>
     <h1 class="mt-3 text-4xl font-bold tracking-tight text-balance sm:text-5xl">
-      {a.title}
+      {a.title}{' '}
       <span class="brush-band text-ink">{a.titleBand}</span>
     </h1>
 
@@ -40,13 +40,13 @@ const values = a.values.map((value, i) => ({
         {a.intro}
       </p>
       <p>
-        <strong class="text-ink">{a.forDevelopers}</strong>
+        <strong class="text-ink">{a.forDevelopers}</strong>{' '}
         <Fragment set:html={a.forDevelopersText
           .replace('{link}', `<a href="${L('/models')}" class="font-semibold text-brush-violet hover:text-violet-700">${a.forDevelopersLink}</a>`)
           .replace('{count}', String(models.length))} />
       </p>
       <p>
-        <strong class="text-ink">{a.forCreators}</strong>
+        <strong class="text-ink">{a.forCreators}</strong>{' '}
         <Fragment set:html={a.forCreatorsText.replace('{link}', `<a href="${L('/apps')}" class="font-semibold text-brush-violet hover:text-violet-700">${a.forCreatorsLink}</a>`)} />
       </p>
     </div>

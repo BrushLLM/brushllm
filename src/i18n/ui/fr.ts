@@ -57,7 +57,6 @@ const fr: Dictionary = {
   common: {
     skipToContent: 'Aller au contenu',
     codeExamples: 'Exemples de code',
-    swipeHint: 'Balayez pour voir toutes les colonnes',
     download: 'Télécharger',
     github: 'GitHub',
     tryIt: 'Essayer',

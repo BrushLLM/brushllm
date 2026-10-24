@@ -57,7 +57,6 @@ const ja: Dictionary = {
   common: {
     skipToContent: '本文へスキップ',
     codeExamples: 'コード例',
-    swipeHint: 'スワイプで全列を表示',
     download: 'ダウンロード',
     github: 'GitHub',
     tryIt: '試す',

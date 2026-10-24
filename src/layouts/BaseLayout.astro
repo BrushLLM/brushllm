@@ -125,16 +125,6 @@ const schemaJson = JSON.stringify({ '@context': 'https://schema.org', '@graph': 
       );
       document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-    // wide-table scroll hint: mark containers that actually overflow,
-    // un-mark them once scrolled to the end
-    const syncScrollable = () => {
-      document.querySelectorAll('.table-scroll').forEach((el) => {
-        el.classList.toggle('is-scrollable', el.scrollWidth > el.clientWidth + 1);
-      });
-    };
-    syncScrollable();
-    window.addEventListener('resize', syncScrollable);
-    document.addEventListener('scroll', syncScrollable, { passive: true, capture: true });
     </script>
   </body>
 </html>

@@ -97,22 +97,6 @@ h3,
   font-family: var(--font-display);
 }
 
-/* wide tables: soft fade on the right edge hints "scroll for more";
-   shown only while the container actually overflows (JS toggles .is-scrollable) */
-.table-scroll {
-  position: relative;
-}
-.table-scroll.is-scrollable::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 28px;
-  background: linear-gradient(to left, rgb(26 27 37 / 0.14), transparent);
-  pointer-events: none;
-}
-
 /* keyboard focus: one visible ring across every interactive element */
 a:focus-visible,
 button:focus-visible,

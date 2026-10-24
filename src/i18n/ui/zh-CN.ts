@@ -59,7 +59,6 @@ const zhCN: Dictionary = {
   common: {
     skipToContent: '跳到主要内容',
     codeExamples: '代码示例',
-    swipeHint: '左右滑动查看全部列',
     download: '下载',
     github: 'GitHub',
     tryIt: '试一试',

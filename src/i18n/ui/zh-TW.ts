@@ -57,7 +57,6 @@ const zhTW: Dictionary = {
   common: {
     skipToContent: '跳到主要內容',
     codeExamples: '程式碼範例',
-    swipeHint: '左右滑動查看全部列',
     download: '下載',
     github: 'GitHub',
     tryIt: '試試看',

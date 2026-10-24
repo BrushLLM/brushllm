@@ -174,7 +174,7 @@ const errors = d.errors.map((error, i) => ({ code: errorCodes[i] ?? '', ...error
         .replace('{modelsLink}', `<a href="${L('/models')}" class="font-semibold text-brush-violet hover:text-violet-700">${d.modelIdsModelsLink}</a>`)
         .replace('{code}', '<code class="rounded bg-stone-100 px-1.5 py-0.5 font-mono text-xs">POST /v1/images/generations</code>')} />
     </p>
-    <div class="reveal mt-6 overflow-x-auto tabindex="0" role="region" aria-label="scrollable table" rounded-card border border-stone-200 bg-white shadow-soft">
+    <div class="reveal mt-6 table-scroll overflow-x-auto rounded-card border border-stone-200 bg-white shadow-soft" tabindex="0" role="region" aria-label="scrollable table">
       <table class="w-full text-left text-sm">
         <thead class="border-b border-stone-100 bg-stone-50 text-xs text-stone-500">
           <tr>
@@ -201,7 +201,7 @@ const errors = d.errors.map((error, i) => ({ code: errorCodes[i] ?? '', ...error
 
     <!-- Errors -->
     <h2 class="reveal mt-16 scroll-mt-24 text-2xl font-bold tracking-tight" id="errors">{d.errorsTitle}</h2>
-    <div class="reveal mt-6 overflow-x-auto tabindex="0" role="region" aria-label="scrollable table" rounded-card border border-stone-200 bg-white shadow-soft">
+    <div class="reveal mt-6 table-scroll overflow-x-auto rounded-card border border-stone-200 bg-white shadow-soft" tabindex="0" role="region" aria-label="scrollable table">
       <table class="w-full text-left text-sm">
         <thead class="border-b border-stone-100 bg-stone-50 text-xs text-stone-500">
           <tr>

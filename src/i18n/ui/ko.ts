@@ -57,6 +57,7 @@ const ko: Dictionary = {
   common: {
     skipToContent: '본문으로 건너뛰기',
     codeExamples: '코드 예제',
+    swipeHint: '스와이프하여 모든 열 보기',
     download: '다운로드',
     github: 'GitHub',
     tryIt: '사용해 보기',

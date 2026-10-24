@@ -57,6 +57,7 @@ const ptBR: Dictionary = {
   common: {
     skipToContent: 'Ir para o conteúdo',
     codeExamples: 'Exemplos de código',
+    swipeHint: 'Deslize para ver todas as colunas',
     download: 'Baixar',
     github: 'GitHub',
     tryIt: 'Experimentar',

@@ -67,6 +67,7 @@ const en = {
   common: {
     skipToContent: 'Skip to content',
     codeExamples: 'Code examples',
+    swipeHint: 'Swipe to see all columns',
     download: 'Download',
     github: 'GitHub',
     tryIt: 'Try it',

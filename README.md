@@ -48,3 +48,5 @@ zero accounts, no ads.
 **Get started:** [Create an account](https://api.brushllm.com/register) · [Browse models](https://brushllm.com/models) · [Read the docs](https://brushllm.com/docs)
 
 </div>
+
+<sub>Building or deploying this site? See [docs/website.md](docs/website.md).</sub>

@@ -45,7 +45,7 @@ zero accounts, no ads.
 
 <div align="center">
 
-**Get started:** [Create an account](https://api.brushllm.com/register) · [Browse models](https://brushllm.com/models) · [Read the docs](https://brushllm.com/docs)
+**Get started:** [Create an account](https://api.brushllm.com/sign-up) · [Browse models](https://brushllm.com/models) · [Read the docs](https://brushllm.com/docs)
 
 </div>
 

@@ -22,9 +22,9 @@ export const LINKS = {
   /** Console root */
   console: 'https://api.brushllm.com',
   /** Login page — header “Log In” link */
-  signIn: 'https://api.brushllm.com/login',
+  signIn: 'https://api.brushllm.com/sign-in',
   /** Registration page — “Get Started” buttons and the hero “Get API Key” CTA */
-  signUp: 'https://api.brushllm.com/register',
+  signUp: 'https://api.brushllm.com/sign-up',
   /** OpenAI-compatible base URL shown in docs and code samples */
   apiBase: 'https://api.brushllm.com/v1',
 } as const;

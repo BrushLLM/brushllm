@@ -60,6 +60,7 @@ const zhCN: Dictionary = {
   common: {
     skipToContent: '跳到主要内容',
     codeExamples: '代码示例',
+    moreQuestions: '更多问题',
     download: '下载',
     github: 'GitHub',
     tryIt: '试一试',
@@ -231,9 +232,21 @@ const zhCN: Dictionary = {
         },
         {
           question: '你们如何保护我的隐私？',
-          answer: '我们只收集账号运转所必需的信息。无追踪器、无分析、无广告 —— 你的提示词直接代理转发至上游模型，绝不存储、出售或用于画像。',
+          answer: '我们只收集账号运转所必需的信息。无追踪器、无分析、无广告 —— 你的提示词直接代理转发至上游模型，绝不存储、出售或用于画像。 {privacyLink}',
         },
-      ],
+              {
+          question: '你们的价格和 OpenRouter 比怎么样?',
+          answer: '在 7 个模型的直接对比中,我们的全口径成本更低 — OpenRouter 会在每个模型的标价上加收 5.5% 的充值手续费,而我们公布的价格就是最终价格。{pricingLink}',
+        },
+        {
+          question: '网站支持其他语言吗?',
+          answer: '支持 — 本网站与三款桌面应用均提供 9 种语言:英语、德语、西班牙语、法语、葡萄牙语(巴西)、日语、简体中文、繁体中文和韩语。',
+        },
+        {
+          question: '应用安装时弹出安全警告,正常吗?',
+          answer: '正常。应用目前未签名,macOS 的 Gatekeeper 和 Windows 的 SmartScreen 会在首次启动时提示。macOS 上右键点击应用选择「打开」;Windows 上选择「仍要运行」。应用不含任何遥测。',
+        },
+  ],
       creatorFaqs: [
         {
           question: 'Image Studio 是什么？',
@@ -528,6 +541,11 @@ const zhCN: Dictionary = {
       backHome: '返回首页',
       browseModels: '浏览模型',
     },
+    faq: {
+      metaDescription: 'BrushLLM 常见问题 — 价格、隐私、API 与免费本地优先桌面应用的解答。',
+      title: '常见问题',
+    },
+
     privacy: {
       metaDescription: 'BrushLLM 隐私政策 — 我们收集什么(几乎不收集)、绝不做的事,以及开源网站与应用如何处理你的数据。',
       eyebrow: '隐私',

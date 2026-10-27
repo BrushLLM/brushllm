@@ -179,12 +179,21 @@ const steps = home.howSteps.map((step, i) => ({ icon: stepIcons[i % stepIcons.le
    stays wider than any viewport so the track's right end is never exposed. */
 const marqueeProviders = Array.from({ length: 6 }, () => visibleProviders).flat();
 
+const faqLink = (href: string, label: string) =>
+  `<a href="${href}" class="font-semibold text-brush-violet hover:text-violet-700">${label}</a>`;
 const developerFaqs = home.developerFaqs.map((faq) => ({
   question: faq.question,
-  answer: faq.answer.replace('{apiBase}', LINKS.apiBase).replace('{count}', String(models.length)),
+  answer: faq.answer
+    .replace('{apiBase}', LINKS.apiBase)
+    .replace('{count}', String(models.length))
+    .replace('{privacyLink}', faqLink(L('/privacy'), t.footer.privacyPolicy))
+    .replace('{pricingLink}', faqLink(L('/pricing'), t.nav.pricing)),
 }));
 const creatorFaqs = home.creatorFaqs.map((faq) => ({ question: faq.question, answer: faq.answer }));
-const faqSchema = [...developerFaqs, ...creatorFaqs];
+/* homepage shows the top 4 per group; the full set lives on /faq */
+const homeDevFaqs = developerFaqs.slice(0, 4);
+const homeCreatorFaqs = creatorFaqs.slice(0, 4);
+const faqSchema = [...homeDevFaqs, ...homeCreatorFaqs];
 ---
 
 <BaseLayout locale={locale} faqSchema={faqSchema} extraSchema={productSchemas}>
@@ -482,16 +491,19 @@ const faqSchema = [...developerFaqs, ...creatorFaqs];
     <div class="reveal mx-auto mt-12 max-w-3xl">
       <h3 class="text-center font-display text-sm font-semibold text-brush-violet">{home.faqDevelopers}</h3>
       <div class="mt-5">
-        <FAQ faqs={developerFaqs} />
+        <FAQ faqs={homeDevFaqs} />
       </div>
     </div>
 
     <div class="reveal mx-auto mt-14 max-w-3xl">
       <h3 class="text-center font-display text-sm font-semibold text-orange-700">{home.faqCreators}</h3>
       <div class="mt-5">
-        <FAQ faqs={creatorFaqs} />
+        <FAQ faqs={homeCreatorFaqs} />
       </div>
     </div>
+    <p class="reveal mt-10 text-center text-sm">
+      <a href={L('/faq')} class="font-semibold text-brush-violet hover:text-violet-700">{t.common.moreQuestions}</a>
+    </p>
   </div>
 </section>
 

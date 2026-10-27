@@ -58,6 +58,7 @@ const es: Dictionary = {
   common: {
     skipToContent: 'Ir al contenido',
     codeExamples: 'Ejemplos de código',
+    moreQuestions: 'Más preguntas',
     download: 'Descargar',
     github: 'GitHub',
     tryIt: 'Pruébalo',
@@ -223,9 +224,21 @@ const es: Dictionary = {
         },
         {
           question: '¿Cómo protegéis mi privacidad?',
-          answer: 'Solo recogemos lo que una cuenta necesita para funcionar. Sin rastreadores, sin analíticas, sin anuncios —— tus prompts se dirigen directamente al modelo de origen y nunca se almacenan, venden ni usan para perfilarte.',
+          answer: 'Solo recogemos lo que una cuenta necesita para funcionar. Sin rastreadores, sin analíticas, sin anuncios —— tus prompts se dirigen directamente al modelo de origen y nunca se almacenan, venden ni usan para perfilarte. {privacyLink}',
         },
-      ],
+              {
+          question: '¿Cómo se comparan vuestros precios con OpenRouter?',
+          answer: 'En 7 comparaciones directas de modelos, nuestro coste total es menor — OpenRouter añade una comisión de pago del 5,5% sobre el precio de lista de cada modelo, mientras que nuestra tarifa publicada es la tarifa final. {pricingLink}',
+        },
+        {
+          question: '¿El sitio está disponible en otros idiomas?',
+          answer: 'Sí — este sitio y las tres aplicaciones de escritorio están disponibles en 9 idiomas: inglés, alemán, español, francés, portugués (Brasil), japonés, chino simplificado/tradicional y coreano.',
+        },
+        {
+          question: 'El instalador de la aplicación muestra una advertencia de seguridad. ¿Es normal?',
+          answer: 'Sí. Las aplicaciones no están firmadas, por lo que Gatekeeper (macOS) y SmartScreen (Windows) muestran una advertencia en el primer arranque. En macOS: clic derecho en la app y elegir Abrir; en Windows: elegir Ejecutar de todos modos. Las apps no contienen telemetría.',
+        },
+  ],
       creatorFaqs: [
         {
           question: '¿Qué es Image Studio?',
@@ -509,6 +522,11 @@ const es: Dictionary = {
       backHome: 'Volver al inicio',
       browseModels: 'Ver modelos',
     },
+    faq: {
+      metaDescription: 'FAQ de BrushLLM — precios, privacidad, la API y las aplicaciones de escritorio gratuitas.',
+      title: 'Preguntas frecuentes',
+    },
+
     privacy: {
       metaDescription: 'Política de privacidad de BrushLLM — qué recopilamos (casi nada), qué nunca hacemos y cómo el sitio y las aplicaciones tratan tus datos.',
       eyebrow: 'Privacidad',

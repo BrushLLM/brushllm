@@ -68,6 +68,7 @@ const en = {
   common: {
     skipToContent: 'Skip to content',
     codeExamples: 'Code examples',
+    moreQuestions: 'More questions',
     download: 'Download',
     github: 'GitHub',
     tryIt: 'Try it',
@@ -242,7 +243,19 @@ const en = {
         },
         {
           question: 'How do you protect my privacy?',
-          answer: 'We collect only what an account needs to function. No trackers, no analytics, no ads — your prompts are proxied straight to the upstream model and never stored, sold, or used to profile you.',
+          answer: 'We collect only what an account needs to function. No trackers, no analytics, no ads — your prompts are proxied straight to the upstream model and never stored, sold, or used to profile you. {privacyLink}',
+        },
+        {
+          question: 'How do your prices compare to OpenRouter?',
+          answer: 'On 7 head-to-head models our all-in cost is lower — OpenRouter adds a 5.5% payment fee on top of every model\u2019s list price, while our published rate is the final rate. {pricingLink}',
+        },
+        {
+          question: 'Is the site available in other languages?',
+          answer: 'Yes — this site and all three desktop apps ship in 9 languages: English, German, Spanish, French, Portuguese (Brasil), Japanese, Simplified/Traditional Chinese and Korean.',
+        },
+        {
+          question: 'The app installer shows a security warning. Is that normal?',
+          answer: 'Yes. The apps are currently unsigned, so macOS Gatekeeper and Windows SmartScreen show a first-run warning. On macOS right-click the app and choose Open; on Windows choose Run anyway. The apps contain no telemetry.',
         },
       ],
       creatorFaqs: [
@@ -538,6 +551,11 @@ const en = {
       text: 'The link may be outdated or the page may have moved. The models, however, are exactly where you left them.',
       backHome: 'Back to home',
       browseModels: 'Browse models',
+    },
+
+    faq: {
+      metaDescription: 'BrushLLM FAQ — pricing, privacy, the API, and the free local-first desktop apps, answered.',
+      title: 'Frequently asked questions',
     },
 
     privacy: {

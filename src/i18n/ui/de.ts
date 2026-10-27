@@ -58,6 +58,7 @@ const de: Dictionary = {
   common: {
     skipToContent: 'Zum Inhalt springen',
     codeExamples: 'Codebeispiele',
+    moreQuestions: 'Weitere Fragen',
     download: 'Herunterladen',
     github: 'GitHub',
     tryIt: 'Ausprobieren',
@@ -223,9 +224,21 @@ const de: Dictionary = {
         },
         {
           question: 'Wie schützt ihr meine Privatsphäre?',
-          answer: 'Wir sammeln nur, was ein Konto zum Funktionieren braucht. Keine Tracker, keine Analysen, keine Werbung —— deine Prompts werden direkt an das vorgelagerte Modell weitergeleitet und niemals gespeichert, verkauft oder zur Profilierung genutzt.',
+          answer: 'Wir sammeln nur, was ein Konto zum Funktionieren braucht. Keine Tracker, keine Analysen, keine Werbung —— deine Prompts werden direkt an das vorgelagerte Modell weitergeleitet und niemals gespeichert, verkauft oder zur Profilierung genutzt. {privacyLink}',
         },
-      ],
+              {
+          question: 'Wie schneiden eure Preise im Vergleich zu OpenRouter ab?',
+          answer: 'Bei 7 direkten Modellvergleichen sind unsere Gesamtkosten niedriger — OpenRouter erhebt zusätzlich 5,5% Zahlungsgebühr auf jeden Modell-Listenpreis, während unser veröffentlichter Preis der Endpreis ist. {pricingLink}',
+        },
+        {
+          question: 'Ist die Website in anderen Sprachen verfügbar?',
+          answer: 'Ja — diese Website und alle drei Desktop-Apps erscheinen in 9 Sprachen: Englisch, Deutsch, Spanisch, Französisch, Portugiesisch (Brasilien), Japanisch, Vereinfachtes/Traditionelles Chinesisch und Koreanisch.',
+        },
+        {
+          question: 'Der App-Installer zeigt eine Sicherheitswarnung. Ist das normal?',
+          answer: 'Ja. Die Apps sind derzeit unsigniert, daher zeigen macOS Gatekeeper und Windows SmartScreen bei der ersten Ausführung eine Warnung. Unter macOS: App per Rechtsklick öffnen und Öffnen wählen; unter Windows: Trotzdem ausführen wählen. Die Apps enthalten keine Telemetrie.',
+        },
+  ],
       creatorFaqs: [
         {
           question: 'Was ist Image Studio?',
@@ -509,6 +522,11 @@ const de: Dictionary = {
       backHome: 'Zur Startseite',
       browseModels: 'Modelle ansehen',
     },
+    faq: {
+      metaDescription: 'BrushLLM-FAQ — Preise, Datenschutz, die API und die kostenlosen Local-First-Desktop-Apps, beantwortet.',
+      title: 'Häufige Fragen',
+    },
+
     privacy: {
       metaDescription: 'BrushLLM-Datenschutzerklärung — was wir erheben (fast nichts), was wir nie tun, und wie Website und Apps mit Ihren Daten umgehen.',
       eyebrow: 'Datenschutz',

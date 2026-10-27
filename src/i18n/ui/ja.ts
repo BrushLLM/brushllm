@@ -58,6 +58,7 @@ const ja: Dictionary = {
   common: {
     skipToContent: '本文へスキップ',
     codeExamples: 'コード例',
+    moreQuestions: 'その他の質問',
     download: 'ダウンロード',
     github: 'GitHub',
     tryIt: '試す',
@@ -223,9 +224,21 @@ const ja: Dictionary = {
         },
         {
           question: 'プライバシーはどう守られますか？',
-          answer: 'アカウント運営に必要な情報のみを収集します。トラッカーなし・アナリティクスなし・広告なし —— プロンプトは上流モデルへ直接中継され、保存・販売・プロファイリングに使われることはありません。',
+          answer: 'アカウント運営に必要な情報のみを収集します。トラッカーなし・アナリティクスなし・広告なし —— プロンプトは上流モデルへ直接中継され、保存・販売・プロファイリングに使われることはありません。 {privacyLink}',
         },
-      ],
+              {
+          question: 'OpenRouter と比べて価格はどうですか?',
+          answer: '7モデルの直接比較で、当社の総コストはより低くなります — OpenRouter は各モデルの表示価格に 5.5% の決済手数料を上乗せしますが、当社の公開レートが最終レートです。{pricingLink}',
+        },
+        {
+          question: 'サイトは他の言語でも利用できますか?',
+          answer: 'はい — 本サイトと3つのデスクトップアプリは9言語で提供されています:英語、ドイツ語、スペイン語、フランス語、ポルトガル語(ブラジル)、日本語、簡体字/繁体字中国語、韓国語。',
+        },
+        {
+          question: 'アプリのインストーラーにセキュリティ警告が表示されます。正常ですか?',
+          answer: 'はい。アプリは現在未署名のため、macOS の Gatekeeper と Windows の SmartScreen が初回起動時に警告を表示します。macOS ではアプリを右クリックして「開く」を選択、Windows では「詳細情報」→「実行する」を選択してください。アプリにテレメトリーは含まれていません。',
+        },
+  ],
       creatorFaqs: [
         {
           question: 'Image Studio とは何ですか？',
@@ -509,6 +522,11 @@ const ja: Dictionary = {
       backHome: 'ホームへ戻る',
       browseModels: 'モデルを閲覧',
     },
+    faq: {
+      metaDescription: 'BrushLLM FAQ — 価格、プライバシー、API、無料のローカルファースト・デスクトップアプリへの回答。',
+      title: 'よくある質問',
+    },
+
     privacy: {
       metaDescription: 'BrushLLM のプライバシーポリシー — 収集するもの(ほぼなし)、決してしないこと、サイトとアプリがデータをどう扱うか。',
       eyebrow: 'プライバシー',

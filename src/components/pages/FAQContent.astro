@@ -1,0 +1,84 @@
+---
+import { ArrowRight } from '@lucide/astro';
+import BrushStroke from '../BrushStroke.astro';
+import FAQ from '../FAQ.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { LINKS, type LocaleCode } from '../../config';
+import { models } from '../../data/models';
+import { getDictionary, localePath } from '../../i18n';
+
+interface Props {
+  locale?: LocaleCode;
+}
+
+const { locale = 'en' } = Astro.props;
+const t = await getDictionary(locale);
+const home = t.pages.home;
+const f = t.pages.faq;
+const L = (path: string) => localePath(locale, path);
+
+const faqLink = (href: string, label: string) =>
+  `<a href="${href}" class="font-semibold text-brush-violet hover:text-violet-700">${label}</a>`;
+
+const developerFaqs = home.developerFaqs.map((faq) => ({
+  question: faq.question,
+  answer: faq.answer
+    .replace('{apiBase}', LINKS.apiBase)
+    .replace('{count}', String(models.length))
+    .replace('{privacyLink}', faqLink(L('/privacy'), t.footer.privacyPolicy))
+    .replace('{pricingLink}', faqLink(L('/pricing'), t.nav.pricing)),
+}));
+const creatorFaqs = home.creatorFaqs.map((faq) => ({ question: faq.question, answer: faq.answer }));
+const faqSchema = [...developerFaqs, ...creatorFaqs];
+---
+
+<BaseLayout locale={locale} title={f.title} description={f.metaDescription} faqSchema={faqSchema}>
+  <section class="relative mx-auto max-w-4xl overflow-hidden px-4 py-16 sm:px-6">
+    <BrushStroke shape="sweep" color="violet" class="pointer-events-none absolute -top-10 -right-44 w-[620px] rotate-2 opacity-15" />
+
+    <p class="text-sm font-semibold text-brush-violet">FAQ</p>
+    <h1 class="mt-3 text-4xl font-bold tracking-tight text-balance sm:text-5xl">
+      {f.title},
+      <span class="relative inline-block">
+        <span>answered</span>
+        <BrushStroke shape="underline" color="orange" class="absolute -bottom-2 left-0 h-2.5 w-full" />
+      </span>
+    </h1>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 pb-20 sm:px-6">
+    <h2 class="reveal text-center font-display text-sm font-semibold text-brush-violet">
+      {home.faqDevelopers}
+    </h2>
+    <div class="reveal mt-5">
+      <FAQ faqs={developerFaqs} />
+    </div>
+
+    <h2 class="reveal mt-14 text-center font-display text-sm font-semibold text-brush-violet">
+      {home.faqCreators}
+    </h2>
+    <div class="reveal mt-5">
+      <FAQ faqs={creatorFaqs} />
+    </div>
+
+    <div class="reveal mt-14 rounded-card border border-stone-200 bg-white p-8 text-center shadow-soft">
+      <p class="text-lg font-semibold">BrushLLM</p>
+      <p class="mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted">{home.heroSubtitle}</p>
+      <div class="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a
+          href={LINKS.signUp}
+          class="group inline-flex items-center gap-2 rounded-control bg-brush-violet px-6 py-3 text-sm font-semibold text-white shadow-brand transition hover:bg-violet-700"
+        >
+          {t.header.getStarted}
+          <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+        </a>
+        <a
+          href={L('/apps')}
+          class="inline-flex items-center gap-2 rounded-control border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-ink shadow-soft transition hover:border-violet-400 hover:text-brush-violet"
+        >
+          {home.heroCtaApps}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

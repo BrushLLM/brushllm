@@ -58,6 +58,7 @@ const ko: Dictionary = {
   common: {
     skipToContent: '본문으로 건너뛰기',
     codeExamples: '코드 예제',
+    moreQuestions: '더 많은 질문',
     download: '다운로드',
     github: 'GitHub',
     tryIt: '사용해 보기',
@@ -223,9 +224,21 @@ const ko: Dictionary = {
         },
         {
           question: '프라이버시는 어떻게 보호되나요?',
-          answer: '계정 운영에 필요한 정보만 수집합니다. 추적기·분석·광고 없음 —— 프롬프트는 상류 모델로 바로 전달되며 저장·판매·프로파일링에 쓰이지 않습니다.',
+          answer: '계정 운영에 필요한 정보만 수집합니다. 추적기·분석·광고 없음 —— 프롬프트는 상류 모델로 바로 전달되며 저장·판매·프로파일링에 쓰이지 않습니다. {privacyLink}',
         },
-      ],
+              {
+          question: 'OpenRouter와 비교하면 가격이 어떤가요?',
+          answer: '7개 모델 직접 비교에서 당사의 총 비용이 더 낮습니다 — OpenRouter는 모든 모델의 정가에 5.5% 결제 수수료를 추가하지만, 당사의 공개 요금이 최종 요금입니다. {pricingLink}',
+        },
+        {
+          question: '사이트를 다른 언어로 이용할 수 있나요?',
+          answer: '네 — 이 사이트와 세 개의 데스크톱 앱은 9개 언어로 제공됩니다: 영어, 독일어, 스페인어, 프랑스어, 포르투갈어(브라질), 일본어, 간체/번체 중국어, 한국어.',
+        },
+        {
+          question: '앱 설치 프로그램이 보안 경고를 표시합니다. 정상인가요?',
+          answer: '네. 앱은 현재 서명되지 않아 macOS Gatekeeper와 Windows SmartScreen이 첫 실행 시 경고를 표시합니다. macOS에서는 앱을 우클릭해 열기를 선택, Windows에서는 그래도 실행을 선택하세요. 앱에 텔레메트리는 없습니다.',
+        },
+  ],
       creatorFaqs: [
         {
           question: 'Image Studio가 무엇인가요?',
@@ -509,6 +522,11 @@ const ko: Dictionary = {
       backHome: '홈으로 돌아가기',
       browseModels: '모델 둘러보기',
     },
+    faq: {
+      metaDescription: 'BrushLLM FAQ — 가격, 개인정보, API, 무료 로컬 우선 데스크톱 앱에 대한 답변.',
+      title: '자주 묻는 질문',
+    },
+
     privacy: {
       metaDescription: 'BrushLLM 개인정보 처리방침 — 수집하는 것(거의 없음), 절대 하지 않는 것, 사이트와 앱이 데이터를 다루는 방식.',
       eyebrow: '개인정보',

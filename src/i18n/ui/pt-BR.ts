@@ -58,6 +58,7 @@ const ptBR: Dictionary = {
   common: {
     skipToContent: 'Ir para o conteúdo',
     codeExamples: 'Exemplos de código',
+    moreQuestions: 'Mais perguntas',
     download: 'Baixar',
     github: 'GitHub',
     tryIt: 'Experimentar',
@@ -223,9 +224,21 @@ const ptBR: Dictionary = {
         },
         {
           question: 'Como vocês protegem minha privacidade?',
-          answer: 'Coletamos apenas o que uma conta precisa para funcionar. Sem rastreadores, sem análises, sem anúncios —— seus prompts seguem direto para o modelo upstream e nunca são armazenados, vendidos ou usados para criar perfis.',
+          answer: 'Coletamos apenas o que uma conta precisa para funcionar. Sem rastreadores, sem análises, sem anúncios —— seus prompts seguem direto para o modelo upstream e nunca são armazenados, vendidos ou usados para criar perfis. {privacyLink}',
         },
-      ],
+              {
+          question: 'Como seus preços se comparam ao OpenRouter?',
+          answer: 'Em 7 comparações diretas de modelos, nosso custo total é menor — o OpenRouter adiciona uma taxa de pagamento de 5,5% sobre o preço de tabela de cada modelo, enquanto nossa tarifa publicada é a tarifa final. {pricingLink}',
+        },
+        {
+          question: 'O site está disponível em outros idiomas?',
+          answer: 'Sim — este site e os três aplicativos de desktop estão disponíveis em 9 idiomas: inglês, alemão, espanhol, francês, português (Brasil), japonês, chinês simplificado/tradicional e coreano.',
+        },
+        {
+          question: 'O instalador do aplicativo mostra um aviso de segurança. É normal?',
+          answer: 'Sim. Os aplicativos não são assinados, então o Gatekeeper (macOS) e o SmartScreen (Windows) mostram um aviso no primeiro início. No macOS: clique com o botão direito no app e escolha Abrir; no Windows: escolha Executar assim mesmo. Os apps não contêm telemetria.',
+        },
+  ],
       creatorFaqs: [
         {
           question: 'O que é o Image Studio?',
@@ -509,6 +522,11 @@ const ptBR: Dictionary = {
       backHome: 'Voltar ao início',
       browseModels: 'Ver modelos',
     },
+    faq: {
+      metaDescription: 'FAQ do BrushLLM — preços, privacidade, a API e os aplicativos de desktop gratuitos.',
+      title: 'Perguntas frequentes',
+    },
+
     privacy: {
       metaDescription: 'Política de privacidade do BrushLLM — o que coletamos (quase nada), o que nunca fazemos e como o site e os apps tratam seus dados.',
       eyebrow: 'Privacidade',

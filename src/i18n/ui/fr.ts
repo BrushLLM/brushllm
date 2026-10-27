@@ -58,6 +58,7 @@ const fr: Dictionary = {
   common: {
     skipToContent: 'Aller au contenu',
     codeExamples: 'Exemples de code',
+    moreQuestions: 'Plus de questions',
     download: 'Télécharger',
     github: 'GitHub',
     tryIt: 'Essayer',
@@ -223,9 +224,21 @@ const fr: Dictionary = {
         },
         {
           question: 'Comment protégez-vous ma vie privée ?',
-          answer: 'Nous ne collectons que ce qu’un compte nécessite pour fonctionner. Pas de traqueurs, pas d’analytics, pas de pub —— vos prompts sont transmis directement au modèle amont et jamais stockés, vendus ni utilisés pour vous profiler.',
+          answer: 'Nous ne collectons que ce qu’un compte nécessite pour fonctionner. Pas de traqueurs, pas d’analytics, pas de pub —— vos prompts sont transmis directement au modèle amont et jamais stockés, vendus ni utilisés pour vous profiler. {privacyLink}',
         },
-      ],
+              {
+          question: 'Comment vos prix se comparent-ils à OpenRouter ?',
+          answer: 'Sur 7 modèles comparés directement, notre coût total est inférieur — OpenRouter ajoute des frais de paiement de 5,5 % au prix catalogue de chaque modèle, tandis que notre tarif publié est le tarif final. {pricingLink}',
+        },
+        {
+          question: 'Le site est-il disponible dans d\'autres langues ?',
+          answer: 'Oui — ce site et les trois applications de bureau existent en 9 langues : anglais, allemand, espagnol, français, portugais (Brésil), japonais, chinois simplifié/traditionnel et coréen.',
+        },
+        {
+          question: 'L\'installateur de l\'application affiche un avertissement de sécurité. Est-ce normal ?',
+          answer: 'Oui. Les applications ne sont pas signées, donc Gatekeeper (macOS) et SmartScreen (Windows) affichent un avertissement au premier lancement. Sur macOS : clic droit sur l\'app puis Ouvrir ; sur Windows : choisir Exécuter quand même. Les apps ne contiennent aucune télémétrie.',
+        },
+  ],
       creatorFaqs: [
         {
           question: 'Qu’est-ce qu’Image Studio ?',
@@ -509,6 +522,11 @@ const fr: Dictionary = {
       backHome: 'Retour à l’accueil',
       browseModels: 'Voir les modèles',
     },
+    faq: {
+      metaDescription: 'FAQ BrushLLM — tarifs, confidentialité, l’API et les applications de bureau gratuites, avec réponses.',
+      title: 'Questions fréquentes',
+    },
+
     privacy: {
       metaDescription: 'Politique de confidentialité de BrushLLM — ce que nous collectons (presque rien), ce que nous ne faisons jamais, et comment le site et les applications traitent vos données.',
       eyebrow: 'Confidentialité',

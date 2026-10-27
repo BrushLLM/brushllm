@@ -127,7 +127,7 @@ const zhTW: Dictionary = {
   pages: {
     home: {
       metaDescription: '透過一個 API 存取強大的 AI 模型，並用免費的本機優先桌面應用程式進行創作。',
-      heroBadge: '面向開發者 · 面向創作者',
+      heroBadge: '官方價格 5 折 · 面向開發者與創作者',
       heroTitle: '你的 AI，',
       heroTitleBand: '化繁為簡',
       heroSubtitle: '一個 API 存取強大的 AI 模型，搭配免費的本機優先應用盡情創作',
@@ -180,8 +180,8 @@ const zhTW: Dictionary = {
 
       statsEyebrow: '可用模型，一個 API',
       stats: { providers: 'AI 供應商', models: '模型，一個目錄', account: '帳號', countries: '服務國家/地區' },
-      statsCompare: '我們的到手價在 7 個對標模型上低於 OpenRouter —— {link}',
-      statsCompareLink: '查看比較',
+      statsCompare: '所有模型均為官方價格的 50% — {link}',
+      statsCompareLink: '查看價格',
 
       howEyebrow: '運作原理',
       howTitle: '三步拿到第一個 token',
@@ -227,8 +227,8 @@ const zhTW: Dictionary = {
           answer: '我們只收集帳號運轉所必需的資訊。無追蹤器、無分析、無廣告 —— 你的提示詞直通上游模型，絕不儲存、出售或用於剖析。 {privacyLink}',
         },
               {
-          question: '你們的價格和 OpenRouter 比怎麼樣?',
-          answer: '在 7 個模型的直接對比中,我們的全口徑成本更低 — OpenRouter 會在每個模型的標價上加收 5.5% 的儲值手續費,而我們公布的價格就是最終價格。{pricingLink}',
+          question: '價格真的是官方價的一半嗎?',
+          answer: '是的 — BrushLLM 上所有模型的價格均為廠商官方價格的 50%,以美元按量計費。官方價格在模型頁和價格頁以劃線形式標註在我們的價格旁邊。',
         },
         {
           question: '網站支援其他語言嗎?',
@@ -247,6 +247,14 @@ const zhTW: Dictionary = {
         {
           question: 'Image Studio 能做什麼？',
           answer: '用免費的本機工具轉檔、壓縮、裁切與整理影像 —— 再用 AI 生成、移除背景、擦除物體、填充與重繪，按張計費。',
+        },
+        {
+          question: 'Video Studio 是什麼?',
+          answer: '一款免費離線的影片/音訊/字幕處理工具箱 — 轉換、壓縮、合併、剪輯、響度正規化、修復字幕編碼。100% 本機處理:你的檔案絕不離開你的裝置。',
+        },
+        {
+          question: 'Player 是什麼?',
+          answer: '基於 mpv 的開源跨平台媒體播放器 — 支援 mpv 的全部格式,並可透過 WebDAV、SMB、FTP、Emby、Jellyfin 串流播放。支援 HDR 輸出與硬體解碼。',
         },
         {
           question: '可以編輯現有圖片嗎？',
@@ -306,7 +314,7 @@ const zhTW: Dictionary = {
       ],
       textModelsTitle: '文字模型 —— 按 token',
       imageModelsTitle: '影像模型 —— 按張',
-      table: { model: '模型', provider: '供應商', context: '上下文', input: '輸入 / 1M', output: '輸出 / 1M', resolution: '解析度', pricePerImage: '每張價格' },
+      table: { model: '模型', provider: '供應商', context: '上下文', input: '輸入 / 1M', output: '輸出 / 1M', resolution: '解析度', pricePerImage: '每張價格', official: '官方 輸入 / 輸出', brushllm: 'BrushLLM 輸入 / 輸出', youSave: '立省' },
       footnote: '價格為參考目錄價、以美元計 —— 文字模型按每 1M token、影像模型按生成張數。實際計費在你的控制台進行，還可按 API key 追蹤消費。',
       compareEyebrow: '價格比較',
       compareTitle: '同樣的模型，',

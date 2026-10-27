@@ -127,7 +127,7 @@ const es: Dictionary = {
   pages: {
     home: {
       metaDescription: 'Accede a potentes modelos de IA a través de una API y crea con apps de escritorio gratuitas de uso local.',
-      heroBadge: 'Para desarrolladores · Para creadores',
+      heroBadge: '50% de descuento en precios de lista · Para desarrolladores · Para creadores',
       heroTitle: 'Tu IA,',
       heroTitleBand: 'sin la complejidad',
       heroSubtitle: 'Potentes modelos de IA a través de una API, y crea con apps locales gratuitas',
@@ -180,8 +180,8 @@ const es: Dictionary = {
 
       statsEyebrow: 'Modelos disponibles, una API',
       stats: { providers: 'Proveedores de IA', models: 'Modelos, un catálogo', account: 'Cuenta', countries: 'Países atendidos' },
-      statsCompare: 'Nuestros precios finales superan a OpenRouter en 7 comparaciones directas —— {link}',
-      statsCompareLink: 'ver la comparación',
+      statsCompare: 'Cada modelo al 50% del precio de lista oficial — {link}',
+      statsCompareLink: 'ver precios',
 
       howEyebrow: 'Cómo funciona',
       howTitle: 'Tres pasos hasta tu primer token',
@@ -227,8 +227,8 @@ const es: Dictionary = {
           answer: 'Solo recogemos lo que una cuenta necesita para funcionar. Sin rastreadores, sin analíticas, sin anuncios —— tus prompts se dirigen directamente al modelo de origen y nunca se almacenan, venden ni usan para perfilarte. {privacyLink}',
         },
               {
-          question: '¿Cómo se comparan vuestros precios con OpenRouter?',
-          answer: 'En 7 comparaciones directas de modelos, nuestro coste total es menor — OpenRouter añade una comisión de pago del 5,5% sobre el precio de lista de cada modelo, mientras que nuestra tarifa publicada es la tarifa final. {pricingLink}',
+          question: '¿De verdad sus precios son el 50% de la lista?',
+          answer: 'Sí — cada modelo en BrushLLM cuesta el 50% del precio de lista oficial del proveedor, en USD, pago por uso. El precio oficial aparece tachado junto al nuestro en las páginas de modelos y precios.',
         },
         {
           question: '¿El sitio está disponible en otros idiomas?',
@@ -247,6 +247,14 @@ const es: Dictionary = {
         {
           question: '¿Qué puedo hacer con Image Studio?',
           answer: 'Convertir, comprimir, recortar y limpiar imágenes con herramientas locales gratuitas —— y luego generar, quitar fondos, borrar objetos, rellenar y cambiar estilos con IA, por imagen.',
+        },
+        {
+          question: '¿Qué es Video Studio?',
+          answer: 'Una caja de herramientas gratuita y offline para vídeo, audio y subtítulos — convertir, comprimir, unir, recortar, normalizar sonoridad, reparar codificaciones de subtítulos. 100% local: tus archivos nunca salen de tu equipo.',
+        },
+        {
+          question: '¿Qué es Player?',
+          answer: 'Un reproductor multimedia multiplataforma de código abierto basado en mpv — todos los formatos que mpv reproduce, más streaming desde WebDAV, SMB, FTP, Emby y Jellyfin. Salida HDR y decodificación por hardware incluidas.',
         },
         {
           question: '¿Puedo editar imágenes existentes?',
@@ -306,7 +314,7 @@ const es: Dictionary = {
       ],
       textModelsTitle: 'Modelos de texto —— por token',
       imageModelsTitle: 'Modelos de imagen —— por imagen',
-      table: { model: 'Modelo', provider: 'Proveedor', context: 'Contexto', input: 'Entrada / 1M', output: 'Salida / 1M', resolution: 'Resolución', pricePerImage: 'Precio / imagen' },
+      table: { model: 'Modelo', provider: 'Proveedor', context: 'Contexto', input: 'Entrada / 1M', output: 'Salida / 1M', resolution: 'Resolución', pricePerImage: 'Precio / imagen', official: 'Oficial ent / sal', brushllm: 'BrushLLM ent / sal', youSave: 'Ahorras' },
       footnote: 'Los precios son precios de lista orientativos en USD —— por 1M de tokens para modelos de texto, por imagen generada para modelos de imagen. La facturación real ocurre en tu consola, donde también puedes seguir el gasto por clave de API.',
       compareEyebrow: 'Comprobación de precios',
       compareTitle: 'Los mismos modelos,',

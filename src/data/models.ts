@@ -52,12 +52,18 @@ export interface Model {
   /** use-case tags driving the "Best for" filter */
   bestFor?: BestFor[];
   /**
-   * Indicative price in USD per 1M tokens (input / output).
-   * Placeholder values — align them with the rates configured in your
-   * sub2api console. `null` = not applicable (e.g. image models are priced per image).
+   * Official list price in USD per 1M tokens (input / output) — the
+   * vendor's published rate. Every BrushLLM price below is 50% of this.
+   */
+  listPrice: { input: number | null; output: number | null };
+  /**
+   * BrushLLM price in USD per 1M tokens (input / output) — always 50% of
+   * listPrice. `null` = not applicable (image models are priced per image).
    */
   price: { input: number | null; output: number | null };
-  /** for image models: indicative price in USD per generated image */
+  /** for image models: official list price in USD per generated image */
+  listImagePrice?: number;
+  /** for image models: BrushLLM price in USD per generated image (50% of list) */
   imagePrice?: number;
   /** for image models: max output resolution, e.g. "Up to 4K" */
   resolution?: string;
@@ -75,7 +81,8 @@ export const models: Model[] = [
     description: 'ChatGPT’s flagship — strong general reasoning, vision and tool use.',
     context: 400000,
     capabilities: ['chat', 'reasoning', 'tools', 'vision'],
-    price: { input: 1.25, output: 10.0 },
+    listPrice: { input: 1.75, output: 14.0 },
+    price: { input: 0.88, output: 7.0 },
     bestFor: ["agents","reasoning","writing"],
     featured: true,
   },
@@ -86,7 +93,8 @@ export const models: Model[] = [
     description: 'Fast, cheap ChatGPT tier for high-volume chat, classification and extraction.',
     context: 400000,
     capabilities: ['chat', 'tools'],
-    price: { input: 0.25, output: 2.0 },
+    listPrice: { input: 0.25, output: 2.0 },
+    price: { input: 0.13, output: 1.0 },
     bestFor: ["everyday-chat","budget"],
   },
   // ── DeepSeek ────────────────────────────────────────────────
@@ -97,7 +105,8 @@ export const models: Model[] = [
     description: 'Flagship non-thinking model. Fast, cheap, and excellent at general chat and tool use.',
     context: 131072,
     capabilities: ['chat', 'tools', 'long-context'],
-    price: { input: 0.28, output: 0.42 },
+    listPrice: { input: 0.27, output: 0.4 },
+    price: { input: 0.13, output: 0.2 },
     bestFor: ["everyday-chat","agents"],
     featured: true,
   },
@@ -108,7 +117,8 @@ export const models: Model[] = [
     description: 'Reasoning model with visible chain-of-thought for math, code, and hard problems.',
     context: 131072,
     capabilities: ['reasoning', 'tools', 'long-context'],
-    price: { input: 0.55, output: 2.19 },
+    listPrice: { input: 0.7, output: 2.5 },
+    price: { input: 0.35, output: 1.25 },
     bestFor: ["reasoning","coding"],
   },
   // ── Zhipu GLM ───────────────────────────────────────────────
@@ -119,7 +129,8 @@ export const models: Model[] = [
     description: 'Z.ai flagship. Strong coding, writing, and agentic planning; 200K context.',
     context: 204800,
     capabilities: ['chat', 'reasoning', 'tools', 'long-context'],
-    price: { input: 0.6, output: 2.2 },
+    listPrice: { input: 0.6, output: 2.2 },
+    price: { input: 0.3, output: 1.1 },
     bestFor: ["coding","writing","agents"],
     featured: true,
   },
@@ -130,7 +141,8 @@ export const models: Model[] = [
     description: 'Lighter GLM tuned for cost-sensitive production traffic.',
     context: 131072,
     capabilities: ['chat', 'tools'],
-    price: { input: 0.2, output: 1.1 },
+    listPrice: { input: 0.2, output: 1.1 },
+    price: { input: 0.1, output: 0.55 },
     bestFor: ["everyday-chat","budget"],
   },
   {
@@ -140,6 +152,7 @@ export const models: Model[] = [
     description: 'Free tier of the GLM family — great for prototypes and hobby projects.',
     context: 131072,
     capabilities: ['chat', 'tools'],
+    listPrice: { input: 0, output: 0 },
     price: { input: 0, output: 0 },
     bestFor: ["budget","everyday-chat"],
   },
@@ -151,7 +164,8 @@ export const models: Model[] = [
     description: 'Alibaba’s largest flagship. Top-tier quality for demanding agentic and chat workloads.',
     context: 262144,
     capabilities: ['chat', 'tools', 'long-context'],
-    price: { input: 1.2, output: 6.0 },
+    listPrice: { input: 1.2, output: 6.0 },
+    price: { input: 0.6, output: 3.0 },
     bestFor: ["agents","writing","everyday-chat"],
   },
   {
@@ -161,7 +175,8 @@ export const models: Model[] = [
     description: 'Open-weights MoE flagship with hybrid thinking mode.',
     context: 262144,
     capabilities: ['chat', 'reasoning', 'tools', 'long-context'],
-    price: { input: 0.2, output: 0.8 },
+    listPrice: { input: 0.2, output: 0.8 },
+    price: { input: 0.1, output: 0.4 },
     bestFor: ["reasoning"],
   },
   {
@@ -171,7 +186,8 @@ export const models: Model[] = [
     description: 'Dense open-weights all-rounder with thinking and non-thinking modes.',
     context: 131072,
     capabilities: ['chat', 'reasoning', 'tools'],
-    price: { input: 0.06, output: 0.24 },
+    listPrice: { input: 0.08, output: 0.28 },
+    price: { input: 0.04, output: 0.14 },
     bestFor: ["everyday-chat","budget"],
   },
   {
@@ -181,7 +197,8 @@ export const models: Model[] = [
     description: 'Code-specialized model built for agentic coding tools and repository-scale edits.',
     context: 262144,
     capabilities: ['chat', 'tools', 'long-context'],
-    price: { input: 0.35, output: 1.4 },
+    listPrice: { input: 0.65, output: 3.25 },
+    price: { input: 0.33, output: 1.63 },
     bestFor: ["coding","agents"],
   },
   {
@@ -191,7 +208,8 @@ export const models: Model[] = [
     description: 'Vision-language model for image understanding, OCR, and chart reasoning.',
     context: 131072,
     capabilities: ['chat', 'vision'],
-    price: { input: 0.28, output: 0.83 },
+    listPrice: { input: 0.28, output: 0.83 },
+    price: { input: 0.14, output: 0.42 },
   },
   // ── Moonshot Kimi ───────────────────────────────────────────
   {
@@ -201,7 +219,8 @@ export const models: Model[] = [
     description: 'Trillion-parameter MoE tuned for agentic tool use and long documents.',
     context: 262144,
     capabilities: ['chat', 'tools', 'long-context'],
-    price: { input: 0.6, output: 2.5 },
+    listPrice: { input: 0.6, output: 2.5 },
+    price: { input: 0.3, output: 1.25 },
     bestFor: ["agents","coding"],
   },
   {
@@ -211,7 +230,8 @@ export const models: Model[] = [
     description: 'Reasoning variant of K2 with interleaved thinking for multi-step tasks.',
     context: 262144,
     capabilities: ['reasoning', 'tools', 'long-context'],
-    price: { input: 0.6, output: 2.5 },
+    listPrice: { input: 0.6, output: 2.5 },
+    price: { input: 0.3, output: 1.25 },
     bestFor: ["reasoning","agents"],
   },
   // ── MiniMax ─────────────────────────────────────────────────
@@ -222,7 +242,8 @@ export const models: Model[] = [
     description: 'Efficient agentic MoE — a favorite for coding agents on a budget.',
     context: 204800,
     capabilities: ['chat', 'tools', 'long-context'],
-    price: { input: 0.3, output: 1.2 },
+    listPrice: { input: 0.3, output: 1.2 },
+    price: { input: 0.15, output: 0.6 },
     bestFor: ["coding","agents","budget"],
   },
   // ── Image generation ────────────────────────────────────────
@@ -236,7 +257,8 @@ export const models: Model[] = [
     capabilities: ['image'],
     price: { input: null, output: null },
     bestFor: ["images"],
-    imagePrice: 0.11,
+    listImagePrice: 0.11,
+    imagePrice: 0.06,
     resolution: 'Up to 2K',
     featured: true,
   },

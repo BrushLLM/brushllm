@@ -127,7 +127,7 @@ const ko: Dictionary = {
   pages: {
     home: {
       metaDescription: '하나의 API로 강력한 AI 모델에 접근하고, 무료 로컬 퍼스트 데스크톱 앱으로 창작하세요.',
-      heroBadge: '개발자에게 · 크리에이터에게',
+      heroBadge: '정가 50% 할인 · 개발자와 크리에이터를 위해',
       heroTitle: '복잡함은 걷어낸,',
       heroTitleBand: '당신의 AI',
       heroSubtitle: '하나의 API로 강력한 AI 모델에 접근하고, 무료 로컬 퍼스트 앱으로 자유롭게 창작',
@@ -180,8 +180,8 @@ const ko: Dictionary = {
 
       statsEyebrow: '사용 가능한 모델, 하나의 API',
       stats: { providers: 'AI 공급자', models: '모델, 단일 카탈로그', account: '계정', countries: '서비스 국가' },
-      statsCompare: '우리의 최종 가격은 7개 정면 비교 모델에서 OpenRouter보다 낮습니다 —— {link}',
-      statsCompareLink: '비교 보기',
+      statsCompare: '모든 모델이 공식 정가의 50% — {link}',
+      statsCompareLink: '가격 보기',
 
       howEyebrow: '작동 방식',
       howTitle: '첫 토큰까지 세 단계',
@@ -227,8 +227,8 @@ const ko: Dictionary = {
           answer: '계정 운영에 필요한 정보만 수집합니다. 추적기·분석·광고 없음 —— 프롬프트는 상류 모델로 바로 전달되며 저장·판매·프로파일링에 쓰이지 않습니다. {privacyLink}',
         },
               {
-          question: 'OpenRouter와 비교하면 가격이 어떤가요?',
-          answer: '7개 모델 직접 비교에서 당사의 총 비용이 더 낮습니다 — OpenRouter는 모든 모델의 정가에 5.5% 결제 수수료를 추가하지만, 당사의 공개 요금이 최종 요금입니다. {pricingLink}',
+          question: '가격이 정말 정가의 50%인가요?',
+          answer: '네 — BrushLLM의 모든 모델은 공급업체 공식 정가의 50%로, USD 종량제입니다. 공식 가격은 모델 페이지와 가격 페이지에서 당사 가격 옆에 취소선과 함께 표시됩니다.',
         },
         {
           question: '사이트를 다른 언어로 이용할 수 있나요?',
@@ -247,6 +247,14 @@ const ko: Dictionary = {
         {
           question: 'Image Studio로 무엇을 할 수 있나요?',
           answer: '무료 로컬 도구로 변환·압축·자르기·정리를 하고 —— 그다음 AI로 생성·배경 제거·물체 지우기·채우기·스타일 변경을 장당 과금으로.',
+        },
+        {
+          question: 'Video Studio란 무엇인가요?',
+          answer: '동영상·오디오·자막 처리를 위한 무료 오프라인 도구 상자 — 변환, 압축, 병합, 트리밍, 라우드니스 정규화, 자막 인코딩 수정. 100% 로컬: 파일이 기기를 떠나지 않습니다.',
+        },
+        {
+          question: 'Player란 무엇인가요?',
+          answer: 'mpv 기반 오픈소스 크로스 플랫폼 미디어 플레이어 — mpv가 재생하는 모든 형식에 더해 WebDAV, SMB, FTP, Emby, Jellyfin 스트리밍 지원. HDR 출력과 하드웨어 디코딩 포함.',
         },
         {
           question: '기존 이미지를 편집할 수 있나요?',
@@ -306,7 +314,7 @@ const ko: Dictionary = {
       ],
       textModelsTitle: '텍스트 모델 —— 토큰당',
       imageModelsTitle: '이미지 모델 —— 장당',
-      table: { model: '모델', provider: '공급자', context: '컨텍스트', input: '입력 / 1M', output: '출력 / 1M', resolution: '해상도', pricePerImage: '장당 가격' },
+      table: { model: '모델', provider: '공급자', context: '컨텍스트', input: '입력 / 1M', output: '출력 / 1M', resolution: '해상도', pricePerImage: '장당 가격', official: '공식 입력 / 출력', brushllm: 'BrushLLM 입력 / 출력', youSave: '절약' },
       footnote: '가격은 참고 정가(USD)입니다 —— 텍스트 모델은 1M 토큰당, 이미지 모델은 생성 장당. 실제 과금은 콘솔에서 이뤄지며 API 키별 지출도 추적할 수 있습니다.',
       compareEyebrow: '가격 확인',
       compareTitle: '같은 모델,',

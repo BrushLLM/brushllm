@@ -65,7 +65,7 @@ const searchText = `${model.name} ${model.id} ${provider.name} ${description} ${
         </div>
         <div>
           <dt class="text-[11px] font-medium text-stone-500">{m.perImage}</dt>
-          <dd class="mt-0.5 text-sm font-semibold tabular-nums">{formatPrice(model.imagePrice, t.common.free)}</dd>
+          <dd class="mt-0.5 text-sm font-semibold tabular-nums">{formatPrice(model.imagePrice, t.common.free)}<span class="block text-[11px] font-normal text-stone-500 line-through">{formatPrice(model.listImagePrice, t.common.free)} list</span></dd>
         </div>
         <div>
           <dt class="text-[11px] font-medium text-stone-500">{m.output}</dt>
@@ -80,11 +80,11 @@ const searchText = `${model.name} ${model.id} ${provider.name} ${description} ${
         </div>
         <div>
           <dt class="text-[11px] font-medium text-stone-500">{m.input}</dt>
-          <dd class="mt-0.5 text-sm font-semibold tabular-nums">{formatPrice(model.price.input, t.common.free)}</dd>
+          <dd class="mt-0.5 text-sm font-semibold tabular-nums">{formatPrice(model.price.input, t.common.free)}<span class="block text-[11px] font-normal text-stone-500 line-through">{formatPrice(model.listPrice.input, t.common.free)} list</span></dd>
         </div>
         <div>
           <dt class="text-[11px] font-medium text-stone-500">{m.outputPer1M}</dt>
-          <dd class="mt-0.5 text-sm font-semibold tabular-nums">{formatPrice(model.price.output, t.common.free)}</dd>
+          <dd class="mt-0.5 text-sm font-semibold tabular-nums">{formatPrice(model.price.output, t.common.free)}<span class="block text-[11px] font-normal text-stone-500 line-through">{formatPrice(model.listPrice.output, t.common.free)} list</span></dd>
         </div>
       </dl>
     )

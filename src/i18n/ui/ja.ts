@@ -127,7 +127,7 @@ const ja: Dictionary = {
   pages: {
     home: {
       metaDescription: 'ひとつの API で強力な AI モデルへアクセスし、無料のローカルファースト・デスクトップアプリで創作する。',
-      heroBadge: '開発者へ · クリエイターへ',
+      heroBadge: '定価から50%オフ · 開発者とクリエイターのための',
       heroTitle: '複雑さを排した、',
       heroTitleBand: 'あなたの AI',
       heroSubtitle: 'ひとつの API で強力な AI モデルへ。無料のローカルファーストアプリで創作も自由に',
@@ -180,8 +180,8 @@ const ja: Dictionary = {
 
       statsEyebrow: '利用可能なモデル、ひとつの API',
       stats: { providers: 'AI プロバイダー', models: 'モデル、単一カタログ', account: 'アカウント', countries: '対応国・地域' },
-      statsCompare: '当社の込々価格は 7 モデルの直接比較で OpenRouter を下回ります —— {link}',
-      statsCompareLink: '比較を見る',
+      statsCompare: '全モデルが公式定価の50% — {link}',
+      statsCompareLink: '料金を見る',
 
       howEyebrow: '仕組み',
       howTitle: '最初のトークンまで 3 ステップ',
@@ -227,8 +227,8 @@ const ja: Dictionary = {
           answer: 'アカウント運営に必要な情報のみを収集します。トラッカーなし・アナリティクスなし・広告なし —— プロンプトは上流モデルへ直接中継され、保存・販売・プロファイリングに使われることはありません。 {privacyLink}',
         },
               {
-          question: 'OpenRouter と比べて価格はどうですか?',
-          answer: '7モデルの直接比較で、当社の総コストはより低くなります — OpenRouter は各モデルの表示価格に 5.5% の決済手数料を上乗せしますが、当社の公開レートが最終レートです。{pricingLink}',
+          question: '価格は本当に定価の50%ですか?',
+          answer: 'はい — BrushLLM のすべてのモデルは、各社の公式定価の50%で、米ドルの従量課金です。公式価格はモデルページと料金ページで当社価格の横に打ち消し線付きで表示されています。',
         },
         {
           question: 'サイトは他の言語でも利用できますか?',
@@ -247,6 +247,14 @@ const ja: Dictionary = {
         {
           question: 'Image Studio で何ができますか？',
           answer: '無料のローカルツールで変換・圧縮・切り抜き・整理を行い —— その後、AI で生成・背景除去・物体消去・塗りつぶし・スタイル変更を、枚単位の課金で。',
+        },
+        {
+          question: 'Video Studio とは何ですか?',
+          answer: '動画・音声・字幕処理のための無料オフラインツールボックス — 変換、圧縮、結合、トリミング、ラウドネス正規化、字幕エンコーディング修復。100% ローカル:ファイルが端末の外に出ることはありません。',
+        },
+        {
+          question: 'Player とは何ですか?',
+          answer: 'mpv ベースのオープンソース・クロスプラットフォームメディアプレイヤー — mpv が再生するすべての形式に加え、WebDAV、SMB、FTP、Emby、Jellyfin からのストリーミングに対応。HDR 出力とハードウェアデコードも搭載。',
         },
         {
           question: '既存の画像を編集できますか？',
@@ -306,7 +314,7 @@ const ja: Dictionary = {
       ],
       textModelsTitle: 'テキストモデル —— トークン単位',
       imageModelsTitle: '画像モデル —— 枚単位',
-      table: { model: 'モデル', provider: 'プロバイダー', context: 'コンテキスト', input: '入力 / 1M', output: '出力 / 1M', resolution: '解像度', pricePerImage: '1 枚あたりの価格' },
+      table: { model: 'モデル', provider: 'プロバイダー', context: 'コンテキスト', input: '入力 / 1M', output: '出力 / 1M', resolution: '解像度', pricePerImage: '1 枚あたりの価格', official: '公式 入力 / 出力', brushllm: 'BrushLLM 入力 / 出力', youSave: 'お得' },
       footnote: '価格は参考定価（米ドル）です —— テキストモデルは 1M トークンあたり、画像モデルは生成 1 枚あたり。実際の課金はコンソールで行われ、API キーごとの支出も追跡できます。',
       compareEyebrow: '価格チェック',
       compareTitle: '同じモデル、',

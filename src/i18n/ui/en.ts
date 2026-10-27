@@ -143,7 +143,7 @@ const en = {
     home: {
       metaDescription:
         'Access powerful AI models through one API, and create with free local-first desktop apps.',
-      heroBadge: 'For developers · For creators',
+      heroBadge: '50% off list prices · For developers · For creators',
       heroTitle: 'Your AI,',
       heroTitleBand: 'Without the Complexity',
       heroSubtitle: 'Access powerful AI models through one API, and create with free local-first apps',
@@ -198,8 +198,8 @@ const en = {
 
       statsEyebrow: 'Available models, one API',
       stats: { providers: 'AI providers', models: 'Models, one catalog', account: 'Account', countries: 'Countries served' },
-      statsCompare: 'Our all-in rates beat OpenRouter on 7 head-to-head models — {link}',
-      statsCompareLink: 'see the comparison',
+      statsCompare: 'Every model at 50% of the official list price — {link}',
+      statsCompareLink: 'see the pricing',
 
       howEyebrow: 'How it works',
       howTitle: 'Three steps to your first token',
@@ -246,8 +246,8 @@ const en = {
           answer: 'We collect only what an account needs to function. No trackers, no analytics, no ads — your prompts are proxied straight to the upstream model and never stored, sold, or used to profile you. {privacyLink}',
         },
         {
-          question: 'How do your prices compare to OpenRouter?',
-          answer: 'On 7 head-to-head models our all-in cost is lower — OpenRouter adds a 5.5% payment fee on top of every model\u2019s list price, while our published rate is the final rate. {pricingLink}',
+          question: 'Are your prices really 50% of list?',
+          answer: 'Yes — every model on BrushLLM is priced at 50% of the official vendor list price, in USD, pay-as-you-go. The official price is shown crossed out next to ours on the models and pricing pages.',
         },
         {
           question: 'Is the site available in other languages?',
@@ -267,6 +267,14 @@ const en = {
         {
           question: 'What can I do with Image Studio?',
           answer: 'Convert, compress, crop and clean up images with free local tools — then generate, remove backgrounds, erase objects, fill and restyle with AI, billed per image.',
+        },
+        {
+          question: 'What is Video Studio?',
+          answer: 'A free, offline toolbox for video, audio and subtitle processing — convert, compress, merge, trim, normalize loudness, fix subtitle encodings. 100% local: your media never leaves your machine.',
+        },
+        {
+          question: 'What is Player?',
+          answer: 'An open-source cross-platform media player built on mpv — every format mpv plays, plus streaming from WebDAV, SMB, FTP, Emby and Jellyfin. HDR output and hardware decoding included.',
         },
         {
           question: 'Can I edit existing images?',
@@ -329,7 +337,7 @@ const en = {
       ],
       textModelsTitle: 'Text models — per token',
       imageModelsTitle: 'Image models — per image',
-      table: { model: 'Model', provider: 'Provider', context: 'Context', input: 'Input / 1M', output: 'Output / 1M', resolution: 'Resolution', pricePerImage: 'Price / image' },
+      table: { model: 'Model', provider: 'Provider', context: 'Context', input: 'Input / 1M', output: 'Output / 1M', resolution: 'Resolution', pricePerImage: 'Price / image', official: 'Official in / out', brushllm: 'BrushLLM in / out', youSave: 'You save' },
       footnote:
         'Prices are indicative list prices in USD — per 1M tokens for text models, per generated image for image models. Actual billing happens in your console, where you can also track spend per API key.',
       compareEyebrow: 'Price check',

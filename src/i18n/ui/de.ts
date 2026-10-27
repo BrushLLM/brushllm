@@ -127,7 +127,7 @@ const de: Dictionary = {
   pages: {
     home: {
       metaDescription: 'Greife über eine API auf leistungsstarke KI-Modelle zu und erschaffe mit kostenlosen Local-First-Desktop-Apps.',
-      heroBadge: 'Für Entwickler · Für Kreative',
+      heroBadge: '50% Rabatt auf Listenpreise · Für Entwickler · Für Kreative',
       heroTitle: 'Deine KI,',
       heroTitleBand: 'ohne die Komplexität',
       heroSubtitle: 'Leistungsstarke KI-Modelle über eine API —— und Kreativität mit kostenlosen Local-First-Apps',
@@ -180,8 +180,8 @@ const de: Dictionary = {
 
       statsEyebrow: 'Verfügbare Modelle, eine API',
       stats: { providers: 'KI-Anbieter', models: 'Modelle, ein Katalog', account: 'Konto', countries: 'Bediente Länder' },
-      statsCompare: 'Unsere Endpreise schlagen OpenRouter bei 7 Direktvergleichen —— {link}',
-      statsCompareLink: 'siehe den Vergleich',
+      statsCompare: 'Jedes Modell zu 50% des offiziellen Listenpreises — {link}',
+      statsCompareLink: 'Preise ansehen',
 
       howEyebrow: 'So funktioniert es',
       howTitle: 'Drei Schritte zu deinem ersten Token',
@@ -227,8 +227,8 @@ const de: Dictionary = {
           answer: 'Wir sammeln nur, was ein Konto zum Funktionieren braucht. Keine Tracker, keine Analysen, keine Werbung —— deine Prompts werden direkt an das vorgelagerte Modell weitergeleitet und niemals gespeichert, verkauft oder zur Profilierung genutzt. {privacyLink}',
         },
               {
-          question: 'Wie schneiden eure Preise im Vergleich zu OpenRouter ab?',
-          answer: 'Bei 7 direkten Modellvergleichen sind unsere Gesamtkosten niedriger — OpenRouter erhebt zusätzlich 5,5% Zahlungsgebühr auf jeden Modell-Listenpreis, während unser veröffentlichter Preis der Endpreis ist. {pricingLink}',
+          question: 'Sind eure Preise wirklich 50% des Listenpreises?',
+          answer: 'Ja — jedes Modell auf BrushLLM kostet 50% des offiziellen Hersteller-Listenpreises, in USD, nutzungsbasiert. Der offizielle Preis wird auf den Modell- und Preisseiten durchgestrichen neben unserem angezeigt.',
         },
         {
           question: 'Ist die Website in anderen Sprachen verfügbar?',
@@ -247,6 +247,14 @@ const de: Dictionary = {
         {
           question: 'Was kann ich mit Image Studio machen?',
           answer: 'Bilder mit kostenlosen lokalen Werkzeugen konvertieren, komprimieren, zuschneiden und bereinigen —— dann generieren, Hintergründe entfernen, Objekte löschen, ausfüllen und umgestalten mit KI, abgerechnet pro Bild.',
+        },
+        {
+          question: 'Was ist Video Studio?',
+          answer: 'Eine kostenlose, Offline-Toolbox für Video-, Audio- und Untertitelverarbeitung — konvertieren, komprimieren, zusammenfügen, schneiden, Lautheit normalisieren, Untertitel-Kodierungen reparieren. 100% lokal: Ihre Medien verlassen Ihr Gerät nie.',
+        },
+        {
+          question: 'Was ist Player?',
+          answer: 'Ein quelloffener, plattformübergreifender Mediaplayer auf mpv-Basis — jedes Format, das mpv abspielt, plus Streaming von WebDAV, SMB, FTP, Emby und Jellyfin. HDR-Ausgabe und Hardware-Dekodierung inklusive.',
         },
         {
           question: 'Kann ich vorhandene Bilder bearbeiten?',
@@ -306,7 +314,7 @@ const de: Dictionary = {
       ],
       textModelsTitle: 'Textmodelle —— pro Token',
       imageModelsTitle: 'Bildmodelle —— pro Bild',
-      table: { model: 'Modell', provider: 'Anbieter', context: 'Kontext', input: 'Input / 1M', output: 'Output / 1M', resolution: 'Auflösung', pricePerImage: 'Preis / Bild' },
+      table: { model: 'Modell', provider: 'Anbieter', context: 'Kontext', input: 'Input / 1M', output: 'Output / 1M', resolution: 'Auflösung', pricePerImage: 'Preis / Bild', official: 'Offiziell Ein / Aus', brushllm: 'BrushLLM Ein / Aus', youSave: 'Du sparst' },
       footnote: 'Preise sind Richtwerte in USD —— pro 1M Tokens für Textmodelle, pro generiertem Bild für Bildmodelle. Die tatsächliche Abrechnung erfolgt in deiner Konsole, wo du auch Ausgaben pro API-Key verfolgen kannst.',
       compareEyebrow: 'Preischeck',
       compareTitle: 'Dieselben Modelle,',

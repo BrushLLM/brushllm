@@ -127,7 +127,7 @@ const fr: Dictionary = {
   pages: {
     home: {
       metaDescription: 'Accédez à des modèles d’IA puissants via une seule API, et créez avec des applications de bureau gratuites, d’abord locales.',
-      heroBadge: 'Pour les développeurs · Pour les créatifs',
+      heroBadge: '50% de réduction sur les tarifs publics · Pour développeurs · Pour créateurs',
       heroTitle: 'Votre IA,',
       heroTitleBand: 'sans la complexité',
       heroSubtitle: 'Des modèles d’IA puissants via une seule API, et de la création avec des applis locales gratuites',
@@ -180,8 +180,8 @@ const fr: Dictionary = {
 
       statsEyebrow: 'Modèles disponibles, une API',
       stats: { providers: 'Fournisseurs d’IA', models: 'Modèles, un catalogue', account: 'Compte', countries: 'Pays desservis' },
-      statsCompare: 'Nos prix tout compris battent OpenRouter sur 7 comparaisons directes —— {link}',
-      statsCompareLink: 'voir la comparaison',
+      statsCompare: 'Chaque modèle à 50% du tarif officiel — {link}',
+      statsCompareLink: 'voir les tarifs',
 
       howEyebrow: 'Comment ça marche',
       howTitle: 'Trois étapes jusqu’à votre premier token',
@@ -227,8 +227,8 @@ const fr: Dictionary = {
           answer: 'Nous ne collectons que ce qu’un compte nécessite pour fonctionner. Pas de traqueurs, pas d’analytics, pas de pub —— vos prompts sont transmis directement au modèle amont et jamais stockés, vendus ni utilisés pour vous profiler. {privacyLink}',
         },
               {
-          question: 'Comment vos prix se comparent-ils à OpenRouter ?',
-          answer: 'Sur 7 modèles comparés directement, notre coût total est inférieur — OpenRouter ajoute des frais de paiement de 5,5 % au prix catalogue de chaque modèle, tandis que notre tarif publié est le tarif final. {pricingLink}',
+          question: 'Vos prix sont-ils vraiment à 50% du tarif officiel ?',
+          answer: 'Oui — chaque modèle sur BrushLLM est facturé à 50% du tarif officiel du fournisseur, en USD, au paiement à l\'usage. Le tarif officiel est affiché barré à côté du nôtre sur les pages modèles et tarifs.',
         },
         {
           question: 'Le site est-il disponible dans d\'autres langues ?',
@@ -247,6 +247,14 @@ const fr: Dictionary = {
         {
           question: 'Que puis-je faire avec Image Studio ?',
           answer: 'Convertir, compresser, recadrer et nettoyer des images avec des outils locaux gratuits —— puis générer, supprimer des fonds, effacer des objets, remplir et relooker avec l’IA, à l’image.',
+        },
+        {
+          question: 'Qu\'est-ce que Video Studio ?',
+          answer: 'Une boîte à outils gratuite et hors ligne pour la vidéo, l\'audio et les sous-titres — convertir, compresser, fusionner, découper, normaliser le loudness, réparer les encodages de sous-titres. 100% local : vos fichiers ne quittent jamais votre machine.',
+        },
+        {
+          question: 'Qu\'est-ce que Player ?',
+          answer: 'Un lecteur multimédia multiplateforme open source basé sur mpv — tous les formats lus par mpv, plus le streaming depuis WebDAV, SMB, FTP, Emby et Jellyfin. Sortie HDR et décodage matériel inclus.',
         },
         {
           question: 'Puis-je modifier des images existantes ?',
@@ -306,7 +314,7 @@ const fr: Dictionary = {
       ],
       textModelsTitle: 'Modèles de texte —— au token',
       imageModelsTitle: 'Modèles d’image —— à l’image',
-      table: { model: 'Modèle', provider: 'Fournisseur', context: 'Contexte', input: 'Entrée / 1M', output: 'Sortie / 1M', resolution: 'Résolution', pricePerImage: 'Prix / image' },
+      table: { model: 'Modèle', provider: 'Fournisseur', context: 'Contexte', input: 'Entrée / 1M', output: 'Sortie / 1M', resolution: 'Résolution', pricePerImage: 'Prix / image', official: 'Officiel entr / sort', brushllm: 'BrushLLM entr / sort', youSave: 'Vous économisez' },
       footnote: 'Les prix sont des prix catalogue indicatifs en USD —— par 1M de tokens pour le texte, par image générée pour l’image. La facturation réelle se fait dans votre console, où vous pouvez aussi suivre les dépenses par clé API.',
       compareEyebrow: 'Vérification des prix',
       compareTitle: 'Les mêmes modèles,',

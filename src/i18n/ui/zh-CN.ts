@@ -132,7 +132,7 @@ const zhCN: Dictionary = {
   pages: {
     home: {
       metaDescription: '通过一个 API 访问强大的 AI 模型，并用免费的本地优先桌面应用进行创作。',
-      heroBadge: '面向开发者 · 面向创作者',
+      heroBadge: '官方价格 5 折 · 面向开发者与创作者',
       heroTitle: '你的 AI，',
       heroTitleBand: '化繁为简',
       heroSubtitle: '通过一个 API 访问强大的 AI 模型，并用免费的本地优先应用进行创作',
@@ -187,8 +187,8 @@ const zhCN: Dictionary = {
 
       statsEyebrow: '可用模型，一个 API',
       stats: { providers: 'AI 供应商', models: '模型，同一目录', account: '账号', countries: '服务国家/地区' },
-      statsCompare: '我们的到手价在 7 个对比模型上低于 OpenRouter ——{link}',
-      statsCompareLink: '查看对比',
+      statsCompare: '所有模型均为官方价格的 50% — {link}',
+      statsCompareLink: '查看价格',
 
       howEyebrow: '工作原理',
       howTitle: '三步拿到你的第一个 token',
@@ -235,8 +235,8 @@ const zhCN: Dictionary = {
           answer: '我们只收集账号运转所必需的信息。无追踪器、无分析、无广告 —— 你的提示词直接代理转发至上游模型，绝不存储、出售或用于画像。 {privacyLink}',
         },
               {
-          question: '你们的价格和 OpenRouter 比怎么样?',
-          answer: '在 7 个模型的直接对比中,我们的全口径成本更低 — OpenRouter 会在每个模型的标价上加收 5.5% 的充值手续费,而我们公布的价格就是最终价格。{pricingLink}',
+          question: '价格真的是官方价的一半吗?',
+          answer: '是的 — BrushLLM 上所有模型的价格均为厂商官方价格的 50%,以美元按量计费。官方价格在模型页和价格页以划线形式标注在我们的价格旁边。',
         },
         {
           question: '网站支持其他语言吗?',
@@ -256,6 +256,14 @@ const zhCN: Dictionary = {
         {
           question: 'Image Studio 能做什么？',
           answer: '用免费的本地工具转换、压缩、裁剪与清理图像 —— 再用 AI 生成、移除背景、擦除对象、填充与重绘，按张计费。',
+        },
+        {
+          question: 'Video Studio 是什么?',
+          answer: '一款免费离线的视频/音频/字幕处理工具箱 — 转换、压缩、合并、剪辑、响度规范化、修复字幕编码。100% 本地处理:你的文件绝不离开你的设备。',
+        },
+        {
+          question: 'Player 是什么?',
+          answer: '基于 mpv 的开源跨平台媒体播放器 — 支持 mpv 的全部格式,并可通过 WebDAV、SMB、FTP、Emby、Jellyfin 流媒体播放。支持 HDR 输出与硬件解码。',
         },
         {
           question: '可以编辑已有图像吗？',
@@ -318,7 +326,7 @@ const zhCN: Dictionary = {
       ],
       textModelsTitle: '文本模型 —— 按 token',
       imageModelsTitle: '图像模型 —— 按张',
-      table: { model: '模型', provider: '供应商', context: '上下文', input: '输入 / 1M', output: '输出 / 1M', resolution: '分辨率', pricePerImage: '每张价格' },
+      table: { model: '模型', provider: '供应商', context: '上下文', input: '输入 / 1M', output: '输出 / 1M', resolution: '分辨率', pricePerImage: '每张价格', official: '官方 输入 / 输出', brushllm: 'BrushLLM 输入 / 输出', youSave: '立省' },
       footnote:
         '价格为参考目录价，以美元计 —— 文本模型按每 1M token，图像模型按生成张数。实际计费在控制台进行，还可按 API 密钥跟踪支出。',
       compareEyebrow: '价格核对',

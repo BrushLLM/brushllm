@@ -127,7 +127,7 @@ const ptBR: Dictionary = {
   pages: {
     home: {
       metaDescription: 'Acesse modelos de IA poderosos por meio de uma única API e crie com aplicativos de desktop gratuitos, locais por padrão.',
-      heroBadge: 'Para desenvolvedores · Para criadores',
+      heroBadge: '50% de desconto nos preços de tabela · Para desenvolvedores · Para criadores',
       heroTitle: 'Sua IA,',
       heroTitleBand: 'sem a complexidade',
       heroSubtitle: 'Modelos de IA poderosos por meio de uma API, e crie com aplicativos locais gratuitos',
@@ -180,8 +180,8 @@ const ptBR: Dictionary = {
 
       statsEyebrow: 'Modelos disponíveis, uma API',
       stats: { providers: 'Provedores de IA', models: 'Modelos, um catálogo', account: 'Conta', countries: 'Países atendidos' },
-      statsCompare: 'Nossos preços finais batem o OpenRouter em 7 comparações diretas —— {link}',
-      statsCompareLink: 'veja a comparação',
+      statsCompare: 'Cada modelo a 50% do preço de tabela oficial — {link}',
+      statsCompareLink: 'ver preços',
 
       howEyebrow: 'Como funciona',
       howTitle: 'Três passos até seu primeiro token',
@@ -227,8 +227,8 @@ const ptBR: Dictionary = {
           answer: 'Coletamos apenas o que uma conta precisa para funcionar. Sem rastreadores, sem análises, sem anúncios —— seus prompts seguem direto para o modelo upstream e nunca são armazenados, vendidos ou usados para criar perfis. {privacyLink}',
         },
               {
-          question: 'Como seus preços se comparam ao OpenRouter?',
-          answer: 'Em 7 comparações diretas de modelos, nosso custo total é menor — o OpenRouter adiciona uma taxa de pagamento de 5,5% sobre o preço de tabela de cada modelo, enquanto nossa tarifa publicada é a tarifa final. {pricingLink}',
+          question: 'Seus preços são realmente 50% da tabela?',
+          answer: 'Sim — cada modelo no BrushLLM custa 50% do preço de tabela oficial do fornecedor, em USD, pagamento por uso. O preço oficial aparece riscado ao lado do nosso nas páginas de modelos e preços.',
         },
         {
           question: 'O site está disponível em outros idiomas?',
@@ -247,6 +247,14 @@ const ptBR: Dictionary = {
         {
           question: 'O que posso fazer com o Image Studio?',
           answer: 'Converter, comprimir, cortar e limpar imagens com ferramentas locais gratuitas —— e depois gerar, remover fundos, apagar objetos, preencher e reestilizar com IA, cobrado por imagem.',
+        },
+        {
+          question: 'O que é o Video Studio?',
+          answer: 'Uma caixa de ferramentas gratuita e offline para vídeo, áudio e legendas — converter, comprimir, juntar, cortar, normalizar loudness, corrigir codificações de legenda. 100% local: seus arquivos nunca saem da sua máquina.',
+        },
+        {
+          question: 'O que é o Player?',
+          answer: 'Um reprodutor de mídia multiplataforma de código aberto baseado no mpv — todos os formatos que o mpv reproduz, mais streaming de WebDAV, SMB, FTP, Emby e Jellyfin. Saída HDR e decodificação por hardware incluídas.',
         },
         {
           question: 'Posso editar imagens existentes?',
@@ -306,7 +314,7 @@ const ptBR: Dictionary = {
       ],
       textModelsTitle: 'Modelos de texto —— por token',
       imageModelsTitle: 'Modelos de imagem —— por imagem',
-      table: { model: 'Modelo', provider: 'Provedor', context: 'Contexto', input: 'Entrada / 1M', output: 'Saída / 1M', resolution: 'Resolução', pricePerImage: 'Preço / imagem' },
+      table: { model: 'Modelo', provider: 'Provedor', context: 'Contexto', input: 'Entrada / 1M', output: 'Saída / 1M', resolution: 'Resolução', pricePerImage: 'Preço / imagem', official: 'Oficial ent / saída', brushllm: 'BrushLLM ent / saída', youSave: 'Você economiza' },
       footnote: 'Os preços são preços de tabela indicativos em USD —— por 1M tokens para modelos de texto, por imagem gerada para modelos de imagem. A cobrança real acontece no seu console, onde você também acompanha o gasto por chave de API.',
       compareEyebrow: 'Conferência de preços',
       compareTitle: 'Os mesmos modelos,',

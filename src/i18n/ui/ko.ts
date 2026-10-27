@@ -50,6 +50,7 @@ const ko: Dictionary = {
     videoStudio: 'Video Studio',
     player: 'Player',
     aboutBrushLLM: 'BrushLLM 소개',
+    privacyPolicy: '개인정보 처리방침',
     copyright: '© {year} BrushLLM · brushllm.com',
     poweredBy: 'OpenAI 호환 게이트웨이 기반',
   },
@@ -507,6 +508,60 @@ const ko: Dictionary = {
       text: '링크가 오래되었거나 페이지가 이동했을 수 있습니다. 하지만 모델들은 당신이 떠난 자리에 그대로 있습니다.',
       backHome: '홈으로 돌아가기',
       browseModels: '모델 둘러보기',
+    },
+    privacy: {
+      metaDescription: 'BrushLLM 개인정보 처리방침 — 수집하는 것(거의 없음), 절대 하지 않는 것, 사이트와 앱이 데이터를 다루는 방식.',
+      eyebrow: '개인정보',
+      title: '개인정보 처리방침',
+      titleBand: '쉬운 말로',
+      updated: '마지막 업데이트: 2026년 10월',
+      intro: 'BrushLLM은 개인정보 보호를 최우선으로 설계되었습니다. 이 페이지는 어떤 데이터가 어디에 관여하는지 쉬운 말로 설명합니다 — 모든 내용은 검증 가능합니다: 사이트와 세 개의 데스크톱 앱은 GitHub에 공개되어 있습니다.',
+      sections: [
+      {
+        heading: '핵심 요약',
+        paragraphs: [
+            '분석 데이터를 수집하지 않고, 트래커를 사용하지 않으며, 광고를 게재하지 않습니다. 프롬프트는 모델 제공자에게 전달될 뿐 저장·판매·프로파일링에 사용되지 않습니다. 데스크톱 앱은 로컬에서 실행되며, 직접 활성화한 AI 기능 외에는 네트워크 요청을 만들지 않습니다.',
+        ],
+      },
+      {
+        heading: '본 웹사이트(brushllm.com)',
+        paragraphs: [
+            '마케팅 사이트는 완전히 정적입니다: 분석 스크립트, 추적 픽셀, 서드파티 폰트, 쿠키, 핑거프린팅이 모두 없습니다.',
+            '실행되는 JavaScript는 페이지 동작뿐입니다: 언어 설정(브라우저 localStorage에만 저장), 언어 전환기, FAQ 아코디언. 어디로도 전송되지 않습니다.',
+            '사이트는 Cloudflare Pages로 제공됩니다. 모든 CDN처럼 Cloudflare는 보안 목적으로 엣지 로그를 처리하지만, Cloudflare 분석은 활성화하지 않았으며 식별된 방문자 데이터를 받지 않습니다.',
+        ],
+      },
+      {
+        heading: 'API와 콘솔(api.brushllm.com)',
+        paragraphs: [
+            'API를 사용하려면 이메일로 계정을 만듭니다. 이메일, 잔액과 충전 내역, 생성한 API 키를 저장합니다 — 계정이 작동하는 최소한입니다.',
+            '요청은 해당 모델 제공자(DeepSeek, Qwen, GLM, Kimi, MiniMax, OpenAI 등)로 전달되어 처리됩니다. 프롬프트나 응답 내용을 저장하지 않고, 판매하지 않으며, 학습에 사용하지 않습니다.',
+            '과금이 작동하는 방식이므로 집계·익명화된 사용 카운터(모델별 토큰, 키별 요청 수)를 유지합니다. 요청 내용과 연결되지 않습니다.',
+            '결제는 결제 제공자가 처리합니다. 전체 카드 번호를 보거나 저장하지 않습니다.',
+        ],
+      },
+      {
+        heading: '데스크톱 앱(Image Studio, Video Studio, Player)',
+        paragraphs: [
+            '세 앱 모두 local-first입니다. 이미지·동영상·파일은 직접 요청하지 않는 한 기기를 떠나지 않습니다. Video Studio와 Player는 네트워크 요청이 0입니다. Image Studio의 AI 기능은 사용 시에만 BrushLLM API를 호출하며, 해당 작업에 제출한 이미지 내용만 다룹니다.',
+            'API 키는 운영체제 키체인에 저장되며 평문 파일에 두지 않습니다. 앱에 텔레메트리, 계정, 광고가 없습니다.',
+        ],
+      },
+      {
+        heading: '사용자의 선택',
+        paragraphs: [
+            'hello@brushllm.com으로 이메일을 보내면 언제든 계정과 데이터 삭제를 요청할 수 있습니다. 삭제 시 이메일, 키, 잔액 기록, 사용 카운터가 제거됩니다.',
+            '언어 설정은 브라우저에서 brushllm.com 사이트 데이터를 지우면 언제든 초기화할 수 있습니다.',
+        ],
+      },
+      {
+        heading: '방침 변경',
+        paragraphs: [
+            '방침이 변경되면 이 페이지와 상단 날짜를 업데이트합니다. 모든 변경 이력은 사이트의 GitHub 저장소에 공개되어 있습니다.',
+        ],
+      },
+      ],
+      openSourceNote: '이 페이지의 모든 내용은 확인 가능합니다: 사이트, 콘솔, 세 개의 앱은 모두 github.com/BrushLLM에서 확인할 수 있습니다.',
     },
   },
 };

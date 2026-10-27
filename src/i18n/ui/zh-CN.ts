@@ -52,6 +52,7 @@ const zhCN: Dictionary = {
     videoStudio: 'Video Studio',
     player: 'Player',
     aboutBrushLLM: '关于 BrushLLM',
+    privacyPolicy: '隐私政策',
     copyright: '© {year} BrushLLM · brushllm.com',
     poweredBy: '由 OpenAI 兼容网关驱动',
   },
@@ -526,6 +527,60 @@ const zhCN: Dictionary = {
       text: '链接可能已过期，或页面已经移动。不过模型们还留在原地。',
       backHome: '返回首页',
       browseModels: '浏览模型',
+    },
+    privacy: {
+      metaDescription: 'BrushLLM 隐私政策 — 我们收集什么(几乎不收集)、绝不做的事,以及开源网站与应用如何处理你的数据。',
+      eyebrow: '隐私',
+      title: '隐私政策',
+      titleBand: '用大白话说',
+      updated: '最后更新:2026 年 10 月',
+      intro: 'BrushLLM 从设计之初就以隐私为先。本页用大白话说明哪些数据在哪些环节出现 — 并且这里的一切都可以验证:本网站与三款桌面应用全部在 GitHub 上开源。',
+      sections: [
+      {
+        heading: '一句话版本',
+        paragraphs: [
+            '我们不收集分析数据、不使用追踪器、不投放广告。你的请求(prompt)仅被转发至上游模型提供商,绝不存储、出售或用于用户画像。桌面应用在本地运行,除你主动启用的 AI 功能外不发起任何网络请求。',
+        ],
+      },
+      {
+        heading: '本网站(brushllm.com)',
+        paragraphs: [
+            '营销网站完全静态:没有分析脚本、没有追踪像素、没有第三方字体、不设 Cookie、不做浏览器指纹。',
+            '运行的 JavaScript 仅用于页面行为:语言偏好(只存在你浏览器的 localStorage)、语言切换器和 FAQ 折叠面板。不向任何地方发送任何数据。',
+            '网站由 Cloudflare Pages 提供服务。与所有 CDN 一样,Cloudflare 会在边缘处理请求日志以保障安全;我们未启用 Cloudflare 分析,也不会收到可识别身份的访客数据。',
+        ],
+      },
+      {
+        heading: 'API 与控制台(api.brushllm.com)',
+        paragraphs: [
+            '使用 API 需要以邮箱注册账户。我们存储你的邮箱、余额与充值记录、以及你创建的 API 密钥 — 这是账户运转所需的最小集合。',
+            '你的请求会被转发至对应的上游模型提供商(DeepSeek、Qwen、GLM、Kimi、MiniMax、OpenAI 等)进行处理。我们不存储请求与回复的内容,不出售,也不用于任何训练。',
+            '我们保留聚合、匿名化的用量计数(每模型 token 数、每密钥请求数)——计费依赖这些数据。它们与请求内容不关联。',
+            '支付由支付服务商处理;我们从不接触或存储完整卡号。',
+        ],
+      },
+      {
+        heading: '桌面应用(Image Studio、Video Studio、Player)',
+        paragraphs: [
+            '三款应用均为本地优先:你的图片、视频和文件绝不会离开你的设备,除非你明确要求。Video Studio 和 Player 的网络请求数为零。Image Studio 的 AI 功能仅在你使用时调用 BrushLLM API,且只处理该次操作提交的图片内容。',
+            'API 密钥存储在操作系统的钥匙串中,绝不以明文文件保存。应用不含遥测、账户和广告。',
+        ],
+      },
+      {
+        heading: '你的选择',
+        paragraphs: [
+            '你可以随时发邮件至 hello@brushllm.com 申请删除账户及全部数据。删除后,邮箱、密钥、余额记录与用量计数一并移除。',
+            '清除浏览器中 brushllm.com 的站点数据即可随时清除语言偏好。',
+        ],
+      },
+      {
+        heading: '政策变更',
+        paragraphs: [
+            '如本政策发生变化,我们会更新本页与上方日期。每一次变更的历史都在网站的开源仓库中公开可查。',
+        ],
+      },
+      ],
+      openSourceNote: '本页的一切均可验证:网站、控制台与三款应用全部在 github.com/BrushLLM 开源。',
     },
   },
 };

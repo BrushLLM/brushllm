@@ -50,6 +50,7 @@ const fr: Dictionary = {
     videoStudio: 'Video Studio',
     player: 'Player',
     aboutBrushLLM: 'À propos de BrushLLM',
+    privacyPolicy: 'Confidentialité',
     copyright: '© {year} BrushLLM · brushllm.com',
     poweredBy: 'propulsé par une passerelle compatible OpenAI',
   },
@@ -507,6 +508,60 @@ const fr: Dictionary = {
       text: 'Le lien est peut-être périmé ou la page a déménagé. Les modèles, eux, sont exactement là où vous les avez laissés.',
       backHome: 'Retour à l’accueil',
       browseModels: 'Voir les modèles',
+    },
+    privacy: {
+      metaDescription: 'Politique de confidentialité de BrushLLM — ce que nous collectons (presque rien), ce que nous ne faisons jamais, et comment le site et les applications traitent vos données.',
+      eyebrow: 'Confidentialité',
+      title: 'Politique de confidentialité',
+      titleBand: 'en mots simples',
+      updated: 'Dernière mise à jour : octobre 2026',
+      intro: 'BrushLLM est conçu avec la confidentialité comme priorité. Cette page explique, en mots simples, quelles données interviennent — et tout est vérifiable : le site et les trois applications de bureau sont open source sur GitHub.',
+      sections: [
+      {
+        heading: 'L\'essentiel',
+        paragraphs: [
+            'Nous ne collectons aucune donnée d\'analyse, n\'utilisons aucun traceur et ne diffusons aucune publicité. Vos prompts sont transmis au fournisseur du modèle et ne sont jamais stockés, vendus ni utilisés pour vous profiler. Les applications de bureau fonctionnent localement et n\'émettent aucune requête réseau hormis les fonctions d\'IA que vous activez.',
+        ],
+      },
+      {
+        heading: 'Ce site web (brushllm.com)',
+        paragraphs: [
+            'Le site est entièrement statique : aucun script d\'analyse, aucun pixel de suivi, aucune police tierce, aucun cookie, aucune prise d\'empreinte.',
+            'Le seul JavaScript présent concerne le comportement de la page : préférence de langue (uniquement dans le localStorage de votre navigateur), sélecteur de langue et accordéon FAQ. Rien n\'est envoyé nulle part.',
+            'Le site est servi par Cloudflare Pages. Comme tout CDN, Cloudflare traite des journaux en périphérie à des fins de sécurité ; nous n\'activons aucune analyse Cloudflare et ne recevons aucune donnée identifiée de visiteur.',
+        ],
+      },
+      {
+        heading: 'L\'API et la console (api.brushllm.com)',
+        paragraphs: [
+            'Pour utiliser l\'API, vous créez un compte avec une adresse e-mail. Nous conservons votre e-mail, votre solde et historique de rechargement, et les clés API que vous créez — le minimum pour qu\'un compte fonctionne.',
+            'Vos requêtes sont transmises au fournisseur du modèle concerné (DeepSeek, Qwen, GLM, Kimi, MiniMax, OpenAI et d\'autres) pour traitement. Nous ne stockons ni le contenu de vos prompts ni les réponses, ne les vendons pas et ne les utilisons pour aucun entraînement.',
+            'Nous tenons des compteurs d\'utilisation agrégés et anonymisés (tokens par modèle, requêtes par clé), car c\'est ainsi que fonctionne la facturation. Ils ne sont pas liés au contenu de vos requêtes.',
+            'Les paiements sont traités par le prestataire de paiement ; nous ne voyons ni ne stockons jamais de numéros de carte complets.',
+        ],
+      },
+      {
+        heading: 'Les applications de bureau (Image Studio, Video Studio, Player)',
+        paragraphs: [
+            'Les trois applications sont local-first : vos images, vidéos et fichiers ne quittent jamais votre machine sauf demande explicite. Video Studio et Player n\'émettent aucune requête réseau. Les fonctions d\'IA d\'Image Studio appellent l\'API BrushLLM uniquement à l\'usage, et uniquement avec le contenu de l\'image soumise pour cette opération.',
+            'Les clés API sont stockées dans le trousseau de votre système d\'exploitation, jamais en clair. Les applications ne contiennent ni télémétrie, ni comptes, ni publicité.',
+        ],
+      },
+      {
+        heading: 'Vos choix',
+        paragraphs: [
+            'Vous pouvez demander la suppression de votre compte et de ses données à tout moment en écrivant à hello@brushllm.com. La suppression efface e-mail, clés, relevés de solde et compteurs d\'utilisation.',
+            'Vous pouvez effacer la préférence de langue à tout moment en supprimant les données de site de brushllm.com dans votre navigateur.',
+        ],
+      },
+      {
+        heading: 'Modifications de cette politique',
+        paragraphs: [
+            'En cas de modification, nous mettrons à jour cette page et la date ci-dessus. L\'historique de chaque changement est public dans le dépôt GitHub du site.',
+        ],
+      },
+      ],
+      openSourceNote: 'Tout sur cette page est vérifiable : le site, la console et les trois applications sont open source sur github.com/BrushLLM.',
     },
   },
 };

@@ -60,6 +60,7 @@ const en = {
     videoStudio: 'Video Studio',
     player: 'Player',
     aboutBrushLLM: 'About BrushLLM',
+    privacyPolicy: 'Privacy Policy',
     copyright: '© {year} BrushLLM · brushllm.com',
     poweredBy: 'Powered by an OpenAI-compatible gateway',
   },
@@ -537,6 +538,62 @@ const en = {
       text: 'The link may be outdated or the page may have moved. The models, however, are exactly where you left them.',
       backHome: 'Back to home',
       browseModels: 'Browse models',
+    },
+
+    privacy: {
+      metaDescription: 'BrushLLM privacy policy — what we collect (almost nothing), what we never do, and how the open-source site and apps handle your data.',
+      eyebrow: 'Privacy',
+      title: 'Privacy policy',
+      titleBand: 'in plain words',
+      updated: 'Last updated: October 2026',
+      intro:
+        'BrushLLM is built privacy-first. This page explains, in plain words, what data touches what — and everything here is verifiable: this website and all three desktop apps are open source on GitHub, so you can check every claim yourself.',
+      sections: [
+        {
+          heading: 'The short version',
+          paragraphs: [
+            'We collect no analytics, run no trackers, and serve no ads. Your prompts are proxied to the upstream model provider and are never stored, sold, or used to profile you. The desktop apps run locally and make no network requests except the AI features you explicitly enable.',
+          ],
+        },
+        {
+          heading: 'This website (brushllm.com)',
+          paragraphs: [
+            'The marketing site is fully static. It embeds no analytics scripts, no tracking pixels, and no third-party fonts. We do not set cookies, and we do not fingerprint visitors.',
+            'The only JavaScript that runs is for page behavior: language preference (stored in your browser\u2019s localStorage only), the language switcher, and the FAQ accordion. Nothing is sent anywhere.',
+            'The site is served by Cloudflare Pages. As with any CDN, Cloudflare processes request logs at the edge for security and abuse prevention; we do not enable Cloudflare analytics and we do not receive identified visitor data.',
+          ],
+        },
+        {
+          heading: 'The API and the console (api.brushllm.com)',
+          paragraphs: [
+            'To use the API you create an account with an email address. We store your email, your balance and top-up history, and the API keys you create — that is the minimum an account needs to function.',
+            'Requests you send are proxied to the upstream model provider (DeepSeek, Qwen, GLM, Kimi, MiniMax, OpenAI and others) for processing. We do not store the content of your prompts or completions, we do not sell it, and we do not use it to train anything.',
+            'We keep aggregate, anonymized usage counters (tokens per model, requests per key) because that is how billing works. These records are not linked to the content of your requests.',
+            'Payment processing is handled by the payment provider; we never see or store full card numbers.',
+          ],
+        },
+        {
+          heading: 'The desktop apps (Image Studio, Video Studio, Player)',
+          paragraphs: [
+            'All three apps are local-first: your images, videos and files never leave your machine unless you explicitly ask them to. Video Studio and Player make zero network requests. Image Studio\u2019s AI features call the BrushLLM API only when you use them, and only with the content of the image you submitted for that operation.',
+            'API keys are stored in your operating system\u2019s keychain, never in plain files. The apps contain no telemetry, no accounts, and no ads.',
+          ],
+        },
+        {
+          heading: 'Your choices',
+          paragraphs: [
+            'You can request deletion of your account and its data at any time by emailing hello@brushllm.com. Deleting your account removes your email, keys, balance records and usage counters.',
+            'You can clear the language preference at any time by clearing your browser\u2019s site data for brushllm.com.',
+          ],
+        },
+        {
+          heading: 'Changes to this policy',
+          paragraphs: [
+            'If we change this policy we will update this page and the date above. The history of every change is public in the site\u2019s GitHub repository.',
+          ],
+        },
+      ],
+      openSourceNote: 'Everything on this page is checkable: the site, the console and all three apps are open source at github.com/BrushLLM.',
     },
   },
 };

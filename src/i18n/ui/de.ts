@@ -50,6 +50,7 @@ const de: Dictionary = {
     videoStudio: 'Video Studio',
     player: 'Player',
     aboutBrushLLM: 'Über BrushLLM',
+    privacyPolicy: 'Datenschutz',
     copyright: '© {year} BrushLLM · brushllm.com',
     poweredBy: 'Basiert auf einem OpenAI-kompatiblen Gateway',
   },
@@ -507,6 +508,60 @@ const de: Dictionary = {
       text: 'Der Link ist vielleicht veraltet oder die Seite ist umgezogen. Die Modelle aber stehen exakt dort, wo du sie verlassen hast.',
       backHome: 'Zur Startseite',
       browseModels: 'Modelle ansehen',
+    },
+    privacy: {
+      metaDescription: 'BrushLLM-Datenschutzerklärung — was wir erheben (fast nichts), was wir nie tun, und wie Website und Apps mit Ihren Daten umgehen.',
+      eyebrow: 'Datenschutz',
+      title: 'Datenschutzerklärung',
+      titleBand: 'in klaren Worten',
+      updated: 'Zuletzt aktualisiert: Oktober 2026',
+      intro: 'BrushLLM ist von Grund auf datenschutzorientiert. Diese Seite erklärt in klaren Worten, welche Daten wo anfallen — und alles hier ist überprüfbar: Website und alle drei Desktop-Apps sind Open Source auf GitHub.',
+      sections: [
+      {
+        heading: 'Das Wichtigste kurz',
+        paragraphs: [
+            'Wir erheben keine Analysedaten, setzen keine Tracker ein und schalten keine Werbung. Ihre Prompts werden an den Modellanbieter weitergeleitet und niemals gespeichert, verkauft oder zur Profilbildung genutzt. Die Desktop-Apps laufen lokal und stellen außer den von Ihnen aktivierten KI-Funktionen keine Netzwerkverbindungen her.',
+        ],
+      },
+      {
+        heading: 'Diese Website (brushllm.com)',
+        paragraphs: [
+            'Die Marketing-Website ist vollständig statisch: keine Analyse-Skripte, keine Tracking-Pixel, keine Schriftarten von Drittanbietern, keine Cookies, kein Fingerprinting.',
+            'Der einzige JavaScript-Einsatz dient dem Seitenverhalten: Spracheinstellung (nur im localStorage Ihres Browsers), Sprachumschalter und FAQ-Akkordeon. Es wird nichts gesendet.',
+            'Ausgeliefert wird die Seite über Cloudflare Pages. Wie jedes CDN verarbeitet Cloudflare Edge-Protokolle zu Sicherheitszwecken; wir aktivieren keine Cloudflare-Analysen und erhalten keine identifizierten Besucherdaten.',
+        ],
+      },
+      {
+        heading: 'API und Konsole (api.brushllm.com)',
+        paragraphs: [
+            'Für die API-Nutzung erstellen Sie ein Konto mit E-Mail-Adresse. Wir speichern Ihre E-Mail, Guthaben- und Aufladehistorie sowie die von Ihnen erstellten API-Schlüssel — das Minimum, damit ein Konto funktioniert.',
+            'Ihre Anfragen werden zur Verarbeitung an den jeweiligen Modellanbieter (DeepSeek, Qwen, GLM, Kimi, MiniMax, OpenAI und andere) weitergeleitet. Wir speichern weder Prompts noch Antworten, verkaufen sie nicht und nutzen sie nicht für Training.',
+            'Wir führen aggregierte, anonymisierte Nutzungszähler (Tokens pro Modell, Anfragen pro Schlüssel), da so die Abrechnung funktioniert. Diese Daten sind nicht mit den Inhalten Ihrer Anfragen verknüpft.',
+            'Zahlungen werden vom Zahlungsanbieter abgewickelt; wir sehen und speichern nie vollständige Kartendaten.',
+        ],
+      },
+      {
+        heading: 'Die Desktop-Apps (Image Studio, Video Studio, Player)',
+        paragraphs: [
+            'Alle drei Apps sind local-first: Ihre Bilder, Videos und Dateien verlassen Ihr Gerät nie, außer Sie fordern es ausdrücklich an. Video Studio und Player stellen null Netzwerkanfragen. Image Studios KI-Funktionen rufen die BrushLLM-API nur bei Nutzung auf — und nur mit dem Inhalt des jeweils übermittelten Bildes.',
+            'API-Schlüssel liegen im Keychain Ihres Betriebssystems, nie in Klartextdateien. Die Apps enthalten keine Telemetrie, keine Konten und keine Werbung.',
+        ],
+      },
+      {
+        heading: 'Ihre Rechte',
+        paragraphs: [
+            'Sie können die Löschung Ihres Kontos und aller zugehörigen Daten jederzeit per E-Mail an hello@brushllm.com anfordern. Mit der Löschung werden E-Mail, Schlüssel, Guthabendaten und Nutzungszähler entfernt.',
+            'Die gespeicherte Spracheinstellung können Sie jederzeit löschen, indem Sie die Website-Daten für brushllm.com in Ihrem Browser entfernen.',
+        ],
+      },
+      {
+        heading: 'Änderungen dieser Richtlinie',
+        paragraphs: [
+            'Bei Änderungen aktualisieren wir diese Seite und das Datum oben. Die Historie jeder Änderung ist öffentlich im GitHub-Repository der Website einsehbar.',
+        ],
+      },
+      ],
+      openSourceNote: 'Alles auf dieser Seite ist überprüfbar: Website, Konsole und alle drei Apps sind Open Source unter github.com/BrushLLM.',
     },
   },
 };

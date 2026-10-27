@@ -7,7 +7,7 @@ import type { Dictionary } from './index';
 
 const ko: Dictionary = {
   site: {
-    title: 'BrushLLM — 복잡함은 걷어낸 당신의 AI',
+    title: 'BrushLLM — AI 모델 정가 50%, 하나의 API',
     description: '하나의 API로 강력한 AI 모델에 접근하고, 무료 로컬 퍼스트 데스크톱 앱으로 창작하세요. BrushLLM은 개발자와 크리에이터를 위한 AI 플랫폼입니다.',
     organizationDescription: 'BrushLLM은 개발자와 크리에이터를 위한 AI 플랫폼입니다. AI 모델 서비스(강력한 AI 모델을 위한 단일 API)와 무료 로컬 퍼스트 데스크톱 앱 —— Image Studio, Video Studio, Player를 제공합니다.',
   },
@@ -53,6 +53,18 @@ const ko: Dictionary = {
     privacyPolicy: '개인정보 처리방침',
     copyright: '© {year} BrushLLM · brushllm.com',
     poweredBy: 'OpenAI 호환 게이트웨이 기반',
+  },
+
+  seo: {
+    home: 'BrushLLM — AI 모델 정가 50%, 하나의 API',
+    models: 'AI 모델 카탈로그 & 가격 (50% 할인)',
+    pricing: '종량제 요금 — 정가의 50%',
+    docs: 'API 퀵스타트 & 문서 (OpenAI 호환)',
+    apps: '무료 데스크톱 앱 — 이미지·동영상·플레이어',
+    about: 'BrushLLM 소개 — 하나의 API, 무료 앱, 50% 할인',
+    studio: 'Image Studio — 무료 오프라인 이미지 도구 상자',
+    'video-studio': 'Video Studio — 무료 로컬 동영상 도구 상자',
+    player: 'Player — 오픈소스 mpv 미디어 플레이어',
   },
 
   common: {

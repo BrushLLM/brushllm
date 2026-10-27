@@ -7,7 +7,7 @@ import type { Dictionary } from './index';
 
 const de: Dictionary = {
   site: {
-    title: 'BrushLLM — Deine KI, ohne die Komplexität',
+    title: 'BrushLLM — KI-Modelle zu 50% unter Listenpreis, eine API',
     description: 'Greife über eine API auf leistungsstarke KI-Modelle zu und erschaffe mit kostenlosen Local-First-Desktop-Apps. BrushLLM ist eine KI-Plattform für Entwickler und Kreative.',
     organizationDescription: 'BrushLLM ist eine KI-Plattform für Entwickler und Kreative mit KI-Modell-Diensten (eine API für leistungsstarke KI-Modelle) und kostenlosen Local-First-Desktop-Apps —— Image Studio, Video Studio und Player.',
   },
@@ -53,6 +53,18 @@ const de: Dictionary = {
     privacyPolicy: 'Datenschutz',
     copyright: '© {year} BrushLLM · brushllm.com',
     poweredBy: 'Basiert auf einem OpenAI-kompatiblen Gateway',
+  },
+
+  seo: {
+    home: 'BrushLLM — KI-Modelle zu 50% unter Listenpreis, eine API',
+    models: 'KI-Modell-Katalog & Preise (50% Rabatt)',
+    pricing: 'Nutzungsbasierte Preise — 50% des Listenpreises',
+    docs: 'API-Quickstart & Docs (OpenAI-kompatibel)',
+    apps: 'Kostenlose Desktop-Apps — Bild, Video, Player',
+    about: 'Über BrushLLM — eine API, kostenlose Apps, 50% Rabatt',
+    studio: 'Image Studio — kostenlose Offline-Bild-Toolbox',
+    'video-studio': 'Video Studio — kostenlose lokale Video-Toolbox',
+    player: 'Player — Open-Source-mvp-Mediaplayer',
   },
 
   common: {

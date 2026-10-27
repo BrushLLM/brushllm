@@ -98,7 +98,7 @@ const errorCodes = ['401', '404', '429', '402', '5xx'];
 const errors = d.errors.map((error, i) => ({ code: errorCodes[i] ?? '', ...error }));
 ---
 
-<BaseLayout locale={locale} title={t.nav.docs} description={d.metaDescription}>
+<BaseLayout locale={locale} title={t.seo.docs} description={d.metaDescription}>
   <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6">
     <p class="text-sm font-semibold text-brush-violet">{d.eyebrow}</p>
     <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">

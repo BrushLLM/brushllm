@@ -7,7 +7,7 @@ import type { Dictionary } from './index';
 
 const ja: Dictionary = {
   site: {
-    title: 'BrushLLM — 複雑さを排した、あなたの AI',
+    title: 'BrushLLM — AI モデルが定価の50%、ひとつの API',
     description: 'ひとつの API で強力な AI モデルへアクセスし、無料のローカルファースト・デスクトップアプリで創作する。BrushLLM は開発者とクリエイターのための AI プラットフォームです。',
     organizationDescription: 'BrushLLM は開発者とクリエイターのための AI プラットフォームです。AI モデルサービス（強力な AI モデルへの単一 API）と、無料のローカルファースト・デスクトップアプリ —— Image Studio・Video Studio・Player を提供します。',
   },
@@ -53,6 +53,18 @@ const ja: Dictionary = {
     privacyPolicy: 'プライバシーポリシー',
     copyright: '© {year} BrushLLM · brushllm.com',
     poweredBy: 'OpenAI 互換ゲートウェイで駆動',
+  },
+
+  seo: {
+    home: 'BrushLLM — AI モデルが定価の50%、ひとつの API',
+    models: 'AI モデルカタログと料金(50% オフ)',
+    pricing: '従量課金の料金 — 定価の50%',
+    docs: 'API クイックスタート & ドキュメント(OpenAI 互換)',
+    apps: '無料デスクトップアプリ — 画像・動画・プレイヤー',
+    about: 'BrushLLM について — ひとつの API、無料アプリ、50% オフ',
+    studio: 'Image Studio — 無料オフライン画像ツールボックス',
+    'video-studio': 'Video Studio — 無料ローカル動画ツールボックス',
+    player: 'Player — オープンソース mpv メディアプレイヤー',
   },
 
   common: {

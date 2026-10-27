@@ -14,7 +14,7 @@
  */
 const en = {
   site: {
-    title: 'BrushLLM — Your AI, Without the Complexity',
+    title: 'BrushLLM — AI Models at 50% Off List Prices, One API',
     description:
       'Access powerful AI models through one API, and create with free local-first desktop apps. BrushLLM is an AI platform for developers and creators.',
     organizationDescription:
@@ -63,6 +63,18 @@ const en = {
     privacyPolicy: 'Privacy Policy',
     copyright: '© {year} BrushLLM · brushllm.com',
     poweredBy: 'Powered by an OpenAI-compatible gateway',
+  },
+
+  seo: {
+    home: 'BrushLLM — AI Models at 50% Off List Prices, One API',
+    models: 'AI Models Catalog & Prices (50% Off)',
+    pricing: 'Pay-As-You-Go Pricing — 50% of List',
+    docs: 'API Quickstart & Docs (OpenAI Compatible)',
+    apps: 'Free Desktop Apps — Image, Video, Player',
+    about: 'About BrushLLM — One API, Free Apps, 50% Off',
+    studio: 'Image Studio — Free Offline Image Toolbox',
+    'video-studio': 'Video Studio — Free Local Video Toolbox',
+    player: 'Player — Open-Source mpv Media Player',
   },
 
   common: {

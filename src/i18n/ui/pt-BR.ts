@@ -7,7 +7,7 @@ import type { Dictionary } from './index';
 
 const ptBR: Dictionary = {
   site: {
-    title: 'BrushLLM — Sua IA, sem a complexidade',
+    title: 'BrushLLM — Modelos de IA a 50% do preço de tabela, uma API',
     description: 'Acesse modelos de IA poderosos por meio de uma única API e crie com aplicativos de desktop gratuitos, locais por padrão. O BrushLLM é uma plataforma de IA para desenvolvedores e criadores.',
     organizationDescription: 'O BrushLLM é uma plataforma de IA para desenvolvedores e criadores, oferecendo Serviços de Modelos de IA (uma API para modelos de IA poderosos) e aplicativos de desktop gratuitos, locais por padrão —— Image Studio, Video Studio e Player.',
   },
@@ -53,6 +53,18 @@ const ptBR: Dictionary = {
     privacyPolicy: 'Política de Privacidade',
     copyright: '© {year} BrushLLM · brushllm.com',
     poweredBy: 'Movido por um gateway compatível com OpenAI',
+  },
+
+  seo: {
+    home: 'BrushLLM — Modelos de IA a 50% do preço de tabela, uma API',
+    models: 'Catálogo e preços de modelos de IA (50% off)',
+    pricing: 'Preços pay-as-you-go — 50% da tabela',
+    docs: 'Início rápido e docs da API (compatível OpenAI)',
+    apps: 'Apps de desktop gratuitos — imagem, vídeo, player',
+    about: 'Sobre o BrushLLM — uma API, apps grátis, 50% off',
+    studio: 'Image Studio — caixa de imagens offline gratuita',
+    'video-studio': 'Video Studio — caixa de vídeo local gratuita',
+    player: 'Player — reprodutor open source baseado no mpv',
   },
 
   common: {

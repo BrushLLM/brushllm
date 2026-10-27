@@ -7,7 +7,7 @@ import type { Dictionary } from './index';
 
 const zhCN: Dictionary = {
   site: {
-    title: 'BrushLLM — 你的 AI，化繁为简',
+    title: 'BrushLLM — AI 模型官方价 5 折，一个 API 全接入',
     description: '通过一个 API 访问强大的 AI 模型，并用免费的本地优先桌面应用进行创作。BrushLLM 是面向开发者与创作者的 AI 平台。',
     organizationDescription:
       'BrushLLM 是面向开发者与创作者的 AI 平台，提供 AI 模型服务（一个 API 访问强大的 AI 模型）以及免费的本地优先桌面应用 —— Image Studio、Video Studio 和 Player。',
@@ -55,6 +55,18 @@ const zhCN: Dictionary = {
     privacyPolicy: '隐私政策',
     copyright: '© {year} BrushLLM · brushllm.com',
     poweredBy: '由 OpenAI 兼容网关驱动',
+  },
+
+  seo: {
+    home: 'BrushLLM — AI 模型官方价 5 折，一个 API 全接入',
+    models: 'AI 模型目录与价格（5 折）',
+    pricing: '按量计费，官方价 5 折',
+    docs: 'API 快速开始与文档（OpenAI 兼容）',
+    apps: '免费桌面应用 — 图像/视频/播放器',
+    about: '关于 BrushLLM — 一个 API，免费应用，5 折',
+    studio: 'Image Studio — 免费离线图像工具箱',
+    'video-studio': 'Video Studio — 免费本地视频工具箱',
+    player: 'Player — 开源 mpv 媒体播放器',
   },
 
   common: {

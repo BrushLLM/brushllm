@@ -101,24 +101,28 @@ const en = {
     apps: {
       'image-studio': {
         tagline: 'Local-first AI image toolbox',
+        metaDescription: 'Free, local-first image toolbox for macOS & Windows. Convert, compress and crop offline, or remove backgrounds and generative fill via BrushLLM API.',
         description:
           'A free desktop image toolbox. Everyday edits — convert, compress, crop, watermark, EXIF — run entirely on your device; AI features like background removal and generative fill route through the BrushLLM gateway, billed per image.',
         highlights: ['25+ local tools', 'AI edits via BrushLLM API', '9 languages', 'Zero telemetry'],
       },
       'video-studio': {
         tagline: 'Local video, audio & subtitle toolbox',
+        metaDescription: 'Free, offline video, audio & subtitle toolbox for macOS & Windows. Convert, compress, merge, trim and normalize — 100% local processing.',
         description:
           'A free, offline toolbox for video, audio and subtitle processing. Convert, compress, merge, trim, normalize loudness, fix subtitle encodings — 100% local processing, zero network requests.',
         highlights: ['25+ tools', '100% local processing', '9 languages', 'Zero network requests'],
       },
       player: {
         tagline: 'Open media player built on mpv',
+        metaDescription: 'Open-source media player built on mpv for macOS & Windows. Every format, plus WebDAV, SMB, FTP, Emby and Jellyfin streaming. HDR output included.',
         description:
           'An open-source, cross-platform media player. Every format mpv plays, plus streaming from WebDAV, SMB, FTP, Emby and Jellyfin — with HDR output, hardware decoding and a 9-language UI.',
         highlights: ['Every format via mpv', 'WebDAV · SMB · Emby · Jellyfin', 'HDR & hardware decode', '9 languages'],
       },
     },
     models: {
+      gridHeading: 'Available AI models',
       'gpt-5.2': 'ChatGPT’s flagship — strong general reasoning, vision and tool use.',
       'gpt-5.2-mini': 'Fast, cheap ChatGPT tier for high-volume chat, classification and extraction.',
       'deepseek-chat': 'Flagship non-thinking model. Fast, cheap, and excellent at general chat and tool use.',
@@ -414,7 +418,7 @@ const en = {
     },
 
     studio: {
-      metaDescription: '{tagline} — {description}',
+      metaDescription: 'Free, local-first image toolbox for macOS & Windows. Convert, compress and crop offline, or remove backgrounds and generative fill via BrushLLM API.',
       badge: 'Desktop app · Free + pay-per-AI',
       intro:
         'Every local tool is free and runs entirely on your device — Rust engine, no uploads. AI features call the same {apiLink} that powers the rest of the platform, billed per image at {ratesLink}.',
@@ -448,7 +452,7 @@ const en = {
     },
 
     videoStudio: {
-      metaDescription: '{tagline} — {description}',
+      metaDescription: 'Free, offline video, audio & subtitle toolbox for macOS & Windows. Convert, compress, merge, trim and normalize — 100% local processing.',
       badge: 'Desktop app · Free',
       intro:
         '100% local processing — your media never leaves the machine. FFmpeg binaries are pinned and SHA-256 verified, the engine runs a pause/resume job queue, and 175 automated tests keep the toolbox honest.',
@@ -488,7 +492,7 @@ const en = {
     },
 
     player: {
-      metaDescription: '{tagline} — {description}',
+      metaDescription: 'Open-source media player built on mpv for macOS & Windows. Every format, plus WebDAV, SMB, FTP, Emby and Jellyfin streaming. HDR output included.',
       badge: 'Desktop app · Open source',
       intro:
         'The macOS app is a native Swift + SwiftUI build around libmpv; the Windows app is a Tauri rewrite with the same mpv core. Zero telemetry, updates checked only when you ask.',

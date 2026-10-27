@@ -17,4 +17,8 @@ await sharp(join(root, 'src/assets/logo.png')).resize(32, 32).png()
   .png().toFile(join(root, 'public/favicon-32.png'));
 await sharp(join(root, 'src/assets/logo.png')).resize(180, 180).png().toFile(join(root, 'public/apple-touch-icon.png'));
 
-console.log('gen-brand-assets: wrote favicon-32.png + apple-touch-icon.png from logo.png');
+// 72px nav/footer logo (Retina 2x for the 36px display) — the 1024px source
+// stays untouched for favicon/og generation
+await sharp(join(root, 'src/assets/logo.png')).resize(72, 72).png({ palette: true, compressionLevel: 9 }).toFile(join(root, 'src/assets/logo-nav.png'));
+
+console.log('gen-brand-assets: wrote favicon-32.png + apple-touch-icon.png + logo-nav.png from logo.png');

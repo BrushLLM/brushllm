@@ -90,21 +90,25 @@ const zhTW: Dictionary = {
     apps: {
       'image-studio': {
         tagline: '本機優先的 AI 影像工具箱',
+        metaDescription: '免費本機優先的影像工具箱,支援 macOS 與 Windows。離線轉換、壓縮、裁切,或透過 BrushLLM API 移除背景、生成填充。',
         description: '免費的桌面影像工具箱。日常編輯 —— 轉檔、壓縮、裁切、浮水印、EXIF —— 全部在你的裝置上完成；背景移除、生成式填充等 AI 功能透過 BrushLLM 閘道呼叫，按張計費。',
         highlights: ['25+ 本機工具', 'AI 編輯走 BrushLLM API', '9 種語言', '零遙測'],
       },
       'video-studio': {
         tagline: '本機影片、音訊與字幕工具箱',
+        metaDescription: '免費離線的影片/音訊/字幕工具箱,支援 macOS 與 Windows。轉換、壓縮、合併、剪輯 — 100% 本機處理。',
         description: '免費、離線的影片/音訊/字幕處理工具箱。轉檔、壓縮、合併、修剪、響度歸一化、修復字幕編碼 —— 100% 本機處理，零網路請求。',
         highlights: ['25+ 工具', '100% 本機處理', '9 種語言', '零網路請求'],
       },
       player: {
         tagline: '基於 mpv 的開源媒體播放器',
+        metaDescription: '基於 mpv 的開源媒體播放器,支援 macOS 與 Windows。全格式播放,支援 WebDAV、SMB、FTP、Emby、Jellyfin 串流與 HDR 輸出。',
         description: '開源、跨平台的媒體播放器。mpv 能播的格式它都能播，還支援 WebDAV、SMB、FTP、Emby 與 Jellyfin 串流 —— 支援 HDR 輸出、硬體解碼與 9 種語言介面。',
         highlights: ['mpv 全格式', 'WebDAV · SMB · Emby · Jellyfin', 'HDR 與硬體解碼', '9 種語言'],
       },
     },
     models: {
+      gridHeading: '可用 AI 模型',
       'gpt-5.2': 'ChatGPT 旗艦 —— 綜合推理、視覺與工具呼叫能力俱強。',
       'gpt-5.2-mini': '快速、低價的 ChatGPT 級距，適合大批量對話、分類與擷取。',
       'deepseek-chat': '旗艦非思考模型。快速、便宜，通用對話與工具呼叫表現出色。',
@@ -388,7 +392,7 @@ const zhTW: Dictionary = {
     },
 
     studio: {
-      metaDescription: '{tagline} —— {description}',
+      metaDescription: '免費本機優先的影像工具箱,支援 macOS 與 Windows。離線轉換、壓縮、裁切,或透過 BrushLLM API 移除背景、生成填充。',
       badge: '桌面應用 · 免費 + AI 按量付費',
       intro: '每個本機工具都免費且完全在你的裝置上執行 —— Rust 引擎、零上傳。AI 功能呼叫驅動整個平台的同一個{apiLink}，按張、按{ratesLink}計費。',
       introApiLink: 'BrushLLM API',
@@ -421,7 +425,7 @@ const zhTW: Dictionary = {
     },
 
     videoStudio: {
-      metaDescription: '{tagline} —— {description}',
+      metaDescription: '免費離線的影片/音訊/字幕工具箱,支援 macOS 與 Windows。轉換、壓縮、合併、剪輯 — 100% 本機處理。',
       badge: '桌面應用 · 免費',
       intro: '100% 本機處理 —— 你的媒體從不離開這台機器。FFmpeg 二進位固定版本並經 SHA-256 驗證，引擎帶暫停/恢復任務佇列，175 個自動化測試為工具箱把關。',
       groups: [
@@ -460,7 +464,7 @@ const zhTW: Dictionary = {
     },
 
     player: {
-      metaDescription: '{tagline} —— {description}',
+      metaDescription: '基於 mpv 的開源媒體播放器,支援 macOS 與 Windows。全格式播放,支援 WebDAV、SMB、FTP、Emby、Jellyfin 串流與 HDR 輸出。',
       badge: '桌面應用 · 開源',
       intro: 'macOS 版是圍繞 libmpv 的原生 Swift + SwiftUI 應用；Windows 版是同一 mpv 核心的 Tauri 重寫。零遙測，僅在你主動詢問時才檢查更新。',
       groups: [

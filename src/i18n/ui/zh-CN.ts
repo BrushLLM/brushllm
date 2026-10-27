@@ -92,24 +92,28 @@ const zhCN: Dictionary = {
     apps: {
       'image-studio': {
         tagline: '本地优先的 AI 图像工具箱',
+        metaDescription: '免费本地优先的图像工具箱,支持 macOS 与 Windows。离线转换、压缩、裁剪,或通过 BrushLLM API 移除背景、生成填充。',
         description:
           '一款免费的桌面图像工具箱。日常编辑 —— 格式转换、压缩、裁剪、水印、EXIF —— 全部在你的设备上完成；背景移除、生成式填充等 AI 功能经由 BrushLLM 网关处理，按张计费。',
         highlights: ['25+ 本地工具', 'AI 编辑走 BrushLLM API', '9 种语言', '零遥测'],
       },
       'video-studio': {
         tagline: '本地视频、音频与字幕工具箱',
+        metaDescription: '免费离线的视频/音频/字幕工具箱,支持 macOS 与 Windows。转换、压缩、合并、剪辑 — 100% 本地处理。',
         description:
           '一款免费、离线的视频、音频与字幕处理工具箱。转换、压缩、合并、剪辑、响度归一化、修复字幕编码 —— 100% 本地处理，零网络请求。',
         highlights: ['25+ 工具', '100% 本地处理', '9 种语言', '零网络请求'],
       },
       player: {
         tagline: '基于 mpv 的开源媒体播放器',
+        metaDescription: '基于 mpv 的开源媒体播放器,支持 macOS 与 Windows。全格式播放,支持 WebDAV、SMB、FTP、Emby、Jellyfin 流媒体与 HDR 输出。',
         description:
           '一款开源、跨平台的媒体播放器。支持 mpv 能播的所有格式，并可从 WebDAV、SMB、FTP、Emby 和 Jellyfin 串流播放 —— 支持 HDR 输出、硬件解码和 9 种语言界面。',
         highlights: ['mpv 全格式', 'WebDAV · SMB · Emby · Jellyfin', 'HDR 与硬件解码', '9 种语言'],
       },
     },
     models: {
+      gridHeading: '可用 AI 模型',
       'gpt-5.2': 'ChatGPT 旗舰 —— 综合推理、视觉与工具调用能力俱强。',
       'gpt-5.2-mini': '快速、低价的 ChatGPT 档位，适合高频对话、分类与信息抽取。',
       'deepseek-chat': '旗舰非思考模型。快速、便宜，通用对话与工具调用表现出色。',
@@ -403,7 +407,7 @@ const zhCN: Dictionary = {
     },
 
     studio: {
-      metaDescription: '{tagline} —— {description}',
+      metaDescription: '免费本地优先的图像工具箱,支持 macOS 与 Windows。离线转换、压缩、裁剪,或通过 BrushLLM API 移除背景、生成填充。',
       badge: '桌面应用 · 免费 + AI 按量计费',
       intro:
         '每个本地工具都免费且完全在你的设备上运行 —— Rust 引擎、不上传。AI 功能调用驱动整个平台的同一个{apiLink}，按张计费，价格{ratesLink}。',
@@ -437,7 +441,7 @@ const zhCN: Dictionary = {
     },
 
     videoStudio: {
-      metaDescription: '{tagline} —— {description}',
+      metaDescription: '免费离线的视频/音频/字幕工具箱,支持 macOS 与 Windows。转换、压缩、合并、剪辑 — 100% 本地处理。',
       badge: '桌面应用 · 免费',
       intro:
         '100% 本地处理 —— 你的媒体从不离开这台机器。FFmpeg 二进制固定版本并经 SHA-256 校验，引擎带暂停/恢复任务队列，175 个自动化测试守护工具箱的可靠。',
@@ -477,7 +481,7 @@ const zhCN: Dictionary = {
     },
 
     player: {
-      metaDescription: '{tagline} —— {description}',
+      metaDescription: '基于 mpv 的开源媒体播放器,支持 macOS 与 Windows。全格式播放,支持 WebDAV、SMB、FTP、Emby、Jellyfin 流媒体与 HDR 输出。',
       badge: '桌面应用 · 开源',
       intro:
         'macOS 版是围绕 libmpv 的原生 Swift + SwiftUI 构建；Windows 版是采用同一 mpv 内核的 Tauri 重写。零遥测，仅在你主动询问时检查更新。',

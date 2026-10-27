@@ -1,3 +1,6 @@
+# Canonical sitemap entry point (tools probe /sitemap.xml by default)
+/sitemap.xml  /sitemap-index.xml  301
+
 # Locale-URL normalization (Cloudflare Pages).
 # Visitors land on lowercase or region-tagged variants (e.g. /en-us/,
 # /pt-br/...) from stale caches, extensions or mistyped links; serve the

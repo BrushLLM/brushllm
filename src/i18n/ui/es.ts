@@ -90,21 +90,25 @@ const es: Dictionary = {
     apps: {
       'image-studio': {
         tagline: 'Caja de herramientas de imágenes con IA, de uso local',
+        metaDescription: 'Caja de imágenes gratuita y local para macOS y Windows. Convierte, comprime y recorta sin conexión, o elimina fondos con la API de BrushLLM.',
         description: 'Una caja de herramientas de imágenes de escritorio gratuita. Las ediciones cotidianas —— convertir, comprimir, recortar, marcas de agua, EXIF —— se ejecutan por completo en tu dispositivo; funciones de IA como quitar el fondo y el relleno generativo pasan por la pasarela de BrushLLM, con facturación por imagen.',
         highlights: ['25+ herramientas locales', 'Ediciones con IA vía la API de BrushLLM', '9 idiomas', 'Cero telemetría'],
       },
       'video-studio': {
         tagline: 'Caja de herramientas local de vídeo, audio y subtítulos',
+        metaDescription: 'Caja offline gratuita de vídeo, audio y subtítulos para macOS y Windows. Convertir, comprimir, unir, recortar — 100% procesamiento local.',
         description: 'Una caja de herramientas gratuita y sin conexión para procesar vídeo, audio y subtítulos. Convertir, comprimir, unir, recortar, normalizar sonoridad, arreglar codificaciones de subtítulos —— procesamiento 100% local, cero peticiones de red.',
         highlights: ['25+ herramientas', 'Procesamiento 100% local', '9 idiomas', 'Cero peticiones de red'],
       },
       player: {
         tagline: 'Reproductor multimedia de código abierto basado en mpv',
+        metaDescription: 'Reproductor de código abierto basado en mpv para macOS y Windows. Todos los formatos, más streaming WebDAV, SMB, FTP, Emby y Jellyfin. Salida HDR incluida.',
         description: 'Un reproductor multimedia de código abierto y multiplataforma. Todos los formatos que mpv reproduce, más streaming desde WebDAV, SMB, FTP, Emby y Jellyfin —— con salida HDR, decodificación por hardware e interfaz en 9 idiomas.',
         highlights: ['Todos los formatos vía mpv', 'WebDAV · SMB · Emby · Jellyfin', 'HDR y decodificación por hardware', '9 idiomas'],
       },
     },
     models: {
+      gridHeading: 'Modelos de IA disponibles',
       'gpt-5.2': 'El buque insignia de ChatGPT —— razonamiento general, visión y uso de herramientas muy sólidos.',
       'gpt-5.2-mini': 'Nivel de ChatGPT rápido y barato para chat de alto volumen, clasificación y extracción.',
       'deepseek-chat': 'Modelo insignia sin modo de razonamiento. Rápido, barato y excelente en chat general y uso de herramientas.',
@@ -388,7 +392,7 @@ const es: Dictionary = {
     },
 
     studio: {
-      metaDescription: '{tagline} —— {description}',
+      metaDescription: 'Caja de imágenes gratuita y local para macOS y Windows. Convierte, comprime y recorta sin conexión, o elimina fondos con la API de BrushLLM.',
       badge: 'App de escritorio · Gratis + IA por uso',
       intro: 'Cada herramienta local es gratuita y se ejecuta por completo en tu dispositivo —— motor en Rust, sin subidas. Las funciones de IA llaman a la misma {apiLink} que impulsa el resto de la plataforma, facturadas por imagen a {ratesLink}.',
       introApiLink: 'API de BrushLLM',
@@ -421,7 +425,7 @@ const es: Dictionary = {
     },
 
     videoStudio: {
-      metaDescription: '{tagline} —— {description}',
+      metaDescription: 'Caja offline gratuita de vídeo, audio y subtítulos para macOS y Windows. Convertir, comprimir, unir, recortar — 100% procesamiento local.',
       badge: 'App de escritorio · Gratis',
       intro: 'Procesamiento 100% local —— tus medios nunca salen de la máquina. Los binarios de FFmpeg están fijados y verificados con SHA-256, el motor gestiona una cola de trabajos pausable y 175 pruebas automatizadas mantienen la caja de herramientas honesta.',
       groups: [
@@ -460,7 +464,7 @@ const es: Dictionary = {
     },
 
     player: {
-      metaDescription: '{tagline} —— {description}',
+      metaDescription: 'Reproductor de código abierto basado en mpv para macOS y Windows. Todos los formatos, más streaming WebDAV, SMB, FTP, Emby y Jellyfin. Salida HDR incluida.',
       badge: 'App de escritorio · Código abierto',
       intro: 'La app de macOS es una construcción nativa en Swift + SwiftUI alrededor de libmpv; la de Windows es una reescritura en Tauri con el mismo núcleo mpv. Cero telemetría, actualizaciones solo cuando las pides.',
       groups: [

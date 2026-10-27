@@ -90,21 +90,25 @@ const ptBR: Dictionary = {
     apps: {
       'image-studio': {
         tagline: 'Caixa de ferramentas de imagens com IA, local por padrão',
+        metaDescription: 'Caixa de imagens gratuita e local para macOS e Windows. Converta, comprima e corte offline, ou remova fundos pela API do BrushLLM.',
         description: 'Uma caixa de ferramentas de imagens para desktop, gratuita. Edições do dia a dia —— converter, comprimir, cortar, marca d’água, EXIF —— rodam inteiramente no seu dispositivo; recursos de IA como remoção de fundo e preenchimento generativo passam pelo gateway do BrushLLM, cobrados por imagem.',
         highlights: ['25+ ferramentas locais', 'Edições com IA via API BrushLLM', '9 idiomas', 'Zero telemetria'],
       },
       'video-studio': {
         tagline: 'Caixa de ferramentas local de vídeo, áudio e legendas',
+        metaDescription: 'Caixa offline gratuita de vídeo, áudio e legendas para macOS e Windows. Converter, comprimir, juntar, cortar — 100% processamento local.',
         description: 'Uma caixa de ferramentas gratuita e offline para processar vídeo, áudio e legendas. Converter, comprimir, mesclar, aparar, normalizar loudness, corrigir codificações de legenda —— processamento 100% local, zero requisições de rede.',
         highlights: ['25+ ferramentas', 'Processamento 100% local', '9 idiomas', 'Zero requisições de rede'],
       },
       player: {
         tagline: 'Player de mídia open source construído sobre mpv',
+        metaDescription: 'Reprodutor de mídia de código aberto baseado no mpv para macOS e Windows. Todos os formatos, mais streaming WebDAV, SMB, FTP, Emby e Jellyfin. Saída HDR inclusa.',
         description: 'Um player de mídia open source e multiplataforma. Todo formato que o mpv reproduz, mais streaming de WebDAV, SMB, FTP, Emby e Jellyfin —— com saída HDR, decodificação por hardware e interface em 9 idiomas.',
         highlights: ['Todo formato via mpv', 'WebDAV · SMB · Emby · Jellyfin', 'HDR e decodificação por hardware', '9 idiomas'],
       },
     },
     models: {
+      gridHeading: 'Modelos de IA disponíveis',
       'gpt-5.2': 'O carro-chefe do ChatGPT —— raciocínio geral, visão e uso de ferramentas muito fortes.',
       'gpt-5.2-mini': 'Nível do ChatGPT rápido e barato para chat de alto volume, classificação e extração.',
       'deepseek-chat': 'Modelo carro-chefe sem modo de raciocínio. Rápido, barato e excelente em chat geral e uso de ferramentas.',
@@ -388,7 +392,7 @@ const ptBR: Dictionary = {
     },
 
     studio: {
-      metaDescription: '{tagline} —— {description}',
+      metaDescription: 'Caixa de imagens gratuita e local para macOS e Windows. Converta, comprima e corte offline, ou remova fundos pela API do BrushLLM.',
       badge: 'App de desktop · Grátis + IA por uso',
       intro: 'Cada ferramenta local é gratuita e roda inteiramente no seu dispositivo —— motor em Rust, sem uploads. Os recursos de IA chamam a mesma {apiLink} que alimenta o resto da plataforma, cobrados por imagem nas {ratesLink}.',
       introApiLink: 'API do BrushLLM',
@@ -421,7 +425,7 @@ const ptBR: Dictionary = {
     },
 
     videoStudio: {
-      metaDescription: '{tagline} —— {description}',
+      metaDescription: 'Caixa offline gratuita de vídeo, áudio e legendas para macOS e Windows. Converter, comprimir, juntar, cortar — 100% processamento local.',
       badge: 'App de desktop · Grátis',
       intro: 'Processamento 100% local —— sua mídia nunca sai da máquina. Os binários do FFmpeg são fixados e verificados por SHA-256, o motor roda uma fila de tarefas pausável e 175 testes automatizados mantêm a caixa de ferramentas honesta.',
       groups: [
@@ -460,7 +464,7 @@ const ptBR: Dictionary = {
     },
 
     player: {
-      metaDescription: '{tagline} —— {description}',
+      metaDescription: 'Reprodutor de mídia de código aberto baseado no mpv para macOS e Windows. Todos os formatos, mais streaming WebDAV, SMB, FTP, Emby e Jellyfin. Saída HDR inclusa.',
       badge: 'App de desktop · Open source',
       intro: 'O app para macOS é uma construção nativa em Swift + SwiftUI sobre libmpv; o app para Windows é uma reescrita em Tauri com o mesmo núcleo mpv. Zero telemetria, atualizações verificadas só quando você pede.',
       groups: [

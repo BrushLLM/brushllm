@@ -90,21 +90,25 @@ const ja: Dictionary = {
     apps: {
       'image-studio': {
         tagline: 'ローカルファーストの AI 画像ツールボックス',
+        metaDescription: 'macOS & Windows 向け無料のローカル画像ツールボックス。オフラインで変換・圧縮・クロップ、BrushLLM API で背景除去や生成塗りつぶし。',
         description: '無料のデスクトップ画像ツールボックス。変換・圧縮・切り抜き・透かし・EXIF といった日常編集はすべて端末内で完結。背景除去や生成塗りつぶしなどの AI 機能は BrushLLM ゲートウェイ経由で、1 枚ごとの課金です。',
         highlights: ['25+ のローカルツール', 'AI 編集は BrushLLM API 経由', '9 言語対応', 'テレメトリゼロ'],
       },
       'video-studio': {
         tagline: 'ローカル完結の動画・音声・字幕ツールボックス',
+        metaDescription: 'macOS & Windows 向け無料オフラインの動画・音声・字幕ツールボックス。変換・圧縮・結合・トリミング — 100% ローカル処理。',
         description: '無料のオフライン動画/音声/字幕処理ツールボックス。変換・圧縮・結合・トリミング・ラウドネス正規化・字幕エンコード修正 —— 100% ローカル処理、ネットワーク通信ゼロ。',
         highlights: ['25+ のツール', '100% ローカル処理', '9 言語対応', 'ネットワーク通信ゼロ'],
       },
       player: {
         tagline: 'mpv ベースのオープンソースメディアプレイヤー',
+        metaDescription: 'mpv ベースのオープンソースメディアプレイヤー(macOS & Windows)。全形式対応に加え WebDAV、SMB、FTP、Emby、Jellyfin ストリーミング、HDR 出力対応。',
         description: 'オープンソースのクロスプラットフォームメディアプレイヤー。mpv が再生できる全フォーマットに加え、WebDAV・SMB・FTP・Emby・Jellyfin からのストリーミングに対応 —— HDR 出力、ハードウェアデコード、9 言語 UI を備えます。',
         highlights: ['mpv で全フォーマット', 'WebDAV · SMB · Emby · Jellyfin', 'HDR とハードウェアデコード', '9 言語対応'],
       },
     },
     models: {
+      gridHeading: '利用可能な AI モデル',
       'gpt-5.2': 'ChatGPT のフラッグシップ —— 汎用推論・ビジョン・ツール利用すべて強力。',
       'gpt-5.2-mini': '高速・低価格の ChatGPT ティア。大量のチャット・分類・抽出に最適。',
       'deepseek-chat': 'フラッグシップの非思考モデル。高速・安価で、汎用チャットとツール利用に優れる。',
@@ -388,7 +392,7 @@ const ja: Dictionary = {
     },
 
     studio: {
-      metaDescription: '{tagline} —— {description}',
+      metaDescription: 'macOS & Windows 向け無料のローカル画像ツールボックス。オフラインで変換・圧縮・クロップ、BrushLLM API で背景除去や生成塗りつぶし。',
       badge: 'デスクトップアプリ · 無料 + AI は従量課金',
       intro: 'すべてのローカルツールが無料で、完全に端末内で動作 —— Rust エンジン、アップロードなし。AI 機能はプラットフォーム全体を支える同じ{apiLink}を呼び出し、{ratesLink}で枚単位の課金です。',
       introApiLink: 'BrushLLM API',
@@ -421,7 +425,7 @@ const ja: Dictionary = {
     },
 
     videoStudio: {
-      metaDescription: '{tagline} —— {description}',
+      metaDescription: 'macOS & Windows 向け無料オフラインの動画・音声・字幕ツールボックス。変換・圧縮・結合・トリミング — 100% ローカル処理。',
       badge: 'デスクトップアプリ · 無料',
       intro: '100% ローカル処理 —— メディアがこのマシンから出ることはありません。FFmpeg バイナリはバージョン固定かつ SHA-256 検証済み、エンジンは一時停止/再開可能なジョブキューを備え、175 個の自動テストが信頼性を担保します。',
       groups: [
@@ -460,7 +464,7 @@ const ja: Dictionary = {
     },
 
     player: {
-      metaDescription: '{tagline} —— {description}',
+      metaDescription: 'mpv ベースのオープンソースメディアプレイヤー(macOS & Windows)。全形式対応に加え WebDAV、SMB、FTP、Emby、Jellyfin ストリーミング、HDR 出力対応。',
       badge: 'デスクトップアプリ · オープンソース',
       intro: 'macOS 版は libmpv を核とするネイティブ Swift + SwiftUI アプリ、Windows 版は同じ mpv コアを持つ Tauri による書き直しです。テレメトリゼロ、更新確認はあなたが求めたときだけ。',
       groups: [

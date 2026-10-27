@@ -32,6 +32,7 @@ const badge = Astro.props.badge ?? 'Desktop app · Free';
 const appTr = t.data.apps[app.id as keyof typeof t.data.apps];
 const tagline = appTr.tagline;
 const description = appTr.description;
+const metaDescription = appTr.metaDescription ?? `${tagline} — ${description}`;
 
 const schema: Record<string, unknown> = {
   '@type': 'SoftwareApplication',
@@ -47,7 +48,7 @@ const schema: Record<string, unknown> = {
 };
 ---
 
-<BaseLayout locale={locale} title={app.name} description={`${tagline} — ${description}`} extraSchema={[schema, ...extraSchema]}>
+<BaseLayout locale={locale} title={app.name} description={metaDescription} extraSchema={[schema, ...extraSchema]}>
   <section class="relative mx-auto max-w-4xl overflow-hidden px-4 py-20 text-center sm:px-6">
     <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
       <BrushStroke shape="sweep" color="violet" class="absolute -top-10 -left-40 w-[620px] -rotate-6 opacity-15" />
@@ -59,7 +60,7 @@ const schema: Record<string, unknown> = {
       {badge}
     </span>
     <h1 class="mt-6 text-4xl font-bold tracking-tight text-balance sm:text-5xl">
-      BrushLLM {app.name},
+      BrushLLM {app.name} —
       <span class="relative inline-block">
         <span>{tagline}</span>
         <BrushStroke shape="underline" color="orange" class="absolute -bottom-2 left-0 h-2.5 w-full" />

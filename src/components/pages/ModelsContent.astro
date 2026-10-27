@@ -116,6 +116,7 @@ const metaDescription = m.metaDescription.replace('{count}', String(models.lengt
     </div>
 
     <!-- grid -->
+    <h2 class="sr-only">{m.gridHeading}</h2>
     <div id="model-grid" class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {models.map((model) => <ModelCard model={model} locale={locale} />)}
     </div>

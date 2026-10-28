@@ -53,6 +53,8 @@ const zhCN: Dictionary = {
     player: 'Player',
     aboutBrushLLM: '关于 BrushLLM',
     privacyPolicy: '隐私政策',
+    termsOfService: '服务条款',
+    refundPolicy: '退款政策',
     copyright: '© {year} BrushLLM · brushllm.com',
     poweredBy: '由 OpenAI 兼容网关驱动',
   },
@@ -570,6 +572,103 @@ const zhCN: Dictionary = {
       title: '常见问题',
     },
 
+    legal: {
+      contact: '对本页内容有疑问?请邮件至',
+    },
+
+    terms: {
+      metaDescription: 'BrushLLM 服务条款 — 账户、API 密钥、预充值计费、可接受使用与责任限制。',
+      eyebrow: '服务条款',
+      title: '服务条款',
+      titleBand: '用大白话说',
+      updated: '最后更新:2026 年 10 月',
+      intro: '本条款适用于你对 BrushLLM(AI 模型服务 API 与免费桌面应用)的使用。这里的一切都是公开的:网站、控制台与应用全部开源,你可以自行验证我们的每一条说法。',
+      sections: [
+        {
+          heading: '服务内容',
+          paragraphs: [
+            'BrushLLM 提供 OpenAI 兼容的 API,将请求路由至上游模型提供商(DeepSeek、Qwen、GLM、Kimi、MiniMax、OpenAI 等),并提供免费开源的桌面应用。模型输出由上游提供商生成;我们是网关,不是模型的作者。',
+          ],
+        },
+        {
+          heading: '账户与 API 密钥',
+          paragraphs: [
+            '你以邮箱注册账户,并在控制台管理 API 密钥。密钥由你负责——妥善保管、设置消费额度、及时吊销可能泄露的密钥。密钥产生的用量计入你的账户。',
+          ],
+        },
+        {
+          heading: '计费:预充值、按量扣费',
+          paragraphs: [
+            '你通过 Stripe 以美元预充值。用量实时扣减 — 文本模型按 token、图像模型按张计费。所有模型价格均为厂商官方价格的 50%。余额不过期。无订阅、无最低消费。',
+          ],
+        },
+        {
+          heading: '可接受使用',
+          paragraphs: [
+            '不得将服务用于违法内容、攻击或使服务过载、绕过速率限制、或未经协议转售访问。我们可能暂停违规密钥。上游提供商的条款同样适用于你发送的内容。',
+          ],
+        },
+        {
+          heading: '服务可用性与变更',
+          paragraphs: [
+            '我们力争持续可用,但不承诺正常运行时间。模型可用性与价格可能随上游提供商调整而变化;价格变化仅影响未来用量,绝不影响你已持有的余额。重大变更会在网站上公布。',
+          ],
+        },
+        {
+          heading: '终止',
+          paragraphs: [
+            '你可以随时关闭账户并申请退还未使用余额(见退款政策)。我们可能因滥用或欺诈终止账户,并退还未使用余额(扣除造成的损失)。',
+          ],
+        },
+        {
+          heading: '责任限制',
+          paragraphs: [
+            '服务按“现状”提供。在法律允许的最大范围内,我们的总责任以你账户中的预充值余额为限。我们对间接或后果性损害、以及模型输出内容不承担责任。',
+          ],
+        },
+      ],
+    },
+    refund: {
+      metaDescription: 'BrushLLM 退款政策 — 未使用的预充值余额全额可退,无手续费、无时限,原路退回。',
+      eyebrow: '退款政策',
+      title: '退款政策',
+      titleBand: '用大白话说',
+      updated: '最后更新:2026 年 10 月',
+      intro: 'BrushLLM 是预充值 + 按量计费:先充值,用量实时扣减,剩余部分始终属于你。本页说明退款的具体规则。',
+      sections: [
+        {
+          heading: '一句话版本',
+          paragraphs: [
+            '未使用的预充值余额全额可退 — 无手续费、无时限。已消费的用量(实际使用的 token 或图像)不可退。退款通过 Stripe 原路退回。',
+          ],
+        },
+        {
+          heading: '如何申请退款',
+          paragraphs: [
+            '用注册邮箱发邮件至 support@brushllm.com,主题写“退款申请”。我们在 2 个工作日内处理;资金到账需 5-10 个工作日,取决于你的银行。无需表格,不问原因。',
+          ],
+        },
+        {
+          heading: '不可退的部分',
+          paragraphs: [
+            '已消费的用量 — 已计入你账户的 token 与图像 — 不可退款,包括免费额度用尽后的用量或意外的大额请求。建议为每个密钥设置消费额度以控制支出。',
+          ],
+        },
+        {
+          heading: '手续费',
+          paragraphs: [
+            '我们不收取任何退款手续费。Stripe 不退还原始处理手续费,但该成本由我们承担:你收到的是完整的未使用金额。',
+          ],
+        },
+        {
+          heading: '账户关闭',
+          paragraphs: [
+            '关闭账户时自动包含对剩余余额的退款申请。账户与用量记录随后按隐私政策删除。',
+          ],
+        },
+      ],
+    },
+
     privacy: {
       metaDescription: 'BrushLLM 隐私政策 — 我们收集什么(几乎不收集)、绝不做的事,以及开源网站与应用如何处理你的数据。',
       eyebrow: '隐私',
@@ -611,7 +710,7 @@ const zhCN: Dictionary = {
       {
         heading: '你的选择',
         paragraphs: [
-            '你可以随时发邮件至 hello@brushllm.com 申请删除账户及全部数据。删除后,邮箱、密钥、余额记录与用量计数一并移除。',
+            '你可以随时发邮件至 support@brushllm.com 申请删除账户及全部数据。删除后,邮箱、密钥、余额记录与用量计数一并移除。',
             '清除浏览器中 brushllm.com 的站点数据即可随时清除语言偏好。',
         ],
       },

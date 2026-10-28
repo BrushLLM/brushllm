@@ -51,6 +51,8 @@ const zhTW: Dictionary = {
     player: 'Player',
     aboutBrushLLM: '關於 BrushLLM',
     privacyPolicy: '隱私政策',
+    termsOfService: '服務條款',
+    refundPolicy: '退款政策',
     copyright: '© {year} BrushLLM · brushllm.com',
     poweredBy: '由 OpenAI 相容閘道驅動',
   },
@@ -551,6 +553,103 @@ const zhTW: Dictionary = {
       title: '常見問題',
     },
 
+    legal: {
+      contact: '對本頁內容有疑問?請郵件至',
+    },
+
+    terms: {
+      metaDescription: 'BrushLLM 服務條款 — 帳戶、API 金鑰、預儲值計費、可接受使用與責任限制。',
+      eyebrow: '服務條款',
+      title: '服務條款',
+      titleBand: '用白話說',
+      updated: '最後更新:2026 年 10 月',
+      intro: '本條款適用於你對 BrushLLM(AI 模型服務 API 與免費桌面應用)的使用。這裡的一切都是公開的:網站、控制台與應用全部開源,你可以自行驗證我們的每一條說法。',
+      sections: [
+        {
+          heading: '服務內容',
+          paragraphs: [
+            'BrushLLM 提供 OpenAI 相容的 API,將請求路由至上游模型提供商(DeepSeek、Qwen、GLM、Kimi、MiniMax、OpenAI 等),並提供免費開源的桌面應用。模型輸出由上游提供商生成;我們是閘道,不是模型的作者。',
+          ],
+        },
+        {
+          heading: '帳戶與 API 金鑰',
+          paragraphs: [
+            '你以電子郵件註冊帳戶,並在控制台管理 API 金鑰。金鑰由你負責 — 妥善保管、設定消費額度、及時吊銷可能洩露的金鑰。金鑰產生的用量計入你的帳戶。',
+          ],
+        },
+        {
+          heading: '計費:預儲值、按量扣費',
+          paragraphs: [
+            '你透過 Stripe 以美元預儲值。用量即時扣減 — 文字模型按 token、圖像模型按張計費。所有模型價格均為廠商官方價格的 50%。餘額不過期。無訂閱、無最低消費。',
+          ],
+        },
+        {
+          heading: '可接受使用',
+          paragraphs: [
+            '不得將服務用於違法內容、攻擊或使服務過載、繞過速率限制、或未經協議轉售存取。我們可能暫停違規金鑰。上游提供商的條款同樣適用於你傳送的內容。',
+          ],
+        },
+        {
+          heading: '服務可用性與變更',
+          paragraphs: [
+            '我們力爭持續可用,但不承諾正常運行時間。模型可用性與價格可能隨上游提供商調整而變化;價格變化僅影響未來用量,絕不影響你已持有的餘額。重大變更會在網站上公布。',
+          ],
+        },
+        {
+          heading: '終止',
+          paragraphs: [
+            '你可以隨時關閉帳戶並申請退還未使用餘額(見退款政策)。我們可能因濫用或詐欺終止帳戶,並退還未使用餘額(扣除造成的損失)。',
+          ],
+        },
+        {
+          heading: '責任限制',
+          paragraphs: [
+            '服務按「現狀」提供。在法律允許的最大範圍內,我們的總責任以你帳戶中的預儲值餘額為限。我們對間接或後果性損害、以及模型輸出內容不承擔責任。',
+          ],
+        },
+      ],
+    },
+    refund: {
+      metaDescription: 'BrushLLM 退款政策 — 未使用的預儲值餘額全額可退,無手續費、無時限,原路退回。',
+      eyebrow: '退款政策',
+      title: '退款政策',
+      titleBand: '用白話說',
+      updated: '最後更新:2026 年 10 月',
+      intro: 'BrushLLM 是預儲值 + 按量計費:先儲值,用量即時扣減,剩餘部分始終屬於你。本頁說明退款的具體規則。',
+      sections: [
+        {
+          heading: '一句話版本',
+          paragraphs: [
+            '未使用的預儲值餘額全額可退 — 無手續費、無時限。已消費的用量(實際使用的 token 或圖像)不可退。退款透過 Stripe 原路退回。',
+          ],
+        },
+        {
+          heading: '如何申請退款',
+          paragraphs: [
+            '用註冊信箱寄郵件至 support@brushllm.com,主旨寫「退款申請」。我們在 2 個工作日內處理;資金到帳需 5-10 個工作日,取決於你的銀行。無需表單,不問原因。',
+          ],
+        },
+        {
+          heading: '不可退的部分',
+          paragraphs: [
+            '已消費的用量 — 已計入你帳戶的 token 與圖像 — 不可退款,包括免費額度用盡後的用量或意外的大額請求。建議為每個金鑰設定消費額度以控制支出。',
+          ],
+        },
+        {
+          heading: '手續費',
+          paragraphs: [
+            '我們不收取任何退款手續費。Stripe 不退還原始處理手續費,但該成本由我們承擔:你收到的是完整的未使用金額。',
+          ],
+        },
+        {
+          heading: '帳戶關閉',
+          paragraphs: [
+            '關閉帳戶時自動包含對剩餘餘額的退款申請。帳戶與用量紀錄隨後按隱私政策刪除。',
+          ],
+        },
+      ],
+    },
+
     privacy: {
       metaDescription: 'BrushLLM 隱私政策 — 我們收集什麼(幾乎不收集)、絕不做的事,以及開源網站與應用如何處理你的資料。',
       eyebrow: '隱私',
@@ -592,7 +691,7 @@ const zhTW: Dictionary = {
       {
         heading: '你的選擇',
         paragraphs: [
-            '你可以隨時寄電子郵件至 hello@brushllm.com 申請刪除帳戶及全部資料。刪除後,電子郵件、金鑰、餘額紀錄與用量計數一併移除。',
+            '你可以隨時寄電子郵件至 support@brushllm.com 申請刪除帳戶及全部資料。刪除後,電子郵件、金鑰、餘額紀錄與用量計數一併移除。',
             '清除瀏覽器中 brushllm.com 的網站資料即可隨時清除語言偏好。',
         ],
       },

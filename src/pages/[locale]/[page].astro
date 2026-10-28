@@ -1,0 +1,17 @@
+---
+import LegalContent from '../../components/pages/LegalContent.astro';
+import type { LocaleCode } from '../../config';
+
+export function getStaticPaths() {
+  return (['de', 'es', 'fr', 'pt-BR', 'ja', 'zh-CN', 'zh-TW', 'ko'] as LocaleCode[]).flatMap((locale) =>
+    (['terms', 'refund'] as const).map((page) => ({
+      params: { locale, page },
+      props: { locale, page },
+    })),
+  );
+}
+
+const { locale, page } = Astro.props;
+---
+
+<LegalContent locale={locale} page={page} />

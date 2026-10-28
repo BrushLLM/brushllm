@@ -51,6 +51,8 @@ const fr: Dictionary = {
     player: 'Player',
     aboutBrushLLM: 'À propos de BrushLLM',
     privacyPolicy: 'Confidentialité',
+    termsOfService: 'Conditions d\u2019utilisation',
+    refundPolicy: 'Remboursement',
     copyright: '© {year} BrushLLM · brushllm.com',
     poweredBy: 'propulsé par une passerelle compatible OpenAI',
   },
@@ -551,6 +553,103 @@ const fr: Dictionary = {
       title: 'Questions fréquentes',
     },
 
+    legal: {
+      contact: 'Des questions sur cette page ? Écrivez à',
+    },
+
+    terms: {
+      metaDescription: 'Conditions d\'utilisation de BrushLLM — comptes, clés API, facturation prépayée, usage acceptable et limitation de responsabilité.',
+      eyebrow: 'Conditions d\'utilisation',
+      title: 'Conditions d\'utilisation',
+      titleBand: 'en mots simples',
+      updated: 'Dernière mise à jour : octobre 2026',
+      intro: 'Ces conditions régissent votre utilisation de BrushLLM — l\'API AI Model Services et les applications de bureau gratuites. Tout est public : le site, la console et les apps sont open source.',
+      sections: [
+        {
+          heading: 'Le service',
+          paragraphs: [
+            'BrushLLM fournit une API compatible OpenAI qui route les requêtes vers les fournisseurs de modèles (DeepSeek, Qwen, GLM, Kimi, MiniMax, OpenAI et autres), plus des applications de bureau gratuites et open source. Les sorties sont générées par les fournisseurs ; nous sommes une passerelle, pas l\'auteur du modèle.',
+          ],
+        },
+        {
+          heading: 'Votre compte et vos clés API',
+          paragraphs: [
+            'Vous créez un compte avec une adresse e-mail et gérez les clés dans la console. Les clés sont sous votre responsabilité — stockez-les en sécurité, définissez des plafonds de dépense et révoquez toute clé compromise. L\'usage sous vos clés est facturé à votre compte.',
+          ],
+        },
+        {
+          heading: 'Facturation : prépayé, à l\'usage',
+          paragraphs: [
+            'Vous rechargez un solde prépayé en USD via Stripe. L\'usage est déduit en direct — par token pour les modèles texte, par image pour les modèles d\'image. Chaque modèle coûte 50% du tarif officiel. Le solde n\'expire pas. Sans abonnement ni minimum.',
+          ],
+        },
+        {
+          heading: 'Usage acceptable',
+          paragraphs: [
+            'N\'utilisez pas le service pour du contenu illicite, des attaques, de la surcharge, le contournement des limites ni la revente d\'accès sans accord. Nous pouvons suspendre les clés fautives. Les conditions des fournisseurs s\'appliquent aussi au contenu envoyé.',
+          ],
+        },
+        {
+          heading: 'Disponibilité et modifications',
+          paragraphs: [
+            'Nous visons une disponibilité continue sans garantie de temps de fonctionnement. Modèles et tarifs peuvent changer avec les fournisseurs ; les changements de prix ne s\'appliquent qu\'à l\'usage futur, jamais au solde déjà acquis. Les changements importants sont annoncés sur le site.',
+          ],
+        },
+        {
+          heading: 'Résiliation',
+          paragraphs: [
+            'Vous pouvez fermer votre compte à tout moment et demander le remboursement du solde inutilisé (voir Politique de remboursement). Nous pouvons résilier les comptes pour abus ou fraude, avec remboursement du solde inutilisé moins les dommages causés.',
+          ],
+        },
+        {
+          heading: 'Limitation de responsabilité',
+          paragraphs: [
+            'Le service est fourni tel quel. Dans la mesure permise par la loi, notre responsabilité totale est limitée au solde prépayé de votre compte. Nous ne sommes pas responsables des dommages indirects ni du contenu des sorties des modèles.',
+          ],
+        },
+      ],
+    },
+    refund: {
+      metaDescription: 'Politique de remboursement de BrushLLM — le solde prépayé inutilisé est remboursé intégralement, sans frais ni délai, vers le moyen de paiement d\'origine.',
+      eyebrow: 'Politique de remboursement',
+      title: 'Politique de remboursement',
+      titleBand: 'en mots simples',
+      updated: 'Dernière mise à jour : octobre 2026',
+      intro: 'BrushLLM est prépayé et à l\'usage : vous rechargez un solde, l\'usage est déduit en direct, le reste vous appartient. Cette page explique exactement comment fonctionnent les remboursements.',
+      sections: [
+        {
+          heading: 'L\'essentiel',
+          paragraphs: [
+            'Le solde prépayé inutilisé est remboursé intégralement — sans frais ni délai. L\'usage déjà consommé (tokens ou images) n\'est pas remboursable. Les remboursements retournent vers le moyen de paiement d\'origine via Stripe.',
+          ],
+        },
+        {
+          heading: 'Comment demander un remboursement',
+          paragraphs: [
+            'Écrivez depuis l\'adresse de votre compte à support@brushllm.com avec pour objet Demande de remboursement. Nous traitons sous 2 jours ouvrés ; les fonds mettent ensuite 5–10 jours ouvrés selon votre banque. Sans formulaires ni questions.',
+          ],
+        },
+        {
+          heading: 'Ce qui n\'est pas remboursable',
+          paragraphs: [
+            'L\'usage consommé — tokens et images déjà facturés — n\'est pas remboursable, y compris l\'usage après épuisement du niveau gratuit ou les grosses requêtes accidentelles. Nous recommandons des plafonds de dépense par clé.',
+          ],
+        },
+        {
+          heading: 'Frais',
+          paragraphs: [
+            'Nous ne prélevons aucun frais de remboursement. Stripe ne nous restitue pas les frais de traitement initiaux, mais ce coût est le nôtre, pas le vôtre : vous recevez le montant inutilisé intégral.',
+          ],
+        },
+        {
+          heading: 'Fermeture de compte',
+          paragraphs: [
+            'La fermeture du compte inclut automatiquement une demande de remboursement du solde restant. Les données sont supprimées conformément à la Politique de confidentialité.',
+          ],
+        },
+      ],
+    },
+
     privacy: {
       metaDescription: 'Politique de confidentialité de BrushLLM — ce que nous collectons (presque rien), ce que nous ne faisons jamais, et comment le site et les applications traitent vos données.',
       eyebrow: 'Confidentialité',
@@ -592,7 +691,7 @@ const fr: Dictionary = {
       {
         heading: 'Vos choix',
         paragraphs: [
-            'Vous pouvez demander la suppression de votre compte et de ses données à tout moment en écrivant à hello@brushllm.com. La suppression efface e-mail, clés, relevés de solde et compteurs d\'utilisation.',
+            'Vous pouvez demander la suppression de votre compte et de ses données à tout moment en écrivant à support@brushllm.com. La suppression efface e-mail, clés, relevés de solde et compteurs d\'utilisation.',
             'Vous pouvez effacer la préférence de langue à tout moment en supprimant les données de site de brushllm.com dans votre navigateur.',
         ],
       },

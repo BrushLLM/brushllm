@@ -51,6 +51,8 @@ const es: Dictionary = {
     player: 'Player',
     aboutBrushLLM: 'Acerca de BrushLLM',
     privacyPolicy: 'Política de privacidad',
+    termsOfService: 'Términos del servicio',
+    refundPolicy: 'Reembolso',
     copyright: '© {year} BrushLLM · brushllm.com',
     poweredBy: 'Impulsado por una pasarela compatible con OpenAI',
   },
@@ -551,6 +553,103 @@ const es: Dictionary = {
       title: 'Preguntas frecuentes',
     },
 
+    legal: {
+      contact: '¿Preguntas sobre esta página? Escribe a',
+    },
+
+    terms: {
+      metaDescription: 'Términos del servicio de BrushLLM — cuentas, claves API, facturación prepago, uso aceptable y limitación de responsabilidad.',
+      eyebrow: 'Términos del servicio',
+      title: 'Términos del servicio',
+      titleBand: 'en palabras claras',
+      updated: 'Última actualización: octubre de 2026',
+      intro: 'Estos términos rigen tu uso de BrushLLM — la API de AI Model Services y las aplicaciones de escritorio gratuitas. Todo aquí es público: el sitio, la consola y las apps son de código abierto.',
+      sections: [
+        {
+          heading: 'El servicio',
+          paragraphs: [
+            'BrushLLM ofrece una API compatible con OpenAI que enruta solicitudes a proveedores de modelos (DeepSeek, Qwen, GLM, Kimi, MiniMax, OpenAI y otros), además de apps de escritorio gratuitas y de código abierto. Los resultados los generan los proveedores; somos una pasarela, no el autor del modelo.',
+          ],
+        },
+        {
+          heading: 'Tu cuenta y claves API',
+          paragraphs: [
+            'Creas una cuenta con correo y gestionas las claves en la consola. Las claves son tu responsabilidad — guárdalas con seguridad, asigna límites de gasto y revoca cualquier clave comprometida. El uso bajo tus claves se factura a tu cuenta.',
+          ],
+        },
+        {
+          heading: 'Facturación: prepago, por uso',
+          paragraphs: [
+            'Recargas saldo prepago en USD vía Stripe. El uso se descuenta en vivo — por token en modelos de texto, por imagen en modelos de imagen. Cada modelo cuesta el 50% del precio de lista oficial. El saldo no caduca. Sin suscripciones ni mínimos.',
+          ],
+        },
+        {
+          heading: 'Uso aceptable',
+          paragraphs: [
+            'No uses el servicio para contenido ilegal, ataques, sobrecarga, eludir límites ni revender acceso sin acuerdo. Podemos suspender claves que incumplan. Los términos del proveedor también se aplican al contenido enviado.',
+          ],
+        },
+        {
+          heading: 'Disponibilidad y cambios',
+          paragraphs: [
+            'Buscamos disponibilidad continua, sin garantía de uptime. Modelos y precios pueden cambiar con los proveedores; los cambios de precio aplican solo al uso futuro, nunca al saldo ya adquirido. Anunciaremos cambios relevantes en el sitio.',
+          ],
+        },
+        {
+          heading: 'Terminación',
+          paragraphs: [
+            'Puedes cerrar tu cuenta en cualquier momento y solicitar el reembolso del saldo no usado (ver Política de reembolso). Podemos terminar cuentas por abuso o fraude, reembolsando el saldo no usado menos los daños causados.',
+          ],
+        },
+        {
+          heading: 'Limitación de responsabilidad',
+          paragraphs: [
+            'El servicio se ofrece tal cual. En la medida permitida por la ley, nuestra responsabilidad total se limita al saldo prepago de tu cuenta. No respondemos por daños indirectos ni por el contenido de los modelos.',
+          ],
+        },
+      ],
+    },
+    refund: {
+      metaDescription: 'Política de reembolso de BrushLLM — el saldo prepago no utilizado se reembolsa íntegro, sin comisiones ni plazo, al método de pago original.',
+      eyebrow: 'Política de reembolso',
+      title: 'Política de reembolso',
+      titleBand: 'en palabras claras',
+      updated: 'Última actualización: octubre de 2026',
+      intro: 'BrushLLM es prepago y por uso: recargas saldo, el uso se descuenta en vivo y el resto es tuyo. Esta página explica exactamente cómo funcionan los reembolsos.',
+      sections: [
+        {
+          heading: 'Lo esencial',
+          paragraphs: [
+            'El saldo prepago no utilizado se reembolsa íntegro — sin comisiones ni plazo. El uso ya consumido (tokens o imágenes) no es reembolsable. Los reembolsos vuelven al método de pago original vía Stripe.',
+          ],
+        },
+        {
+          heading: 'Cómo solicitar un reembolso',
+          paragraphs: [
+            'Escribe desde el correo de tu cuenta a support@brushllm.com con el asunto Solicitud de reembolso. Procesamos en 2 días hábiles; los fondos tardan 5–10 días hábiles según tu banco. Sin formularios ni preguntas.',
+          ],
+        },
+        {
+          heading: 'Qué no es reembolsable',
+          paragraphs: [
+            'El uso consumido — tokens e imágenes ya facturados — no es reembolsable, incluido el uso tras agotar el nivel gratuito o solicitudes accidentales de gran tamaño. Recomendamos límites de gasto por clave.',
+          ],
+        },
+        {
+          heading: 'Comisiones',
+          paragraphs: [
+            'No cobramos comisiones de reembolso. Stripe no nos devuelve la comisión original, pero ese coste es nuestro, no tuyo: recibes el importe íntegro no utilizado.',
+          ],
+        },
+        {
+          heading: 'Cierre de cuenta',
+          paragraphs: [
+            'Cerrar la cuenta incluye automáticamente la solicitud de reembolso del saldo restante. Los registros se eliminan según la Política de privacidad.',
+          ],
+        },
+      ],
+    },
+
     privacy: {
       metaDescription: 'Política de privacidad de BrushLLM — qué recopilamos (casi nada), qué nunca hacemos y cómo el sitio y las aplicaciones tratan tus datos.',
       eyebrow: 'Privacidad',
@@ -592,7 +691,7 @@ const es: Dictionary = {
       {
         heading: 'Tus decisiones',
         paragraphs: [
-            'Puedes solicitar la eliminación de tu cuenta y sus datos en cualquier momento escribiendo a hello@brushllm.com. Eliminar la cuenta borra tu correo, claves, registros de saldo y contadores de uso.',
+            'Puedes solicitar la eliminación de tu cuenta y sus datos en cualquier momento escribiendo a support@brushllm.com. Eliminar la cuenta borra tu correo, claves, registros de saldo y contadores de uso.',
             'Puedes borrar la preferencia de idioma eliminando los datos del sitio para brushllm.com en tu navegador.',
         ],
       },

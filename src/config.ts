@@ -11,7 +11,7 @@ export const SITE = {
   title: 'BrushLLM — Your AI, Without the Complexity',
   description:
     'Access powerful AI models through one API, and create with free local-first desktop apps. BrushLLM is an AI platform for developers and creators.',
-  contactEmail: 'hello@brushllm.com',
+  contactEmail: 'support@brushllm.com',
 } as const;
 
 /**

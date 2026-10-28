@@ -51,6 +51,8 @@ const de: Dictionary = {
     player: 'Player',
     aboutBrushLLM: 'Über BrushLLM',
     privacyPolicy: 'Datenschutz',
+    termsOfService: 'Nutzungsbedingungen',
+    refundPolicy: 'Rückerstattung',
     copyright: '© {year} BrushLLM · brushllm.com',
     poweredBy: 'Basiert auf einem OpenAI-kompatiblen Gateway',
   },
@@ -551,6 +553,103 @@ const de: Dictionary = {
       title: 'Häufige Fragen',
     },
 
+    legal: {
+      contact: 'Fragen zu dieser Seite? Schreiben Sie an',
+    },
+
+    terms: {
+      metaDescription: 'Nutzungsbedingungen von BrushLLM — Konto, API-Schlüssel, Prepaid-Abrechnung, zulässige Nutzung und Haftungsbegrenzung.',
+      eyebrow: 'Nutzungsbedingungen',
+      title: 'Nutzungsbedingungen',
+      titleBand: 'in klaren Worten',
+      updated: 'Zuletzt aktualisiert: Oktober 2026',
+      intro: 'Diese Bedingungen regeln Ihre Nutzung von BrushLLM — der AI-Model-Services-API und den kostenlosen Desktop-Apps. Alles hier ist öffentlich: Website, Konsole und Apps sind Open Source.',
+      sections: [
+        {
+          heading: 'Der Dienst',
+          paragraphs: [
+            'BrushLLM bietet eine OpenAI-kompatible API, die Anfragen an Upstream-Modellanbieter (DeepSeek, Qwen, GLM, Kimi, MiniMax, OpenAI und andere) weiterleitet, plus kostenlose Open-Source-Desktop-Apps. Modellausgaben werden von den Upstream-Anbietern erzeugt; wir sind ein Gateway, nicht der Modellautor.',
+          ],
+        },
+        {
+          heading: 'Konto und API-Schlüssel',
+          paragraphs: [
+            'Sie erstellen ein Konto mit E-Mail-Adresse und verwalten API-Schlüssel in der Konsole. Schlüssel liegen in Ihrer Verantwortung — sicher aufbewahren, Ausgabenlimits setzen, kompromittierte Schlüssel widerrufen. Nutzung unter Ihren Schlüsseln wird Ihrem Konto belastet.',
+          ],
+        },
+        {
+          heading: 'Abrechnung: Prepaid, nutzungsbasiert',
+          paragraphs: [
+            'Sie laden ein Prepaid-Guthaben in USD per Stripe auf. Die Nutzung wird live abgezogen — pro Token für Textmodelle, pro Bild für Bildmodelle. Jedes Modell kostet 50% des offiziellen Listenpreises. Guthaben verfällt nicht. Keine Abos, keine Mindestbeträge.',
+          ],
+        },
+        {
+          heading: 'Zulässige Nutzung',
+          paragraphs: [
+            'Der Dienst darf nicht für rechtswidrige Inhalte, Angriffe, Überlastung, Umgehung von Rate-Limits oder Weiterverkauf ohne Vereinbarung genutzt werden. Wir können verstörende Schlüssel sperren. Die Bedingungen der Upstream-Anbieter gelten ebenfalls.',
+          ],
+        },
+        {
+          heading: 'Verfügbarkeit und Änderungen',
+          paragraphs: [
+            'Wir streben durchgehende Verfügbarkeit an, garantieren aber keine Uptime. Modellverfügbarkeit und Preise können sich mit Upstream-Änderungen ändern; Preisänderungen gelten nur für künftige Nutzung, nie für bereits gehaltenes Guthaben. Wesentliche Änderungen werden auf der Website angekündigt.',
+          ],
+        },
+        {
+          heading: 'Kündigung',
+          paragraphs: [
+            'Sie können Ihr Konto jederzeit schließen und eine Rückerstattung des ungenutzten Guthabens beantragen (siehe Rückerstattungsrichtlinie). Wir können Konten bei Missbrauch oder Betrug kündigen, mit Rückerstattung des ungenutzten Guthabens abzüglich verursachter Schäden.',
+          ],
+        },
+        {
+          heading: 'Haftungsbegrenzung',
+          paragraphs: [
+            'Der Dienst wird wie besehen bereitgestellt. Soweit gesetzlich zulässig ist unsere Gesamthaftung auf das in Ihrem Konto gehaltene Prepaid-Guthaben begrenzt. Wir haften nicht für indirekte Schäden oder den Inhalt von Modellausgaben.',
+          ],
+        },
+      ],
+    },
+    refund: {
+      metaDescription: 'BrushLLM-Rückerstattungsrichtlinie — ungenutztes Prepaid-Guthaben wird vollständig erstattet, ohne Gebühren, ohne Befristung, zurück auf die ursprüngliche Zahlungsmethode.',
+      eyebrow: 'Rückerstattungsrichtlinie',
+      title: 'Rückerstattungsrichtlinie',
+      titleBand: 'in klaren Worten',
+      updated: 'Zuletzt aktualisiert: Oktober 2026',
+      intro: 'BrushLLM ist Prepaid und nutzungsbasiert: Sie laden Guthaben auf, die Nutzung wird live abgezogen, der Rest gehört Ihnen. Diese Seite erklärt genau, wie Rückerstattungen funktionieren.',
+      sections: [
+        {
+          heading: 'Das Wichtigste kurz',
+          paragraphs: [
+            'Ungenutztes Prepaid-Guthaben wird vollständig erstattet — ohne Gebühren, ohne Befristung. Bereits verbrauchte Nutzung (Tokens oder Bilder) ist nicht erstattungsfähig. Rückerstattungen erfolgen per Stripe zurück auf die ursprüngliche Zahlungsmethode.',
+          ],
+        },
+        {
+          heading: 'So beantragen Sie eine Rückerstattung',
+          paragraphs: [
+            'Schreiben Sie von Ihrer Konto-Adresse eine E-Mail an support@brushllm.com mit dem Betreff Rückerstattungsantrag. Wir bearbeiten Anfragen innerhalb von 2 Werktagen; der Betrag braucht dann je nach Bank 5–10 Werktage. Keine Formulare, keine Rückfragen.',
+          ],
+        },
+        {
+          heading: 'Was nicht erstattet wird',
+          paragraphs: [
+            'Verbrauchte Nutzung — die bereits abgerechneten Tokens und Bilder — ist nicht erstattungsfähig, einschließlich Nutzung nach Erschöpfung des Gratis-Kontingents oder versehentlicher Großanfragen. Wir empfehlen Ausgabenlimits pro Schlüssel.',
+          ],
+        },
+        {
+          heading: 'Gebühren',
+          paragraphs: [
+            'Wir berechnen keinerlei Rückerstattungsgebühren. Stripe erstattet uns die ursprüngliche Verarbeitungsgebühr nicht, aber diese Kosten tragen wir, nicht Sie: Sie erhalten den vollen ungenutzten Betrag.',
+          ],
+        },
+        {
+          heading: 'Kontoschließung',
+          paragraphs: [
+            'Die Kontoschließung umfasst automatisch einen Rückerstattungsantrag für das Restguthaben. Konto- und Nutzungsaufzeichnungen werden gemäß Datenschutzerklärung gelöscht.',
+          ],
+        },
+      ],
+    },
+
     privacy: {
       metaDescription: 'BrushLLM-Datenschutzerklärung — was wir erheben (fast nichts), was wir nie tun, und wie Website und Apps mit Ihren Daten umgehen.',
       eyebrow: 'Datenschutz',
@@ -592,7 +691,7 @@ const de: Dictionary = {
       {
         heading: 'Ihre Rechte',
         paragraphs: [
-            'Sie können die Löschung Ihres Kontos und aller zugehörigen Daten jederzeit per E-Mail an hello@brushllm.com anfordern. Mit der Löschung werden E-Mail, Schlüssel, Guthabendaten und Nutzungszähler entfernt.',
+            'Sie können die Löschung Ihres Kontos und aller zugehörigen Daten jederzeit per E-Mail an support@brushllm.com anfordern. Mit der Löschung werden E-Mail, Schlüssel, Guthabendaten und Nutzungszähler entfernt.',
             'Die gespeicherte Spracheinstellung können Sie jederzeit löschen, indem Sie die Website-Daten für brushllm.com in Ihrem Browser entfernen.',
         ],
       },
